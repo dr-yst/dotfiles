@@ -1,4 +1,4 @@
-;; Last Updated: <2013/02/01 15:46:54 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/02/06 16:39:25 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -994,6 +994,18 @@
 ;;       popwin:special-display-config)
 ;; (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)
 
+;; auto-highlight-symbol.el------------------------
+(require 'auto-highlight-symbol)
+(global-auto-highlight-symbol-mode t)
+
+(define-key auto-highlight-symbol-mode-map (kbd "C-x C-^") 'ahs-change-range)
+
+
+;; C-x C-aでハイライト中のシンボルを一括変更
+;; C-x C-'でハイライトする範囲を変える
+;; M--で最初のカーソル位置のシンボルへ移動
+;; M-<left> 前のシンボルへ移動
+;; M-<right> 次のシンボルへ移動
 
 ;; anything.el--------------------------------------
 ;; auto-installの前に置かなければいけない
