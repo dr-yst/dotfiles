@@ -1,4 +1,4 @@
-;; Last Updated: <2013/02/06 16:39:25 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/02/17 15:28:49 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -68,10 +68,10 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;; ;; 1行ずつスクロール
-(setq scroll-conservatively 35
-      scroll-margin 0
-      scroll-step 1)
-(setq comint-scroll-show-maximum-output t) ;; shell-mode
+;; (setq scroll-conservatively 35
+;;       scroll-margin 0
+;;       scroll-step 1)
+;; (setq comint-scroll-show-maximum-output t) ;; shell-mode
 
 ;; ;; タブをスペースで扱う
 (setq-default indent-tabs-mode nil)
@@ -191,6 +191,8 @@
 ;; ; 極力UTF-8とする
 (prefer-coding-system 'utf-8)
 
+;; (set-face-attribute 'default nil
+;;                     :family "Source Code Pro")
 
 (set-fontset-font
   (frame-parameter nil 'font)
@@ -763,7 +765,7 @@
 
 ;; Objective-C
 (defvar xcode:gccver "4.0")
-(defvar xcode:sdkver "6.0")
+(defvar xcode:sdkver "6.1")
 (defvar xcode:sdkpath "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/")
 (defvar xcode:sdk (concat xcode:sdkpath "/SDKs/iPhoneSimulator" xcode:sdkver ".sdk"))
 ;; (defvar flymake-objc-compiler (concat xcode:sdkpath "/usr/bin/gcc-" xcode:gccver))
@@ -1007,6 +1009,28 @@
 ;; M-<left> 前のシンボルへ移動
 ;; M-<right> 次のシンボルへ移動
 
+;; smartrep.el-------------------------------
+(require 'smartrep)
+
+;; \C-qをプレフィックスキーに設定
+(defvar ctl-q-map (make-keymap))
+(define-key global-map "\C-q" ctl-q-map) 
+
+(smartrep-define-key 
+ global-map "C-q" '(("n" . (lambda () (scroll-other-window 1)))
+                    ("p" . (lambda () (scroll-other-window -1)))
+                    ("N" . 'scroll-other-window)
+                    ("P" . (lambda () (scroll-other-window '-)))
+                    ("a" . (lambda () (beginning-of-buffer-other-window 0)))
+                    ("e" . (lambda () (end-of-buffer-other-window 0)))))
+
+(smartrep-define-key
+    global-map "C-x"'(("o" . 'other-window)
+                      ("^" . 'enlarge-window)
+                      ("_" . 'shrink-window)
+                      ("}" . 'enlarge-window-horizontally)
+                      ("{" . 'shrink-window-horizontally)))
+
 ;; anything.el--------------------------------------
 ;; auto-installの前に置かなければいけない
 
@@ -1021,7 +1045,7 @@
 ;; auto-intall.el-------------------------------
 
 (require 'auto-install)
-(setq auto-install-directory "auto-install")
+(setq auto-install-directory "~/.emacs.d/auto-install")
 ;; 以下がエラーの根源
 ;; (auto-install-update-emacswiki-package-name t)
 (auto-install-compatibility-setup)             ; 互換性確保
@@ -1090,9 +1114,12 @@
 ;; hook
 (add-hook 'objc-mode-hook
          (lambda ()
-;;           (setq ac-clang-flags (list "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200" "-x" "objective-c" "-std=gnu99" "-isysroot" xcode:sdk "-I." "-F.." "-fblocks"))
+          (setq ac-clang-flags (list "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200" "-x" "objective-c" "-std=gnu99" "-isysroot" xcode:sdk "-I." "-F.." "-fblocks"))
+           ;; (setq clang-completion-flags (append
+           ;;                               flymake-objc-compile-default-options
+           ;;                               flymake-objc-compile-options))
            (setq ac-sources (append '(ac-source-company-xcode ;; XCode を利用した補完を有効にする
-                                      ) ac-sources))
+                                      ac-source-clang) ac-sources))
            ))
 
 
@@ -1105,6 +1132,105 @@
 ;; hiwin.el---------------------------------------
 ;; (require 'hiwin)
 ;; (hiwin-mode)
+
+;; powerline.el ---------------------------------
+(defun arrow-right-xpm (color1 color2)
+  "Return an XPM right arrow string representing."
+  (format "/* XPM */
+static char * arrow_right[] = {
+\"12 18 2 1\",
+\". c %s\",
+\"  c %s\",
+\".           \",
+\"..          \",
+\"...         \",
+\"....        \",
+\".....       \",
+\"......      \",
+\".......     \",
+\"........    \",
+\".........   \",
+\".........   \",
+\"........    \",
+\".......     \",
+\"......      \",
+\".....       \",
+\"....        \",
+\"...         \",
+\"..          \",
+\".           \"};"  color1 color2))
+
+(defun arrow-left-xpm (color1 color2)
+  "Return an XPM right arrow string representing."
+  (format "/* XPM */
+static char * arrow_right[] = {
+\"12 18 2 1\",
+\". c %s\",
+\"  c %s\",
+\"           .\",
+\"          ..\",
+\"         ...\",
+\"        ....\",
+\"       .....\",
+\"      ......\",
+\"     .......\",
+\"    ........\",
+\"   .........\",
+\"   .........\",
+\"    ........\",
+\"     .......\",
+\"      ......\",
+\"       .....\",
+\"        ....\",
+\"         ...\",
+\"          ..\",
+\"           .\"};"  color2 color1))
+
+
+(defconst color1 "#FF6699")
+(defconst color3 "#CDC0B0")
+(defconst color2 "#FF0066")
+(defconst color4 "#CDC0B0")
+
+(defvar arrow-right-1 (create-image (arrow-right-xpm color1 color2) 'xpm t :ascent 'center))
+(defvar arrow-right-2 (create-image (arrow-right-xpm color2 "None") 'xpm t :ascent 'center))
+(defvar arrow-left-1  (create-image (arrow-left-xpm color2 color1) 'xpm t :ascent 'center))
+(defvar arrow-left-2  (create-image (arrow-left-xpm "None" color2) 'xpm t :ascent 'center))
+
+(setq-default mode-line-format
+ (list  '(:eval (concat (propertize " %b " 'face 'mode-line-color-1)
+                        (propertize " " 'display arrow-right-1)))
+        '(:eval (concat (propertize " %m " 'face 'mode-line-color-2)
+                        (propertize " " 'display arrow-right-2)))
+
+        ;; Justify right by filling with spaces to right fringe - 16
+        ;; (16 should be computed rahter than hardcoded)
+        '(:eval (propertize " " 'display '((space :align-to (- right-fringe 17)))))
+
+        '(:eval (concat (propertize " " 'display arrow-left-2)
+                        (propertize " %p " 'face 'mode-line-color-2)))
+        '(:eval (concat (propertize " " 'display arrow-left-1)
+                        (propertize "%4l:%2c  " 'face 'mode-line-color-1)))
+)) 
+
+(make-face 'mode-line-color-1)
+(set-face-attribute 'mode-line-color-1 nil
+                    :foreground "#fff"
+                    :background color1)
+
+(make-face 'mode-line-color-2)
+(set-face-attribute 'mode-line-color-2 nil
+                    :foreground "#fff"
+                    :background color2)
+
+(set-face-attribute 'mode-line nil
+                    :foreground "#fff"
+                    :background color3
+                    :box nil)
+(set-face-attribute 'mode-line-inactive nil
+                    :foreground "#fff"
+                    :background color4)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
