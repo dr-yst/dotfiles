@@ -1,4 +1,4 @@
-;; Last Updated: <2013/02/17 16:34:50 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/03/11 22:08:30 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -191,9 +191,21 @@
 ;; ; 極力UTF-8とする
 (prefer-coding-system 'utf-8)
 
+;; (create-fontset-from-ascii-font
+;;        "Source Code Pro-14:weight=normal:slant=normal"
+;;        nil "codekakugo")
+;; (set-fontset-font "fontset-codekakugo"
+;;                         'unicode
+;;                         (font-spec :family "Hiragino Kaku Gothic Pro" :size 14) 
+;;                         nil 
+;;                         'append)
+;; (add-to-list 'default-frame-alist '(font . "fontset-codekakugo"))
+
+
 ;; (set-face-attribute 'default nil
 ;;                     :family "Source Code Pro"
-;;                     :height 140)
+;;                     :height 140
+;;                     )
 
 (set-fontset-font
   (frame-parameter nil 'font)
@@ -203,6 +215,7 @@
   (frame-parameter nil 'font)
     'japanese-jisx0212
     '("Hiragino Kaku Gothic ProN" . "iso10646-1")) 
+
 ;; ;;フォント
 ;; (when (>= emacs-major-version 23)
 ;;  (set-face-attribute 'default nil
@@ -519,7 +532,7 @@
 ;; c++モードで前の文字までの空欄を全削除するモードと、セミコロンで自動改行するモード
 (add-hook 'c-mode-common-hook
           '(lambda()
-             (c-toggle-auto-hungry-state)))
+             (c-toggle-auto-hungry-state))) ;gtagsの補完
 
 (global-set-key "\C-c\C-t" 'c-toggle-auto-hungry-state)
 ;; (global-set-key "\C-c\C-d" 'c-toggle-hungry-state)
@@ -529,6 +542,22 @@
 ;; etagsの参照tag
 (setq tags-table-list
       '("~/Dropbox/Programming/lib/myLibrary"))
+
+;; gtags
+(require 'gtags)
+
+(add-hook 'c-mode-common-hook
+          '(lambda()
+             (gtags-mode 1)             ;gtags-mode
+             (gtags-make-complete-list))) ;gtagsの補完
+
+(setq gtags-mode-hook
+      '(lambda()
+         (local-set-key "\M-t" 'gtags-find-tag)
+         (local-set-key "\M-r" 'gtags-find-rtag)
+         (local-set-key "\M-s" 'gtags-find-symbol)
+         (local-set-key "\C-t" 'gtags-pop-stack)))
+
 
 ;; python-mode
 (add-hook 'python-mode-hook
@@ -626,7 +655,7 @@
 (setq time-stamp-start "[lL]ast[ -][uU]pdated[ \t]*:[ \t]*<")
 (setq time-stamp-format "%:y/%02m/%02d %02H:%02M:%02S from %s by %u")
 (setq time-stamp-end ">")
-(setq time-stamp-line-limit 20)
+(setq time-stamp-line-limit 50)
 
 ;;     %:a → 「 Monday 」．曜日
 ;;     %#A → 「 MONDAY 」．曜日を全部大文字で
@@ -768,11 +797,11 @@
 (defvar xcode:gccver "4.0")
 (defvar xcode:sdkver "6.1")
 (defvar xcode:sdkpath "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/")
-(defvar xcode:sdk (concat xcode:sdkpath "/SDKs/iPhoneSimulator" xcode:sdkver ".sdk"))
+(defvar xcode:sdk (concat xcode:sdkpath "SDKs/iPhoneSimulator" xcode:sdkver ".sdk"))
 ;; (defvar flymake-objc-compiler (concat xcode:sdkpath "/usr/bin/gcc-" xcode:gccver))
 (defvar flymake-objc-compiler (executable-find "clang"))
 ;; (defvar flymake-objc-compile-default-options (list "-Wall" "-Wextra" "-fsyntax-only" "-ObjC" "-std=c99" "-isysroot" xcode:sdk))
-(defvar flymake-objc-compile-default-options (list "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200" "-fsyntax-only" "-fno-color-diagnostics" "-fobjc-arc" "-fblocks" "-fno-objc-arc"  "-Wreturn-type" "-Wparentheses" "-Wswitch" "-Wno-unused-parameter" "-Wunused-variable" "-Wunused-value" "-isysroot" xcode:sdk))
+(defvar flymake-objc-compile-default-options (list "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200" "-fsyntax-only" "-fno-color-diagnostics" "-fobjc-arc" "-fblocks" "-Wreturn-type" "-Wparentheses" "-Wswitch" "-Wno-unused-parameter" "-Wunused-variable" "-Wunused-value" "-isysroot" xcode:sdk))
 (defvar flymake-last-position nil)
 (defvar flymake-objc-compile-options '("-I."))
 
@@ -1115,14 +1144,13 @@
 ;; hook
 (add-hook 'objc-mode-hook
          (lambda ()
-          (setq ac-clang-flags (list "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200" "-x" "objective-c" "-std=gnu99" "-isysroot" xcode:sdk "-I." "-F.." "-fblocks" "-fno-objc-arc"))
-           ;; (setq clang-completion-flags (append
-           ;;                               flymake-objc-compile-default-options
-           ;;                               flymake-objc-compile-options))
+          (setq ac-clang-flags (list "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200" "-x" "objective-c" "-std=gnu99" "-isysroot" xcode:sdk "-I." "-F.." "-fblocks" ))
+           ;; (setq ac-clang-flags (append
+           ;;                       flymake-objc-compile-default-options
+           ;;                       flymake-objc-compile-options))
            (setq ac-sources (append '(ac-source-company-xcode ;; XCode を利用した補完を有効にする
                                       ac-source-clang) ac-sources))
            ))
-
 
 ;;; yasnippetのbindingを指定するとエラーが出るので回避する方法。
 ;; (setf (symbol-function 'yas-active-keys)
@@ -1130,12 +1158,168 @@
 ;;         (remove-duplicates (mapcan #'yas--table-all-keys (yas--get-snippet-tables)))))
 
 
+;; nurumacs.el ---------------------------
+;; (require 'nurumacs)
+
+
+;; Dash.appとの連携-------------------------
+(defun dash ()
+  (interactive)
+  (shell-command
+   (format "open dash://%s"
+           (or (thing-at-point 'symbol) ""))))
+(global-set-key "\C-cr" 'dash)
+
+
+
 ;; hiwin.el---------------------------------------
 ;; (require 'hiwin)
 ;; (hiwin-mode)
 
 ;; powerline.el ---------------------------------
-(require 'powerline)
+;; (require 'powerline)
+
+;; based from: http://amitp.blogspot.jp/2011/08/emacs-custom-mode-line.html
+;; Mode line setup
+(setq-default
+ mode-line-position
+ '(
+   " "
+   ;; Position, including warning for 80 columns
+   (:propertize "%4l" face mode-line-position-face)
+   (:propertize "/" face mode-line-delim-face-1)
+   (:eval
+    (number-to-string (count-lines (point-min) (point-max))))
+   " "
+   (:eval (propertize "%3c" 'face
+                      (if (>= (current-column) 80)
+                          'mode-line-80col-face
+                        'mode-line-position-face)))
+   " "
+   ))
+
+(setq-default
+ mode-line-format
+ '("%e"
+   mode-line-mule-info
+   ;; emacsclient [default -- keep?]
+   mode-line-client
+   mode-line-remote
+   ;evil-mode-line-tag
+   mode-line-position
+   ; read-only or modified status
+   (:eval
+    (cond (buffer-read-only
+           (propertize " RO " 'face 'mode-line-read-only-face))
+          ((buffer-modified-p)
+           (propertize " ** " 'face 'mode-line-modified-face))
+          (t " ")))
+   " "
+   ;; directory and buffer/file name
+   (:propertize (:eval (shorten-directory default-directory 30))
+                face mode-line-folder-face)
+   (:propertize "%b" face mode-line-filename-face)
+   ;; narrow [default -- keep?]
+   " %n"
+   ;; mode indicators: vc, recursive edit, major mode, minor modes, process, global
+   (vc-mode vc-mode)
+   " %["
+   (:propertize mode-name
+                face mode-line-mode-face)
+   "%]"
+   (:eval (propertize (format-mode-line minor-mode-alist)
+                      'face 'mode-line-minor-mode-face))
+   " "
+   (:propertize mode-line-process
+                face mode-line-process-face)
+   " "
+   (global-mode-string global-mode-string)
+   ;; " "
+   ;; nyan-mode uses nyan cat as an alternative to %p
+   ;; (:eval (when nyan-mode (list (nyan-create))))
+   ))
+
+
+;; Helper function
+(defun shorten-directory (dir max-length)
+  "Show up to `max-length' characters of a directory name `dir'."
+  (let ((path (reverse (split-string (abbreviate-file-name dir) "/")))
+        (output ""))
+    (when (and path (equal "" (car path)))
+      (setq path (cdr path)))
+    (while (and path (< (length output) (- max-length 4)))
+      (setq output (concat (car path) "/" output))
+      (setq path (cdr path)))
+    (when path
+      (setq output (concat ".../" output)))
+    output))
+
+
+
+(set-face-attribute 'mode-line nil
+    :foreground "gray80" :background "gray10"
+    :inverse-video nil
+    :weight 'normal
+    :height 120
+    :box '(:line-width 2 :color "gray10" :style nil))
+(set-face-attribute 'mode-line-inactive nil
+    :foreground "gray80" :background "gray30"
+    :inverse-video nil
+    :weight 'extra-light
+    :height 120
+    :box '(:line-width 2 :color "gray30" :style nil))
+
+
+;; extra mode line faces
+(make-face 'mode-line-read-only-face)
+(make-face 'mode-line-modified-face)
+(make-face 'mode-line-folder-face)
+(make-face 'mode-line-filename-face)
+(make-face 'mode-line-position-face)
+(make-face 'mode-line-mode-face)
+(make-face 'mode-line-minor-mode-face)
+(make-face 'mode-line-process-face)
+(make-face 'mode-line-80col-face)
+(make-face 'mode-line-delim-face-1)
+
+(set-face-attribute 'mode-line-read-only-face nil
+    :inherit 'mode-line-face
+    :foreground "#4271ae"
+    :box '(:line-width 2 :color "#4271ae"))
+(set-face-attribute 'mode-line-modified-face nil
+    :inherit 'mode-line-face
+    :foreground "#c82829"
+    :background "#ffffff"
+    :box '(:line-width 2 :color "#c82829"))
+(set-face-attribute 'mode-line-folder-face nil
+    :inherit 'mode-line-face
+    :weight 'extra-light
+    :height 110
+    :foreground "gray90")
+(set-face-attribute 'mode-line-filename-face nil
+    :inherit 'mode-line-face
+    :foreground "#eab700"
+    :weight 'bold)
+(set-face-attribute 'mode-line-position-face nil
+    :inherit 'mode-line-face
+    :family "Menlo")
+(set-face-attribute 'mode-line-mode-face nil
+    :inherit 'mode-line-face
+    :foreground "white")
+(set-face-attribute 'mode-line-minor-mode-face nil
+    :inherit 'mode-line-mode-face
+    :foreground "gray60"
+    :height 100)
+(set-face-attribute 'mode-line-process-face nil
+    :inherit 'mode-line-face
+    :foreground "#718c00")
+(set-face-attribute 'mode-line-80col-face nil
+    :inherit 'mode-line-position-face
+    :foreground "black" :background "#eab700")
+(set-face-attribute 'mode-line-delim-face-1 nil
+    :inherit 'mode-line-face
+    :foreground "white")
+
 
 ;; (defun arrow-right-xpm (color1 color2)
 ;;   "Return an XPM right arrow string representing."
@@ -1234,7 +1418,6 @@
 ;;                     :foreground "#fff"
 ;;                     :background color4)
 
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -1245,7 +1428,8 @@
  '(display-time-mode t)
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ )
 ;; (custom-set-faces
 ;;   ;; custom-set-faces was added by Custom.
 ;;   ;; If you edit it by hand, you could mess it up, so be careful.
