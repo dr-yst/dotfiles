@@ -1,4 +1,4 @@
-;; Last Updated: <2013/03/11 22:08:30 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/04/19 18:41:39 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -12,6 +12,7 @@
               "/Users/yoshito/Dropbox/ochiailab/tex/"
               "/opt/local/bin"
               "/usr/local/share/emacs/site-lisp/"
+              "/Users/yoshito/MyProgram"
 	      ;; "/Users/yoshitowatanabe/bin"
 	      ;; "/Users/yoshitowatanabe/script"
 	      "/usr/bin"
@@ -43,7 +44,7 @@
 ;; ;; load-pathに追加するフォルダ
 ;; ;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
 (add-to-load-path "elisp" "auto-install" "elpa/auctex-11.87" "plugins/yasnippet" "elisp/nyan-mode" "elisp/company"
-                  "elisp/Highlight-Indentation-for-Emacs")
+                  "elisp/Highlight-Indentation-for-Emacs" "elisp/lilypond" "el-get" "el-get/el-get")
 
 (eval-when-compile
   (require 'cl))
@@ -87,11 +88,11 @@
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key "\C-h" nil)
 (global-set-key "\C-z" 'undo)
-(global-set-key "\C-c\C-c" 'comment-region)
-(global-set-key "\C-cc" 'uncomment-region)
+;; (global-set-key "\C-c\C-c" 'comment-region)
+;; (global-set-key "\C-cc" 'uncomment-region)
 ;; (global-set-key "\C-j" 'dabbrev-expand)
-(global-set-key "\C-q" 'query-replace)
-(global-set-key "\C-x\C-q" 'kill-this-buffer)
+;; (global-set-key "\C-q" 'query-replace)
+;; (global-set-key "\C-x\C-q" 'kill-this-buffer)
 (global-set-key "\C-xe" 'electric-buffer-list)
 ;; (global-set-key "\C-j" 'newline-and-indent)
 
@@ -202,10 +203,10 @@
 ;; (add-to-list 'default-frame-alist '(font . "fontset-codekakugo"))
 
 
-;; (set-face-attribute 'default nil
-;;                     :family "Source Code Pro"
-;;                     :height 140
-;;                     )
+(set-face-attribute 'default nil
+                    :family "Source Code Pro"
+                    :height 140         ;デフォルトは140
+                    )
 
 (set-fontset-font
   (frame-parameter nil 'font)
@@ -551,6 +552,14 @@
              (gtags-mode 1)             ;gtags-mode
              (gtags-make-complete-list))) ;gtagsの補完
 
+;; C++で大文字を単語の一区切りにする
+(add-hook 'c++-mode-hook
+          '(lambda ()
+             (define-key c++-mode-map "\M-f"
+               'c-forward-into-nomenclature)
+             (define-key c++-mode-map "\M-b"
+               'c-backward-into-nomenclature)))
+
 (setq gtags-mode-hook
       '(lambda()
          (local-set-key "\M-t" 'gtags-find-tag)
@@ -573,7 +582,11 @@
 (add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
 
 
-
+;; Lilypond mode
+(autoload 'LilyPond-mode "lilypond-mode")
+(setq auto-mode-alist
+      (cons '("\\.ly$" . LilyPond-mode) auto-mode-alist))
+(add-hook 'LilyPond-mode-hook 'turn-on-font-lock) 
 
 ;; ;; dired関連--------------------------------------------------
 ;; ;;; フォルダを開く時, 新しいバッファを作成しない
@@ -677,6 +690,9 @@
 ;;     %s → マシン名
 ;;     %u → ログインしたユーザ名
 ;;     %U → ログインしたユーザのフルネーム 
+
+(when (require 'undo-tree nil t)
+  (global-undo-tree-mode))
 
 ;; ------------------------------------------------------------------------
 ;; @ flymake.el
@@ -1072,6 +1088,46 @@
 (define-key anything-map (kbd "M-v") 'anything-previous-source)
 (global-set-key (kbd "C-;") 'anything)
 
+(require 'cl)  ; loop, delete-duplicates
+
+;; anything-font-families
+(defun anything-font-families ()
+  "Preconfigured `anything' for font family."
+  (interactive)
+  (flet ((anything-mp-highlight-match () nil))
+    (anything-other-buffer
+     '(anything-c-source-font-families)
+     "*anything font families*")))
+
+(defun anything-font-families-create-buffer ()
+  (with-current-buffer
+      (get-buffer-create "*Fonts*")
+    (loop for family in (sort (delete-duplicates (font-family-list)) 'string<)
+          do (insert
+              (propertize (concat family "\n")
+                          'font-lock-face
+                          (list :family family :height 2.0 :weight 'bold))))
+    (font-lock-mode 1)))
+
+(defvar anything-c-source-font-families
+      '((name . "Fonts")
+        (init lambda ()
+              (unless (anything-candidate-buffer)
+                (save-window-excursion
+                  (anything-font-families-create-buffer))
+                (anything-candidate-buffer
+                 (get-buffer "*Fonts*"))))
+        (candidates-in-buffer)
+        (get-line . buffer-substring)
+        (action
+         ("Copy Name" lambda
+          (candidate)
+          (kill-new candidate))
+         ("Insert Name" lambda
+          (candidate)
+          (with-current-buffer anything-current-buffer
+            (insert candidate))))))
+
 ;; auto-intall.el-------------------------------
 
 (require 'auto-install)
@@ -1161,6 +1217,15 @@
 ;; nurumacs.el ---------------------------
 ;; (require 'nurumacs)
 
+;; golden-ratio-------------------
+;; (require 'golden-ratio)
+
+;; (golden-ratio-enable)
+
+;; rotate.el ------------------------------
+(require 'rotate)
+(global-set-key (kbd "C-t") 'rotate-layout)
+(global-set-key (kbd "M-t") 'rotate-window)
 
 ;; Dash.appとの連携-------------------------
 (defun dash ()
@@ -1305,7 +1370,7 @@
     :family "Menlo")
 (set-face-attribute 'mode-line-mode-face nil
     :inherit 'mode-line-face
-    :foreground "white")
+    :foreground "red")
 (set-face-attribute 'mode-line-minor-mode-face nil
     :inherit 'mode-line-mode-face
     :foreground "gray60"
@@ -1321,102 +1386,29 @@
     :foreground "white")
 
 
-;; (defun arrow-right-xpm (color1 color2)
-;;   "Return an XPM right arrow string representing."
-;;   (format "/* XPM */
-;; static char * arrow_right[] = {
-;; \"12 18 2 1\",
-;; \". c %s\",
-;; \"  c %s\",
-;; \".           \",
-;; \"..          \",
-;; \"...         \",
-;; \"....        \",
-;; \".....       \",
-;; \"......      \",
-;; \".......     \",
-;; \"........    \",
-;; \".........   \",
-;; \".........   \",
-;; \"........    \",
-;; \".......     \",
-;; \"......      \",
-;; \".....       \",
-;; \"....        \",
-;; \"...         \",
-;; \"..          \",
-;; \".           \"};"  color1 color2))
+;; el-get -----------------------------------------------------
 
-;; (defun arrow-left-xpm (color1 color2)
-;;   "Return an XPM right arrow string representing."
-;;   (format "/* XPM */
-;; static char * arrow_right[] = {
-;; \"12 18 2 1\",
-;; \". c %s\",
-;; \"  c %s\",
-;; \"           .\",
-;; \"          ..\",
-;; \"         ...\",
-;; \"        ....\",
-;; \"       .....\",
-;; \"      ......\",
-;; \"     .......\",
-;; \"    ........\",
-;; \"   .........\",
-;; \"   .........\",
-;; \"    ........\",
-;; \"     .......\",
-;; \"      ......\",
-;; \"       .....\",
-;; \"        ....\",
-;; \"         ...\",
-;; \"          ..\",
-;; \"           .\"};"  color2 color1))
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
 
 
-;; (defconst color1 "#FF6699")
-;; (defconst color3 "#CDC0B0")
-;; (defconst color2 "#FF0066")
-;; (defconst color4 "#CDC0B0")
+(setq el-get-sources
+      '(
+        (:name golden-ratio
+               :type git
+               :url "https://github.com/roman/golden-ratio.el.git")
+        (:name yasnippet
+               :type git
+               :url "https://github.com/emacsmirror/yasnippet.git")))
 
-;; (defvar arrow-right-1 (create-image (arrow-right-xpm color1 color2) 'xpm t :ascent 'center))
-;; (defvar arrow-right-2 (create-image (arrow-right-xpm color2 "None") 'xpm t :ascent 'center))
-;; (defvar arrow-left-1  (create-image (arrow-left-xpm color2 color1) 'xpm t :ascent 'center))
-;; (defvar arrow-left-2  (create-image (arrow-left-xpm "None" color2) 'xpm t :ascent 'center))
+;; (el-get 'wait '(golden-ratio yasnippet))
 
-;; (setq-default mode-line-format
-;;  (list  '(:eval (concat (propertize " %b " 'face 'mode-line-color-1)
-;;                         (propertize " " 'display arrow-right-1)))
-;;         '(:eval (concat (propertize " %m " 'face 'mode-line-color-2)
-;;                         (propertize " " 'display arrow-right-2)))
+(el-get 'sync)
 
-;;         ;; Justify right by filling with spaces to right fringe - 16
-;;         ;; (16 should be computed rahter than hardcoded)
-;;         '(:eval (propertize " " 'display '((space :align-to (- right-fringe 17)))))
-
-;;         '(:eval (concat (propertize " " 'display arrow-left-2)
-;;                         (propertize " %p " 'face 'mode-line-color-2)))
-;;         '(:eval (concat (propertize " " 'display arrow-left-1)
-;;                         (propertize "%4l:%2c  " 'face 'mode-line-color-1)))
-;; )) 
-
-;; (make-face 'mode-line-color-1)
-;; (set-face-attribute 'mode-line-color-1 nil
-;;                     :foreground "#fff"
-;;                     :background color1)
-
-;; (make-face 'mode-line-color-2)
-;; (set-face-attribute 'mode-line-color-2 nil
-;;                     :foreground "#fff"
-;;                     :background color2)
-
-;; (set-face-attribute 'mode-line nil
-;;                     :foreground "#fff"
-;;                     :background color3
-;;                     :box nil)
-;; (set-face-attribute 'mode-line-inactive nil
-;;                     :foreground "#fff"
-;;                     :background color4)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
