@@ -1,0 +1,383 @@
+
+# 環境変数
+export LANG=ja_JP.UTF-8
+case ${UID} in
+0)
+LANG=C
+;;
+esac
+ 
+# 色を使用出来るようにする
+autoload -Uz colors
+colors
+
+# 色の定義
+# local DEFAULT=$'%{e[m%}'$
+# local RED=$'%{e[1;31m%}'$
+# local GREEN=$'%{e[1;32m%}'$
+# local YELLOW=$'%{e[1;33m%}'$
+# local BLUE=$'%{e[1;34m%}'$
+# local PURPLE=$'%{e[1;35m%}'$
+# local LIGHT_BLUE=$'%{e[1;36m%}'$
+# local WHITE=$'%{e[1;37m%}'$
+
+DEFAULT="%{"$'\e'"[0m%}"
+GREEN="%{"$'\e'"[38;5;46m%}"
+PINK="%{"$'\e'"[38;5;13m%}"
+RED="%{"$'\e'"[38;5;160m%}"
+BLUE="%{"$'\e'"[38;5;21m%}"
+YELLOW="%{"$'\e'"[38;5;226m%}"
+PURPLE="%{"$'\e'"[38;5;93m%}"
+
+
+# 補完候補もLS_COLORSに合わせて色づけ。
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+
+# emacs 風キーバインドにする
+bindkey -e
+ 
+# ヒストリの設定
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=100000
+
+# 単語の区切り文字を指定する
+autoload -Uz select-word-style
+select-word-style default
+# ここで指定した文字は単語区切りとみなされる
+# / も区切りと扱うので、^W でディレクトリ１つ分を削除できる
+zstyle ':zle:*' word-chars " /=;@:{},|"
+zstyle ':zle:*' word-style unspecified
+
+########################################
+# 補完
+# 補完機能を有効にする
+autoload -Uz compinit
+compinit
+ 
+# 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+ 
+# ../ の後は今いるディレクトリを補完しない
+zstyle ':completion:*' ignore-parents parent pwd ..
+ 
+# sudo の後ろでコマンド名を補完する
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+/usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+ 
+# ps コマンドのプロセス名補完
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+
+
+# 補完候補を矢印キーなどで選択出来るようにする。'select=3'のように指定した場合は、補完候補が3個以上ある時に選択出来るようになる。
+zstyle ':completion:*:default' menu select
+
+# zstyleによる補完設定
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+zstyle ':completion:*:messages' format $YELLOW'%d'$DEFAULT
+zstyle ':completion:*:warnings' format $RED'No matches for:'$YELLOW' %d'$DEFAULT
+zstyle ':completion:*:descriptions' format $YELLOW'completing %B%d%b'$DEFAULT
+zstyle ':completion:*:corrections' format $YELLOW'%B%d '$RED'(errors: %e)%b'$DEFAULT
+zstyle ':completion:*:options' description 'yes'
+# グループ名に空文字列を指定すると，マッチ対象のタグ名がグループ名に使われる。
+# したがって，すべての マッチ種別を別々に表示させたいなら以下のようにする
+zstyle ':completion:*' group-name ''
+
+# manの補完をセクション番号別に表示させる
+zstyle ':completion:*:manuals' separate-sections true
+ 
+# 変数の添字を補完する
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+ 
+
+#######################
+# auto-fu.zsh
+# http://blog.glidenote.com/blog/2012/04/07/auto-fu.zsh/
+if [ -f ~/.emacs.d/auto-fu.zsh/auto-fu.zsh ]; then
+source ~/.emacs.d/auto-fu.zsh/auto-fu.zsh
+function zle-line-init () {
+auto-fu-init
+}
+zle -N zle-line-init
+zstyle ':completion:*' completer _oldlist _complete
+fi
+ 
+## ^PとかのHistory検索と相性が悪い
+## auto-fu.zshのためオリジナルが変更
+## URLをコピペしたときに自動でエスケープ
+#autoload -Uz url-quote-magic
+#zle -N self-insert url-quote-magic
+
+########################################
+# オプション
+# 日本語ファイル名を表示可能にする
+setopt print_eight_bit
+ 
+# beep を無効にする
+setopt no_beep
+ 
+# フローコントロールを無効にする
+setopt no_flow_control
+ 
+# '#' 以降をコメントとして扱う
+setopt interactive_comments
+ 
+# ディレクトリ名だけでcdする
+setopt auto_cd
+ 
+# cd したら自動的にpushdする
+setopt auto_pushd
+
+# 重複したディレクトリを追加しない
+setopt pushd_ignore_dups
+ 
+# = の後はパス名として補完する
+setopt magic_equal_subst
+ 
+# 同時に起動したzshの間でヒストリを共有する
+setopt share_history
+ 
+# 同じコマンドをヒストリに残さない
+setopt hist_ignore_all_dups
+ 
+# ヒストリファイルに保存するとき、すでに重複したコマンドがあったら古い方を削除する
+setopt hist_save_nodups
+ 
+# スペースから始まるコマンド行はヒストリに残さない
+setopt hist_ignore_space
+ 
+# ヒストリに保存するときに余分なスペースを削除する
+setopt hist_reduce_blanks
+ 
+# 補完候補が複数あるときに自動的に一覧表示する
+setopt auto_menu
+ 
+# 高機能なワイルドカード展開を使用する
+setopt extended_glob
+
+# コマンドを実行するときに右プロンプトを消す。他の端末等にコピペするときに便利。
+setopt transient_rprompt
+
+# コマンドのスペルミスを指摘して予想される正しいコマンドを提示してくれる。このときのプロンプトがSPROMPT。
+setopt correct
+
+# 補完候補を表示するときに出来るだけ詰めて表示。
+setopt list_packed
+
+# 補完候補が複数ある時に、一覧表示する
+setopt auto_list
+
+#  auto_list の補完候補一覧で、ls -F のようにファイルの種別をマーク表示
+setopt list_types
+
+# 補完キー（Tab, Ctrl+I) を連打するだけで順に補完候補を自動で補完する
+setopt auto_menu
+
+#  複数のリダイレクトやパイプなど、必要に応じて tee や cat の機能が使われる
+setopt multios
+
+# {a-c} を a b c に展開する機能を使えるようにする
+setopt brace_ccl
+
+# カッコの対応などを自動的に補完する
+setopt auto_param_keys
+
+# サスペンド中のプロセスと同じコマンド名を実行した場合はリジュームする
+setopt auto_resume
+
+# ディレクトリの最後のスラッシュを自動で削除する
+setopt autoremoveslash
+
+setopt complete_in_word      # 語の途中でもカーソル位置で補完
+setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
+ 
+
+# シンボリックリンクは実体を追うようになる
+# setopt chase_links
+
+bindkey "^I" menu-complete   # 展開する前に補完候補を出させる(Ctrl-iで補完するようにする)
+
+########################################
+# キーバインド
+ 
+# ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
+bindkey '^R' history-incremental-pattern-search-backward
+ 
+########################################
+# set aliases
+
+alias ls='\ls -FGv'
+alias ll='\ls -lhaGv'
+alias la='\ls -aGv'
+
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+# alias emacs="open -a /Applications/Emacs.app"
+alias f='finder.sh'
+alias bon="open -a Xcode"
+
+# sudo の後のコマンドでエイリアスを有効にする
+alias sudo='sudo '
+
+# alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
+alias title='~/.emacs.d/title.sh'
+
+######################################
+# ^を押すと上の階層へ
+# http://qiita.com/items/b01536fa63d9f8fadf4f
+cdup() {
+if [ -z "$BUFFER" ]; then
+echo
+cd ..
+if type precmd > /dev/null 2>&1; then
+precmd
+fi
+local precmd_func
+for precmd_func in $precmd_functions; do
+$precmd_func
+done
+zle reset-prompt
+else
+zle self-insert '^'
+fi
+}
+zle -N cdup
+bindkey '\^' cdup
+
+####################################
+# C-x, C-pでコマンドをクリップボードにコピーする
+# http://d.hatena.ne.jp/hiboma/20120315/1331821642
+pbcopy-buffer(){
+print -rn $BUFFER | pbcopy
+zle -M "pbcopy: ${BUFFER}"
+}
+ 
+zle -N pbcopy-buffer
+bindkey '^x^p' pbcopy-buffer
+
+########################################
+# パスの設定
+PATH=":${HOME}/bin:${HOME}/script:${HOME}/AFsp-v9r0/bin:${HOME}/MyProgram:/usr/local/bin:${PATH}"
+export TEXINPUTS=$TEXINPUTS:~/Dropbox/ochiailab/tex/
+export BSTINPUTS=$BSTINPUTS:~/Dropbox/ochiailab/tex/
+export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/
+
+export C_INCLUDE_PATH=~/MyLib/include/:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=~/MyLib/include/:$CPLUS_INCLUDE_PATH
+# export LIBRARY_PATH=~/MyLib/:$LIBRARY_PATH
+# export DYLD_LIBRARY_PATH=~/MyLib/:$DYLD_LIBRARY_PATH 
+
+# export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/:$PYTHONPATH
+export PYTHONSTARTUP=~/.pyThonstartup
+
+# iOSのライブラリへのパス
+export PLATFORM=iPhoneOS
+export VERSION=6.1
+export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${VERSION}.sdk/System/Library/Frameworks
+
+########################################
+# powerline-shell
+# function powerline_precmd() {
+#   export PS1="$(~/.emacs.d/powerline-shell/powerline-shell.py $? --shell zsh)"
+# }
+
+# function install_powerline_precmd() {
+#   for s in "${precmd_functions[@]}"; do
+#     if [ "$s" = "powerline_precmd" ]; then
+#       return
+#     fi
+#   done
+#   precmd_functions+=(powerline_precmd)
+# }
+
+# install_powerline_precmd
+
+#########################################
+# PROMPT# {{{
+# https://github.com/clear-code/zsh.d/blob/master/zshrc
+ 
+setopt prompt_subst
+setopt prompt_percent
+setopt transient_rprompt
+ 
+color256()
+{
+local red=$1; shift
+local green=$2; shift
+local blue=$3; shift
+ 
+echo -n $[$red * 36 + $green * 6 + $blue + 16]
+}
+ 
+fg256()
+{
+echo -n $'\e[38;5;'$(color256 "$@")"m"
+}
+ 
+bg256()
+{
+echo -n $'\e[48;5;'$(color256 "$@")"m"
+}
+ 
+zstyle ':vcs_info:*' max-exports 3
+zstyle ':vcs_info:hg:*' get-revision true # hg で check-for-changes を有効にするには
+zstyle ':vcs_info:hg:*' use-simple true  # この2つの設定が必要
+ 
+autoload -Uz is-at-least
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "ж" # 適当な文字列に変更する
+zstyle ':vcs_info:git:*' unstagedstr "±" # 適当の文字列に変更する
+ 
+# Gitブランチ名や作業状態を表示する
+zstyle ':vcs_info:git:*' formats '%K{green}%F{green}⮀%k%f%{%F{white}%K{green}%}  %s  %{%k%f%}%K{blue}%F{green}⮀%k%f%{%F{white}%K{blue}%}  %b  %{%k%f%}%K{black}%F{blue}⮀%k%f%{%F{white}%K{black}%} %c%u %{%k%f%}'
+ 
+# プロンプトの左
+autoload -Uz vcs_info
+prompt_bar_left_self="%{%F{black}%K{yellow}%}  %n%{%k%f%}%{%F{black}%K{yellow}%}@%{%k%f%}%{%F{black}%K{yellow}%}%m %{%k%f%}%{%B%F{yellow}%K{yellow}%}%{%b%f%k%}%K{cyan}%F{yellow}⮀%k%f%{%B%F{white}%K{cyan}%}  [%~]  %{%k%f%b%}%{%k%f%}%K{red}%F{cyan}⮀%k%f%(?.%F{white}%K{red}%}  COMP  %k%f.%B%K{red}%F{red}%}  ERROR  %b%k%f)%{%K{green}%F{red}⮀%k%f%F{black}%K{green}%}  -%h  %{%k%f%}%K{green}%F{green}⮂%k%f"
+ 
+# プロンプトンの左下
+prompt_bar_left="${prompt_bar_left_self} ${prompt_bar_left_status} ${prompt_bar_left_date}"
+prompt_left='%{%F{white}%K{black}%}  $SHELL  %{%k%f%}%{%K{white}%F{black}⮀%k%f%B%F{black}%K{white}%} $ %{%b%k%f%f%}%{%k%}%F{white}⮀%k%f  '
+
+ 
+count_prompt_characters()
+{
+    print -n -P -- "$1" | sed -e $'s/\e\[[0-9;]*m//g' | wc -m | sed -e 's/ //g'
+}
+ 
+update_prompt()
+{
+local bar_left_length=$(count_prompt_characters "$prompt_bar_left")
+local bar_rest_length=$[COLUMNS - bar_left_length]
+ 
+local bar_left="$prompt_bar_left"
+local bar_right_without_path="${prompt_bar_right:s/%d//}"
+local bar_right_without_path_length=$(count_prompt_characters "$bar_right_without_path")
+#local max_path_length=$[bar_rest_length - bar_right_without_path_length]
+bar_right=${prompt_bar_right:s/%d/%(C,%${max_path_length}<...<%d%<<,)/}
+bar_right="%${bar_rest_length}<<${separator}${bar_right}%<<"
+ 
+PROMPT="${bar_left}${bar_right}"$'\n'"${prompt_left}"
+ 
+# プロンプトの右下
+RPROMPT="%K{white}%F{black}⮀%k%f%{%F{black}%K{white}%} %l  %K{black}%F{white}⮀%k%f%{%k%f%}%{%F{white}%K{black}%}  $LANG  %{%k%f%}%K{black}%F{white}⮂%k%f"
+case "$TERM_PROGRAM" in
+Apple_Terminal)
+ 
+RPROMPT="${RPROMPT}"
+;;
+esac
+ 
+LANG=C vcs_info >&/dev/null
+if [ -n "$vcs_info_msg_0_" ]; then
+RPROMPT="${vcs_info_msg_0_}${RPROMPT}"
+fi
+}
+ 
+precmd_functions=($precmd_functions update_prompt)
+# }}}
+
