@@ -1,35 +1,43 @@
-;; Last Updated: <2013/04/19 18:41:39 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/06/18 21:04:17 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
 ;; ------------------------------------------------------------------------
 ;; @ load-path
 
+;; load environment value
+(load-file (expand-file-name "~/.emacs.d/shellenv.el"))
+(dolist (path (reverse (split-string (getenv "PATH") ":")))
+  (add-to-list 'exec-path path))
+
+
 ;; より下に記述した物が PATH の先頭に追加されます
 
-(dolist (dir (list
-              ;; "/Applications/UpTex.app/teTeX/bin"
-              "/Users/yoshito/Dropbox/ochiailab/tex/"
-              "/opt/local/bin"
-              "/usr/local/share/emacs/site-lisp/"
-              "/Users/yoshito/MyProgram"
-	      ;; "/Users/yoshitowatanabe/bin"
-	      ;; "/Users/yoshitowatanabe/script"
-	      "/usr/bin"
-	      "/bin"
-	      "/usr/sbin"
-	      "/sbin"
-	      "/usr/local/bin"
-	      "/opt/X11/bin"
-              (expand-file-name "~/bin")
-              (expand-file-name "~/.emacs.d/bin")
-              ))
- ;; PATH と exec-path に同じ物を追加します
- (when (and (file-exists-p dir) (not (member dir exec-path)))
-   (setenv "PATH" (concat dir ":" (getenv "PATH")))
-   (setq exec-path (append (list dir) exec-path))))
 
-(setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
+
+;; (dolist (dir (list
+;;               ;; "/Applications/UpTex.app/teTeX/bin"
+;;               "/Users/yoshito/Dropbox/ochiailab/tex/"
+;;               "/opt/local/bin"
+;;               "/usr/local/share/emacs/site-lisp/"
+;;               "/Users/yoshito/MyProgram"
+;; 	      ;; "/Users/yoshitowatanabe/bin"
+;; 	      ;; "/Users/yoshitowatanabe/script"
+;; 	      "/usr/bin"
+;; 	      "/bin"
+;; 	      "/usr/sbin"
+;; 	      "/sbin"
+;; 	      "/usr/local/bin"
+;; 	      "/opt/X11/bin"
+;;               (expand-file-name "~/bin")
+;;               (expand-file-name "~/.emacs.d/bin")
+;;               ))
+;;  ;; PATH と exec-path に同じ物を追加します
+;;  (when (and (file-exists-p dir) (not (member dir exec-path)))
+;;    (setenv "PATH" (concat dir ":" (getenv "PATH")))
+;;    (setq exec-path (append (list dir) exec-path))))
+
+(setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/opt/local/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
 
 
 ;; ;;load-pathの追加関数
@@ -43,11 +51,67 @@
 
 ;; ;; load-pathに追加するフォルダ
 ;; ;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
-(add-to-load-path "elisp" "auto-install" "elpa/auctex-11.87" "plugins/yasnippet" "elisp/nyan-mode" "elisp/company"
+(add-to-load-path "elisp" "auto-install" "plugins/yasnippet" "elisp/nyan-mode"
+                  "elisp/company" "elisp/emacs-clang-complete-async"
                   "elisp/Highlight-Indentation-for-Emacs" "elisp/lilypond" "el-get" "el-get/el-get")
 
 (eval-when-compile
   (require 'cl))
+
+;; emacsとshellでパスを共有------------------------------------
+(server-start)
+(defun non-elscreen-current-directory ()
+  (let* (current-dir
+         (current-buffer
+          (nth 1 (assoc 'buffer-list
+                        (nth 1 (nth 1 (current-frame-configuration))))))
+         (active-file-name
+          (with-current-buffer current-buffer
+            (progn
+              (setq current-dir (expand-file-name (cadr (split-string (pwd)))))
+              (buffer-file-name)))))
+    (if active-file-name
+        (file-name-directory active-file-name)
+      current-dir)))
+
+;; el-get -----------------------------------------------------
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+
+(setq el-get-sources
+      '(
+        (:name golden-ratio
+               :type git
+               :url "https://github.com/roman/golden-ratio.el.git")
+        (:name yasnippet
+               :type git
+               :url "https://github.com/emacsmirror/yasnippet.git")))
+
+;; (el-get 'wait '(golden-ratio yasnippet))
+
+(el-get 'sync)
+
+;; package.el -------------------------------------------------
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+;; (mapc
+;;  (lambda (package)
+;;    (or (package-installed-p package)
+;;        (package-install package)))
+;;  '(
+;;    all
+;;    all-ext
+;;    ))
+
 
 ;;自動バイトコンパイル
 ;; (declare-function gud-find-c-expr "auto-async-byte-compile.el" nil)
@@ -97,14 +161,53 @@
 ;; (global-set-key "\C-j" 'newline-and-indent)
 
 ;; original
-(global-set-key "\M-p" 'backward-paragraph)
-(global-set-key "\M-n" 'forward-paragraph)
+;; (global-set-key "\M-p" 'backward-paragraph)
+;; (global-set-key "\M-n" 'forward-paragraph)
 (global-set-key [C-M-f5] 'goto-line)
 ;; (global-set-key "\C-cr" 'rename-uniquely)
 (global-set-key "\C-o" 'open-line)
+(global-set-key "\M-n" (lambda () (interactive) (scroll-up 1)))
+(global-set-key "\M-p" (lambda () (interactive) (scroll-down 1)))
+(global-set-key "\M-N" (lambda () (interactive) (scroll-up 10)))
+(global-set-key "\M-P" (lambda () (interactive) (scroll-down 10)))
+
 
 (global-set-key "\C-@" 'ispell-word)
 (global-set-key "\M-@" 'ispell-complete-word)
+
+(defun my-count-lines-window ()
+  "Count lines relative to the selected window. The number of lines begins 0."
+  (interactive)
+  (let* ((window-string (buffer-substring-no-properties (window-start) (point)))
+         (line-string-list (split-string window-string "\n"))
+         (line-count 0)
+         line-count-list)
+    (setq line-count (1- (length line-string-list)))
+    (unless truncate-lines      ; consider folding back
+      ;; `line-count-list' is list of the number of physical lines which each logical line has.
+      (setq line-count-list (mapcar '(lambda (str)
+                                       (/ (my-count-string-columns str) (window-width)))
+                                    line-string-list))
+      (setq line-count (+ line-count (apply '+ line-count-list))))
+    line-count))
+
+(defun my-count-string-columns (str)
+  "Count columns of string. The number of column begins 0."
+  (with-temp-buffer
+    (insert str)
+    (current-column)))
+
+(defadvice scroll-up (around scroll-up-relative activate)
+  "Scroll up relatively without move of cursor."
+  (let ((line (my-count-lines-window)))
+    ad-do-it
+    (move-to-window-line line)))
+
+(defadvice scroll-down (around scroll-down-relative activate)
+  "Scroll down relatively without move of cursor."
+  (let ((line (my-count-lines-window)))
+    ad-do-it
+    (move-to-window-line line)))
 
 ;;mac風のコピペ
 ;; (global-set-key "\M-c" 'kill-ring-save)
@@ -160,8 +263,12 @@
 
 ;画面左に行番号表示
 (require 'linum)
+(require 'hlinum)
 (global-linum-mode)
-
+(custom-set-faces
+ '(linum-highlight-face ((t (:foreground "black"
+                                         :background "SkyBlue3")
+                            ))))
 
 (load-library "fold-dwim")
 ;ダブルクリックで，折りたたみtoggleを発動
@@ -340,14 +447,16 @@
     ad-do-it))
 
 ;; C-cpでツールチップに表示
-(global-set-key "\C-cp" 'sdic-describe-word-at-point)
+(global-set-key "\C-c \C-p" 'sdic-describe-word-at-point)
 
 ;; ;;色 ----------
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-clarity)))
+     ;; (color-theme-clarity)
+     (color-theme-hober)
+     ))
 
  (setq default-frame-alist
       (append
@@ -363,8 +472,8 @@
 ;; ターミナル関連---------------------------------
 ;; Find available shell
 (defun skt:shell ()
-  (or (executable-find "bash") ;; zshユーザは一行下と入れ替え
-      (executable-find "zsh")
+  (or (executable-find "zsh")
+      (executable-find "bash") ;; zshユーザは一行下と入れ替え
       ;; (executable-find "f_zsh") ;; Emacs + Cygwin を利用する人は Zsh の代りにこれにしてください
       ;; (executable-find "f_bash") ;; Emacs + Cygwin を利用する人は Bash の代りにこれにしてください
       (error "No shell program was found in your PATH...")))
@@ -384,8 +493,22 @@
 ;;.hファイルをC++モードで開く。.shファイルが.hと見なされてしまうので、設定し直す
 (setq auto-mode-alist
       (cons (cons ".\.h$" 'c++-mode) auto-mode-alist))
+
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@interface" . objc-mode))
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@protocol" . objc-mode))
+
 (setq auto-mode-alist
       (cons (cons ".sh$" 'shell-script-mode) auto-mode-alist))
+
+
+;; dummy-h-mode.el -----------
+;; (add-to-list 'auto-mode-alist '("\\.h$" . dummy-h-mode))
+;; (autoload 'dummy-h-mode "dummy-h-mode" "Dummy H mode" t)
+;; (add-hook 'dummy-h-mode-hook
+;;           (lambda ()
+;;             (setq dummy-h-mode-default-major-mode 'c++-mode)))
+
 
 
 ;;CSSモード
@@ -465,7 +588,10 @@
         ))
 
 ; RefTeXで使用するbibファイルの位置を指定する
-(setq reftex-default-bibliography '("~/Dropbox/ochiailab/tex/biblio.bib" "~/Dropbox/ochiailab/tex/IEEEabrv.bib"))
+(setq reftex-default-bibliography '("~/Dropbox/ochiailab/tex/biblio.bib"
+                                    "~/Dropbox/ochiailab/tex/IEEEabrv.bib"
+                                    "~/Dropbox/ochiailab/tex/library.bib"
+                                    ))
 
 
 ;; Add tex packages path
@@ -567,6 +693,32 @@
          (local-set-key "\M-s" 'gtags-find-symbol)
          (local-set-key "\C-t" 'gtags-pop-stack)))
 
+;; --- Obj-C switch between header and source ---
+
+(defun objc-in-header-file ()
+  (let* ((filename (buffer-file-name))
+         (extension (car (last (split-string filename "\\.")))))
+    (string= "h" extension)))
+
+(defun objc-jump-to-extension (extension)
+  (let* ((filename (buffer-file-name))
+         (file-components (append (butlast (split-string filename
+                                                         "\\."))
+                                  (list extension))))
+    (find-file (mapconcat 'identity file-components "."))))
+
+;;; Assumes that Header and Source file are in same directory
+(defun objc-jump-between-header-source ()
+  (interactive)
+  (if (objc-in-header-file)
+      (objc-jump-to-extension "m")
+    (objc-jump-to-extension "h")))
+
+(defun objc-mode-customizations ()
+  (define-key objc-mode-map (kbd "C-c t") 'objc-jump-between-header-source))
+
+(add-hook 'objc-mode-hook 'objc-mode-customizations)
+
 
 ;; python-mode
 (add-hook 'python-mode-hook
@@ -587,6 +739,42 @@
 (setq auto-mode-alist
       (cons '("\\.ly$" . LilyPond-mode) auto-mode-alist))
 (add-hook 'LilyPond-mode-hook 'turn-on-font-lock) 
+
+
+;; org-mode--------------
+(require 'org-install)
+(setq org-startup-truncated nil)
+(setq org-return-follows-link t)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; (org-remember-insinuate)
+(setq org-directory "~/Dropbox/memo/")
+(setq org-default-notes-file (concat org-directory "agenda.org"))
+(setq org-capture-templates
+      '(("t" "Todo" entry
+         (file+headline nil "Inbox")
+         "** TODO %?\n   %i\n   %a\n   %t")
+        ("b" "Bug" entry
+         (file+headline nil "Inbox")
+         "** TODO %?   :bug:\n   %i\n   %a\n   %t")
+        ("i" "Idea" entry
+         (file+headline nil "New Ideas")
+         "** %?\n   %i\n   %a\n   %t")))
+
+(setq org-agenda-files (list org-directory)) ;agendaを使うため
+;; ショートカットキー
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+
+(add-hook 'org-mode-hook 'turn-on-font-lock)
+
+;; ;; remember.el-------------
+;; (require 'remember)
+;; (setq remember-annotation-functions '(org-remember-annotation))
+;; (setq remember-handler-functions '(org-remember-handler))
+;; (add-hook 'remember-mode-hook 'org-remember-apply-template)
+
 
 ;; ;; dired関連--------------------------------------------------
 ;; ;;; フォルダを開く時, 新しいバッファを作成しない
@@ -691,8 +879,15 @@
 ;;     %u → ログインしたユーザ名
 ;;     %U → ログインしたユーザのフルネーム 
 
+;; undo-tree.el---------------------------------------------------
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode))
+;; C-x uで起動
+
+;; point-undo.el--------------------------------------------------
+(when (require 'point-undo nil t)
+  (define-key global-map [f6] 'point-undo)
+  (define-key global-map [f7] 'point-redo))
 
 ;; ------------------------------------------------------------------------
 ;; @ flymake.el
@@ -802,7 +997,8 @@
          (local-file  (file-relative-name
                        temp-file
                        (file-name-directory buffer-file-name))))
-    (list "g++" (list "-Wall" "-Wextra" "-fsyntax-only" local-file))))
+    (list "g++" (list "-Wall" "-Wextra" "-fsyntax-only" ;; "-std=c++11"
+                      local-file))))
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.cpp$" flymake-cc-init))
 (add-hook 'c++-mode-hook
@@ -1050,7 +1246,7 @@
 
 
 ;; C-x C-aでハイライト中のシンボルを一括変更
-;; C-x C-'でハイライトする範囲を変える
+;; C-x C-^でハイライトする範囲を変える
 ;; M--で最初のカーソル位置のシンボルへ移動
 ;; M-<left> 前のシンボルへ移動
 ;; M-<right> 次のシンボルへ移動
@@ -1063,19 +1259,21 @@
 (define-key global-map "\C-q" ctl-q-map) 
 
 (smartrep-define-key 
- global-map "C-q" '(("n" . (lambda () (scroll-other-window 1)))
-                    ("p" . (lambda () (scroll-other-window -1)))
-                    ("N" . 'scroll-other-window)
-                    ("P" . (lambda () (scroll-other-window '-)))
-                    ("a" . (lambda () (beginning-of-buffer-other-window 0)))
-                    ("e" . (lambda () (end-of-buffer-other-window 0)))))
+    global-map "C-q" '(("n" . (lambda () (scroll-other-window 1)))
+                       ("p" . (lambda () (scroll-other-window -1)))
+                       ("N" . 'scroll-other-window)
+                       ("P" . (lambda () (scroll-other-window '-)))
+                       ("a" . (lambda () (beginning-of-buffer-other-window 0)))
+                       ("e" . (lambda () (end-of-buffer-other-window 0)))))
 
 (smartrep-define-key
     global-map "C-x"'(("o" . 'other-window)
                       ("^" . 'enlarge-window)
                       ("_" . 'shrink-window)
                       ("}" . 'enlarge-window-horizontally)
-                      ("{" . 'shrink-window-horizontally)))
+                      ("{" . 'shrink-window-horizontally)
+                      ("M-]" . 'tabbar-forward)
+                      ("M-[" . 'tabbar-backward)))
 
 ;; anything.el--------------------------------------
 ;; auto-installの前に置かなければいけない
@@ -1128,6 +1326,20 @@
           (with-current-buffer anything-current-buffer
             (insert candidate))))))
 
+(defvar anything-c-source-objc-headline
+  '((name . "Objective-C Headline")
+    (headline  "^[-+@]\\|^#pragma mark")))
+
+(defun objc-headline ()
+  (interactive)
+  ;; Set to 500 so it is displayed even if all methods are not narrowed down.
+  (let ((anything-candidate-number-limit 500))
+    (anything-other-buffer '(anything-c-source-objc-headline)
+                           "*ObjC Headline*")))
+
+(global-set-key "\C-xp" 'objc-headline)
+
+
 ;; auto-intall.el-------------------------------
 
 (require 'auto-install)
@@ -1141,6 +1353,7 @@
 ;; ;; auto-complete --------------------------------
 (require 'auto-complete-config)
 (require 'auto-complete-clang)
+;; (require 'auto-complete-clang-async)
 (require 'auto-complete-etags)
 (require 'ac-company)
 
@@ -1148,37 +1361,51 @@
 ;; (ac-config-default)
 
 ;; (define-key ac-completing-map "\C-j" 'ac-complete)
-
 (setq ac-use-menu-map t)
-;; デフォルトで設定済み
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)
 (define-key ac-menu-map "\C-j" 'ac-complete)
-
-(setq ac-auto-start nil)                  ; t or nil
+(setq ac-auto-start nil)              ; t or nil
+(define-key ac-mode-map  (kbd "M-_") 'auto-complete)
+;; (ac-set-trigger-key "M-_")
 (setq ac-quick-help-delay 0.8)            ;クイックヘルプのディレイ
 ;; (setq ac-auto-start 4)                  ;何文字入力したらauto-completeになるか
-
-;; (ac-set-trigger-key "TAB")
+;; (setq ac-auto-show-menu 0.8)  ;; 0.8秒後に自動で表示
 ;; (define-key ac-mode-map  [(control tab)] 'auto-complete)
-(define-key ac-mode-map  (kbd "M-_") 'auto-complete)
+
+
+
+
 (defun my-ac-config ()
-  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
+  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers
+                                              ac-source-yasnippet))
   (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
-  ;;  (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+  (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
   (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
   (add-hook 'css-mode-hook 'ac-css-mode-setup)
   ;;  (add-hook 'python-mode-hook 'ac-python-mode-setup)
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
-  (global-auto-complete-mode t))
-(defun my-ac-cc-mode-setup ()
-  (setq ac-sources (append '(;; ac-source-clang
-                             ac-source-yasnippet ;yasnippet だけ
-                             ) ac-sources)) ;etagsもある
+  (global-auto-complete-mode t)
   )
-(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
+
+;; (defun my-ac-cc-mode-setup ()
+;;   ;; (setq ac-clang-complete-executable "~/.emacs.d/elisp/emacs-clang-complete-async/clang-complete")
+;;   (setq ac-sources (append '(;; ac-source-clang-async
+;;                              ac-source-yasnippet ;yasnippet だけ
+;;                              ) ac-sources)) ;etagsもある
+;;   ;; (ac-clang-launch-completion-process) ;; auto-complete-clang-asyncの設定
+;;   )
+;; (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup) ;my-ac-cc-mode-setup
+
 ;; ac-source-gtags
 (my-ac-config)
+
+(add-hook 'c-mode-hook
+          (lambda()
+            (setq ac-sources (append '(ac-source-clang) ac-sources))
+            (setq ac-clang-prefix-header "~/.emacs.d/fuga.pch")
+            (setq ac-etags-use-document t)))
+
 
 (add-hook 'c++-mode-hook
           (lambda()
@@ -1199,20 +1426,31 @@
 
 ;; hook
 (add-hook 'objc-mode-hook
-         (lambda ()
-          (setq ac-clang-flags (list "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200" "-x" "objective-c" "-std=gnu99" "-isysroot" xcode:sdk "-I." "-F.." "-fblocks" ))
-           ;; (setq ac-clang-flags (append
-           ;;                       flymake-objc-compile-default-options
-           ;;                       flymake-objc-compile-options))
-           (setq ac-sources (append '(ac-source-company-xcode ;; XCode を利用した補完を有効にする
-                                      ac-source-clang) ac-sources))
-           ))
+          (lambda ()
+            ;; (setq ac-clang-flags (list "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200" "-x" "objective-c" "-std=gnu99" "-isysroot" xcode:sdk "-I." "-F.." "-fblocks" ))
+            ;; (setq ac-clang-flags (append
+            ;;                       flymake-objc-compile-default-options
+            ;;                       flymake-objc-compile-options))
+            (setq ac-sources (append '(ac-source-company-xcode ;; XCode を利用した補完を有効にする
+                                       ;; ac-source-clang
+                                       ) ac-sources))
+            ))
 
 ;;; yasnippetのbindingを指定するとエラーが出るので回避する方法。
 ;; (setf (symbol-function 'yas-active-keys)
 ;;       (lambda ()
 ;;         (remove-duplicates (mapcan #'yas--table-all-keys (yas--get-snippet-tables)))))
 
+
+
+;; c-eldoc.el ----------------------------
+(load "c-eldoc")
+;; (setq c-eldoc-includes "-I./ -I../ -I~/Dropbox/Programming/lib/myLibrary/include/ ")
+;; (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+(add-hook 'c-mode-common-hook
+	  (lambda ()
+	    (set (make-local-variable 'eldoc-idle-delay) 0.20)
+	    (c-turn-on-eldoc-mode)))
 
 ;; nurumacs.el ---------------------------
 ;; (require 'nurumacs)
@@ -1224,8 +1462,8 @@
 
 ;; rotate.el ------------------------------
 (require 'rotate)
-(global-set-key (kbd "C-t") 'rotate-layout)
-(global-set-key (kbd "M-t") 'rotate-window)
+(global-set-key (kbd "C-T") 'rotate-layout)
+(global-set-key (kbd "M-T") 'rotate-window)
 
 ;; Dash.appとの連携-------------------------
 (defun dash ()
@@ -1236,6 +1474,8 @@
 (global-set-key "\C-cr" 'dash)
 
 
+;; all-ext.el ---------------------------
+(require 'all-ext)
 
 ;; hiwin.el---------------------------------------
 ;; (require 'hiwin)
@@ -1385,29 +1625,6 @@
     :inherit 'mode-line-face
     :foreground "white")
 
-
-;; el-get -----------------------------------------------------
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-
-(setq el-get-sources
-      '(
-        (:name golden-ratio
-               :type git
-               :url "https://github.com/roman/golden-ratio.el.git")
-        (:name yasnippet
-               :type git
-               :url "https://github.com/emacsmirror/yasnippet.git")))
-
-;; (el-get 'wait '(golden-ratio yasnippet))
-
-(el-get 'sync)
 
 
 (custom-set-variables
