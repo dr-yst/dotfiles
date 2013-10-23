@@ -1,0 +1,33 @@
+source .bashrc
+test -r /sw/bin/init.sh && . /sw/bin/init.sh
+
+
+##
+# Your previous /Users/yoshitowatanabe/.bash_profile file was backed up as /Users/yoshitowatanabe/.bash_profile.macports-saved_2011-06-17_at_17:01:49
+##
+
+# MacPorts Installer addition on 2011-06-17_at_17:01:49: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+PATH="/opt/local/bin:${HOME}/bin:${HOME}/script:${PATH}"
+
+test -r /sw2/bin/init.sh && . /sw2/bin/init.sh
+
+##
+# Your previous /Users/yoshito/.bash_profile file was backed up as /Users/yoshito/.bash_profile.macports-saved_2012-12-12_at_14:11:01
+##
+
+# MacPorts Installer addition on 2012-12-12_at_14:11:01: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+##
+# Your previous /Users/yoshito/.bash_profile file was backed up as /Users/yoshito/.bash_profile.macports-saved_2013-04-11_at_11:40:17
+##
+
+# MacPorts Installer addition on 2013-04-11_at_11:40:17: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+

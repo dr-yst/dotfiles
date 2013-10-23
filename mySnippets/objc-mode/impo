@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: impo
+# key: impo
+# --
+#import <$1>$0

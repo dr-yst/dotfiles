@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: coutf
+# key: coutf
+# --
+std::cout << "$1" << $0std::flush;

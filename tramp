@@ -1,0 +1,40 @@
+;; -*- emacs-lisp -*- <13/08/10 00:49:01 /Users/yoshito/.emacs.d/tramp>
+;; Tramp connection history.  Don't change this file.
+;; You can delete it, forcing Tramp to reapply the checks.
+
+((["sshx" "yoshito" "beethoven.ochiailab.com" nil nil]
+  ("uname" "Linux 2.6.35.14-106.fc14.x86_64")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("busybox" nil)
+  ("file-exists" "test -e")
+  ("~" "/home/yoshito")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("readlink" "\\readlink")
+  ("stat" "\\stat")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 503)
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t))
+ (["ssh" "yoshito" "beethoven.ochiailab.com" nil nil]
+  ("uname" "Linux 2.6.35.14-106.fc14.x86_64")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("busybox" nil)
+  ("file-exists" "test -e")
+  ("~" "/home/yoshito")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t)
+  ("stat" "\\stat")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 503)
+  ("readlink" "\\readlink")))

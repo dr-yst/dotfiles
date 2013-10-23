@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: coding
+# key: coding
+# --
+# _*_ coding: ${0:code} _*_

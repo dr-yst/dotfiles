@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("hoge.h"
+ (filename . "~/.emacs.d/hoge.h")
+ (front-context-string . "#include <myutl.")
+ (rear-context-string . "<itpp/itstat.h>\n")
+ (position . 310))
+("org-capture-last-stored"
+ (filename . "~/Dropbox/memo/agenda.org")
+ (front-context-string . "** TODO Jpeg2Bit")
+ (rear-context-string . "2013-09-13 Fri>\n")
+ (position . 4875))
+)
