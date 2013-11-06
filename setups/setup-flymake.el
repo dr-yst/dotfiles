@@ -120,7 +120,7 @@
 (defvar xcode:iossdkpath "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/")
 (defvar xcode:iossdk (concat xcode:iossdkpath "SDKs/iPhoneSimulator" xcode:iossdkver ".sdk"))
 
-(defvar xcode:macsdkver "10.8")
+(defvar xcode:macsdkver "10.9")
 (defvar xcode:macsdkpath "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/")
 (defvar xcode:macsdk (concat xcode:macsdkpath "SDKs/MacOSX" xcode:macsdkver ".sdk"))
 

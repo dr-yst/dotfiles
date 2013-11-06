@@ -59,6 +59,7 @@
 (add-hook 'c-mode-hook
           (lambda()
             (setq ac-sources (append '(ac-source-clang) ac-sources))
+            ;; (ac-clang-launch-completion-process) ;; async
             ;; (setq ac-clang-prefix-header "~/.emacs.d/fuga.pch")
             (setq ac-etags-use-document t)))
 
@@ -67,7 +68,10 @@
           (lambda()
             (setq ac-sources (append '(ac-source-clang
                                        ac-source-etags) ac-sources))
+            ;; (ac-clang-launch-completion-process) ;; async
             (setq ac-clang-prefix-header "~/.emacs.d/hoge.pch")
+            (setq ac-clang-flags
+                  '("-std=c++11" "-w" "-ferror-limit" "1"))
             (setq ac-etags-use-document t)))
 
 ;; (add-hook 'python-mode-hook

@@ -237,7 +237,9 @@ alias title='~/.emacs.d/title.sh'
 
 alias g++='g++-mp-4.8'
 alias gcc='gcc-mp-4.8'
-alias clang++='clang++ -std=c++11'
+# alias gcc ='llvm-gcc-4.2'
+# alias g++ ='llvm-g++-4.2'
+# alias clang++='clang++-mp-3.3 -std=c++11'
 
 alias matrix='LC_ALL=C tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;32" grep --color "[^ ]"'
 alias matrix2='echo -e "1"; while $t; do for i in `seq 1 30`;do r="$[($RANDOM % 2)]";h="$[($RANDOM % 4)]";if [ $h -eq 1 ]; then v="0 $r";else v="1 $r";fi;v2="$v2 $v";done;echo -e $v2;v2="";done;'
@@ -300,10 +302,10 @@ export TEXINPUTS=$TEXINPUTS:~/Dropbox/ochiailab/tex/
 export BSTINPUTS=$BSTINPUTS:~/Dropbox/ochiailab/tex/
 export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/
 
-export C_INCLUDE_PATH=/opt/local/include/:/usr/local/include/:/usr/include/:~/MyLib/include/:$C_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=/opt/local/include/:/usr/local/include/:/usr/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH
+export C_INCLUDE_PATH=/opt/local/include/:/usr/local/include/:/usr/include/:~/MyLib/include/:$C_INCLUDE_PATH # /opt/local/include/:
+export CPLUS_INCLUDE_PATH=/opt/local/include/:/usr/local/include/:/usr/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
 export LIBRARY_PATH=~/MyLib/:$LIBRARY_PATH
-# export DYLD_LIBRARY_PATH=~/MyLib/:$DYLD_LIBRARY_PATH 
+export DYLD_LIBRARY_PATH=~/MyLib/:$DYLD_LIBRARY_PATH 
 
 # export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/:$PYTHONPATH
 export PYTHONSTARTUP=~/.pythonstartup.py

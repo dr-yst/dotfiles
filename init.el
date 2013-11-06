@@ -1,4 +1,4 @@
-;; Last Updated: <2013/10/23 21:11:00 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/11/06 11:45:24 from yoshitos-mac-mini.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -30,9 +30,9 @@
 ;; ;; load-pathに追加するフォルダ
 ;; ;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
 (add-to-load-path "setups" "elisp" "auto-install" "plugins/yasnippet" "elisp/nyan-mode"
-                  "elisp/company" "elisp/emacs-clang-complete-async"
+                  "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/Highlight-Indentation-for-Emacs" "elisp/lilypond" "el-get" "el-get/el-get"
-                  "elisp/helm" "elisp/emacs-zoom-window")
+                  "elisp/helm" "elisp/emacs-zoom-window" "elisp/emacs-sound-wav")
 
 (eval-when-compile
   (require 'cl))
@@ -689,6 +689,39 @@
 (require 'evil)
 (evil-mode 1)
 (setq evil-default-state 'emacs)
+
+;; sound-wav-------------------------
+(require 'sound-wav)
+;; Play wav file when file opened
+(defun my/find-file-hook ()
+  (sound-wav-play "~/.emacs.d/Achievement.mp3"))
+(add-hook 'find-file-hook 'my/find-file-hook)
+
+;; (defun my/before-save-hook ()
+;;   (sound-wav-play "~/.emacs.d/Achievement.mp3"))
+;; (add-hook 'before-save-hook 'my/before-save-hook)
+
+;; free-keys---------------------
+(require 'free-keys)
+
+;; swap-buffer------------------
+(defun swap-screen()
+  "Swap two screen,leaving cursor at current window."
+  (interactive)
+  (let ((thiswin (selected-window))
+        (nextbuf (window-buffer (next-window))))
+    (set-window-buffer (next-window) (window-buffer))
+    (set-window-buffer thiswin nextbuf)))
+(defun swap-screen-with-cursor()
+  "Swap two screen,with cursor in same buffer."
+  (interactive)
+  (let ((thiswin (selected-window))
+        (thisbuf (window-buffer)))
+    (other-window 1)
+    (set-window-buffer thiswin (window-buffer))
+    (set-window-buffer (selected-window) thisbuf)))
+(global-set-key "\C-qs" 'swap-screen)
+(global-set-key "\C-qS" 'swap-screen-with-cursor)
 
 ;; ------------------------------------
 ;; 自作のpurgeする関数
