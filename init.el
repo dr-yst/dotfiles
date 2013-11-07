@@ -1,4 +1,4 @@
-;; Last Updated: <2013/11/06 11:45:24 from yoshitos-mac-mini.local by yoshito>
+;; Last Updated: <2013/11/07 15:49:35 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -568,6 +568,7 @@
 ;; (require 'setup-zlc) ; 上手く動かない
 ;; 多分anythingと競合してる
 
+(require 'setup-egg)
 (require 'setup-term)
 (require 'setup-sdic)
 (require 'setup-e2wm)

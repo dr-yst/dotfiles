@@ -1,9 +1,7 @@
-((("BlockPartitioningQAM" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("free-keys" .
-   [0 0 0 0 0 0 0 0 1])
-  ("QPSK" .
-   [0 0 0 1])
+((("my/before-save-hook" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("before-save-hook" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
   ("deltaFile" .
    [0 0 0 0 0 0 0 0 1])
   ("Sizes" .
@@ -79,9 +77,9 @@
   ("NSRange" .
    [0 0 0 0 0 1 0])
   ("stringWithString" .
-   [0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0])
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
   ("NSMutableString" .
-   [0 0 0 0 1 0 0 0 0 0 1 1 0 0 1])
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 1])
   ("NSUInteger" .
    [0 0 0 0 0 0 0 0 0 2])
   ("NSMutable" .
@@ -233,15 +231,15 @@
   ("NSStringFromClass" .
    [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
   ("valueInDollars" .
-   [0 0 0 1 0 0 0 0 0 0 0 0 0 1])
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
   ("costInDollars" .
    [0 0 2 0 0 0 0 0 0 0 0 0 0])
   ("holdings" .
    [0 0 0 0 0 0 0 2])
   ("(id)" .
-   [0 2 0 15])
+   [0 2 0 12])
   ("addObject" .
-   [0 0 0 0 0 14 0 0 0])
+   [0 0 0 0 0 12 0 0 0])
   ("(int)" .
    [0 0 0 0 2])
   ("setNumberOfShares" .
@@ -255,7 +253,7 @@
   ("StockHolding" .
    [0 0 0 0 0 0 0 0 0 0 0 2])
   ("NSMutableArray" .
-   [0 0 0 5 2 0 0 0 0 0 0 0 0 0])
+   [0 0 0 3 2 0 0 0 0 0 0 0 0 0])
   ("NSArray" .
    [0 0 0 4 0 0 2])
   ("moe-theme-switcher" .
@@ -401,11 +399,11 @@
   ("Width" .
    [0 0 0 0 3])
   ("(NSString *)" .
-   [0 0 0 0 0 0 0 0 0 0 0 13])
+   [0 0 0 0 0 0 0 0 0 0 0 9])
   ("stringWithFormat" .
    [0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0])
   ("NSString" .
-   [0 0 1 9 0 1 0 0])
+   [0 0 0 6 0 1 0 0])
   ("fractionWithNumerator" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3])
   ("den" .
@@ -449,7 +447,7 @@
   ("undo-tree" .
    [0 0 0 1 0 0 0 0 0])
   ("require" .
-   [0 0 0 1 0 0 10])
+   [0 0 0 1 0 0 9])
   ("add-" .
    [0 0 0 1])
   ("add-to-list" .
@@ -533,7 +531,7 @@
   ("define-key" .
    [0 0 0 0 0 0 0 1 0 0])
   ("add-hook" .
-   [0 0 0 0 0 0 0 1])
+   [0 0 0 0 1 0 0 1])
   ("org-mode-hook" .
    [0 0 0 0 0 0 0 0 0 0 0 0 1])
   ("turn-o" .
@@ -763,7 +761,7 @@
   ("defaultCenter" .
    [0 0 0 0 0 0 0 0 0 0 0 0 1])
   ("addObserver" .
-   [0 0 0 0 1 0 0 0 0 0 1])
+   [0 0 0 0 1 0 0 0 0 0 0])
   ("addObserverForName" .
    [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
   ("(NSString *) object:(id) queue:(NSOperationQueue *) usingBlock:^(NSNotification *note)" .
@@ -822,29 +820,7 @@
    [0 0 0 0 0 0 0 1])
   ("average" .
    [0 0 0 0 0 0 1])
-  ("count" .
-   [0 0 0 0 1])
-  ("initWithItemName" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("(NSString *) valueInDollars:(int) serialNumber:(NSString *)" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("description" .
-   [0 0 0 0 0 0 0 0 0 0 2])
-  ("totalValue" .
-   [0 0 0 0 0 0 0 0 0 1])
-  ("arrayWithObject" .
-   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
-  ("descriptionStrings" .
-   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("(NSObject *) forKeyPath:(NSString *) options:(NSKeyValueObservingOptions) context:(void *)" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("appendFormat" .
-   [0 0 0 0 0 0 1 0 0 0 0 1])
-  ("appendString" .
-   [0 0 0 0 0 0 1 0 0 0 0 0])
-  ("(NSString *) " .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("addItem" .
-   [0 0 0 1 0 0 0])
-  ("(BNRItem *)" .
-   [0 0 0 0 0 0 0 0 0 0 1])))
+  ("save-buffer" .
+   [1 0 0 0 1 0 0 0 0 0 0])
+  ("save-buffer-coding-system" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])))
