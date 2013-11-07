@@ -8,6 +8,8 @@
 (require 'guide-key)
 (guide-key-mode 1)
 
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v"))
+
 (defun guide-key/my-hook-function-for-org-mode ()
   (guide-key/add-local-guide-key-sequence "C-c")
   (guide-key/add-local-guide-key-sequence "C-c C-x")
