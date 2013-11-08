@@ -1,3 +1,6 @@
+*.dat
+*.txt
+
 # Emacs tem files
 *~
 [#]*[#]
