@@ -1,4 +1,4 @@
-;; Last Updated: <2013/11/07 15:49:35 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/11/11 13:48:35 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -201,11 +201,6 @@
 ;;     ad-do-it
 ;;     (move-to-window-line line)))
 
-;;mac風のコピペ
-;; (global-set-key "\M-c" 'kill-ring-save)
-;; (global-set-key "\M-v" 'yank)
-;; ;(global-set-key "\M-x" 'kill-region);コマンド呼び出しとダブるので、Cmd-xはあきらめる
-;; (global-set-key "\M-z" 'undo)
 
 ;; (global-set-key "\M-l" 'ns-toggle-fullscreen)
 
@@ -375,22 +370,13 @@
 (setq auto-mode-alist
       (cons (cons ".\.h$" 'c++-mode) auto-mode-alist))
 
+;; objective-cの.hファイルはobjc-modeで開く
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@interface" . objc-mode))
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@protocol" . objc-mode))
 
 (setq auto-mode-alist
       (cons (cons ".sh$" 'shell-script-mode) auto-mode-alist))
-
-
-;; dummy-h-mode.el -----------
-;; (add-to-list 'auto-mode-alist '("\\.h$" . dummy-h-mode))
-;; (autoload 'dummy-h-mode "dummy-h-mode" "Dummy H mode" t)
-;; (add-hook 'dummy-h-mode-hook
-;;           (lambda ()
-;;             (setq dummy-h-mode-default-major-mode 'c++-mode)))
-
-
 
 ;;CSSモード
 (autoload 'css-mode "css-mode")
@@ -569,6 +555,7 @@
 ;; 多分anythingと競合してる
 
 (require 'setup-egg)
+(require 'setup-hi-lock-mode)
 (require 'setup-term)
 (require 'setup-sdic)
 (require 'setup-e2wm)
