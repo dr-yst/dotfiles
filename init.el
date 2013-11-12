@@ -1,4 +1,4 @@
-;; Last Updated: <2013/11/11 13:48:35 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/11/12 12:40:26 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -561,6 +561,7 @@
 (require 'setup-e2wm)
 (require 'setup-modeline)
 (require 'setup-cc-mode)
+(require 'setup-markdown-mode)
 (require 'setup-latex-mode)
 (require 'setup-flymake)
 (require 'setup-tabbar)
