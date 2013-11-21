@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: comm_e
+# key: comm_e
+# binding: C-c C-c e
+# --
+// -------------------- $0 --------------------

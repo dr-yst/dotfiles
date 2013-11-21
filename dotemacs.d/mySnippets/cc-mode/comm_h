@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: comm_h
+# key: comm_h
+# binding: C-c C-c h
+# --
+/************************************************************************************
+ * ${1:Title}
+ *   
+ * ${2:Explanation}
+ *
+ * Contents:
+ *   ${3:FunctionName of ClassName}
+ *
+ * Last Updated: <2013/03/03 15:43:32 from Yoshitos-iMac.local by yoshito>
+ ************************************************************************************/$0

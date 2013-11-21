@@ -67,7 +67,7 @@ zle -N self-insert url-quote-magic
 
 
 # zsh-completion
-fpath=(~/.emacs.d/zsh-completions/src $fpath)
+fpath=(~/.files/zsh-completions/src $fpath)
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -233,7 +233,7 @@ alias remem='du -sx / &> /dev/null & sleep 25 && kill $!'
 
 # alias emacsapp='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
 
-alias title='~/.emacs.d/title.sh'
+alias title='~/.files/title.sh'
 
 alias g++='g++-mp-4.8'
 alias gcc='gcc-mp-4.8'

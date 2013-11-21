@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: subfig
-# key: subfig
-# --
-\subfigure[]{\includegraphics[width=$1\hsize, clip]
-  {$2}\label{fig:$3}}
-${0:\vfill}

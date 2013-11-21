@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: for_fast
-# key: ffor
-# --
-for (${1:ObjectType} *${2:objName} in ${3:array}) {
-  $0
-} // for *$2

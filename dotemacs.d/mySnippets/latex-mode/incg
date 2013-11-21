@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: incg
+# key: incg
+# --
+\includegraphics[width=$1\hsize, clip]{$2}$0

@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: outf
-# key: outf
-# --
-${1:outputFile} << $2 << '\t' << $3 << std::endl;$0

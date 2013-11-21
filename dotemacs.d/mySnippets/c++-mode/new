@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new
+# key: new
+# --
+new ${1:typename}[${2:size}]$0

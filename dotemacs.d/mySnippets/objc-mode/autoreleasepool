@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: autoreleasepool
+# key: ar
+# --
+@autoreleasepool {
+  $1
+} // autoreleasepool $0

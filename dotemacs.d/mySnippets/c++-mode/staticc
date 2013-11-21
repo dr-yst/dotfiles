@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: staticc
+# key: staticc
+# --
+static_cast< ${1:typename} >($2)$0
