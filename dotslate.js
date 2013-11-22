@@ -105,9 +105,10 @@ slate.bind(util.key('l'), slate.operation('focus', { direction: 'right' }));
  
 // i          .. 下に隠れているウィンドウをフォーカス
 slate.bind(util.key('i'), slate.operation('focus', { direction: 'behind' }));
+
  
-// o          .. スクリーン間でフォーカスを移動
-slate.bind(util.key('o'), function(win) {
+// p          .. スクリーン間でフォーカスを移動
+slate.bind(util.key('p'), function(win) {
   var next = util.nextScreen(slate.screen());
  
   util.focusWindow(function(win) {
@@ -115,16 +116,16 @@ slate.bind(util.key('o'), function(win) {
   });
 });
 
-// o+shift    .. 次のスクリーンへ飛ばす
-slate.bind(util.key('o', 'shift'), function(win) {
+// p+shift    .. 次のスクリーンへ飛ばす
+slate.bind(util.key('p', 'shift'), function(win) {
   if (!win) return;
   var next = util.nextScreen(win.screen());
  
   win.move(next.visibleRect());
 });
  
-// j+shift    .. 4隅に飛ばす
-var corners = slate.bind(util.key('j', 'shift'), slate.operation('chain', {
+// o+shift    .. 4隅に飛ばす
+var corners = slate.bind(util.key('o', 'shift'), slate.operation('chain', {
   operations: _.map(['top-right', 'bottom-right', 'bottom-left', 'top-left'], function(d) {
     return slate.operation('corner', {
       direction: d,
@@ -134,8 +135,8 @@ var corners = slate.bind(util.key('j', 'shift'), slate.operation('chain', {
   })
 }));
  
-// k+shift    .. 左右に飛ばす
-slate.bind(util.key('k', 'shift'), slate.operation('chain', {
+// u+shift    .. 左右に飛ばす
+slate.bind(util.key('u', 'shift'), slate.operation('chain', {
   operations: _.map(['left', 'right'], function(d) {
     return slate.operation('push', {
       direction: d,
@@ -143,6 +144,17 @@ slate.bind(util.key('k', 'shift'), slate.operation('chain', {
     });
   })
 }));
+
+// i+shift    .. 上下に飛ばす
+slate.bind(util.key('i', 'shift'), slate.operation('chain', {
+  operations: _.map(['top', 'bottom'], function(d) {
+    return slate.operation('push', {
+      direction: d,
+      style: 'bar-resize:screenSizeY/2'
+    });
+  })
+}));
+
  
 // h+shift   .. ウィンドウが左にあるなら縮小, 右にあるなら拡大
 slate.bind(util.key('h', 'shift'), function(win) {
@@ -172,9 +184,39 @@ slate.bind(util.key('l', 'shift'), function(win) {
   }
   win.doOperation('move', rect);
 });
+
+// k+shift   .. ウィンドウが上にあるなら縮小, 下にあるなら拡大
+slate.bind(util.key('k', 'shift'), function(win) {
+  if (!win) return;
+  var rect = win.rect();
+  var bounds = win.screen().visibleRect();
+  if (bounds.y + bounds.height - 30 < rect.y + rect.height) {
+    rect.y -= bounds.height * 0.05;
+    rect.height += bounds.height * 0.05;
+  } else {
+    rect.height -= bounds.height * 0.05;
+  }
+  win.doOperation('move', rect);
+});
+
+// j+shift   .. ウィンドウが下にあるなら縮小, 上にあるなら拡大
+slate.bind(util.key('j', 'shift'), function(win) {
+  if (!win) return;
+  var rect = win.rect();
+  var bounds = win.screen().visibleRect();
+  if (rect.y < bounds.y + 30) {
+    rect.y = bounds.y;
+    rect.height += bounds.height * 0.05;
+  } else {
+    rect.y += bounds.height * 0.05;
+    rect.height -= bounds.height * 0.05;
+  }
+  win.doOperation('move', rect);
+});
+
  
 // m          .. 最大化
-slate.bind(util.key('return, shift'), function(win) {
+slate.bind(util.key('m', 'shift'), function(win) {
   if (!win) return;
   var bounds = win.screen().visibleRect();
   win.doOperation('move', bounds);
