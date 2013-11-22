@@ -28,8 +28,8 @@ var bottomLeft = slate.operation("corner", {
   "height" : "screenSizeY/2"
 });
 
-// [tab]+alt+cmdでアプリのウィンドウをタイル状に並べる
-var tileKey = "tab:alt;cmd";
+// [tab]+alt+shiftでアプリのウィンドウをタイル状に並べる
+var tileKey = "tab:alt;shift";
  
 slate.bind(tileKey, function(win){
   var appName = win.app().name();    
@@ -61,6 +61,30 @@ var launch_and_focus = function (target) {
         win.doOperation(S.operation('focus', { app: target }));
     };
 };
+
+// アプリにフォーカスする。アプリが起動していなければ起動する。
+// var launch_and_focus = function(app_name) {
+//     var launch = function(app_names, win) {
+//         if( _.any(app_names, function(name){ return name == app_name; }) ) {
+//             return;
+//         }
+        
+//         win.doOperation(
+//             slate.operation('shell', {
+//                 'command' : '/usr/bin/open -a ' + app_name,
+//                 'waitForExit' : true
+//             })
+//         );
+//     };
+    
+//     return function(win){
+//         var app_names = [];
+//         slate.eachApp(function(app_obj){ app_names.push(app_obj.name()); });
+//         launch(app_names, win);
+//         win.doOperation( slate.operation('focus', {'app' : app_name}) );
+//     };
+// };
+
 S.bind('t:alt,cmd', launch_and_focus('iTerm'));
 S.bind('e:alt,cmd', launch_and_focus('Emacs'));
 S.bind('b:alt,cmd', launch_and_focus('Firefox'));
@@ -70,6 +94,10 @@ S.bind('i:alt,cmd', launch_and_focus('iTunes'));
 S.bind('space:alt,cmd', launch_and_focus('Found'));
 S.bind('p:alt,cmd', launch_and_focus('Preview'));
 S.bind('m:alt,cmd', launch_and_focus('Mjograph'));
+S.bind('x:alt,cmd', launch_and_focus('Xcode'));
+S.bind('v:alt,cmd', launch_and_focus('VLC'));
+S.bind('z:alt,cmd', launch_and_focus('Microsoft\ PowerPoint'));
+
 
 // http://www.infiniteloop.co.jp/blog/2013/08/osx_slate/
 var util = {
@@ -220,6 +248,25 @@ slate.bind(util.key('m', 'shift'), function(win) {
   if (!win) return;
   var bounds = win.screen().visibleRect();
   win.doOperation('move', bounds);
+});
+
+
+// http://mint.hateblo.jp/category/Slate
+// 同じアプリケーションで別のウィンドウにフォーカスする (Chrome対応版)
+S.bind('n:alt', function() {
+function get_next_win(windows) {
+truth_values_of_is_main = _.map(windows, function(w){ return w.isMain(); })
+next_idx = _.indexOf(truth_values_of_is_main, 1) + 1;
+if (next_idx >= _.size(windows)) { return windows[0]; }
+return windows[next_idx];
+}
+windows = [];
+slate.app().eachWindow(function(win){
+if (win.title() !== '') { windows.push(win); } // タイトルが無いウィンドウは無視
+});
+if (_.size(windows) === 1){ return; }
+sorted = _.sortBy(windows, function(win){ return win.title(); });
+get_next_win(sorted).focus();
 });
 
 S.log('[SLATE] ----------- Finished Loading Config -----------');
