@@ -12,6 +12,11 @@
 (require 'auto-complete-etags)
 (require 'ac-company)
 
+(eval-after-load "auto-complete"
+  '(progn
+      (ac-ispell-setup)))
+
+
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict/")
 ;; (ac-config-default)
 
@@ -40,6 +45,7 @@
   (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
   (add-hook 'css-mode-hook 'ac-css-mode-setup)
   (add-hook 'python-mode-hook 'ac-python-mode-setup)
+  (add-hook 'LaTeX-mode-hook 'ac-ispell-ac-setup)
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
   (global-auto-complete-mode t)
   )
