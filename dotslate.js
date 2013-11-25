@@ -97,6 +97,8 @@ S.bind('m:alt,cmd', launch_and_focus('Mjograph'));
 S.bind('x:alt,cmd', launch_and_focus('Xcode'));
 S.bind('v:alt,cmd', launch_and_focus('VLC'));
 S.bind('z:alt,cmd', launch_and_focus('Microsoft\ PowerPoint'));
+S.bind('n:alt,cmd', launch_and_focus('Evernote'));
+S.bind('r:alt,cmd', launch_and_focus('Dash'));
 
 
 // http://www.infiniteloop.co.jp/blog/2013/08/osx_slate/
