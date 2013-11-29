@@ -1,0 +1,8 @@
+# App switching       
+bind t:alt,cmd focus 'iTerm'
+bind d:alt focus 'Finder'
+bind f:alt focus 'Firefox'
+bind e:alt focus 'Emacs'
+bind j:alt focus 'Eclipse'
+bind t:alt focus 'Terminal'
+bind x:alt focus 'Xcode'
