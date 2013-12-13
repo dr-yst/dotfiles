@@ -1,4 +1,4 @@
-;; Last Updated: <2013/11/12 12:40:26 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/12/06 12:56:13 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -150,6 +150,13 @@
 ;; (global-set-key "\C-j" 'newline-and-indent)
 
 ;; original
+(defun backward-kill-word-or-kill-region ()
+  (interactive)
+  (if (or (not transient-mark-mode) (region-active-p))
+      (kill-region (region-beginning) (region-end))
+    (backward-kill-word 1)))
+(global-set-key "\C-w" 'backward-kill-word-or-kill-region)
+
 (global-set-key "\M-h" 'backward-kill-word)
 (global-set-key "\M-'" 'dabbrev-expand)
 
@@ -385,6 +392,8 @@
 
 
 ;; プログラミング言語関連 -------------------------------------
+
+(autoload 'se/make-summary-buffer "summarye" nil t)
 
 ;章や節の定義
 (make-variable-buffer-local 'outline-regexp)

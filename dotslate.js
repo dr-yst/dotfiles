@@ -245,6 +245,42 @@ slate.bind(util.key('j', 'shift'), function(win) {
   win.doOperation('move', rect);
 });
 
+// d+shift   .. ウィンドウを右に移動
+slate.bind(util.key('d', 'shift'), function(win) {
+    if (!win) return;
+    var rect = win.rect();
+    var bounds = win.screen().visibleRect();
+    rect.x += bounds.width * 0.05;
+    win.doOperation('move', rect);
+});
+
+// a+shift   .. ウィンドウを左に移動
+slate.bind(util.key('a', 'shift'), function(win) {
+    if (!win) return;
+    var rect = win.rect();
+    var bounds = win.screen().visibleRect();
+    rect.x -= bounds.width * 0.05;
+    win.doOperation('move', rect);
+});
+
+// s+shift   .. ウィンドウを下に移動
+slate.bind(util.key('s', 'shift'), function(win) {
+    if (!win) return;
+    var rect = win.rect();
+    var bounds = win.screen().visibleRect();
+    rect.y += bounds.height * 0.05;
+    win.doOperation('move', rect);
+});
+
+// w+shift   .. ウィンドウを上に移動
+slate.bind(util.key('w', 'shift'), function(win) {
+    if (!win) return;
+    var rect = win.rect();
+    var bounds = win.screen().visibleRect();
+    rect.y -= bounds.height * 0.05;
+    win.doOperation('move', rect);
+});
+
  
 // m          .. 最大化
 slate.bind(util.key('m', 'shift'), function(win) {
