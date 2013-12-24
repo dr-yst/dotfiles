@@ -1,4 +1,4 @@
-;; Last Updated: <2013/12/06 12:56:13 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2013/12/24 12:08:47 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -563,6 +563,8 @@
 ;; (require 'setup-zlc) ; 上手く動かない
 ;; 多分anythingと競合してる
 
+
+(require 'setup-ido-mode)
 (require 'setup-egg)
 (require 'setup-hi-lock-mode)
 (require 'setup-term)
