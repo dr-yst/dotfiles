@@ -8,8 +8,6 @@
 (require 'ido)
 (ido-mode t)
 
-(define-key ido-common-completion-map (kbd "C-w") nil)
-
 (provide 'setup-ido-mode)
 
 ;; type some characters appearing in the file name, RET to choose the file or directory in the front of the list.
