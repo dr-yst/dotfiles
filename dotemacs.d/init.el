@@ -1,4 +1,4 @@
-;; Last Updated: <2013/12/24 12:08:47 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2014/01/14 17:02:09 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -31,7 +31,7 @@
 ;; ;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
 (add-to-load-path "setups" "elisp" "auto-install" "plugins/yasnippet" "elisp/nyan-mode"
                   "elisp/company" ;; "elisp/emacs-clang-complete-async"
-                  "elisp/Highlight-Indentation-for-Emacs" "elisp/lilypond" "el-get" "el-get/el-get"
+                  "elisp/lilypond" "el-get" "el-get/el-get"
                   "elisp/helm" "elisp/emacs-zoom-window" "elisp/emacs-sound-wav")
 
 (eval-when-compile
@@ -564,7 +564,7 @@
 ;; 多分anythingと競合してる
 
 
-(require 'setup-ido-mode)
+;; (require 'setup-ido-mode)
 (require 'setup-egg)
 (require 'setup-hi-lock-mode)
 (require 'setup-term)
@@ -686,9 +686,9 @@
 ;; (helm-mode 1)
 
 ;; evil-------------------------------
-(require 'evil)
-(evil-mode 1)
-(setq evil-default-state 'emacs)
+;; (require 'evil)
+;; (evil-mode 1)
+;; (setq evil-default-state 'emacs)
 
 ;; sound-wav-------------------------
 (require 'sound-wav)
@@ -702,7 +702,7 @@
 ;; (add-hook 'before-save-hook 'my/before-save-hook)
 
 ;; free-keys---------------------
-(require 'free-keys)
+;; (require 'free-keys)
 
 ;; swap-buffer------------------
 (defun swap-screen()
