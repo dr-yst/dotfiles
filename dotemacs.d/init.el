@@ -1,4 +1,4 @@
-;; Last Updated: <2014/01/14 17:02:09 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2014/02/25 17:35:44 from yoshitos-mac-mini.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -528,7 +528,9 @@
 ;; undo-tree.el---------------------------------------------------
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode))
-  
+
+(global-set-key "\C-\\" 'undo-tree-redo)
+
 ;; C-x uで起動
 
 ;redo----------------------------------------
@@ -682,7 +684,6 @@
 ;; helm -------------------------------
 (require 'helm-config)
 (global-set-key (kbd "C-c h") 'helm-mini)
-
 ;; (helm-mode 1)
 
 ;; evil-------------------------------

@@ -34,9 +34,9 @@ else
 fi
 
 # bash-completion
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-    . /opt/local/etc/profile.d/bash_completion.sh
-fi
+# if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+#     . /opt/local/etc/profile.d/bash_completion.sh
+# fi
 
 #プロンプト
 # PS1="\[\033[34;1m\]\W> \[\033[0;0m\]"
@@ -64,8 +64,8 @@ export CPLUS_INCLUDE_PATH=~/MyLib/include/:$CPLUS_INCLUDE_PATH
 #sshの設定 
 #alias ssh="/usr/local/bin/ssh"
 
-function _update_ps1() {
-  export PS1="$(~/.emacs.d/powerline-shell/powerline-shell.py $?)"
-}
+# function _update_ps1() {
+#   export PS1="$(~/.emacs.d/powerline-shell/powerline-shell.py $?)"
+# }
 
 export PROMPT_COMMAND="_update_ps1"

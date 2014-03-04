@@ -235,8 +235,8 @@ alias remem='du -sx / &> /dev/null & sleep 25 && kill $!'
 
 alias title='~/.files/title.sh'
 
-alias g++='g++-mp-4.8'
-alias gcc='gcc-mp-4.8'
+alias g++='g++-mp-4.9'
+alias gcc='gcc-mp-4.9'
 # alias gcc ='llvm-gcc-4.2'
 # alias g++ ='llvm-g++-4.2'
 # alias clang++='clang++-mp-3.3 -std=c++11'
