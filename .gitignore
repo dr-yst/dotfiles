@@ -1,7 +1,8 @@
 *.dat
 *.txt
 
-ddskk/
+dotemacs.d/ddskk
+dotemacs.d/el-get
 
 # Emacs tem files
 *~
@@ -11,8 +12,8 @@ ddskk/
 /.emacs.desktop
 /.emacs.desktop.lock
 .elc
-auto-save-list
-tramp
+dotemacs.d/auto-save-list
+dotemacs.d/tramp
 
 # Org-mode
 .org-id-locations
