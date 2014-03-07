@@ -1,4 +1,4 @@
-;; Last Updated: <2014/02/25 17:35:44 from yoshitos-mac-mini.local by yoshito>
+;; Last Updated: <2014/03/07 18:56:38 from yoshitos-mac-mini.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -29,9 +29,10 @@
 
 ;; ;; load-pathに追加するフォルダ
 ;; ;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
-(add-to-load-path "setups" "elisp" "auto-install" "plugins/yasnippet" "elisp/nyan-mode"
+(add-to-load-path "setups" "elisp" "auto-install" ;; "plugins/yasnippet"
+                  "elisp/nyan-mode"
                   "elisp/company" ;; "elisp/emacs-clang-complete-async"
-                  "elisp/lilypond" "el-get" "el-get/el-get"
+                  "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   "elisp/helm" "elisp/emacs-zoom-window" "elisp/emacs-sound-wav")
 
 (eval-when-compile
@@ -65,26 +66,26 @@
 
 ;; el-get -----------------------------------------------------
 
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
+;; (unless (require 'el-get nil 'noerror)
+;;   (with-current-buffer
+;;       (url-retrieve-synchronously
+;;        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+;;     (goto-char (point-max))
+;;     (eval-print-last-sexp)))
 
 
-(setq el-get-sources
-      '(
-        (:name golden-ratio
-               :type git
-               :url "https://github.com/roman/golden-ratio.el.git")
-        (:name yasnippet
-               :type git
-               :url "https://github.com/emacsmirror/yasnippet.git")))
+;; (setq el-get-sources
+;;       '(
+;;         (:name golden-ratio
+;;                :type git
+;;                :url "https://github.com/roman/golden-ratio.el.git")
+;;         (:name yasnippet
+;;                :type git
+;;                :url "https://github.com/emacsmirror/yasnippet.git")))
 
-;; (el-get 'wait '(golden-ratio yasnippet))
+;; ;; (el-get 'wait '(golden-ratio yasnippet))
 
-(el-get 'sync)
+;; (el-get 'sync)
 
 ;; package.el -------------------------------------------------
 (require 'package)
