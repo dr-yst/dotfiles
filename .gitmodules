@@ -7,3 +7,9 @@
 [submodule "auto-fu.zsh"]
 	path = auto-fu.zsh
 	url = https://github.com/hchbaw/auto-fu.zsh.git
+[submodule "dotemacs.d/elisp/emacs-sound-wav"]
+	path = dotemacs.d/elisp/emacs-sound-wav
+	url = https://github.com/syohex/emacs-sound-wav.git
+[submodule "dotemacs.d/elisp/emacs-zoom-window"]
+	path = dotemacs.d/elisp/emacs-zoom-window
+	url = https://github.com/syohex/emacs-zoom-window.git

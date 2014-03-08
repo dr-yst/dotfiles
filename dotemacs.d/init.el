@@ -1,4 +1,4 @@
-;; Last Updated: <2014/03/07 18:56:38 from yoshitos-mac-mini.local by yoshito>
+;; Last Updated: <2014/03/08 15:43:31 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -30,10 +30,11 @@
 ;; ;; load-pathに追加するフォルダ
 ;; ;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
 (add-to-load-path "setups" "elisp" "auto-install" ;; "plugins/yasnippet"
-                  "elisp/nyan-mode"
-                  "elisp/company" ;; "elisp/emacs-clang-complete-async"
+                  ;; "elisp/nyan-mode"
+                  ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
-                  "elisp/helm" "elisp/emacs-zoom-window" "elisp/emacs-sound-wav")
+                  ;; "elisp/helm"
+                  "elisp/emacs-zoom-window" "elisp/emacs-sound-wav")
 
 (eval-when-compile
   (require 'cl))

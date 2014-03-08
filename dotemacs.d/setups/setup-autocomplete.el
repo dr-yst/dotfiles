@@ -9,15 +9,20 @@
 (require 'auto-complete-config)
 (require 'auto-complete-clang)
 ;; (require 'auto-complete-clang-async)
-(require 'auto-complete-etags)
+;; (require 'ac-etags-setup)
 (require 'ac-company)
+
+(eval-after-load "etags"
+  '(progn
+      (ac-etags-setup)))
+
 
 (eval-after-load "auto-complete"
   '(progn
       (ac-ispell-setup)))
 
 
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict/")
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict/")
 ;; (ac-config-default)
 
 ;; (define-key ac-completing-map "\C-j" 'ac-complete)
@@ -65,20 +70,24 @@
 (add-hook 'c-mode-hook
           (lambda()
             (setq ac-sources (append '(ac-source-clang) ac-sources))
+            (ac-etags-ac-setup)
             ;; (ac-clang-launch-completion-process) ;; async
             ;; (setq ac-clang-prefix-header "~/.emacs.d/fuga.pch")
-            (setq ac-etags-use-document t)))
+            ;; (setq ac-etags-use-document t)
+            ))
 
 
 (add-hook 'c++-mode-hook
           (lambda()
             (setq ac-sources (append '(ac-source-clang
-                                       ac-source-etags) ac-sources))
+                                       ac-etags-ac-setup) ac-sources))
             ;; (ac-clang-launch-completion-process) ;; async
             (setq ac-clang-prefix-header "~/.emacs.d/hoge.pch")
             (setq ac-clang-flags
                   '("-std=c++11" "-w" "-ferror-limit" "1"))
-            (setq ac-etags-use-document t)))
+            (ac-etags-ac-setup)
+            ;; (setq ac-etags-use-document t)
+            ))
 
 ;; (add-hook 'python-mode-hook
 ;;           (lambda()
