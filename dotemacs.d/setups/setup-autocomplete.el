@@ -79,8 +79,7 @@
 
 (add-hook 'c++-mode-hook
           (lambda()
-            (setq ac-sources (append '(ac-source-clang
-                                       ac-etags-ac-setup) ac-sources))
+            (setq ac-sources (append '(ac-source-clang) ac-sources))
             ;; (ac-clang-launch-completion-process) ;; async
             (setq ac-clang-prefix-header "~/.emacs.d/hoge.pch")
             (setq ac-clang-flags
