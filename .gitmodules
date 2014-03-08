@@ -13,3 +13,6 @@
 [submodule "dotemacs.d/elisp/emacs-zoom-window"]
 	path = dotemacs.d/elisp/emacs-zoom-window
 	url = https://github.com/syohex/emacs-zoom-window.git
+[submodule "powerline-shell"]
+	path = powerline-shell
+	url = https://github.com/milkbikis/powerline-shell.git
