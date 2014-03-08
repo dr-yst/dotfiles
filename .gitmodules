@@ -16,3 +16,6 @@
 [submodule "powerline-shell"]
 	path = powerline-shell
 	url = https://github.com/milkbikis/powerline-shell.git
+[submodule "vim-powerline"]
+	path = vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
