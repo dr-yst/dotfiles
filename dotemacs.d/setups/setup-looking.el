@@ -41,7 +41,7 @@
 
  (setq default-frame-alist
       (append
-       '((top . 0) (left . 0) (width . 115 ) (height . 73)) ;; ウィンドウサイズ 
+       '((top . 0) (left . 0) (width . 115 ) (height . 56)) ;; ウィンドウサイズ 
        default-frame-alist))
 
 ;; ウィンドウサイズの確認手順
