@@ -116,7 +116,7 @@
             (push '("\\.h$" flymake-cc-init) flymake-allowed-file-name-masks)))
 
 ;; Objective-C
-(defvar xcode:iossdkver "7.0")
+(defvar xcode:iossdkver "7.1")
 (defvar xcode:iossdkpath "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/")
 (defvar xcode:iossdk (concat xcode:iossdkpath "SDKs/iPhoneSimulator" xcode:iossdkver ".sdk"))
 
