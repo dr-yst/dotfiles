@@ -1,5 +1,6 @@
 *.dat
 *.txt
+*.pch
 
 dotemacs.d/ddskk
 dotemacs.d/el-get
