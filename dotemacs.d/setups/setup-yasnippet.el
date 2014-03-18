@@ -7,10 +7,14 @@
 
 ;; yasnippet.el----------------------------------
 (require 'yasnippet)
-(setq yas-snippet-dirs
-      '("~/.emacs.d/mySnippets"         ; original
-        "~/.emacs.d/plugins/yasnippet/snippets"
-        ))
+;; (add-to-list 'yas-snippet-dirs ("~/.emacs.d/mySnippets")) 
+
+(setq yas-snippet-dirs (append '("~/.emacs.d/mySnippets") yas-snippet-dirs))
+;; (setq yas-snippet-dirs
+;;       '("~/.emacs.d/mySnippets"         ; original
+;;         "~/.emacs.d/plugins/yasnippet/snippets"
+;;         ))
+
 (yas-global-mode 1)
 
 ;; 既存スニペットを挿入
