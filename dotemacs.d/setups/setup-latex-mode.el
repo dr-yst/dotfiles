@@ -80,9 +80,10 @@
         ))
 
 ; RefTeXで使用するbibファイルの位置を指定する
-(setq reftex-default-bibliography '("~/Dropbox/ochiailab/tex/IEEEabrv.bib"
+(setq reftex-default-bibliography '(;; "~/Dropbox/ochiailab/tex/IEEEabrv.bib"
                                     "~/Dropbox/ochiailab/tex/library.bib"
-                                    "~/Dropbox/ochiailab/tex/biblio.bib"))
+                                    ;; "~/Dropbox/ochiailab/tex/biblio.bib"
+                                    ))
 
 
 
