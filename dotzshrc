@@ -316,7 +316,7 @@ export PYTHONSTARTUP=~/.pythonstartup.py
 
 # iOSのライブラリへのパス
 export PLATFORM=iPhoneOS
-export VERSION=6.1
+export VERSION=7.1
 export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${VERSION}.sdk/System/Library/Frameworks
 
 ########################################
