@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: head
+# key: head
+# --
+#+TITLE: ${1:Title}
+#+AUTHOR: ${2:Author}
+#+LATEX_CLASS: ${3:IEEEdouble}
+#+LATEX_CLASS_OPTIONS: ${4:[a4j]}
+#+OPTIONS: ${5:toc:nil timestamp:nil}
+$0

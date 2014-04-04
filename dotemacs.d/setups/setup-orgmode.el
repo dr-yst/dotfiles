@@ -33,4 +33,62 @@
 
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 
+;; LaTeX article class
+(setq org-latex-classes
+      '(("IEEEdouble"
+         "\\documentclass[11pt,twocolumn,twoside]{IEEEtran}
+\\usepackage{newenum}
+\\usepackage{times,amsmath,amssymb}
+\\usepackage{amsthm}
+\\usepackage{cite,subfigure,bm}
+\\usepackage{multicol,multirow}
+\\usepackage{array}
+\\usepackage[dvipdfmx,hiresbb]{graphicx}
+\\usepackage[dvipdfmx]{color}"
+         ("\\section{%s}" . "\\section*{%s}")
+         ("\\subsection{%s}" . "\\subsection*{%s}")
+         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+         ("\\paragraph{%s}" . "\\paragraph*{%s}")
+         ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+        ("IEEEsingle"
+         "\\documentclass[11pt,draftcls,onecolumn]{IEEEtran}
+\\usepackage{newenum}
+\\usepackage{times,amsmath,amssymb}
+\\usepackage{amsthm}
+\\usepackage{cite,subfigure,bm}
+\\usepackage{multicol,multirow}
+\\usepackage{array}
+\\usepackage[dvipdfmx,hiresbb]{graphicx}
+\\usepackage[dvipdfmx]{color}"
+         ("\\section{%s}" . "\\section*{%s}")
+         ("\\subsection{%s}" . "\\subsection*{%s}")
+         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+         ("\\paragraph{%s}" . "\\paragraph*{%s}")
+         ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+        ("thesis"
+         "
+	       \\documentclass{jsarticle}
+	       \\usepackage[dvipdfmx]{graphicx}
+	       \\usepackage[utf8]{inputenc}
+	       \\usepackage[T1]{fontenc}
+	       "
+         ("\\chapter{%s}" . "\\chapter*{%s}")
+         ("\\section{%s}" . "\\section*{%s}")
+         ("\\subsection{%s}" . "\\subsection*{%s}")
+         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+         ("\\paragraph{%s}" . "\\paragraph*{%s}")
+         ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+        ))
+
+(setq org-latex-default-class "IEEEdouble")
+
+;;; LaTeX 形式のファイル PDF に変換するためのコマンド
+(setq org-latex-pdf-process
+      '("platex %f"
+        "bibtex %b"
+        "platex %f"
+        "platex %f"
+        "dvipdfmx %b.dvi"))
+
+
 (provide 'setup-orgmode)
