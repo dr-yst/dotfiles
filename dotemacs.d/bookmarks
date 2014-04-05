@@ -2,9 +2,9 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored"
- (filename . "~/Dropbox/memo/agenda.org")
- (front-context-string . "* GLOBECOM用の論文構成")
- (rear-context-string . "013-11-13 W\ned>\n")
- (position . 6885))
+(("cpp"
+ (filename . "~/Dropbox/Programming/c++/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "40 Apr  4 00:52 ")
+ (position . 252))
 )

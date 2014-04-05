@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: align
+# key: align
+# --
+\begin{align}
+\label{eq:$1}
+$0
+\end{align}
