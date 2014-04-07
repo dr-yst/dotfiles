@@ -1,4 +1,4 @@
-;; Last Updated: <2014/03/18 15:10:44 from Zeppelin.local by yoshito>
+;; Last Updated: <2014/04/07 17:48:37 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -598,6 +598,11 @@
 (require 'ace-jump-mode)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
+;; historyf.el ------------------------------
+(require 'historyf)
+;; (global-unset-key (kbd "C-["))
+(global-set-key (kbd "C-{") 'historyf-back);;shortcut key
+(global-set-key (kbd "C-}") 'historyf-forward);;上に同じ
 
 ;; nyan-mode.el ------------------------------
 ;; (require 'nyan-mode)
