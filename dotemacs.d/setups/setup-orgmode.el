@@ -65,14 +65,24 @@
          ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
          ("\\paragraph{%s}" . "\\paragraph*{%s}")
          ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
-        ("thesis"
-         "
-	       \\documentclass{jsarticle}
-	       \\usepackage[dvipdfmx]{graphicx}
-	       \\usepackage[utf8]{inputenc}
-	       \\usepackage[T1]{fontenc}
-	       "
+        ("thesis"                       
+         "\\documentclass{jsarticle}
+\\usepackage[dvipdfmx]{graphicx}
+\\usepackage[T1]{fontenc}"
          ("\\chapter{%s}" . "\\chapter*{%s}")
+         ("\\section{%s}" . "\\section*{%s}")
+         ("\\subsection{%s}" . "\\subsection*{%s}")
+         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+         ("\\paragraph{%s}" . "\\paragraph*{%s}")
+         ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+        ("ieice"
+         "\\documentclass[a4paper]{ieicejsp2}
+\\usepackage{newenum}
+\\usepackage{amsmath,amssymb}
+\\usepackage[dvipdfmx]{graphicx}
+\\usepackage{cite,subfigure,bm,color}
+\\usepackage{array}
+\\usepackage{epsfig}"
          ("\\section{%s}" . "\\section*{%s}")
          ("\\subsection{%s}" . "\\subsection*{%s}")
          ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
