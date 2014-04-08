@@ -1,4 +1,4 @@
-;; Last Updated: <2014/04/07 17:48:37 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2014/04/08 14:21:28 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -588,15 +588,12 @@
 (require 'setup-orgmode)
 (require 'setup-anzu)
 (require 'setup-guidekey)
+(require 'setup-ace-jump)
 
 ;; jaunte.el-------------------------------------
 ;; 好きなところにカーソルを移動させる
 (require 'jaunte)
 (global-set-key (kbd "C-c j") 'jaunte)
-
-;; ace-jump-mode.el----------------------------
-(require 'ace-jump-mode)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; historyf.el ------------------------------
 (require 'historyf)

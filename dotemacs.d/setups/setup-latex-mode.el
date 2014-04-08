@@ -35,12 +35,15 @@
     '("acroread" "acroread '%s.pdf' " TeX-run-command t nil))
   (add-to-list 'TeX-command-list
     '("pdf" "dvipdfmx -V 4 '%s' " TeX-run-command t nil))
+  ;; (add-to-list 'TeX-command-list
+  ;;   '("pBibTeX" "pbibtex '%s' " TeX-run-command t nil))
   (add-to-list 'TeX-command-list
-    '("pBibTeX" "pbibtex '%s' " TeX-run-command t nil))
+    '("open" "open '%s.pdf' " TeX-run-command t nil))
 )))
 ;; (setq japanese-LaTeX-command-default "pLaTeX")
 (setq japanese-TeX-command-default "pLaTeX")
 (setq TeX-command-default "pLaTeX")
+;; (setq tex-bibtex-command "pbibtex")
 ;; (setq LaTeX-command-default "pLaTeX")
 
 
