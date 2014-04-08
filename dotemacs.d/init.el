@@ -1,4 +1,4 @@
-;; Last Updated: <2014/04/08 14:21:28 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2014/04/08 15:48:19 from Yoshitos-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -598,8 +598,8 @@
 ;; historyf.el ------------------------------
 (require 'historyf)
 ;; (global-unset-key (kbd "C-["))
-(global-set-key (kbd "C-{") 'historyf-back);;shortcut key
-(global-set-key (kbd "C-}") 'historyf-forward);;上に同じ
+(global-set-key (kbd "C-M-{") 'historyf-back);;shortcut key
+(global-set-key (kbd "C-M-}") 'historyf-forward);;上に同じ
 
 ;; nyan-mode.el ------------------------------
 ;; (require 'nyan-mode)
