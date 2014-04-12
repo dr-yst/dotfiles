@@ -7,10 +7,13 @@
 
 ;; ;; auto-complete --------------------------------
 (require 'auto-complete-config)
-(require 'auto-complete-clang)
-;; (require 'auto-complete-clang-async)
+;; (require 'auto-complete-clang)
+(require 'auto-complete-clang-async)
 ;; (require 'ac-etags-setup)
-(require 'ac-company)
+;; (require 'ac-company)
+(require 'auto-complete-auctex)
+
+;; (require 'auto-complete-c-headers)
 
 (eval-after-load "etags"
   '(progn
@@ -69,21 +72,26 @@
 
 (add-hook 'c-mode-hook
           (lambda()
-            (setq ac-sources (append '(ac-source-clang) ac-sources))
-            (ac-etags-ac-setup)
-            ;; (ac-clang-launch-completion-process) ;; async
+            (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
+            (setq ac-sources (append '(ac-source-clang-async) ac-sources))
+            ;; (ac-etags-ac-setup)
+            (ac-clang-launch-completion-process) ;; async
             ;; (setq ac-clang-prefix-header "~/.emacs.d/fuga.pch")
             ;; (setq ac-etags-use-document t)
             ))
 
-
+;; c++-modeではac-clang-asyncよりac-clangの方が良い
 (add-hook 'c++-mode-hook
           (lambda()
-            (setq ac-sources (append '(ac-source-clang) ac-sources))
-            ;; (ac-clang-launch-completion-process) ;; async
-            (setq ac-clang-prefix-header "~/.emacs.d/hoge.pch")
+            (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
+            (setq ac-sources (append '(ac-source-clang-async) ac-sources))
+            ;; (setq ac-sources '(ac-source-clang-async))
+            (ac-clang-launch-completion-process) ;; async
+            ;; (setq ac-clang-prefix-header "~/.emacs.d/hoge.pch")
+            ;; (setq ac-clang-flags
+            ;;       '("-std=c++11" "-w" "-ferror-limit" "1"))
             (setq ac-clang-flags
-                  '("-std=c++11" "-w" "-ferror-limit" "1"))
+                  '("-std=c++11" "-I/opt/local/include" "-ferror-limit" "1"))
             (ac-etags-ac-setup)
             ;; (setq ac-etags-use-document t)
             ))
@@ -94,20 +102,20 @@
 
 ;; Objective-C用の設定 -----------------------
 ; ac-company で company-xcode を有効にする
-(ac-company-define-source ac-source-company-xcode company-xcode)
+;; (ac-company-define-source ac-source-company-xcode company-xcode)
 ;; objc-mode で補完候補を設定
 (setq ac-modes (append ac-modes '(objc-mode)))
 
 ;; hook
 (add-hook 'objc-mode-hook
           (lambda ()
-            (setq ac-clang-flags (list "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200" "-x" "objective-c" "-std=gnu99" "-isysroot" xcode:iossdk "-I." "-F.." "-fblocks" )) ;## iossdkとmacsdkを変える
-            ;; (setq ac-clang-flags (append
-            ;;                       flymake-objc-compile-default-options
-            ;;                       flymake-objc-compile-options))
-            (setq ac-sources (append '(ac-source-company-xcode ;; XCode を利用した補完を有効にする
-                                       ac-source-clang
-                                       ) ac-sources))
+            (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
+            (setq ac-sources '(;; ac-source-company-xcode
+                                       ;; XCode を利用した補完を有効にする
+                                       ac-source-clang-async
+                                       ))
+            (ac-clang-launch-completion-process) ;async
+            (yas/minor-mode-on)
             ))
 
 ;;; yasnippetのbindingを指定するとエラーが出るので回避する方法。

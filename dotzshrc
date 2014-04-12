@@ -509,7 +509,7 @@ precmd_functions=($precmd_functions update_prompt)
 
 # g++のコマンド省略
 # 引数1個めと2個めは入力ファイル、出力ファイル
-function cc(){
+function ccc(){
     arg=("$@")
     command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lmylib"
 
