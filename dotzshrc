@@ -56,7 +56,7 @@ zstyle ':zle:*' word-style unspecified
 
 # 補完機能を有効にする
 autoload -Uz compinit
-compinit
+compinit -u
 
 
 # ^PとかのHistory検索と相性が悪い
