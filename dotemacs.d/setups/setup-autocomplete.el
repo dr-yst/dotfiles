@@ -91,7 +91,7 @@
             ;; (setq ac-clang-flags
             ;;       '("-std=c++11" "-w" "-ferror-limit" "1"))
             (setq ac-clang-flags
-                  '("-std=c++11" "-I/opt/local/include" "-I/MyLib/include" "-ferror-limit" "1"))
+                  '("-std=c++11" "-I/usr/local/include" "-I/MyLib/include" "-ferror-limit" "1"))
             ;; (ac-etags-ac-setup)
             ;; (setq ac-etags-use-document t)
             ))
