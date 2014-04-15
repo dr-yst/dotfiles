@@ -9,6 +9,7 @@
 (require 'auto-complete-config)
 ;; (require 'auto-complete-clang)
 (require 'auto-complete-clang-async)
+(require 'my-auto-complete-clang)
 ;; (require 'ac-etags-setup)
 ;; (require 'ac-company)
 (require 'auto-complete-auctex)
@@ -83,20 +84,20 @@
 ;; c++-modeではac-clang-asyncよりac-clangの方が良い
 (add-hook 'c++-mode-hook
           (lambda()
-            (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
-            ;; (setq ac-sources (append '(ac-source-clang-async) ac-sources))
-            (setq ac-sources '(ac-source-clang-async))
-            ;; (setq ac-clang-prefix-header "~/.emacs.d/hoge.pch")
-            (setq ac-clang-flags
-                  '("-std=c++11"
-                    ;; "-include-pch ~/.emacs.d/hoge.pch"
-                    "-I/opt/local/include"
-                    "-I/MyLib/include"
-                    "-ferror-limit" "1"))
-            (ac-clang-launch-completion-process) ;; async
+            ;; (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
+            (setq ac-sources (append '(ac-source-my-clang) ac-sources))
+            ;; (setq ac-sources '(ac-source-clang-async))
+            (setq ac-clang-prefix-header "~/.emacs.d/hoge.pch")
             ;; (setq ac-clang-flags
-            ;;       '("-std=c++11" "-w" "-ferror-limit" "1"))
-            ;; (ac-etags-ac-setup)
+            ;;       '("-std=c++11"
+            ;;         ;; "-include-pch ~/.emacs.d/hoge.pch"
+            ;;         "-I/opt/local/include"
+            ;;         "-I/MyLib/include"
+            ;;         "-ferror-limit" "1"))
+            ;; (ac-clang-launch-completion-process) ;; async
+            (setq my-ac-clang-flags
+                  '("-w" "-ferror-limit" "1"))
+            (ac-etags-ac-setup)
             ;; (setq ac-etags-use-document t)
             ))
 
