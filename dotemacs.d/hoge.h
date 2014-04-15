@@ -20,12 +20,12 @@
 #include <itpp/itbase.h>
 #include <itpp/itcomm.h>
 #include <itpp/itstat.h>
-// #include <myutl.h>
-// #include <myimg.h>
-// #include <myaudio.h>
-// #include <mydsp.h>
-// #include <mycomm.h>
-// #include <mymatrix.h>
-// #include <mymatrix_utl.h>
+#include <myutl.h>
+#include <myimg.h>
+#include <myaudio.h>
+#include <mydsp.h>
+#include <mycomm.h>
+#include <mymatrix.h>
+#include <mymatrix_utl.h>
 
 #endif
