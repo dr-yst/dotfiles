@@ -234,6 +234,7 @@ alias remem='du -sx / &> /dev/null & sleep 25 && kill $!'
 # alias emacsapp='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
 
 alias title='~/.files/title.sh'
+alias platexpdf='~/.files/platexpdf/platexpdf'
 
 # alias g++='g++-mp-4.9'
 # alias gcc='gcc-mp-4.9'
