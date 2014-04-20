@@ -35,6 +35,9 @@
     '("acroread" "acroread '%s.pdf' " TeX-run-command t nil))
   (add-to-list 'TeX-command-list
     '("pdf" "dvipdfmx -V 4 '%s' " TeX-run-command t nil))
+  (add-to-list 'TeX-command-list
+    '("pp" "~/.files/platexpdf/platexpdf %t" TeX-run-command t nil))
+
   ;; (add-to-list 'TeX-command-list
   ;;   '("pBibTeX" "pbibtex '%s' " TeX-run-command t nil))
   (add-to-list 'TeX-command-list

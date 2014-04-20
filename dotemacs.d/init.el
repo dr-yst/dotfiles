@@ -1,4 +1,4 @@
-;; Last Updated: <2014/04/08 15:48:19 from Yoshitos-iMac.local by yoshito>
+;; Last Updated: <2014/04/18 18:07:50 from dr-yst-no-pc.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -11,10 +11,6 @@
 ;; (load-file (expand-file-name "~/.emacs.d/shellenv.el"))
 ;; (dolist (path (reverse (split-string (getenv "PATH") ":")))
 ;;   (add-to-list 'exec-path path))
-
-
-;; より下に記述した物が PATH の先頭に追加されます
-
 
 (setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/opt/local/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
 
