@@ -1,2 +1,3 @@
-dotemacs_d
+dotfiles
 ==========
+My dot files.

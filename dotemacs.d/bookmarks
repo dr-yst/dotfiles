@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("mylib"
+(("note"
+ (filename . "~/Dropbox/ochiailab/note/")
+ (front-context-string . "auto\n  drwxr-xr-")
+ (rear-context-string . "02 Apr 18 17:09 ")
+ (position . 244))
+("mylib"
  (filename . "~/Dropbox/Programming/lib/myLibrary/")
  (front-context-string . ".DS_Store\n  drwx")
  (rear-context-string . "08 Mar  8 22:11 ")
