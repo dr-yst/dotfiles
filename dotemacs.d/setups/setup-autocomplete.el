@@ -42,7 +42,7 @@
 ;; (setq ac-auto-start 4)                  ;何文字入力したらauto-completeになるか
 ;; (setq ac-auto-show-menu 0.8)  ;; 0.8秒後に自動で表示
 ;; (define-key ac-mode-map  [(control tab)] 'auto-complete)
-(setq ac-clang-async-do-autocompletion-automatically nil)
+;; (setq ac-clang-async-do-autocompletion-automatically nil)
 
 
 
