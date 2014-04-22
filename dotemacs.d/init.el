@@ -1,4 +1,4 @@
-;; Last Updated: <2014/04/22 18:30:32 from dr-yst-no-pc.local by yoshito>
+;; Last Updated: <2014/04/22 18:45:16 from dr-yst-no-pc.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -162,7 +162,7 @@
 ;; (global-set-key "\M-n" 'forward-paragraph)
 (global-set-key [C-M-f5] 'goto-line)
 ;; (global-set-key "\C-cr" 'rename-uniquely)
-(global-set-key "\C-o" 'open-line)
+
 (global-set-key "\M-n" (lambda () (interactive) (scroll-up 1)))
 (global-set-key "\M-p" (lambda () (interactive) (scroll-down 1)))
 (global-set-key "\M-N" (lambda () (interactive) (scroll-up 10)))
@@ -171,7 +171,14 @@
 (global-set-key "\C-@" 'ispell-word)
 (global-set-key "\M-@" 'ispell-complete-word)
 
-(define-key global-map (kbd "C-m") 'smart-newline)
+(defun open-line-next-indent ()
+  "Open a line and the next line indent"
+  (interactive)
+  (save-excursion
+  (newline-and-indent))
+  )
+(global-set-key "\C-o" 'open-line-next-indent)
+
 
 ;; スクロールしてもカーソルの相対位置変えない設定
 ;; (defun my-count-lines-window ()
