@@ -1,4 +1,4 @@
-;; Last Updated: <2014/04/18 18:07:50 from dr-yst-no-pc.local by yoshito>
+;; Last Updated: <2014/04/22 18:30:32 from dr-yst-no-pc.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -170,6 +170,8 @@
 		
 (global-set-key "\C-@" 'ispell-word)
 (global-set-key "\M-@" 'ispell-complete-word)
+
+(define-key global-map (kbd "C-m") 'smart-newline)
 
 ;; スクロールしてもカーソルの相対位置変えない設定
 ;; (defun my-count-lines-window ()

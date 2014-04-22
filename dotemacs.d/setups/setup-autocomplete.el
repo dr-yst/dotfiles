@@ -34,7 +34,6 @@
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)
 (define-key ac-menu-map "\C-j" 'ac-complete)
-(setq ac-auto-start nil)              ; t or nil
 (define-key ac-mode-map  (kbd "C-'") 'auto-complete)
 (define-key ac-mode-map  (kbd "C-M-/") 'auto-complete)
 ;; (ac-set-trigger-key "M-_")
@@ -84,6 +83,7 @@
 ;; c++-modeではac-clang-asyncよりac-clangの方が良い
 (add-hook 'c++-mode-hook
           (lambda()
+            (setq ac-auto-start nil)              ; t or nil
             ;; (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
             (setq ac-sources (append '(ac-source-my-clang) ac-sources))
             ;; (setq ac-sources '(ac-source-clang-async))
@@ -127,5 +127,9 @@
 ;; (setf (symbol-function 'yas-active-keys)
 ;;       (lambda ()
 ;;         (remove-duplicates (mapcan #'yas--table-all-keys (yas--get-snippet-tables)))))
+
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (setq ac-auto-start nil)))
 
 (provide 'setup-autocomplete)
