@@ -1,4 +1,4 @@
-;; Last Updated: <2014/04/22 18:45:16 from dr-yst-no-pc.local by yoshito>
+;; Last Updated: <2014/04/23 14:33:34 from dr-yst-no-pc.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -175,7 +175,8 @@
   "Open a line and the next line indent"
   (interactive)
   (save-excursion
-  (newline-and-indent))
+  (newline)
+  (indent-for-tab-command))
   )
 (global-set-key "\C-o" 'open-line-next-indent)
 
