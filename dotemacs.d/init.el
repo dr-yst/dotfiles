@@ -1,4 +1,4 @@
-;; Last Updated: <2014/04/23 14:33:34 from dr-yst-no-pc.local by yoshito>
+;; Last Updated: <2014/04/24 20:49:27 from dr-yst-no-pc.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -172,7 +172,7 @@
 (global-set-key "\M-@" 'ispell-complete-word)
 
 (defun open-line-next-indent ()
-  "Open a line and the next line indent"
+  "Open a line and indent the next line."
   (interactive)
   (save-excursion
   (newline)
