@@ -43,7 +43,7 @@
 \\usepackage{cite,subfigure,bm}
 \\usepackage{multicol,multirow}
 \\usepackage{array}
-\\usepackage[dvipdfmx,hiresbb]{graphicx}
+\\usepackage[dvipdfmx]{graphicx}
 \\usepackage[dvipdfmx]{color}"
          ("\\section{%s}" . "\\section*{%s}")
          ("\\subsection{%s}" . "\\subsection*{%s}")
@@ -58,7 +58,7 @@
 \\usepackage{cite,subfigure,bm}
 \\usepackage{multicol,multirow}
 \\usepackage{array}
-\\usepackage[dvipdfmx,hiresbb]{graphicx}
+\\usepackage[dvipdfmx]{graphicx}
 \\usepackage[dvipdfmx]{color}"
          ("\\section{%s}" . "\\section*{%s}")
          ("\\subsection{%s}" . "\\subsection*{%s}")
