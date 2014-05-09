@@ -2,12 +2,7 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored"
- (filename . "~/Dropbox/memo/agenda.org")
- (front-context-string . "** TODO TurboCod")
- (rear-context-string . "2014-04-06 Sun>\n")
- (position . 6590))
-("note"
+(("note"
  (filename . "~/Dropbox/ochiailab/note/")
  (front-context-string . "auto\n  drwxr-xr-")
  (rear-context-string . "02 Apr 18 17:09 ")
