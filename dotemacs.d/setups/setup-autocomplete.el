@@ -116,17 +116,17 @@
 ;; hook
 (add-hook 'objc-mode-hook
           (lambda ()
-            ;; (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
-            (setq ac-auto-start nil)              ; t or nil
+            (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
+            ;; (setq ac-auto-start nil)              ; t or nil
             (setq ac-sources '(;; ac-source-company-xcode
                                ;; XCode を利用した補完を有効にする
-                               ;; ac-source-clang-async
-                               ac-source-my-clang
-                               ac-source-yasnippet
+                               ac-source-clang-async
+                               ;; ac-source-my-clang
+                               ;; ac-source-yasnippet
                                ))
             ;; (setq my-ac-clang-flags (append
             ;;       flymake-objc-compile-default-options flymake-objc-compile-options))
-            ;; (ac-clang-launch-completion-process) ;async
+            (ac-clang-launch-completion-process) ;async
             (yas/minor-mode-on)
             ))
 

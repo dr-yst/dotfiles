@@ -127,7 +127,8 @@
 (defvar flymake-objc-compiler (executable-find "clang"))
 ;; (defvar flymake-objc-compile-default-options (list "-Wall" "-Wextra" "-fsyntax-only" "-fobjc-arc" "-isysroot" xcode:sdk
 ;;                                                    ))
-(defvar flymake-objc-compile-default-options (list "-Wall" "-Wextra" "-fsyntax-only" "-ObjC" "-std=c99" "-fblocks"
+(defvar flymake-objc-compile-default-options (list "-Wall" "-Wextra" "-fsyntax-only" "-ObjC" "-std=c99"
+                                                   "-fblocks" "-fobjc-arc"
                                               ;; "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200"
                                                    ;; "-framework Foundation" "-fsyntax-only" "-fno-color-diagnostics" "-fobjc-arc" "-fblocks" "-Wreturn-type" "-Wparentheses" "-Wswitch" "-Wno-unused-parameter" "-Wunused-variable" "-Wunused-value"
                                                    "-isysroot" xcode:iossdk)) ;## ここをiossdkとmacsdkで変える
