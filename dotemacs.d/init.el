@@ -1,4 +1,4 @@
-;; Last Updated: <2014/04/24 20:49:27 from dr-yst-no-pc.local by yoshito>
+;; Last Updated: <2014/05/12 17:45:49 from dr-yst-no-pc.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -268,8 +268,6 @@
 
 ;; 行間
 ;(setq-default line-spacing 0)
-;; バックアップを残さない
-;(setq make-backup-files nil)
 
 ;; ;;カーソルの点滅を止めます
 (blink-cursor-mode -1) 
@@ -353,6 +351,8 @@
       (cons (cons "\\.*$" (expand-file-name "~/Library/emacs-backup"))
 	    backup-directory-alist))
 
+(setq auto-save-list-file-prefix nil)
+
 ;; テンプレートの保存先
 (setq auto-insert-directory "~/.emacs.d/insert")
 (auto-insert-mode 1)
@@ -372,12 +372,6 @@
 ;; 辞書をaspellに変更
 (setq-default ispell-program-name "aspell")
 	      
-
-
-
-;; ;; 残さない
-(setq make-backup-files nil)
-
 
 ;;モード毎の設定-----------------------------------------------------
 
