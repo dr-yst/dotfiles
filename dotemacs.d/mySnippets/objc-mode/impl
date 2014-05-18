@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: @implementation Definition
-# key: imple
-# --
-@implementation ${1:class}
-${2:methods}$0
-@end
