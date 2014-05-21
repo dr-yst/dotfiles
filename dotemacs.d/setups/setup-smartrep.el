@@ -8,10 +8,6 @@
 ;; smartrep.el-------------------------------
 (require 'smartrep)
 
-;; \C-qをプレフィックスキーに設定
-(defvar ctl-q-map (make-keymap))
-(define-key global-map "\C-q" ctl-q-map) 
-
 (smartrep-define-key 
     global-map "C-q" '(("n" . (lambda () (scroll-other-window 1)))
                        ("p" . (lambda () (scroll-other-window -1)))

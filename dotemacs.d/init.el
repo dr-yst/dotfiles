@@ -1,4 +1,4 @@
-;; Last Updated: <2014/05/12 17:45:49 from dr-yst-no-pc.local by yoshito>
+;; Last Updated: <2014/05/21 14:02:44 from dr-yst-no-pc.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -180,6 +180,20 @@
   )
 (global-set-key "\C-o" 'open-line-next-indent)
 
+;; \C-qをプレフィックスキーに設定
+(defvar ctl-q-map (make-keymap))
+(define-key global-map "\C-q" ctl-q-map) 
+
+
+(require 'fold-dwim)
+;ダブルクリックで，折りたたみtoggleを発動
+(global-set-key "\C-qi" 'fold-dwim-toggle)
+
+(global-set-key "\C-q+" 'fold-dwim-show-all)
+(global-set-key "\C-q\-" 'fold-dwim-hide-all)
+
+;all showとall hide ...うまく行かなかったのでやっぱり無し．
+
 
 ;; スクロールしてもカーソルの相対位置変えない設定
 ;; (defun my-count-lines-window ()
@@ -233,7 +247,7 @@
 ;; (global-set-key "\C-o" 'copy-line)
 
 ;touch
-(load-library "touch")
+;; (load-library "touch")
 
 
 ;画面左に行番号表示
@@ -249,13 +263,6 @@
 ;; (defadvice linum-schedule (around my-linum-schedule () activate)
 ;;   (run-with-idle-timer 0.2 nil #'linum-update-current))
 
-
-(load-library "fold-dwim")
-;ダブルクリックで，折りたたみtoggleを発動
-;; (global-set-key [(double-mouse-1)] 'fold-dwim-toggle)
-;all showとall hide ...うまく行かなかったのでやっぱり無し．
-;;(global-set-key "\C-c\C-s" 'fold-dwim-show-all)
-;;(global-set-key "\C-c\C-h" 'fold-dwim-hide-all)
 
 
 
