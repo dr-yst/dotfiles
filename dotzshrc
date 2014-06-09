@@ -251,6 +251,10 @@ function snow(){
 
 export EDITOR=/usr/bin/emacs
 
+alias trimiPhone4='ls *.png | while read line; do convert -crop 640x920+0+40 "$line" "crop-$line"; done'
+alias trimiPhone5='ls *.png | while read line; do convert -crop 640x1096+0+40 "$line" "crop-$line"; done'
+
+
 #####################################
 # emacsとshellでパスを共有
 alias eclient="/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient"
