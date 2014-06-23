@@ -222,7 +222,7 @@ alias la='\ls -aGv'
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias emacs="open -a /Applications/MacPorts/Emacs.app"
+alias emacs="open -a /Applications/Emacs.app"
 alias f='finder.sh'
 alias bon="open -a Xcode"
 
@@ -311,8 +311,8 @@ export TEXINPUTS=$TEXINPUTS:~/Dropbox/ochiailab/tex/
 export BSTINPUTS=$BSTINPUTS:~/Dropbox/ochiailab/tex/
 export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/
 
-export C_INCLUDE_PATH=/opt/local/include/:/usr/local/include/:/usr/include/:~/MyLib/include/:$C_INCLUDE_PATH # /opt/local/include/:
-export CPLUS_INCLUDE_PATH=/opt/local/include/:/usr/local/include/:/usr/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
+export C_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:/opt/local/include/:$C_INCLUDE_PATH # /opt/local/include/:
+export CPLUS_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:/opt/local/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
 export LIBRARY_PATH=~/MyLib/:$LIBRARY_PATH
 export DYLD_LIBRARY_PATH=~/MyLib/:$DYLD_LIBRARY_PATH 
 
