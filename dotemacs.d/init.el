@@ -1,4 +1,4 @@
-;; Last Updated: <2014/05/21 14:02:44 from dr-yst-no-pc.local by yoshito>
+;; Last Updated: <2014/06/24 11:49:37 from yoshitos-mac-mini.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -12,7 +12,7 @@
 ;; (dolist (path (reverse (split-string (getenv "PATH") ":")))
 ;;   (add-to-list 'exec-path path))
 
-(setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/opt/local/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
+(setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
 
 ;; ;;load-pathの追加関数
 (defun add-to-load-path (&rest paths)

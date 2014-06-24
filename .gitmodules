@@ -22,9 +22,6 @@
 [submodule "zsh-completions"]
 	path = zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
-[submodule "dotemacs.d/emacs-clang-complete-async"]
-	path = dotemacs.d/emacs-clang-complete-async
-	url = https://github.com/Golevka/emacs-clang-complete-async.git
 [submodule "platexpdf"]
 	path = platexpdf
 	url = https://github.com/fjyuu/platexpdf.git

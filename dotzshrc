@@ -77,7 +77,7 @@ zstyle ':completion:*' ignore-parents parent pwd ..
  
 # sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-/usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin /opt/local/bin /opt/local/sbin /usr/local/bin/git/bin
+/usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin /usr/local/bin/git/bin
  
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
@@ -306,13 +306,13 @@ bindkey '^x^p' pbcopy-buffer
 
 ########################################
 # パスの設定
-PATH=":${HOME}/AFsp-v9r0/bin:${HOME}/MyProgram:/usr/local/bin:/usr/local/sbin:/opt/local/bin:${HOME}/anaconda/bin:${PATH}"
+PATH=":${HOME}/AFsp-v9r0/bin:${HOME}/MyProgram:/usr/local/bin:/usr/local/sbin:${HOME}/anaconda/bin:${PATH}"
 export TEXINPUTS=$TEXINPUTS:~/Dropbox/ochiailab/tex/
 export BSTINPUTS=$BSTINPUTS:~/Dropbox/ochiailab/tex/
 export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/
 
-export C_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:/opt/local/include/:$C_INCLUDE_PATH # /opt/local/include/:
-export CPLUS_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:/opt/local/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
+export C_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:$C_INCLUDE_PATH # /opt/local/include/:
+export CPLUS_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
 export LIBRARY_PATH=~/MyLib/:$LIBRARY_PATH
 export DYLD_LIBRARY_PATH=~/MyLib/:$DYLD_LIBRARY_PATH 
 
