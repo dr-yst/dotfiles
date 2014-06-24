@@ -1,4 +1,4 @@
-;; Last Updated: <2014/06/24 11:49:37 from yoshitos-mac-mini.local by yoshito>
+;; Last Updated: <2014/06/24 18:33:50 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -38,8 +38,13 @@
 ;他のエディタでファイルが更新されたら自動でrevert
 (global-auto-revert-mode 1) 
 
+
+
+
 ;; emacsとshellでパスを共有------------------------------------
-(server-start)
+(require 'server)
+(unless (server-running-p) (server-start))
+
 (defun non-elscreen-current-directory ()
   (let* (current-dir
          (current-buffer
