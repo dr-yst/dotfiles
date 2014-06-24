@@ -18,9 +18,11 @@
   (when (require 'dired-x nil t)
     (global-set-key "\C-x\C-j" 'skk-mode)
     (global-set-key "\C-xj" 'skk-mode))
-  
   ;; .skk を自動的にバイトコンパイル
   (setq skk-byte-compile-init-file t))
+
+;; 前候補/前候補群に戻る操作
+(setq skk-previous-candidate-keys (list "x" "\C-p" "\C-h"))
 
 (require 'skk-vars)
 
