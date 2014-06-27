@@ -257,7 +257,7 @@ alias trimiPhone5='ls *.png | while read line; do convert -crop 640x1096+0+40 "$
 
 #####################################
 # emacsとshellでパスを共有
-alias eclient="/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias eclient="emacsclient"
 function cde () {   
     EMACS_CWD=`eclient -e "
       (if (featurep 'elscreen)
@@ -306,7 +306,7 @@ bindkey '^x^p' pbcopy-buffer
 
 ########################################
 # パスの設定
-PATH=":${HOME}/AFsp-v9r0/bin:${HOME}/MyProgram:/usr/local/bin:/usr/local/sbin:${HOME}/anaconda/bin:${PATH}"
+PATH=":${HOME}/AFsp-v9r0/bin:${HOME}/MyProgram:/usr/local/bin:/usr/local/opt/llvm/bin:${HOME}/anaconda/bin:${PATH}"
 export TEXINPUTS=$TEXINPUTS:~/Dropbox/ochiailab/tex/
 export BSTINPUTS=$BSTINPUTS:~/Dropbox/ochiailab/tex/
 export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/

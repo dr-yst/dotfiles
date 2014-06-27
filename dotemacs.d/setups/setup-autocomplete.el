@@ -74,7 +74,7 @@
 
 (add-hook 'c-mode-hook
           (lambda()
-            (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
+            ;; (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
             (setq ac-sources (append '(ac-source-clang-async) ac-sources))
             ;; (ac-etags-ac-setup)
             (ac-clang-launch-completion-process) ;; async
@@ -116,7 +116,7 @@
 ;; hook
 (add-hook 'objc-mode-hook
           (lambda ()
-            (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
+            ;; (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete") 
             (setq ac-auto-start nil)              ; t or nil
             (setq ac-sources '(;; ac-source-company-xcode
                                ;; XCode を利用した補完を有効にする
