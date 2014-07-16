@@ -3,7 +3,9 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        backward-kill-word-or-kill-region
         c-electric-delete-forward
+        c-forward-into-nomenclature
         kill-region
         org-capture
         ))

@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored"
+(("presentation_papers"
+ (filename . "~/OneDrive/Documents/presentation_papers/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "92 Jul  2 15:05 ")
+ (position . 276))
+("org-capture-last-stored"
  (filename . "~/Dropbox/memo/agenda.org")
  (front-context-string . "** TODO RSCデコーダの")
  (rear-context-string . "2014-06-09 Mon>\n")
@@ -22,11 +27,6 @@
  (front-context-string . ".DS_Store\n  drwx")
  (rear-context-string . "08 Mar  8 22:11 ")
  (position . 263))
-("double"
- (filename . "~/SkyDrive/Documents/presentation_papers/journal/journal_watanabe_final/double.tex")
- (front-context-string . "%% V1.4\n%% 2012/")
- (rear-context-string . "% bare_jrnl.tex\n")
- (position . 18))
 ("emacs"
  (filename . "~/.emacs.d/")
  (front-context-string . ".DS_Store\n  -rw-")
