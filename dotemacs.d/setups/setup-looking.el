@@ -54,7 +54,7 @@
 ;; moe-theme
 ;; (require 'moe-theme-switcher)
 (load-theme 'moe-dark t)
-(setq show-paren-style 'expression)
+;; (setq show-paren-style 'expression)
 
 
 (global-hl-line-mode)
