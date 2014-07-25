@@ -1,4 +1,4 @@
-;; Last Updated: <2014/07/25 14:12:16 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2014/07/25 14:35:48 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -350,6 +350,7 @@
 
 ;;; 括弧の対応表示
 (require 'paren)
+(show-paren-mode t)
 
 ;;; 前回の編集箇所を記録
 (require 'saveplace)
