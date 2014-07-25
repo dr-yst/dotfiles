@@ -1,4 +1,4 @@
-;; Last Updated: <2014/06/24 18:33:50 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2014/07/25 14:12:16 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -350,7 +350,6 @@
 
 ;;; 括弧の対応表示
 (require 'paren)
-(show-paren-mode)
 
 ;;; 前回の編集箇所を記録
 (require 'saveplace)
@@ -717,6 +716,14 @@
 ;; (defun my/before-save-hook ()
 ;;   (sound-wav-play "~/.emacs.d/Achievement.mp3"))
 ;; (add-hook 'before-save-hook 'my/before-save-hook)
+
+
+;; my/kill-emacs-hook
+(defun my/kill-emacs-hook ()
+  (let ((progress (read-string "進捗どうですか? " "ダメです")))
+    (when (string-match-p "\\(?:ダメ\\|だめ\\|駄目\\)" progress)
+      (error "作業してください"))))
+(add-hook 'kill-emacs-hook 'my/kill-emacs-hook)
 
 ;; free-keys---------------------
 ;; (require 'free-keys)
