@@ -1,4 +1,4 @@
-;; Last Updated: <2014/07/25 14:35:48 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2014/07/31 15:31:45 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -601,6 +601,7 @@
 (require 'setup-anzu)
 (require 'setup-guidekey)
 (require 'setup-ace-jump)
+(require 'setup-emms)
 
 ;; jaunte.el-------------------------------------
 ;; 好きなところにカーソルを移動させる
