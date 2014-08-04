@@ -133,5 +133,8 @@
 ;; (add-hook 'yatex-mode-hook
 ;;           '(lambda () (outline-minor-mode t)))
 
+(latex-preview-pane-enable)
+
+
 (provide 'setup-latex-mode)
 

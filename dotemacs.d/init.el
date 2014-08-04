@@ -1,4 +1,4 @@
-;; Last Updated: <2014/08/03 12:56:36 from yoshitos-mac-mini.local by yoshito>
+;; Last Updated: <2014/08/04 15:36:21 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -25,7 +25,7 @@
 
 ;; ;; load-pathに追加するフォルダ
 ;; ;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
-(add-to-load-path "setups" "elisp" "auto-install" ;; "plugins/yasnippet"
+(add-to-load-path "setups" "elisp" ;; "auto-install" ;; "plugins/yasnippet"
                   ;; "elisp/nyan-mode"
                   ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
@@ -556,7 +556,8 @@
 (require 'setup-yasnippet)
 (require 'setup-smartrep)
 (require 'setup-mc)                     ;multiple-cursors
-(require 'setup-anything)
+(require 'setup-helm)
+;; (require 'setup-anything)
 (require 'setup-autocomplete)
 (require 'setup-orgmode)
 (require 'setup-anzu)
@@ -576,9 +577,9 @@
 (global-set-key (kbd "C-M-}") 'historyf-forward);;上に同じ
 
 ;; nyan-mode.el ------------------------------
-;; (require 'nyan-mode)
-;; (nyan-mode)
-;; (nyan-start-animation)
+(require 'nyan-mode)
+(nyan-mode)
+(nyan-start-animation)
 
 ;; direx.el---------------------------------------
 ;; (require 'direx)
@@ -602,6 +603,9 @@
 ;; M-<left> 前のシンボルへ移動
 ;; M-<right> 次のシンボルへ移動
 
+;; rainbow-delimiters
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode)
 
 ;; auto-intall.el-------------------------------
 
@@ -657,12 +661,6 @@
 ;; hiwin.el---------------------------------------
 ;; (require 'hiwin)
 ;; (hiwin-mode)
-
-
-;; helm -------------------------------
-(require 'helm-config)
-(global-set-key (kbd "C-c h") 'helm-mini)
-;; (helm-mode 1)
 
 ;; evil-------------------------------
 ;; (require 'evil)
