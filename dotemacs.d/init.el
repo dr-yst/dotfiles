@@ -1,4 +1,4 @@
-;; Last Updated: <2014/08/04 15:36:21 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2014/08/12 20:27:45 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -626,7 +626,7 @@
 ;; (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 (add-hook 'c-mode-common-hook
 	  (lambda ()
-	    (set (make-local-variable 'eldoc-idle-delay) 0.20)
+	    (set (make-local-variable 'eldoc-idle-delay) 1.20)
 	    (c-turn-on-eldoc-mode)))
 
 ;; nurumacs.el ---------------------------
