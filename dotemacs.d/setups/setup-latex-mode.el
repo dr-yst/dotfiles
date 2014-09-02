@@ -137,4 +137,3 @@
 
 
 (provide 'setup-latex-mode)
-

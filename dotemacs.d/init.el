@@ -1,4 +1,4 @@
-;; Last Updated: <2014/08/12 20:27:45 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2014/08/21 13:02:05 from yoshitos-mac-mini.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -564,6 +564,7 @@
 (require 'setup-guidekey)
 (require 'setup-ace-jump)
 (require 'setup-emms)
+(require 'setup-migemo)
 
 ;; jaunte.el-------------------------------------
 ;; 好きなところにカーソルを移動させる
@@ -606,19 +607,6 @@
 ;; rainbow-delimiters
 (require 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
-
-;; auto-intall.el-------------------------------
-
-(require 'auto-install)
-(setq auto-install-directory "~/.emacs.d/auto-install")
-;; 以下がエラーの根源
-;; (auto-install-update-emacswiki-package-name t)
-(auto-install-compatibility-setup)             ; 互換性確保
-
-(setq auto-install-use-wget nil)
-
-
-
 
 ;; c-eldoc.el ----------------------------
 (load "c-eldoc")
@@ -678,13 +666,6 @@
 ;;   (sound-wav-play "~/.emacs.d/Achievement.mp3"))
 ;; (add-hook 'before-save-hook 'my/before-save-hook)
 
-
-;; my/kill-emacs-hook
-(defun my/kill-emacs-hook ()
-  (let ((progress (read-string "進捗どうですか? " "ダメです")))
-    (when (string-match-p "\\(?:ダメ\\|だめ\\|駄目\\)" progress)
-      (error "作業してください"))))
-(add-hook 'kill-emacs-hook 'my/kill-emacs-hook)
 
 ;; free-keys---------------------
 ;; (require 'free-keys)
