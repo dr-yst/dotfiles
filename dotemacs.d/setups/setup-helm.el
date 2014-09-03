@@ -136,5 +136,6 @@
 
 (global-set-key "\C-xp" 'objc-headline)
 
+(helm-mode 1)
 
 (provide 'setup-helm)
