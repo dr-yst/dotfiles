@@ -222,7 +222,7 @@ alias la='\ls -aGv'
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias emacs="open -a /Applications/Emacs.app"
+alias emacs="open -a /usr/local/Cella/emacs/24.3/Emacs.app"
 alias f='finder.sh'
 alias bon="open -a Xcode"
 
