@@ -1,4 +1,4 @@
-;; Last Updated: <2014/08/21 13:02:05 from yoshitos-mac-mini.local by yoshito>
+;; Last Updated: <2014/09/26 12:30:05 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -66,43 +66,11 @@
 (global-set-key "\C-cf" 'open-current-dir-with-finder)
 
 
-;; el-get -----------------------------------------------------
-
-;; (unless (require 'el-get nil 'noerror)
-;;   (with-current-buffer
-;;       (url-retrieve-synchronously
-;;        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-;;     (goto-char (point-max))
-;;     (eval-print-last-sexp)))
-
-
-;; (setq el-get-sources
-;;       '(
-;;         (:name golden-ratio
-;;                :type git
-;;                :url "https://github.com/roman/golden-ratio.el.git")
-;;         (:name yasnippet
-;;                :type git
-;;                :url "https://github.com/emacsmirror/yasnippet.git")))
-
-;; ;; (el-get 'wait '(golden-ratio yasnippet))
-
-;; (el-get 'sync)
-
 ;; package.el -------------------------------------------------
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
-
-;; (mapc
-;;  (lambda (package)
-;;    (or (package-installed-p package)
-;;        (package-install package)))
-;;  '(
-;;    all
-;;    all-ext
-;;    ))
 
 
 ;;自動バイトコンパイル
@@ -207,31 +175,6 @@
 
 
 ;;追加ライブラリとそのキーバインド---------------------------------------
-
-;一行コピー
-;; (load-library "copy-line")
-;; (global-set-key "\C-o" 'copy-line)
-
-;touch
-;; (load-library "touch")
-
-
-;画面左に行番号表示
-;; (require 'linum)
-;; (require 'hlinum)
-;; (global-linum-mode)
-;; (custom-set-faces
-;;  '(linum-highlight-face ((t (:foreground "black"
-;;                                          :background "SkyBlue3")
-;;                             ))))
-
-;; (setq linum-delay t)
-;; (defadvice linum-schedule (around my-linum-schedule () activate)
-;;   (run-with-idle-timer 0.2 nil #'linum-update-current))
-
-
-
-
 
 ;; 最近使ったファイルをメニューに表示
 (recentf-mode t)
@@ -463,13 +406,8 @@
 
 
 ;;; 最終更新日の自動挿入---------------------
-;;;   ファイルの先頭から 8 行以内に Time-stamp: <> または
-;;;   Time-stamp: " " と書いてあれば、セーブ時に自動的に日付が挿入されます
-;; (require 'time-stamp)
-;; (if (not (memq 'time-stamp write-file-functions))
-;;     (setq write-file-functions
-;;    (cons 'time-stamp write-file-functions)))
-;; (setq time-stamp-format "%:y(%:b) %02m/%02d  %02H:%02M:%02S  %s")
+;;;   ファイルの先頭から 8 行以内に Last-Updated: <> などと
+;;;   書いてあれば、セーブ時に自動的に日付が挿入されます
 
 (require 'time-stamp)
 (add-hook 'before-save-hook 'time-stamp)
@@ -606,7 +544,9 @@
 
 ;; rainbow-delimiters
 (require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
+(add-hook 'c-mode-common-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
 
 ;; c-eldoc.el ----------------------------
 (load "c-eldoc")
@@ -688,6 +628,16 @@
     (set-window-buffer (selected-window) thisbuf)))
 (global-set-key "\C-qs" 'swap-screen)
 (global-set-key "\C-qS" 'swap-screen-with-cursor)
+
+;; google-this ----------------------
+(require 'google-this)
+(setq google-this-location-suffix "co.jp")
+(defun google-this-url () "URL for google searches."
+  ;; 100件/日本語ページ/5年以内ならこのように設定する
+  (concat google-this-base-url google-this-location-suffix
+          "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja"))
+;;; マイナーモードとして使いたいならば以下の設定
+(setq google-this-keybind "C-x g")
 
 ;; ------------------------------------
 ;; 自作のpurgeする関数

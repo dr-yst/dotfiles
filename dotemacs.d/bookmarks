@@ -2,11 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("presentation_papers"
+(("Documents"
+ (filename . "~/OneDrive/Documents/")
+ (front-context-string . "iOS関連\n  drwx----")
+ (rear-context-string . "42 Sep  6 14:14 ")
+ (position . 1099))
+("past_presentation_papers"
  (filename . "~/OneDrive/Documents/presentation_papers/")
  (front-context-string . ".DS_Store\n  drwx")
  (rear-context-string . "92 Jul  2 15:05 ")
- (position . 276))
+ (position . 276)
+ (annotation . ""))
 ("org-capture-last-stored"
  (filename . "~/Dropbox/memo/agenda.org")
  (front-context-string . "** TODO RSCデコーダの")
