@@ -1,4 +1,4 @@
-;; Last Updated: <2014/09/26 12:30:05 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2014/09/26 12:35:02 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -542,7 +542,7 @@
 ;; M-<left> 前のシンボルへ移動
 ;; M-<right> 次のシンボルへ移動
 
-;; rainbow-delimiters
+;; rainbow-delimiters ---------------------------
 (require 'rainbow-delimiters)
 (add-hook 'c-mode-common-hook 'rainbow-delimiters-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
