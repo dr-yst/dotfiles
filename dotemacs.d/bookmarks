@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Documents"
+(("iOS関連"
+ (filename . "~/OneDrive/Documents/iOS関連/")
+ (front-context-string . ".DS_Store\n  -rw-")
+ (rear-context-string . "80 Oct 11 22:56 ")
+ (position . 261))
+("Documents"
  (filename . "~/OneDrive/Documents/")
  (front-context-string . "iOS関連\n  drwx----")
  (rear-context-string . "42 Sep  6 14:14 ")
