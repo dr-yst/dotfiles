@@ -12,15 +12,9 @@
 ;; (setq tex-dvi-view-command "xdvi")
 ;; \C-c\C-iでbibtex
 
-(require 'tex-site)
-(setq TeX-default-mode 'japanese-latex-mode)
-;; (add-hook 'TeX-mode-hook
-;;           (function (lambda ()
-;;                       (setq TeX-command-default "pLaTeX")
-;;                       (setq LaTeX-command-default "pLaTeX")
-;;                       (setq japanese-TeX-command-default "pTeX")
-;;                       (setq japanese-LaTeX-command-default "pLaTeX")
-;;                       )))
+(require 'tex-jp)
+;; (setq TeX-default-mode 'japanese-latex-mode)
+
 (setq japanese-LaTeX-default-style "jarticle")
 (setq TeX-output-view-style '(("^dvi$" "." "xdvi '%d'")))
 (setq preview-image-type 'dvipng)
@@ -37,24 +31,16 @@
     '("pdf" "dvipdfmx -V 4 '%s' " TeX-run-command t nil))
   (add-to-list 'TeX-command-list
     '("pp" "~/.files/platexpdf/platexpdf %t" TeX-run-command t nil))
-
-  ;; (add-to-list 'TeX-command-list
-  ;;   '("pBibTeX" "pbibtex '%s' " TeX-run-command t nil))
   (add-to-list 'TeX-command-list
     '("open" "open '%s.pdf' " TeX-run-command t nil))
 )))
-;; (setq japanese-LaTeX-command-default "pLaTeX")
+
 (setq japanese-TeX-command-default "pLaTeX")
 (setq TeX-command-default "pLaTeX")
-;; (setq tex-bibtex-command "pbibtex")
-;; (setq LaTeX-command-default "pLaTeX")
 
 
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
-
-
-;; (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
@@ -67,7 +53,6 @@
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
 ;; 上でYaTeXに譲り渡したRefTeXのコマンドを定義し直す 
-;;;;; labelの参照のコマンドを"C-c )"から"C-h )"に変更(暫定的)
 (add-hook 'reftex-mode-hook
  '(lambda ()
                (define-key reftex-mode-map (kbd "\C-cr") 'reftex-reference)

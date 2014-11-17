@@ -76,17 +76,6 @@
 (add-hook 'LaTeX-mode-hook
           (lambda()
             (push '("\\.tex$" flymake-tex-init flymake-tex-cleanup-custom) flymake-allowed-file-name-masks)))
-
-
-;; (add-to-list 'flymake-allowed-file-name-masks
-;;              '("\\.tex$" flymake-tex-init flymake-tex-cleanup-custom
-;;                ))
-
-
-
-;; (add-hook 'LaTeX-mode-hook
-;;           (lambda()
-;;             (push '("\\.tex$" flymake-tex-init flymake-tex-cleanup-custom) flymake-allowed-file-name-masks)))
 ;; (add-hook 'LaTeX-mode-hook 'flymake-mode-1)
 
 ;; C
