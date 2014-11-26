@@ -12,7 +12,7 @@
 (require 'my-auto-complete-clang)
 ;; (require 'ac-etags-setup)
 ;; (require 'ac-company)
-;; (require 'auto-complete-auctex)
+(require 'auto-complete-auctex)
 
 (require 'setup-flymake)
 
@@ -55,7 +55,7 @@
   (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
   (add-hook 'css-mode-hook 'ac-css-mode-setup)
   (add-hook 'python-mode-hook 'ac-python-mode-setup)
-  ;; (add-hook 'LaTeX-mode-hook 'ac-ispell-ac-setup)
+  (add-hook 'LaTeX-mode-hook 'ac-ispell-ac-setup)
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
   (global-auto-complete-mode t)
   )
@@ -135,8 +135,8 @@
 ;;       (lambda ()
 ;;         (remove-duplicates (mapcan #'yas--table-all-keys (yas--get-snippet-tables)))))
 
-;; (add-hook 'LaTeX-mode-hook
-;;           (lambda ()
-;;             (setq ac-auto-start nil)))
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (setq ac-auto-start nil)))
 
 (provide 'setup-autocomplete)
