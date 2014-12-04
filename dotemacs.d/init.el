@@ -1,4 +1,4 @@
-;; Last Updated: <2014/11/15 15:20:43 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2014/12/04 14:47:53 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -118,7 +118,7 @@
 (global-set-key "\C-h" nil)
 ;; (global-set-key "\C-z" 'undo)
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
-;; (global-set-key "\C-j" 'newline-and-indent)
+(global-set-key "\C-j" 'newline-and-indent)
 
 ;; original
 (defun backward-kill-word-or-kill-region ()
