@@ -382,9 +382,9 @@ bg256()
 ## バージョン管理システムの情報も表示する
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats \
-    '(%{%F{white}%K{green}%}%s%{%f%k%})-[%{%F{white}%K{blue}%}%b%{%f%k%}]'
+    '(%{%F{black}%K{green}%}%s%{%f%k%})-[%{%F{black}%K{blue}%}%b%{%f%k%}]'
 zstyle ':vcs_info:*' actionformats \
-    '(%{%F{white}%K{green}%}%s%{%f%k%})-[%{%F{white}%K{blue}%}%b%{%f%k%}|%{%F{white}%K{red}%}%a%{%f%k%}]'
+    '(%{%F{black}%K{green}%}%s%{%f%k%})-[%{%F{black}%K{blue}%}%b%{%f%k%}|%{%F{white}%K{red}%}%a%{%f%k%}]'
 
 ### プロンプトバーの左側
 ### %{%B%}...%{%b%}: 「...」を太字にする。
@@ -414,8 +414,7 @@ prompt_bar_left="-${prompt_bar_left_self}-${prompt_bar_left_status}-${prompt_bar
 ### %{%B%K{magenta}%F{white}%}...%{%f%k%b%}:
 ### 「...」を太字のマゼンタ背景の白文字にする。
 ### %d: カレントディレクトリのフルパス（省略しない）
-prompt_bar_right="-[%{%B%K{magenta}%F{white}%}%d%{%f%k%b%}]-"
-
+prompt_bar_right="-[%{%B%F{white}%K{magenta}%}%~%{%k%f%b%}]"
 ### 2行目左にでるプロンプト。
 ### %h: ヒストリ数。
 ### %(1j,(%j),): 実行中のジョブ数が1つ以上ある場合だけ「(%j)」を表示。
@@ -491,13 +490,13 @@ update_prompt()
     # %{%B%F{white}%K{green}}...%{%k%f%b%}:
     # 「...」を太字で緑背景の白文字にする。
     # %~: カレントディレクトリのフルパス（可能なら「~」で省略する）
-    RPROMPT="[%{%B%F{white}%K{magenta}%}%~%{%k%f%b%}]"
+    # RPROMPT="[%{%B%F{white}%K{magenta}%}%~%{%k%f%b%}]"
     case "$TERM_PROGRAM" in
 Apple_Terminal)
 # Mac OS Xのターミナルでは$COLUMNSに右余白が含まれていないので
 # 右プロンプトに「-」を追加して調整。
 ## 2011-09-05
-RPROMPT="${RPROMPT}-"
+# RPROMPT="${RPROMPT}-"
 ;;
     esac
 
@@ -505,7 +504,7 @@ RPROMPT="${RPROMPT}-"
     LANG=C vcs_info >&/dev/null
     # バージョン管理システムの情報があったら右プロンプトに表示する。
     if [ -n "$vcs_info_msg_0_" ]; then
-RPROMPT="${vcs_info_msg_0_}-${RPROMPT}"
+RPROMPT="${vcs_info_msg_0_}"
     fi
 }
 
