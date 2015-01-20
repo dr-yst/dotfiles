@@ -326,7 +326,7 @@
 (require 'highlight-indentation)
 (setq highlight-indentation-offset 4)
 ;; (set-face-background 'highlight-indentation-face "gray37")
-(set-face-background 'highlight-indentation-current-column-face "LemonChiffon4")
+;; (set-face-background 'highlight-indentation-current-column-face "LemonChiffon4")
 ;; (add-hook 'python-mode-hook 'highlight-indentation-mode)
 (add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
 
