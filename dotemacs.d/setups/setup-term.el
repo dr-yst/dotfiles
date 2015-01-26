@@ -8,7 +8,7 @@
 ;; ターミナル関連---------------------------------
 ;; Find available shell
 (defun skt:shell ()
-  (or (executable-find "/opt/local/bin/zsh")
+  (or (executable-find "zsh")
       (executable-find "bash") ;; zshユーザは一行下と入れ替え
       ;; (executable-find "f_zsh") ;; Emacs + Cygwin を利用する人は Zsh の代りにこれにしてください
       ;; (executable-find "f_bash") ;; Emacs + Cygwin を利用する人は Bash の代りにこれにしてください
@@ -26,7 +26,7 @@
 
 ;; multi-term.el --------------------------------
 (when (require 'multi-term nil t)
-  (setq multi-term-program "/opt/local/bin/zsh"))
+  (setq multi-term-program "zsh"))
 
 ;; my-keybinds for keybinds -e
 (defun term-send-forward-char ()
