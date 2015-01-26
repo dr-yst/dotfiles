@@ -323,12 +323,12 @@
              (define-key python-mode-map (kbd "C-,") 'python-shift-left)
              (define-key python-mode-map (kbd "C-.") 'python-shift-right)
              ))
-(require 'highlight-indentation)
-(setq highlight-indentation-offset 4)
-;; (set-face-background 'highlight-indentation-face "gray37")
-;; (set-face-background 'highlight-indentation-current-column-face "LemonChiffon4")
-;; (add-hook 'python-mode-hook 'highlight-indentation-mode)
-(add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
+;; (require 'highlight-indentation)
+;; (setq highlight-indentation-offset 4)
+;; ;; (set-face-background 'highlight-indentation-face "gray37")
+;; ;; (set-face-background 'highlight-indentation-current-column-face "LemonChiffon4")
+;; ;; (add-hook 'python-mode-hook 'highlight-indentation-mode)
+;; (add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
 
 
 ;; Lilypond mode
