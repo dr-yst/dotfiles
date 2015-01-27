@@ -1,4 +1,4 @@
-;; Last Updated: <2014/12/04 14:47:53 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2015/01/26 21:41:28 from yoshitos-mac-mini.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -495,7 +495,7 @@
 (require 'setup-smartrep)
 (require 'setup-mc)                     ;multiple-cursors
 (require 'setup-helm)
-;; (require 'setup-anything)
+
 (require 'setup-autocomplete)
 (require 'setup-orgmode)
 (require 'setup-anzu)
@@ -504,6 +504,7 @@
 (require 'setup-emms)
 (require 'setup-migemo)
 
+;; (require 'setup-anything)
 ;; jaunte.el-------------------------------------
 ;; 好きなところにカーソルを移動させる
 (require 'jaunte)

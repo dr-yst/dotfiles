@@ -20,10 +20,10 @@
 (setq preview-image-type 'dvipng)
 (add-hook 'LaTeX-mode-hook (function (lambda ()
   (add-to-list 'TeX-command-list
-    '("pTeX" "%(PDF)ptex %`%S%(PDFout)%(mode)%' %t"
+    '("pTeX" "ptex %`%S%(PDFout)%(mode)%' %t"
      TeX-run-TeX nil (plain-tex-mode) :help "Run ASCII pTeX"))
   (add-to-list 'TeX-command-list
-    '("pLaTeX" "%(PDF)platex %`%S%(PDFout)%(mode)%' %t"
+    '("pLaTeX" "platex %`%S%(PDFout)%(mode)%' %t"
      TeX-run-TeX nil (latex-mode) :help "Run ASCII pLaTeX"))
   (add-to-list 'TeX-command-list
     '("acroread" "acroread '%s.pdf' " TeX-run-command t nil))
@@ -44,7 +44,9 @@
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
-(setq-default TeX-master nil)
+
+;; 複数のtexファイルを使う場合は以下を有効にする
+;; (setq-default TeX-master nil)
 (add-hook 'LaTeX-mode-hook
           '(lambda ()
                (setq enable-local-variables t)))
@@ -103,20 +105,6 @@
  ;;      (setq abbrev-mode t)
  ;;      (setq local-abbrev-table TeX-mode-abbrev-table)))
 
-;; (add-hook
-;;  'yatex-mode-hook
-;;  (function
-;;   (lambda ()
-;;     (setq outline-regexp
-;;           (concat "[ \t]*\\\\\\(documentstyle\\|documentclass\\|"
-;;                   "chapter\\|section\\|subsection\\|subsubsection\\)"
-;;                   "\\*?[ \t]*[[{]")))))
-;RefTexをつかうため
-;; (add-hook 'yatex-mode-hook '(lambda () (reftex-mode t)))
-
-;;texに対しては，hs-minor-modeがうまく動かないので，outlineモードをつかう
-;; (add-hook 'yatex-mode-hook
-;;           '(lambda () (outline-minor-mode t)))
 
 (latex-preview-pane-enable)
 
