@@ -110,6 +110,7 @@
 (require 'outline-magic)
 (add-hook 'LaTeX-mode-hook 'outline-minor-mode)
 (define-key outline-minor-mode-map (kbd "<C-tab>") 'outline-cycle)
+
 ;; C-u押してからだとバッファ全体を対象
 
 (provide 'setup-orgmode)
