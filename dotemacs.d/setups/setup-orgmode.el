@@ -102,7 +102,7 @@
 
 (require 'origami)
 (define-key origami-mode-map (kbd "<C-tab>") 'origami-toggle-node)
-(define-key origami-mode-map (kbd "C-q <C-tab>") 'origami-toggle-all-nodes)
+(define-key origami-mode-map (kbd "C-u <C-tab>") 'origami-toggle-all-nodes)
 
 (add-hook 'c-mode-common-hook 'origami-mode)
 (add-hook 'lisp-mode-hook 'origami-mode)
