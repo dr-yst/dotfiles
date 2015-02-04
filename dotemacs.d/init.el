@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/04 16:01:18 from okanai.local by yoshito>
+;; Last Updated: <2015/02/04 17:32:58 from okanai.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -157,15 +157,6 @@
 (defvar ctl-q-map (make-keymap))
 (define-key global-map "\C-q" ctl-q-map) 
 
-
-(require 'fold-dwim)
-;ダブルクリックで，折りたたみtoggleを発動
-(global-set-key "\C-qi" 'fold-dwim-toggle)
-
-(global-set-key "\C-q+" 'fold-dwim-show-all)
-(global-set-key "\C-q\-" 'fold-dwim-hide-all)
-
-;all showとall hide ...うまく行かなかったのでやっぱり無し．
 
 ;(global-set-key [C-backspace] 'backward-kill-word)
 (global-set-key [end] 'end-of-buffer)
@@ -505,6 +496,7 @@
 (require 'setup-migemo)
 
 (require 'setup-pangu-spacing)
+
 
 ;; (require 'setup-anything)
 ;; jaunte.el-------------------------------------

@@ -100,5 +100,15 @@
         "platex %f"
         "dvipdfmx %b.dvi"))
 
+(require 'origami)
+(define-key origami-mode-map (kbd "<C-tab>") 'origami-toggle-node)
+(define-key origami-mode-map (kbd "C-q <C-tab>") 'origami-toggle-all-nodes)
+
+(add-hook 'c-mode-common-hook 'origami-mode)
+(add-hook 'lisp-mode-hook 'origami-mode)
+
+(require 'outline-magic)
+(add-hook 'LaTeX-mode-hook 'outline-minor-mode)
+(define-key outline-minor-mode-map (kbd "<C-tab>") 'outline-cycle)
 
 (provide 'setup-orgmode)
