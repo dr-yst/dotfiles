@@ -1,4 +1,4 @@
-;; Last Updated: <2015/01/26 21:41:28 from yoshitos-mac-mini.local by yoshito>
+;; Last Updated: <2015/02/04 16:01:18 from okanai.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -503,6 +503,8 @@
 (require 'setup-ace-jump)
 (require 'setup-emms)
 (require 'setup-migemo)
+
+(require 'setup-pangu-spacing)
 
 ;; (require 'setup-anything)
 ;; jaunte.el-------------------------------------
