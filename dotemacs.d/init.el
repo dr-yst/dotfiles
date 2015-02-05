@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/04 17:32:58 from okanai.local by yoshito>
+;; Last Updated: <2015/02/05 16:41:40 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -208,33 +208,6 @@
   (frame-parameter nil 'font)
     'japanese-jisx0212
     '("Hiragino Kaku Gothic ProN" . "iso10646-1")) 
-
-;; ;;フォント
-;; (when (>= emacs-major-version 23)
-;;  (set-face-attribute 'default nil
-;;                      :family "monaco"
-;;                      ;; :height 170
-;; 		     )
-;;  (set-fontset-font
-;;   (frame-parameter nil 'font)
-;;   'japanese-jisx0208
-;;   '("Hiragino Maru Gothic Pro" . "iso10646-1"))
-;;  (set-fontset-font
-;;   (frame-parameter nil 'font)
-;;   'japanese-jisx0212
-;;   '("Hiragino Maru Gothic Pro" . "iso10646-1"))
-;;  (set-fontset-font
-;;   (frame-parameter nil 'font)
-;;   'mule-unicode-0100-24ff
-;;   '("monaco" . "iso10646-1"))
-;;  (setq face-font-rescale-alist
-;;       '(("^-apple-hiragino.*" . 1.2)
-;;         (".*osaka-bold.*" . 1.2)
-;;         (".*osaka-medium.*" . 1.2)
-;;         (".*courier-bold-.*-mac-roman" . 1.0)
-;;         (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-;;         (".*monaco-bold-.*-mac-roman" . 0.9)
-;;         ("-cdac$" . 1.3))))
 
 
 ;; ビープ音を消す
