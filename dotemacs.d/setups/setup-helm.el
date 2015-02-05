@@ -35,6 +35,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-c h") 'helm-mini)
+(global-set-key (kbd "C-M-z") 'helm-resume)
 (define-key helm-command-map (kbd "d") 'helm-descbinds)
 (define-key helm-command-map (kbd "g") 'helm-ag)
 (define-key helm-command-map (kbd "o") 'helm-occur)
