@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/07 17:30:06 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/02/07 20:56:01 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -295,12 +295,6 @@
 ;; (add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
 
 
-;; Lilypond mode
-(autoload 'LilyPond-mode "lilypond-mode")
-(setq auto-mode-alist
-      (cons '("\\.ly$" . LilyPond-mode) auto-mode-alist))
-(add-hook 'LilyPond-mode-hook 'turn-on-font-lock) 
-
 
 ;; ;; dired関連--------------------------------------------------
 ;; ;;; フォルダを開く時, 新しいバッファを作成しない
@@ -468,6 +462,7 @@
 
 (require 'setup-pangu-spacing)
 
+(require 'setup-lilypond)
 
 ;; (require 'setup-anything)
 ;; jaunte.el-------------------------------------
