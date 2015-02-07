@@ -51,6 +51,19 @@
      (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
      ))
 
+(defadvice helm-mode (around avoid-read-file-name activate)
+  (let ((read-file-name-function read-file-name-function)
+        (completing-read-function completing-read-function))
+    ad-do-it))
+(setq completing-read-function 'my-helm-completing-read-default)
+(defun my-helm-completing-read-default (&rest _)
+  (apply (cond ;; [2014-08-11 Mon]helm版のread-file-nameは重いからいらない
+          ((eq (nth 1 _) 'read-file-name-internal)
+           'completing-read-default)
+          (t
+           'helm--completing-read-default))
+         _))
+
 (defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
   "Execute command only if CANDIDATE exists"
   (when (file-exists-p candidate)
