@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/05 16:41:40 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/02/07 17:30:06 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -300,8 +300,6 @@
 (setq auto-mode-alist
       (cons '("\\.ly$" . LilyPond-mode) auto-mode-alist))
 (add-hook 'LilyPond-mode-hook 'turn-on-font-lock) 
-
-
 
 
 ;; ;; dired関連--------------------------------------------------

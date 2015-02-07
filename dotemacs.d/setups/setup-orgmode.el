@@ -115,4 +115,16 @@
 
 ;; C-u押してからだとバッファ全体を対象
 
+
+;; ob-lilypond
+(org-babel-do-load-languages
+  'org-babel-load-languages
+  '(
+    (emacs-lisp . t)
+    (sh t)
+    (org t)
+    (lilypond t)))
+
+
+
 (provide 'setup-orgmode)
