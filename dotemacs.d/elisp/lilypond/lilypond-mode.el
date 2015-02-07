@@ -435,8 +435,6 @@ in LilyPond-include-path."
   `(
     ("LilyPond" . (,(concat LilyPond-lilypond-command " %s") "%s" "%l" "View"))
     ("2PS" . (,(concat LilyPond-lilypond-command " -f ps %s") "%s" "%p" "ViewPS"))
-    ("2Gnome" . (,(concat LilyPond-lilypond-command " -b gnome %s")))
-
     ("Book" . ("lilypond-book %x" "%x" "%l" "LaTeX"))
     ("LaTeX" . ("latex '\\nonstopmode\\input %l'" "%l" "%d" "ViewDVI"))
 
@@ -569,11 +567,6 @@ Must be the car of an entry in `LilyPond-command-alist'."
   (LilyPond-command (LilyPond-command-menu "2PS") 'LilyPond-get-master-file)
 )
 
-(defun LilyPond-command-formatgnome ()
-  "Format the gnome output of the current document."
-  (interactive)
-  (LilyPond-command (LilyPond-command-menu "2Gnome") 'LilyPond-get-master-file))
-
 (defun LilyPond-command-formatmidi ()
   "Format the midi output of the current document."
   (interactive)
@@ -631,14 +624,15 @@ Must be the car of an entry in `LilyPond-command-alist'."
 	       (l (split-file-name file))
 	       (dir (car l))
 	       (base (cadr l)))
-	  (LilyPond-command-expand
-	   (concat (substring string 0 b)
-		   (shell-quote-argument (concat dir base))
-		   (let ((entry (assoc (substring string b e)
-				       LilyPond-expand-alist)))
-		     (if entry (cdr entry) ""))
-		   (substring string e))
-	   file))
+	  (concat (substring string 0 b)
+		  (shell-quote-argument (concat dir base))
+		  (LilyPond-command-expand
+		   (concat
+		    (let ((entry (assoc (substring string b e)
+					LilyPond-expand-alist)))
+		      (if entry (cdr entry) ""))
+		    (substring string e))
+		   file)))
       string)))
 
 (defun LilyPond-shell-process (name buffer command)
@@ -757,7 +751,6 @@ command."
   (define-key LilyPond-mode-map "\C-c\C-c" 'LilyPond-command-master)
   (define-key LilyPond-mode-map "\C-cm" 'LilyPond-command-formatmidi)
   (define-key LilyPond-mode-map "\C-c\C-f" 'LilyPond-command-formatps)
-  (define-key LilyPond-mode-map "\C-c\C-g" 'LilyPond-command-formatgnome)
   (define-key LilyPond-mode-map "\C-c\C-s" 'LilyPond-command-view)
   (define-key LilyPond-mode-map "\C-c\C-p" 'LilyPond-command-viewps)
   (define-key LilyPond-mode-map [(control c) return] 'LilyPond-command-current-midi)

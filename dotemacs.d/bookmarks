@@ -20,10 +20,10 @@
  (position . 276)
  (annotation . ""))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/memo/agenda.org")
- (front-context-string . "** TODO RSCデコーダの")
- (rear-context-string . "2014-06-09 Mon>\n")
- (position . 6704))
+ (filename . "~/Dropbox/memo/my-diary.org")
+ (front-context-string . "* [2015-02-07 Sa")
+ (rear-context-string)
+ (position . 1))
 ("note"
  (filename . "~/Dropbox/ochiailab/note/")
  (front-context-string . "auto\n  drwxr-xr-")

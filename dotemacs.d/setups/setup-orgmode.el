@@ -22,7 +22,9 @@
          "** TODO %?   :bug:\n   %i\n   %a\n   %t")
         ("i" "Idea" entry
          (file+headline nil "New Ideas")
-         "** %?\n   %i\n   %a\n   %t")))
+         "** %?\n   %i\n   %a\n   %t")
+        ("d" "Diary" entry (file "my-diary.org")
+         "* %U%?\n%i\n")))
 
 (setq org-agenda-files (list org-directory)) ;agendaを使うため
 ;; ショートカットキー

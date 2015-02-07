@@ -45,6 +45,7 @@
 \\unset
 \\unit
 \\unfoldRepeats
+\\undo
 \\underline
 \\unaCorda
 \\unHideNotes
@@ -53,8 +54,10 @@
 \\tweak
 \\turn
 \\tupletUp
+\\tupletSpan
 \\tupletNeutral
 \\tupletDown
+\\tuplet
 \\trill
 \\triangle
 \\treCorde
@@ -75,7 +78,6 @@
 \\timeSignatureSettings
 \\timeSignatureFraction
 \\time
-\\tildeSymbol
 \\tied-lyric
 \\tieWaitForNote
 \\tieUp
@@ -95,6 +97,7 @@
 \\textLengthOff
 \\text
 \\tenuto
+\\temporary
 \\tempoWholesPerMinute
 \\tempo
 \\teeny
@@ -121,6 +124,7 @@
 \\stopTextSpan
 \\stopStaff
 \\stopSlashedGraceMusic
+\\stopMeasureCount
 \\stopGroup
 \\stopGraceSlur
 \\stopGraceMusic
@@ -136,6 +140,7 @@
 \\startStaff
 \\startSlashedGraceMusic
 \\startRepeatType
+\\startMeasureCount
 \\startGroup
 \\startGraceSlur
 \\startGraceMusic
@@ -172,6 +177,7 @@
 \\slashChordSeparator
 \\skipTypesetting
 \\skip
+\\single
 \\simultaneous
 \\simple
 \\signumcongruentiae
@@ -226,6 +232,7 @@
 \\reverseturn
 \\retrograde
 \\restrainOpenStrings
+\\rest-by-number
 \\rest
 \\responsum
 \\resetRelativeOctave
@@ -269,7 +276,6 @@
 \\pointAndClickOn
 \\pointAndClickOff
 \\pitchedTrill
-\\pipeSymbol
 \\phrygian
 \\phrasingSlurUp
 \\phrasingSlurSolid
@@ -311,8 +317,6 @@
 \\partCombineTextsOnNote
 \\partCombineListener
 \\parenthesize
-\\parenthesisOpenSymbol
-\\parenthesisCloseSymbol
 \\parallelMusic
 \\paper
 \\palmMuteOn
@@ -331,12 +335,15 @@
 \\overrideProperty
 \\override-lines
 \\override
+\\oval
 \\ottava
 \\oriscus
 \\open
 \\oneVoice
 \\once
 \\on-the-fly
+\\omit
+\\offset
 \\octaveCheck
 \\numericTimeSignature
 \\number
@@ -384,15 +391,17 @@
 \\melismaBusyProperties
 \\melisma
 \\medium
-\\measureLength
 \\maxima
 \\markuplist
 \\markup
 \\markletter
 \\markalphabet
+\\markLengthOn
+\\markLengthOff
 \\markFormatter
 \\mark
 \\marcato
+\\map-markup-commands
 \\makeClusters
 \\majorSevenSymbol
 \\major
@@ -428,6 +437,8 @@
 \\laissezVibrer
 \\label
 \\killCues
+\\kievanOn
+\\kievanOff
 \\keyAlterationOrder
 \\key
 \\keepWithTag
@@ -466,6 +477,7 @@
 \\hideStaffSwitch
 \\hideSplitTiedTabNotes
 \\hideNotes
+\\hide
 \\header
 \\hcenter-in
 \\hbracket
@@ -530,11 +542,6 @@
 \\expandFullBarRests
 \\eventChords
 \\espressivo
-\\escapedSmallerSymbol
-\\escapedParenthesisOpenSymbol
-\\escapedParenthesisCloseSymbol
-\\escapedExclamationSymbol
-\\escapedBiggerSymbol
 \\epsfile
 \\episemInitium
 \\episemFinis
@@ -546,6 +553,7 @@
 \\endcr
 \\endSpanners
 \\endRepeatType
+\\ellipse
 \\easyHeadsOn
 \\easyHeadsOff
 \\dynamicUp
@@ -559,6 +567,8 @@
 \\drumPitchTable
 \\draw-line
 \\draw-hline
+\\draw-dotted-line
+\\draw-dashed-line
 \\draw-circle
 \\downprall
 \\downmordent
@@ -574,6 +584,7 @@
 \\divisioMinima
 \\divisioMaxima
 \\divisioMaior
+\\displayScheme
 \\displayMusic
 \\displayLilyMusic
 \\dir-column
@@ -590,6 +601,7 @@
 \\deprecatedcresc
 \\denies
 \\deminutum
+\\defineBarLine
 \\defaultchild
 \\defaultTimeSignature
 \\defaultNoteHeads
@@ -607,10 +619,11 @@
 \\dashHat
 \\dashDot
 \\dashDash
-\\dashBar
+\\dashBang
 \\cueDuringWithClef
 \\cueDuring
 \\cueClefUnset
+\\cueClefTranspositionFormatter
 \\cueClef
 \\crossStaff
 \\crescendoSpanner
@@ -630,8 +643,9 @@
 \\column
 \\coda
 \\cm
+\\clefTranspositionFormatter
+\\clefTransposition
 \\clefPosition
-\\clefOctavation
 \\clefGlyph
 \\clef
 \\circulus
@@ -662,8 +676,6 @@
 \\breathe
 \\breakDynamicSpan
 \\break
-\\bracketOpenSymbol
-\\bracketCloseSymbol
 \\bracket
 \\box
 \\bookpart
@@ -674,9 +686,7 @@
 \\blackTriangleMarkup
 \\bigger
 \\bendAfter
-\\beatStructure
 \\beamHalfMeasure
-\\beamExceptions
 \\beam
 \\bassStaffProperties
 \\bassFigureStaffAlignmentUp
@@ -684,7 +694,6 @@
 \\bassFigureStaffAlignmentDown
 \\bassFigureExtendersOn
 \\bassFigureExtendersOff
-\\baseMoment
 \\barNumberVisibility
 \\barNumberFormatter
 \\barNumberCheck
@@ -725,6 +734,7 @@
 \\appendToTag
 \\alternative
 \\alterBroken
+\\allowVoltaHook
 \\allowPageTurn
 \\alias
 \\aikenHeadsMinor
@@ -741,6 +751,7 @@
 \\accepts
 \\accentus
 \\accent
+\\absolute
 \\abs-fontsize
 \\aDueText
 \\RemoveEmptyTabStaffContext
@@ -749,13 +760,15 @@
 \\RemoveEmptyDrumStaffContext
 \\IJ
 \\IIJ
-\\EventClasses
 \\C
 \\B
 \\AncientRemoveEmptyStaffContext
 \\A
+warnings
+staff
 spacing
 signature
+shift
 routine
 notes
 handler
@@ -828,6 +841,7 @@ Parenthesis_engraver
 Paper_column_engraver
 Output_property_engraver
 Ottava_spanner_engraver
+NullVoice
 Note_spacing_engraver
 Note_performer
 Note_name_engraver
@@ -835,8 +849,8 @@ Note_heads_engraver
 Note_head_line_engraver
 NoteNames
 New_fingering_engraver
-New_dynamic_engraver
 Multi_measure_rest_engraver
+Midi_control_function_performer
 Metronome_mark_engraver
 Mensural_ligature_engraver
 MensuralVoice
@@ -848,6 +862,7 @@ Lyric_engraver
 Ligature_bracket_engraver
 Ledger_line_engraver
 Laissez_vibrer_engraver
+Kievan_ligature_engraver
 KievanVoice
 KievanStaff
 Key_performer
@@ -856,7 +871,6 @@ Keep_alive_together_engraver
 Instrument_switch_engraver
 Instrument_name_engraver
 Hyphen_engraver
-Hara_kiri_engraver
 Grob_pq_engraver
 GregorianTranscriptionVoice
 GregorianTranscriptionStaff
@@ -864,6 +878,7 @@ GrandStaff
 Grace_spacing_engraver
 Grace_engraver
 Grace_beam_engraver
+Grace_auto_beam_engraver
 Global
 Glissando_engraver
 Fretboard_engraver
@@ -872,6 +887,7 @@ Forbid_line_break_engraver
 Footnote_engraver
 Font_size_engraver
 Fingering_engraver
+Fingering_column_engraver
 Figured_bass_position_engraver
 Figured_bass_engraver
 FiguredBass
@@ -879,6 +895,7 @@ Extender_engraver
 Episema_engraver
 Dynamics
 Dynamic_performer
+Dynamic_engraver
 Dynamic_align_engraver
 Drum_notes_engraver
 Drum_note_performer
