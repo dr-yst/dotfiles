@@ -51,6 +51,7 @@
      (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
      ))
 
+;; find-fileをいい感じにする
 (defadvice helm-mode (around avoid-read-file-name activate)
   (let ((read-file-name-function read-file-name-function)
         (completing-read-function completing-read-function))
@@ -149,6 +150,18 @@
                            "*ObjC Headline*")))
 
 (global-set-key "\C-xp" 'objc-headline)
+
+
+(require 'helm-ag)
+
+(global-set-key (kbd "M-g .") 'helm-ag)
+(global-set-key (kbd "M-g ,") 'helm-ag-pop-stack)
+(global-set-key (kbd "M-g s") 'helm-ag-this-file)
+
+(defun helm-ag-dot-emacs ()
+  ".emacs.d以下を検索"
+  (interactive)
+  (helm-ag "~/.emacs.d/"))
 
 (helm-mode 1)
 
