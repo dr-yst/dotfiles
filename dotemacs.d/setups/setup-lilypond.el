@@ -9,8 +9,7 @@
 
 (require 'lilypond-mode)
 ;; (autoload 'LilyPond-mode "lilypond-mode")
-(setq auto-mode-alist
-      (cons '("\\.ly$" . LilyPond-mode) auto-mode-alist))
+(add-to-list auto-mode-alist '("\\.ly\'" . LilyPond-mode))
 (add-hook 'LilyPond-mode-hook 'turn-on-font-lock) 
 
 (add-hook 'LilyPond-mode-hook (function (lambda ()
@@ -20,8 +19,6 @@
 
 
 (require 'ac-lilypond)
-(eval-after-load "LilyPond-mode" (load-library "ac-lilypond"))
-
 
 
 (provide 'setup-lilypond)
