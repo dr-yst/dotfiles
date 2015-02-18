@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/18 14:46:16 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/02/18 14:55:45 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -436,8 +436,8 @@
 
 
 ;; (require 'setup-ido-mode)
-(require 'setup-egg)
 (require 'setup-magit)
+(require 'setup-egg)
 (require 'setup-hi-lock-mode)
 (require 'setup-term)
 (require 'setup-sdic)
