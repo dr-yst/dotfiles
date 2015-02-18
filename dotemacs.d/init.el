@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/16 13:53:50 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/02/17 15:49:12 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -479,9 +479,9 @@
 (global-set-key (kbd "C-M-}") 'historyf-forward);;上に同じ
 
 ;; nyan-mode.el ------------------------------
-(require 'nyan-mode)
-(nyan-mode)
-(nyan-start-animation)
+;; (require 'nyan-mode)
+;; (nyan-mode)
+;; (nyan-start-animation)
 
 ;; direx.el---------------------------------------
 ;; (require 'direx)
