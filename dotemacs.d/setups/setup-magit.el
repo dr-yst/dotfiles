@@ -26,5 +26,7 @@
 
 (require 'magit)
 
+(global-set-key (kbd "C-q v") 'magit-status)
+
 (provide 'setup-magit)
 ;;; setup-magit.el ends here
