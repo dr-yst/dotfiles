@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/17 15:49:12 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/02/18 14:46:16 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -437,6 +437,7 @@
 
 ;; (require 'setup-ido-mode)
 (require 'setup-egg)
+(require 'setup-magit)
 (require 'setup-hi-lock-mode)
 (require 'setup-term)
 (require 'setup-sdic)
@@ -512,13 +513,13 @@
 (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
 
 ;; c-eldoc.el ----------------------------
-(load "c-eldoc")
-;; (setq c-eldoc-includes "-I./ -I../ -I~/Dropbox/Programming/lib/myLibrary/include/ ")
-;; (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-(add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (set (make-local-variable 'eldoc-idle-delay) 1.20)
-	    (c-turn-on-eldoc-mode)))
+;; (load "c-eldoc")
+;; ;; (setq c-eldoc-includes "-I./ -I../ -I~/Dropbox/Programming/lib/myLibrary/include/ ")
+;; ;; (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+;; (add-hook 'c-mode-common-hook
+;; 	  (lambda ()
+;; 	    (set (make-local-variable 'eldoc-idle-delay) 1.20)
+;; 	    (c-turn-on-eldoc-mode)))
 
 ;; nurumacs.el ---------------------------
 ;; (require 'nurumacs)
