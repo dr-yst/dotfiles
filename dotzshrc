@@ -222,9 +222,9 @@ alias la='\ls -aGv'
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias emacs="open -a /usr/local/Cellar/emacs/24.4/Emacs.app"
+
 alias f='finder.sh'
-alias bon="open -a Xcode"
+
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
