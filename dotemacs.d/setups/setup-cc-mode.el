@@ -34,7 +34,7 @@
 
 ;; etagsの参照tag
 (setq tags-table-list
-      '("~/Dropbox/Programming/lib/myLibrary"))
+      '("~/MyLib"))
 
 ;; ;; gtags
 ;; (require 'gtags)
