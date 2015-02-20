@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/18 14:55:45 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/02/20 16:49:37 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -621,7 +621,7 @@
    (format "~/.emacs.d/hoge_compile.sh"))
   (message "making etags...")
   (shell-command
-   (format "~/Dropbox/Programming/lib/myLibrary/maketags.sh"))
+   (format "~/MyLib/maketags.sh"))
   (message "Finished."))
 (global-set-key "\C-q\C-c" 'hoge-compile)
 
