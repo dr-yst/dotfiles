@@ -1,12 +1,4 @@
 (1
- (yoshi-theme .
-	      [(5 12 0)
-	       nil "Theme named after my cat" single])
- (curl-for-url .
-	       [(0 0 2)
-		((noflet
-     (0 0 15)))
-		"use url-retrieve with curl doing the work" single])
  (zone-matrix .
 	      [(0 0 1)
 	       nil "Matrix themed Zone mode" tar])
@@ -45,6 +37,9 @@
  (zeal-at-point .
 		[(0 0 3)
 		 nil "Search the word at point with Zeal" single])
+ (yoshi-theme .
+	      [(5 12 0)
+	       nil "Theme named after my cat" single])
  (yesql-ghosts .
 	       [(0 1 0)
 		((s
@@ -1910,9 +1905,6 @@
  (memoize .
 	  [(1 0 1)
 	   nil "Memoization functions" single])
- (melpa-repository .
-		   [(0 0 5)
-		    nil "add the melpa elpa repository to emacs" single])
  (mediawiki .
 	    [(2 2 3)
 	     nil "mediawiki frontend" single])
@@ -3777,6 +3769,11 @@
  (current-story .
 		[(0 1 0)
 		 nil "Track and insert current Pivotal Tracker" single])
+ (curl-for-url .
+	       [(0 0 2)
+		((noflet
+     (0 0 15)))
+		"use url-retrieve with curl doing the work" single])
  (cups .
        [(0 1)
 	nil "CUPS features for Emacs" single])
