@@ -30,7 +30,7 @@
                   ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   ;; "elisp/helm"
-                  "elisp/emacs-zoom-window" "elisp/emacs-sound-wav")
+		  "elisp/emacs-sound-wav")
 
 (eval-when-compile
   (require 'cl))
