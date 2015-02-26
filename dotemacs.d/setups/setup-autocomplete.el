@@ -9,7 +9,7 @@
 (require 'auto-complete-config)
 ;; (require 'auto-complete-clang)
 (require 'auto-complete-clang-async)
-(require 'my-auto-complete-clang)
+(require 'my-auto-complete-clang)       ;通常のauto-complete-clang
 ;; (require 'ac-etags-setup)
 ;; (require 'ac-company)
 (require 'auto-complete-auctex)
