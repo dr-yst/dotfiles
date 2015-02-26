@@ -48,13 +48,13 @@
  'tabbar-default nil
  :family "Comic Sans MS"
  :background "#232323" 
- :foreground "#EEEEEE"                  
+ :foreground "#FFFFFF"                  
  :height 1.0)
 
 (set-face-attribute
  'tabbar-unselected nil
  :background "#414A4C"                  ;Outer Space
- :foreground "#EEEEEE"
+ :foreground "#FFFFFF"
  :box nil)
 ;; :box '(:line-width 2 :color "midnight blue" :style released-button)
                     
@@ -68,7 +68,7 @@
 (set-face-attribute
  'tabbar-modified nil
  :background "#FF7F49"                  ; Burnt Orange
- :foreground "#1974D2"                  ;Navy Blue
+ :foreground "#FFFFFF"                  ;Navy Blue
  :box nil)
 
 (set-face-attribute
