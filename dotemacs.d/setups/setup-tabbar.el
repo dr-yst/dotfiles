@@ -47,12 +47,12 @@
 (set-face-attribute
  'tabbar-default nil
  :family "Comic Sans MS"
- :background "#17806D"                  ;Tropical Rain Forest
+ :background "#414A4C"                  ;Outer Space
  :foreground "#EEEEEE"                  
  :height 1.0)
 (set-face-attribute
  'tabbar-unselected nil
- :background "#17806D"
+ :background "#414A4C"
  :foreground "#EEEEEE"
  :box nil
  ;; :box '(:line-width 2 :color "midnight blue" :style released-button)
@@ -60,7 +60,7 @@
 (set-face-attribute
  'tabbar-selected nil
  :background "white"
- :foreground "#c82829"
+ :foreground "#FC2847"                  ;Scarlet
  :box nil
  ;; :box '(:line-width 2 :color "white" :style pressed-button)
  )
