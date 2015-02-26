@@ -47,16 +47,17 @@
 (set-face-attribute
  'tabbar-default nil
  :family "Comic Sans MS"
- :background "#414A4C"                  ;Outer Space
+ :background "#232323" 
  :foreground "#EEEEEE"                  
  :height 1.0)
+
 (set-face-attribute
  'tabbar-unselected nil
- :background "#414A4C"
+ :background "#414A4C"                  ;Outer Space
  :foreground "#EEEEEE"
- :box nil
- ;; :box '(:line-width 2 :color "midnight blue" :style released-button)
- )
+ :box nil)
+;; :box '(:line-width 2 :color "midnight blue" :style released-button)
+                    
 (set-face-attribute
  'tabbar-selected nil
  :background "white"
