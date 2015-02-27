@@ -314,7 +314,7 @@ export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/
 export C_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:$C_INCLUDE_PATH # /opt/local/include/:
 export CPLUS_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
 export LIBRARY_PATH=~/MyLib/:$LIBRARY_PATH
-export DYLD_LIBRARY_PATH=~/MyLib/:$DYLD_LIBRARY_PATH 
+export LD_LIBRARY_PATH=/usr/local/lib/:~/MyLib/:$LD_LIBRARY_PATH 
 
 # export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/:$PYTHONPATH
 export PYTHONSTARTUP=~/.pythonstartup.py
@@ -515,7 +515,7 @@ precmd_functions=($precmd_functions update_prompt)
 # 引数1個めと2個めは入力ファイル、出力ファイル
 function ccc(){
     arg=("$@")
-    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lmylib"
+    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -L~/MyLib -lmylib"
 
     if [ $# -gt 2 ]; then
         for i in `seq 3 $#`
