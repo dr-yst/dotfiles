@@ -99,8 +99,8 @@
             ;; (ac-clang-launch-completion-process) ;; async
             (setq my-ac-clang-flags
                   '("-fcxx-exceptions" "-w" "-ferror-limit" "1" "-I~/MyLib/include"))
-            (ac-etags-ac-setup)     
-            (setq ac-etags-use-document t)
+            ;; (ac-etags-ac-setup)     
+            ;; (setq ac-etags-use-document t)
             ))
 
 ;; (add-hook 'python-mode-hook

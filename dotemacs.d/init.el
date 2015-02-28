@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/26 16:02:17 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/02/28 17:30:40 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -478,9 +478,6 @@
 ;; (global-unset-key (kbd "C-["))
 (global-set-key (kbd "C-M-{") 'historyf-back);;shortcut key
 (global-set-key (kbd "C-M-}") 'historyf-forward);;上に同じ
-
-;; minimap.el ----------------------------
-(require 'minimap)
 
 ;; nyan-mode.el ------------------------------
 ;; (require 'nyan-mode)
