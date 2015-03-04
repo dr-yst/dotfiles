@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <set>
+#include <map>
 #include <list>
 #include <algorithm>
 #include <cstdlib>
