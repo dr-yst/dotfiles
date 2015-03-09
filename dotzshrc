@@ -324,6 +324,10 @@ export PLATFORM=iPhoneOS
 export VERSION=8.1
 export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${VERSION}.sdk/System/Library/Frameworks
 
+# source-highlightをインストールすること!!
+export LESS='-R'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh  %s'
+
 # 圧縮ファイルを簡単に開く
 function extract() {
   case $1 in
