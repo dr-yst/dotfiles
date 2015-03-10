@@ -15,7 +15,7 @@
 #include <cassert>
 #include <cmath>
 #include <getopt.h>
-#include <boost/thread.hpp>
+// #include <boost/thread.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/ref.hpp>
 #include <itpp/itbase.h>

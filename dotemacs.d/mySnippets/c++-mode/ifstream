@@ -6,5 +6,5 @@ std::ifstream ${1:name}(${2:filename});
 if ($1.fail()){
   std::cerr << "Error: Could not open " << $2 << std::endl;
   exit(8);
-} // if $2.fail()
+} // if $1.fail()
 $0
