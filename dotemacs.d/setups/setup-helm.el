@@ -44,6 +44,10 @@
 
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
 (define-key helm-map (kbd "C-w") 'backward-kill-word-or-kill-region)
+
+;; (add-to-list 'helm-completing-read-handlers-alist '(find-file . nil))
+;; (add-to-list 'helm-completing-read-handlers-alist '(write-file . nil))
+
 (eval-after-load "helm-files"
   '(progn
      (define-key helm-find-files-map (kbd "C-h") 'helm-ff-backspace)

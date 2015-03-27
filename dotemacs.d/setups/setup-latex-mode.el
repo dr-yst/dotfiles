@@ -106,7 +106,7 @@
  ;;      (setq local-abbrev-table TeX-mode-abbrev-table)))
 
 
-(latex-preview-pane-enable)
+;; (latex-preview-pane-enable)
 
 
 (provide 'setup-latex-mode)
