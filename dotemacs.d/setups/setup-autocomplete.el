@@ -98,7 +98,8 @@
             ;;         "-ferror-limit" "1"))
             ;; (ac-clang-launch-completion-process) ;; async
             (setq my-ac-clang-flags
-                  '("-fcxx-exceptions" "-w" "-ferror-limit" "1" "-I~/MyLib/include" "-std=c++11"))
+                  '("-fcxx-exceptions" "-w" "-ferror-limit" "1" "-I~/MyLib/include" ;; "-std=c++11"
+                    ))
             ;; (ac-etags-ac-setup)     
             ;; (setq ac-etags-use-document t)
             ))

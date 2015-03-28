@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "dired+" "dired+.el" (21767 40853 0 0))
+;;;### (autoloads nil "dired+" "dired+.el" (21782 11253 0 0))
 ;;; Generated autoloads from dired+.el
 
 (defvar diredp-auto-focus-frame-for-thumbnail-tooltip-flag nil "\
@@ -1113,26 +1113,67 @@ A prefix argument ARG specifies files to use instead of marked.
 \(fn &optional ARG)" t nil)
 
 (autoload 'dired-do-byte-compile "dired+" "\
-Byte compile marked (or next prefix argument) Emacs Lisp files.
-A prefix argument ARG specifies files to use instead of marked.
- An integer means use the next ARG files (previous -ARG, if < 0).
- `C-u': Use the current file (whether or not any are marked).
- `C-u C-u': Use all files in Dired, except directories.
- `C-u C-u C-u': Use all files and directories, except `.' and `..'.
- `C-u C-u C-u C-u': Use all files and all directories.
+Byte compile marked Emacs Lisp files.
+A prefix argument ARG specifies files to use instead of those marked.
+ * An integer means use the next ARG files (previous -ARG, if < 0).
+ * Two or more `C-u' (e.g. `C-u C-u') means ignore any marks and use
+   all files in the Dired buffer.
+ * Any other prefix arg means use the current file.
 
 \(fn &optional ARG)" t nil)
 
 (autoload 'dired-do-load "dired+" "\
-Load the marked (or next prefix argument) Emacs Lisp files.
-A prefix argument ARG specifies files to use instead of marked.
- An integer means use the next ARG files (previous -ARG, if < 0).
- `C-u': Use the current file (whether or not any are marked).
- `C-u C-u': Use all files in Dired, except directories.
- `C-u C-u C-u': Use all files and directories, except `.' and `..'.
- `C-u C-u C-u C-u': Use all files and all directories.
+Load the marked Emacs Lisp files.
+A prefix argument ARG specifies files to use instead of those marked.
+ * An integer means use the next ARG files (previous -ARG, if < 0).
+ * Two or more `C-u' (e.g. `C-u C-u') means ignore any marks and use
+   all files in the Dired buffer.
+ * Any other prefix arg means use the current file.
 
 \(fn &optional ARG)" t nil)
+
+(autoload 'dired-do-search "dired+" "\
+Search through all marked files for a match for REGEXP.
+Stops when a match is found.
+To continue searching for next match, use command \\[tags-loop-continue].
+
+A prefix arg behaves as follows:
+ * An integer means use the next ARG files (previous -ARG, if < 0).
+ * Two or more `C-u' (e.g. `C-u C-u') means ignore any marks and use
+   all files in the Dired buffer.
+ * Any other prefix arg means use the current file.
+
+\(fn REGEXP &optional ARG)" t nil)
+
+(autoload 'dired-do-query-replace-regexp "dired+" "\
+Do `query-replace-regexp' of FROM with TO, on all marked files.
+NOTE: A prefix arg for this command acts differently than for other
+commands, so that you can use it to request word-delimited matches.
+
+With a prefix argument:
+ * An odd number of plain `C-u': act on the marked files, but replace
+   only word-delimited matches.
+ * More than one plain `C-u': act on all files, ignoring whether any
+   are marked.
+ * Any other prefix arg: Act on the next numeric-prefix files.
+
+So for example:
+ * `C-u C-u C-u': act on all files, replacing word-delimited matches.
+ * `C-u 4': act on the next 4 files.  `C-4' means the same thing.
+ * `C-u': act on the marked files, replacing word-delimited matches.
+
+If you exit (\\[keyboard-quit], RET or q), you can resume the query replace
+with the command \\[tags-loop-continue].
+
+\(fn FROM TO &optional ARG)" t nil)
+
+(autoload 'diredp-do-grep "dired+" "\
+Run `grep' on marked (or next prefix arg) files.
+A prefix argument behaves according to the ARG argument of
+`dired-get-marked-files'.  In particular, `C-u C-u' operates on all
+files in the Dired buffer.
+
+\(fn COMMAND-ARGS)" t nil)
 
 (autoload 'dired-maybe-insert-subdir "dired+" "\
 Move to Dired subdirectory line or subdirectory listing.
@@ -1179,7 +1220,7 @@ lines go to the bottom-most window.  The number of files that can be
 displayed this way is restricted by the height of the current window
 and `window-min-height'.
 
-A prefix argument also behaves according to the ARG argument of
+Otherwise, a prefix arg behaves according to the ARG argument of
 `dired-get-marked-files'.  In particular, `C-u C-u' operates on all
 files in the Dired buffer.
 

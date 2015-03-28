@@ -104,5 +104,6 @@
       (adaptive-wrap-prefix-mode -1)))
   (add-hook 'visual-line-mode-hook 'my-activate-adaptive-wrap-prefix-mode))
 
+(add-hook 'c-mode-common-hook 'electric-spacing-mode)
 
 (provide 'setup-cc-mode)
