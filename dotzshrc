@@ -233,7 +233,7 @@ alias remem='du -sx / &> /dev/null & sleep 25 && kill $!'
 
 # alias emacsapp='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
 
-alias title='~/.files/title.sh'
+alias title='~/.files/scripts/title.sh'
 alias platexpdf='~/.files/platexpdf/platexpdf'
 
 # alias g++='g++-mp-4.9'
@@ -306,7 +306,7 @@ bindkey '^x^p' pbcopy-buffer
 
 ########################################
 # パスの設定
-PATH=":${HOME}/AFsp-v9r0/bin:/usr/local/bin:/usr/local/opt/llvm/bin:${HOME}/anaconda/bin:${PATH}"
+PATH="${HOME}/.files/scripts:${HOME}/AFsp-v9r0/bin:/usr/local/bin:/usr/local/opt/llvm/bin:${HOME}/anaconda/bin:${PATH}"
 export TEXINPUTS=$TEXINPUTS:~/Dropbox/ochiailab/tex/
 export BSTINPUTS=$BSTINPUTS:~/Dropbox/ochiailab/tex/
 export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/
