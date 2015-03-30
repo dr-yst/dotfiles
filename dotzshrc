@@ -17,7 +17,7 @@ zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':chpwd:*' recent-dirs-pushd yes
 
-source ~/.files/zaw/zaw.zsh
+source ${HOME}/.files/zaw/zaw.zsh
 bindkey '^@' zaw-cdr # C-@にバインド
 
 zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
