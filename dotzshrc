@@ -6,7 +6,30 @@ case ${UID} in
 LANG=C
 ;;
 esac
+
+# cdr, add-zsh-hook を有効にする
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
  
+# cdr の設定
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':chpwd:*' recent-dirs-pushd yes
+
+source ~/.files/zaw/zaw.zsh
+bindkey '^@' zaw-cdr # C-@にバインド
+
+zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
+zstyle ':filter-select' case-insensitive yes
+
+bindkey '^X^R' zaw-history
+bindkey '^X^F' zaw-git-files
+bindkey '^X^B' zaw-git-branches
+bindkey '^X^M' zaw-process
+bindkey '^T' zaw-tmux
+
+
 # 色を使用出来るようにする
 autoload -Uz colors
 colors

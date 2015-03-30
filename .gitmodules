@@ -25,3 +25,6 @@
 [submodule "platexpdf"]
 	path = platexpdf
 	url = https://github.com/fjyuu/platexpdf.git
+[submodule "zaw"]
+	path = zaw
+	url = git://github.com/zsh-users/zaw.git
