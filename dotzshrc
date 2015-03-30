@@ -27,7 +27,7 @@ bindkey '^X^R' zaw-history
 bindkey '^X^F' zaw-git-files
 bindkey '^X^B' zaw-git-branches
 bindkey '^X^M' zaw-process
-bindkey '^T' zaw-tmux
+bindkey '^X^T' zaw-tmux
 
 
 # 色を使用出来るようにする
