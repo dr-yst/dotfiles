@@ -47,25 +47,36 @@
 (set-face-attribute
  'tabbar-default nil
  :family "Comic Sans MS"
- :background "midnight blue"
- :foreground "gray72"
+ :background "#232323" 
+ :foreground "#FFFFFF"                  
  :height 1.0)
+
 (set-face-attribute
  'tabbar-unselected nil
- :background "midnight blue"
- :foreground "#c82829"
- :box '(:line-width 2 :color "midnight blue" :style released-button))
+ :background "#414A4C"                  ;Outer Space
+ :foreground "#FFFFFF"
+ :box nil)
+;; :box '(:line-width 2 :color "midnight blue" :style released-button)
+                    
 (set-face-attribute
  'tabbar-selected nil
  :background "white"
- :foreground "#c82829"
- :box '(:line-width 2 :color "white" :style pressed-button))
+ :foreground "#FC2847"                  ;Scarlet
+ :box nil
+ ;; :box '(:line-width 2 :color "white" :style pressed-button)
+ )
+(set-face-attribute
+ 'tabbar-modified nil
+ :background "#FF7F49"                  ; Burnt Orange
+ :foreground "#FFFFFF"                  ;Navy Blue
+ :box nil)
+
 (set-face-attribute
  'tabbar-button nil
  :box nil)
  (set-face-attribute
   'tabbar-separator nil
-  :height 1.2)
+  :height 1.8)
 
 ;; M-4 で タブ表示、非表示
 (global-set-key "\M-4" 'tabbar-mode)

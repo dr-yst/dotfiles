@@ -42,7 +42,7 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 
-(setq TeX-auto-save t)
+(setq TeX-auto-save t)                  ; auto directoryを作る
 (setq TeX-parse-self t)
 
 ;; 複数のtexファイルを使う場合は以下を有効にする
@@ -106,7 +106,7 @@
  ;;      (setq local-abbrev-table TeX-mode-abbrev-table)))
 
 
-(latex-preview-pane-enable)
+;; (latex-preview-pane-enable)
 
 
 (provide 'setup-latex-mode)

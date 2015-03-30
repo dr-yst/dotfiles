@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("iOS関連"
+(("memo"
+ (filename . "~/Dropbox/memo/")
+ (front-context-string . "object-orient-me")
+ (rear-context-string . "02 Feb 28 01:39 ")
+ (position . 753))
+("Programming"
+ (filename . "~/Programming/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "80 Feb 19 17:51 ")
+ (position . 240))
+("iOS関連"
  (filename . "~/OneDrive/Documents/iOS関連/")
  (front-context-string . ".DS_Store\n  -rw-")
  (rear-context-string . "80 Oct 11 22:56 ")
@@ -29,11 +39,6 @@
  (front-context-string . "auto\n  drwxr-xr-")
  (rear-context-string . "02 Apr 18 17:09 ")
  (position . 244))
-("mylib"
- (filename . "~/Dropbox/Programming/lib/myLibrary/")
- (front-context-string . ".DS_Store\n  drwx")
- (rear-context-string . "08 Mar  8 22:11 ")
- (position . 263))
 ("emacs"
  (filename . "~/.emacs.d/")
  (front-context-string . ".DS_Store\n  -rw-")
@@ -44,9 +49,4 @@
  (front-context-string . ".DS_Store\n  drwx")
  (rear-context-string . "12 Apr  4 14:07 ")
  (position . 267))
-("cpp"
- (filename . "~/Dropbox/Programming/c++/")
- (front-context-string . ".DS_Store\n  drwx")
- (rear-context-string . "40 Apr  4 00:52 ")
- (position . 252))
 )

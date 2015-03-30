@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/18 14:55:45 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/02/28 17:30:40 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -30,7 +30,7 @@
                   ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   ;; "elisp/helm"
-                  "elisp/emacs-zoom-window" "elisp/emacs-sound-wav")
+		  "elisp/emacs-sound-wav")
 
 (eval-when-compile
   (require 'cl))
@@ -621,7 +621,7 @@
    (format "~/.emacs.d/hoge_compile.sh"))
   (message "making etags...")
   (shell-command
-   (format "~/Dropbox/Programming/lib/myLibrary/maketags.sh"))
+   (format "~/MyLib/maketags.sh"))
   (message "Finished."))
 (global-set-key "\C-q\C-c" 'hoge-compile)
 

@@ -6,7 +6,30 @@ case ${UID} in
 LANG=C
 ;;
 esac
+
+# cdr, add-zsh-hook を有効にする
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
  
+# cdr の設定
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':chpwd:*' recent-dirs-pushd yes
+
+source ~/.files/zaw/zaw.zsh
+bindkey '^@' zaw-cdr # C-@にバインド
+
+zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
+zstyle ':filter-select' case-insensitive yes
+
+bindkey '^X^R' zaw-history
+bindkey '^X^F' zaw-git-files
+bindkey '^X^B' zaw-git-branches
+bindkey '^X^M' zaw-process
+bindkey '^X^T' zaw-tmux
+
+
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
@@ -233,7 +256,7 @@ alias remem='du -sx / &> /dev/null & sleep 25 && kill $!'
 
 # alias emacsapp='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
 
-alias title='~/.files/title.sh'
+alias title='~/.files/scripts/title.sh'
 alias platexpdf='~/.files/platexpdf/platexpdf'
 
 # alias g++='g++-mp-4.9'
@@ -306,13 +329,13 @@ bindkey '^x^p' pbcopy-buffer
 
 ########################################
 # パスの設定
-PATH=":${HOME}/AFsp-v9r0/bin:/usr/local/bin:/usr/local/opt/llvm/bin:${HOME}/anaconda/bin:${PATH}"
+PATH="${HOME}/.files/scripts:${HOME}/AFsp-v9r0/bin:/usr/local/bin:/usr/local/opt/llvm/bin:${HOME}/anaconda/bin:${PATH}"
 export TEXINPUTS=$TEXINPUTS:~/Dropbox/ochiailab/tex/
 export BSTINPUTS=$BSTINPUTS:~/Dropbox/ochiailab/tex/
 export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/
 
-export C_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:$C_INCLUDE_PATH # /opt/local/include/:
-export CPLUS_INCLUDE_PATH=/usr/local/include/:/usr/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
+export C_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$C_INCLUDE_PATH # /opt/local/include/:
+export CPLUS_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
 export LIBRARY_PATH=~/MyLib/:$LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib/:~/MyLib/:$LD_LIBRARY_PATH 
 
@@ -321,8 +344,31 @@ export PYTHONSTARTUP=~/.pythonstartup.py
 
 # iOSのライブラリへのパス
 export PLATFORM=iPhoneOS
-export VERSION=7.1
+export VERSION=8.1
 export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${VERSION}.sdk/System/Library/Frameworks
+
+# source-highlightをインストールすること!!
+export LESS='-R'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh  %s'
+
+# 圧縮ファイルを簡単に開く
+function extract() {
+  case $1 in
+    *.tar.gz|*.tgz) tar xzvf $1;;
+    *.tar.xz) tar Jxvf $1;;
+    *.zip) unzip $1;;
+    *.lzh) lha e $1;;
+    *.tar.bz2|*.tbz) tar xjvf $1;;
+    *.tar.Z) tar zxvf $1;;
+    *.gz) gzip -d $1;;
+    *.bz2) bzip2 -dc $1;;
+    *.Z) uncompress $1;;
+    *.tar) tar xvf $1;;
+    *.arj) unarj $1;;
+  esac
+}
+alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+
 
 ########################################
 # # powerline-shell

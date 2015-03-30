@@ -96,7 +96,7 @@
          (local-file  (file-relative-name
                        temp-file
                        (file-name-directory buffer-file-name))))
-    (list "g++" (list "-Wall" "-Wextra" "-fsyntax-only" ;; "-std=c++11"
+    (list "g++" (list "-Wall" "-Wextra" "-fsyntax-only" "-std=c++11"
                       local-file))))
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.cpp$" flymake-cc-init))

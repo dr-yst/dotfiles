@@ -9,7 +9,7 @@
 (require 'auto-complete-config)
 ;; (require 'auto-complete-clang)
 (require 'auto-complete-clang-async)
-(require 'my-auto-complete-clang)
+(require 'my-auto-complete-clang)       ;通常のauto-complete-clang
 ;; (require 'ac-etags-setup)
 ;; (require 'ac-company)
 (require 'auto-complete-auctex)
@@ -98,9 +98,10 @@
             ;;         "-ferror-limit" "1"))
             ;; (ac-clang-launch-completion-process) ;; async
             (setq my-ac-clang-flags
-                  '("-fcxx-exceptions" "-w" "-ferror-limit" "1" "-I~/MyLib/include"))
-            (ac-etags-ac-setup)     
-            (setq ac-etags-use-document t)
+                  '("-fcxx-exceptions" "-w" "-ferror-limit" "1" "-I~/MyLib/include" ;; "-std=c++11"
+                    ))
+            ;; (ac-etags-ac-setup)     
+            ;; (setq ac-etags-use-document t)
             ))
 
 ;; (add-hook 'python-mode-hook

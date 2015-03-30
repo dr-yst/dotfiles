@@ -162,7 +162,7 @@
     (gtags-mode . " GT")
     (anzu-mode . " Az")
     (guide-key-mode . " Gd")
-    ;; (flymake-mode . " Fm")
+    (flymake-mode . " Fly")
     ;; Major modes
     (lisp-interaction-mode . "Li")
     (python-mode . "Py")
