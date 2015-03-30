@@ -7,28 +7,6 @@ LANG=C
 ;;
 esac
 
-# cdr, add-zsh-hook を有効にする
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
- 
-# cdr の設定
-zstyle ':completion:*' recent-dirs-insert both
-zstyle ':chpwd:*' recent-dirs-max 500
-zstyle ':chpwd:*' recent-dirs-default yes
-zstyle ':chpwd:*' recent-dirs-pushd yes
-
-source ${HOME}/.files/zaw/zaw.zsh
-bindkey '^@' zaw-cdr # C-@にバインド
-
-zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
-zstyle ':filter-select' case-insensitive yes
-
-bindkey '^X^R' zaw-history
-bindkey '^X^F' zaw-git-files
-bindkey '^X^B' zaw-git-branches
-bindkey '^X^M' zaw-process
-bindkey '^X^T' zaw-tmux
-
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -233,7 +211,7 @@ bindkey "^I" menu-complete   # 展開する前に補完候補を出させる(Ctr
 # キーバインド
  
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
-bindkey '^R' history-incremental-pattern-search-backward
+# bindkey '^R' history-incremental-pattern-search-backward
  
 ########################################
 # set aliases
@@ -574,6 +552,27 @@ function ccc(){
     eval $command
 }
 
+# cdr, add-zsh-hook を有効にする
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+ 
+# cdr の設定
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':chpwd:*' recent-dirs-pushd yes
+
+source ${HOME}/.files/zaw/zaw.zsh
+bindkey '^@' zaw-cdr # C-@にバインド
+
+zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
+zstyle ':filter-select' case-insensitive yes
+
+bindkey '^R' zaw-history
+bindkey '^X^F' zaw-git-files
+bindkey '^X^B' zaw-git-branches
+bindkey '^X^M' zaw-process
+bindkey '^X^T' zaw-tmux
 
 
 ## create emacs env file
