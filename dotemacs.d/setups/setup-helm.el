@@ -7,6 +7,7 @@
 
 (require 'helm)
 (require 'helm-mode)
+(require 'helm-ag)
 
 ;; customize
 (progn
@@ -24,11 +25,12 @@
                                  helm-source-buffer-not-found))))
 
 ;; set helm-command-prefix-key to "C-z"
-(progn
-  (require 'helm-config)
-  (global-unset-key (kbd "C-z"))
-  (custom-set-variables
-   '(helm-command-prefix-key "C-z")))
+;; (progn
+;;   (require 'helm-config)
+;;   (global-unset-key (kbd "C-z")))
+
+(custom-set-variables
+ '(helm-command-prefix-key "C-;"))
 
 ;; key settings
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -38,7 +40,10 @@
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-M-z") 'helm-resume)
 (define-key helm-command-map (kbd "d") 'helm-descbinds)
-(define-key helm-command-map (kbd "g") 'helm-ag)
+(define-key helm-command-map (kbd "g") 'helm-do-grep)
+(define-key helm-command-map (kbd ".") 'helm-ag)
+(define-key helm-command-map (kbd ",") 'helm-ag-pop-stack)
+(define-key helm-command-map (kbd "s") 'helm-ag-this-file)
 (define-key helm-command-map (kbd "o") 'helm-occur)
 (define-key helm-command-map (kbd "y") 'yas/insert-snippet)
 (define-key helm-command-map (kbd "M-/") 'helm-dabbrev)
@@ -157,11 +162,6 @@
 (global-set-key "\C-xp" 'objc-headline)
 
 
-(require 'helm-ag)
-
-(global-set-key (kbd "M-g .") 'helm-ag)
-(global-set-key (kbd "M-g ,") 'helm-ag-pop-stack)
-(global-set-key (kbd "M-g s") 'helm-ag-this-file)
 
 (defun helm-ag-dot-emacs ()
   ".emacs.d以下を検索"
