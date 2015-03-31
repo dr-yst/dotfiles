@@ -5,7 +5,7 @@
 ;; Author: WatanabeYoshito <yoshito@WatanabeYoshito-no-iMac.local>
 ;; Keywords:
 
-(require 'helm)
+(require 'helm-config)
 (require 'helm-mode)
 (require 'helm-ag)
 
