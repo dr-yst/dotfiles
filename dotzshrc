@@ -385,6 +385,7 @@ zstyle ':filter-select' case-insensitive yes
 source ${HOME}/.files/zaw/zaw.zsh
 bindkey '^@' zaw-cdr # C-@にバインド
 bindkey '^R' zaw-history
+bindkey '^X^V' zaw-git-status
 bindkey '^X^W' zaw-git-files
 bindkey '^X^B' zaw-git-branches
 bindkey '^X^M' zaw-process
