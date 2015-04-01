@@ -379,13 +379,11 @@ zstyle ':completion:*' recent-dirs-insert both
 zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':chpwd:*' recent-dirs-pushd yes
+zstyle ':filter-select:highlight' selected fg=magenta,bg=yellow,standout
+zstyle ':filter-select' case-insensitive yes
 
 source ${HOME}/.files/zaw/zaw.zsh
 bindkey '^@' zaw-cdr # C-@にバインド
-
-zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
-zstyle ':filter-select' case-insensitive yes
-
 bindkey '^R' zaw-history
 bindkey '^X^W' zaw-git-files
 bindkey '^X^B' zaw-git-branches
