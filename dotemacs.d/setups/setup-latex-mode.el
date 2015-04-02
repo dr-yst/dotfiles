@@ -42,7 +42,10 @@
                '("latexmk" "latexmk %s" TeX-run-TeX nil t
                  :help "Run latexmk on file"))
   (add-to-list 'TeX-command-list
-               '("Skim" "open -a Skim.app '%s.pdf' " TeX-run-command t nil))
+               '("Skim" "open -a Skim.app '%s.pdf'" TeX-run-command t nil))
+    (add-to-list 'TeX-command-list
+               '("SkimBG" "open -ag Skim.app '%s.pdf'" TeX-run-command t nil))
+
 )))
 
 (setq japanese-TeX-command-default "pLaTeX")
