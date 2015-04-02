@@ -1,7 +1,7 @@
 (1
- (buttercup .
-	    [(1 0)
-	     nil "Behavior-Driven Emacs Lisp Testing" tar])
+ (git-rebase-mode .
+		  [(1 0 0)
+		   nil "Major mode for editing git rebase files" single])
  (zone-matrix .
 	      [(0 0 1)
 	       nil "Matrix themed Zone mode" tar])
@@ -1624,7 +1624,7 @@
 	       (6 1)))
 	     "basic support for magit links" single])
  (org-journal .
-	      [(1 7 0)
+	      [(1 7 1)
 	       nil "a simple org-mode based journaling mode" single])
  (org-gnome .
 	    [(0 1)
@@ -2066,8 +2066,14 @@
 		     (1 2 0)))
 		   "completing-read over all files in Git" single])
  (magit .
-	[(1 2 2)
-	 nil "Control Git from Emacs." tar])
+	[(1 4 0)
+	 ((cl-lib
+	   (0 5))
+	  (git-commit-mode
+	   (1 0 0))
+	  (git-rebase-mode
+	   (1 0 0)))
+	 "Control Git from Emacs." tar])
  (mactag .
 	 [(0 0 1)
 	  nil "Mode for automatically handle multiple tags files with Mactag rubygem" single])
@@ -2771,8 +2777,8 @@
 	[(1 0)
 	 nil "vc-mode extension for fast git interaction" single])
  (gitignore-mode .
-		 [(0 1)
-		  nil "Major mode for editing .gitconfig files" single])
+		 [(1 0 0)
+		  nil "Major mode for editing .gitignore files" single])
  (github-theme .
 	       [(0 0 3)
 		nil "Github color theme for GNU Emacs 24" single])
@@ -2790,6 +2796,9 @@
  (gitattributes-whitespace .
 			   [(1 20141128)
 			    nil "configure whitespace settings from gitattributes" single])
+ (gitattributes-mode .
+		     [(1 0 0)
+		      nil "Major mode for editing .gitattributes files" single])
  (git-gutter-fringe .
 		    [(0 12)
 		     ((git-gutter
@@ -2810,7 +2819,7 @@
 	       (2 9 0)))
 	     "draft git commit messages" single])
  (git-commit-mode .
-		  [(0 13)
+		  [(1 0 0)
 		   nil "Major mode for editing git commit messages" single])
  (git-commit .
 	     [(0 1)
@@ -4174,6 +4183,9 @@
  (button-lock .
 	      [(1 0 2)
 	       nil "Clickable text defined by regular expression" single])
+ (buttercup .
+	    [(1 0)
+	     nil "Behavior-Driven Emacs Lisp Testing" tar])
  (butler .
 	 [(0 2 0)
 	  ((deferred

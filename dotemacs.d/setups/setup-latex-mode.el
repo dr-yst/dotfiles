@@ -39,7 +39,7 @@
   ;; make latexmk available via C-c C-c
   ;; Note: SyncTeX is setup via ~/.latexmkrc
   (add-to-list 'TeX-command-list
-               '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
+               '("latexmk" "latexmk %s" TeX-run-TeX nil t
                  :help "Run latexmk on file"))
   (add-to-list 'TeX-command-list
                '("Skim" "open -a Skim.app '%s.pdf' " TeX-run-command t nil))

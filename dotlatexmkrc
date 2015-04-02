@@ -1,4 +1,4 @@
-$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 %O %S';
+# $pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 %O %S';
 $latex            = 'platex -synctex=1 -halt-on-error';
 $latex_silent     = 'platex -synctex=1 -halt-on-error -interaction=batchmode';
 $bibtex           = 'pbibtex';
