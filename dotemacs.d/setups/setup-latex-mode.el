@@ -48,7 +48,7 @@
 
 )))
 
-(setq japanese-TeX-command-default "pLaTeX")
+(setq japanese-TeX-command-default "latexmk")
 (setq TeX-command-default "latexmk")
 
 ;; use Skim as default pdf viewer
