@@ -1,4 +1,4 @@
-;; Last Updated: <2015/04/02 12:24:46 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2015/04/07 20:41:02 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -431,6 +431,7 @@
 ;; setups ------------------------------
 (require 'setup-ddskk)
 (require 'setup-looking)
+(require 'setup-view-mode)
 ;; (require 'setup-zlc) ; 上手く動かない
 ;; 多分anythingと競合してる
 
