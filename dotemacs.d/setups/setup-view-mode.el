@@ -27,30 +27,25 @@
 
 (setq view-read-only t)
 (defvar pager-keybind
-      `( ;; vi-like
+      `( 
         ("h" . backward-char)
         ("l" . forward-char)
         ("j" . next-line)
         ("k" . previous-line)
         (";" . sdic-describe-word)
-        ("b" . scroll-down)
+        ("S-SPC" . scroll-down)
         (" " . scroll-up)
-        ;; w3m-like
-        ;; ("m" . gene-word)
-        ;; ("i" . win-delete-current-window-and-squeeze)
-        ("w" . forward-word)
-        ("e" . backward-word)
+        ("@" . set-mark-command)
+        ("a" (lambda () (beginning-of-buffer-other-window 0)))
+        ("e" (lambda () (beginning-of-buffer-other-window 0)))
+        ("f" . forward-word)
+        ("b" . backward-word)
         ("(" . point-undo)
         (")" . point-redo)
         ("n" . ,(lambda () (interactive) (scroll-up 1)))
         ("p" . ,(lambda () (interactive) (scroll-down 1)))
         ("N" . ,(lambda () (interactive) (scroll-up 10)))
         ("P" . ,(lambda () (interactive) (scroll-down 10)))
-        ;; bm-easy
-        ("." . bm-toggle)
-        ("[" . bm-previous)
-        ("]" . bm-next)
-        ;; langhelp-like
         ("c" . scroll-other-window-down)
         ("v" . scroll-other-window)
         ))
