@@ -45,7 +45,7 @@
 (define-key helm-command-map (kbd ",") 'helm-ag-pop-stack)
 (define-key helm-command-map (kbd "s") 'helm-ag-this-file)
 (define-key helm-command-map (kbd "o") 'helm-occur)
-(define-key helm-command-map (kbd "y") 'yas/insert-snippet)
+;; (define-key helm-command-map (kbd "y") 'yas/insert-snippet)
 (define-key helm-command-map (kbd "M-/") 'helm-dabbrev)
 
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
