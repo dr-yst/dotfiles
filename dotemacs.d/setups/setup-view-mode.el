@@ -32,7 +32,7 @@
         ("l" . forward-char)
         ("j" . next-line)
         ("k" . previous-line)
-        (";" . gene-word)
+        (";" . sdic-describe-word)
         ("b" . scroll-down)
         (" " . scroll-up)
         ;; w3m-like
@@ -44,6 +44,8 @@
         (")" . point-redo)
         ("n" . ,(lambda () (interactive) (scroll-up 1)))
         ("p" . ,(lambda () (interactive) (scroll-down 1)))
+        ("N" . ,(lambda () (interactive) (scroll-up 10)))
+        ("P" . ,(lambda () (interactive) (scroll-down 10)))
         ;; bm-easy
         ("." . bm-toggle)
         ("[" . bm-previous)
