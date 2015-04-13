@@ -1,4 +1,4 @@
-;; Last Updated: <2015/04/07 20:41:02 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2015/04/09 17:54:52 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -30,7 +30,8 @@
                   ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   ;; "elisp/helm"
-		  "elisp/emacs-sound-wav")
+		  "elisp/emacs-sound-wav"
+                  "elisp/vhdl-mode")
 
 (eval-when-compile
   (require 'cl))

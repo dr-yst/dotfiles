@@ -29,11 +29,6 @@
  (rear-context-string . "92 Jul  2 15:05 ")
  (position . 276)
  (annotation . ""))
-("org-capture-last-stored"
- (filename . "~/Dropbox/memo/my-diary.org")
- (front-context-string . "* [2015-02-12 Th")
- (rear-context-string . "iita に楽譜のやつ投稿した\n")
- (position . 87))
 ("note"
  (filename . "~/Dropbox/ochiailab/note/")
  (front-context-string . "auto\n  drwxr-xr-")

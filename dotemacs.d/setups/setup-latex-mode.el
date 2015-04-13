@@ -43,8 +43,8 @@
                  :help "Run latexmk on file"))
   (add-to-list 'TeX-command-list
                '("Skim" "open -a Skim.app '%s.pdf'" TeX-run-command t nil))
-    (add-to-list 'TeX-command-list
-               '("SkimBG" "open -ag Skim.app '%s.pdf'" TeX-run-command t nil))
+  (add-to-list 'TeX-command-list
+               '("SkimBG" "open -g -a Skim.app '%s.pdf'" TeX-run-command t nil))
 
 )))
 
