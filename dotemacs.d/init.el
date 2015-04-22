@@ -1,4 +1,4 @@
-;; Last Updated: <2015/04/09 17:54:52 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2015/04/22 15:58:22 from WatanabeYoshito-no-iMac.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -37,10 +37,7 @@
   (require 'cl))
 
 ;他のエディタでファイルが更新されたら自動でrevert
-(global-auto-revert-mode 1) 
-
-
-
+(global-auto-revert-mode 1)
 
 ;; emacsとshellでパスを共有------------------------------------
 (require 'server)
