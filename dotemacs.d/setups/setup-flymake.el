@@ -73,9 +73,13 @@
   (setq flymake-last-change-time nil))
 
 ;; なぜか自動でflymake起動しないので手動でオンにしないといけない
-(add-hook 'LaTeX-mode-hook
-          (lambda()
-            (push '("\\.tex$" flymake-tex-init flymake-tex-cleanup-custom) flymake-allowed-file-name-masks)))
+(add-to-list 'flymake-allowed-file-name-masks
+             '("\\.tex$" flymake-tex-init flymake-tex-cleanup-custom))
+
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda()
+;;             (push '("\\.tex$" flymake-tex-init ;; flymake-tex-cleanup-custom
+;;                     ) flymake-allowed-file-name-masks)))
 (add-hook 'LaTeX-mode-hook
           (lambda () (flymake-mode t)))
 
@@ -109,9 +113,9 @@
 ;; Objective-C
 (defvar xcode:iossdkver "7.1")
 (defvar xcode:iossdkpath "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/")
-(defvar xcode:iossdk (concat xcode:iossdkpath "SDKs/iPhoneSimulator" xcode:iossdkver ".sdk"))
+(defvar xcode:iossdk (concat xcode:iossdkpath "SDKs/iPhoneSimulator.sdk"))
 
-(defvar xcode:macsdkver "10.9")
+(defvar xcode:macsdkver "10.10")
 (defvar xcode:macsdkpath "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/")
 (defvar xcode:macsdk (concat xcode:macsdkpath "SDKs/MacOSX" xcode:macsdkver ".sdk"))
 
