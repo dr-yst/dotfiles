@@ -1,5 +1,5 @@
 # !/bin/bash
-# last updated:<2015/05/01 18:28:55 from WatanabeYoshito-no-iMac.local by yoshito>
+# last updated:<2015/05/19 11:40:23 from WatanabeYoshito-no-iMac.local by yoshito>
 
 echo 'ln -s dotzshrc ~/.zshrc'
 ln -s ~/.files/dotzshrc ~/.zshrc
@@ -19,3 +19,5 @@ ln -s ~/.files/dotlatexmkrc ~/.latexmkrc
 echo 'ln -s dottmux.conf ~/.tmux.conf'
 ln -s ~/.files/dottmux.conf ~/.tmux.conf
 
+echo 'ln -s dotpythonstartup.py ~/.pythonstartup.py'
+ln -s ~/dotpythonstartup.py ~/.pythonstartup.py
