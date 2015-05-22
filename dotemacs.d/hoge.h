@@ -11,6 +11,7 @@
 #include <map>
 #include <list>
 #include <algorithm>
+#include <memory>
 #include <cstdlib>
 #include <cassert>
 #include <cmath>
