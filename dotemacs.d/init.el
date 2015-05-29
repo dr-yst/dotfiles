@@ -1,4 +1,4 @@
-;; Last Updated: <2015/04/22 15:58:22 from WatanabeYoshito-no-iMac.local by yoshito>
+;; Last Updated: <2015/05/29 11:51:53 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -170,7 +170,7 @@
 
 ;; 最近使ったファイルの表示数
 (setq recentf-max-menu-items 30)
-
+(setq recentf-max-saved-items 100)
 ;; 行間
 ;(setq-default line-spacing 0)
 

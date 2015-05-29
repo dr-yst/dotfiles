@@ -4,10 +4,14 @@
 (setq mc/cmds-to-run-for-all
       '(
         backward-kill-word-or-kill-region
+        c-electric-colon
         c-electric-delete-forward
+        c-electric-lt-gt
+        c-electric-paren
         c-forward-into-nomenclature
         kill-region
         org-capture
+        yas-expand
         ))
 
 (setq mc/cmds-to-run-once
