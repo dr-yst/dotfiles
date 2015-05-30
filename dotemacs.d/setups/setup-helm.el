@@ -114,7 +114,7 @@
 (defun helm-font-families ()
   "Preconfigured `helm' for font family."
   (interactive)
-  (flet ((helm-mp-highlight-match () nil))
+  (cl-flet ((helm-mp-highlight-match () nil))
     (helm-other-buffer
      '(helm-c-source-font-families)
      "*helm font families*")))
