@@ -1,4 +1,4 @@
-;; Last Updated: <2015/05/29 11:51:53 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/06/09 11:47:14 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -194,18 +194,18 @@
 
 
 (set-face-attribute 'default nil
-                    :family "Source Code Pro"
-                    :height 140         ;デフォルトは140
+                    :family "Source Han Code JP"
+                    :height 130         ;デフォルトは140
                     )
 
-(set-fontset-font
-  (frame-parameter nil 'font)
-    'japanese-jisx0208
-    '("Hiragino Kaku Gothic ProN" . "iso10646-1"))
-(set-fontset-font
-  (frame-parameter nil 'font)
-    'japanese-jisx0212
-    '("Hiragino Kaku Gothic ProN" . "iso10646-1")) 
+;; (set-fontset-font
+;;   (frame-parameter nil 'font)
+;;     'japanese-jisx0208
+;;     '("Hiragino Kaku Gothic ProN" . "iso10646-1"))
+;; (set-fontset-font
+;;   (frame-parameter nil 'font)
+;;     'japanese-jisx0212
+;;     '("Hiragino Kaku Gothic ProN" . "iso10646-1")) 
 
 
 ;; ビープ音を消す
