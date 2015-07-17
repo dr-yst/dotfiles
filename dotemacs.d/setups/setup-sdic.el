@@ -60,7 +60,4 @@
   (letf (((symbol-function 'sdic-describe-word) (symbol-function 'my-sdic-describe-word-with-popup)))
     ad-do-it))
 
-;; C-cpでツールチップに表示
-(global-set-key "\C-c \C-p" 'sdic-describe-word-at-point)
-
 (provide 'setup-sdic)

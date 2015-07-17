@@ -96,11 +96,7 @@
 
 ;;; LaTeX 形式のファイル PDF に変換するためのコマンド
 (setq org-latex-pdf-process
-      '("platex %f"
-        "bibtex %b"
-        "platex %f"
-        "platex %f"
-        "dvipdfmx %b.dvi"))
+      '("latexmk %f"))
 
 (require 'origami)
 (define-key origami-mode-map (kbd "<C-tab>") 'origami-toggle-node)

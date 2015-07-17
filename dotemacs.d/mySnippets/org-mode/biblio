@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: biblio
+# key: biblio
+# --
+#+BIBLIOGRAPHY: ${1:library} ${2:plain}
+$0

@@ -1,4 +1,4 @@
-;; Last Updated: <2015/02/28 17:30:40 from alcohorhythm.local by yoshito>
+;; Last Updated: <2015/07/17 17:38:24 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -30,16 +30,14 @@
                   ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   ;; "elisp/helm"
-		  "elisp/emacs-sound-wav")
+		  "elisp/emacs-sound-wav"
+                  "elisp/vhdl-mode")
 
 (eval-when-compile
   (require 'cl))
 
 ;他のエディタでファイルが更新されたら自動でrevert
-(global-auto-revert-mode 1) 
-
-
-
+(global-auto-revert-mode 1)
 
 ;; emacsとshellでパスを共有------------------------------------
 (require 'server)
@@ -171,8 +169,8 @@
 (recentf-mode t)
 
 ;; 最近使ったファイルの表示数
-;(setq recentf-max-menu-items 10)
-
+(setq recentf-max-menu-items 30)
+(setq recentf-max-saved-items 100)
 ;; 行間
 ;(setq-default line-spacing 0)
 
@@ -196,18 +194,18 @@
 
 
 (set-face-attribute 'default nil
-                    :family "Source Code Pro"
-                    :height 140         ;デフォルトは140
+                    :family "Source Han Code JP"
+                    :height 130         ;デフォルトは140
                     )
 
-(set-fontset-font
-  (frame-parameter nil 'font)
-    'japanese-jisx0208
-    '("Hiragino Kaku Gothic ProN" . "iso10646-1"))
-(set-fontset-font
-  (frame-parameter nil 'font)
-    'japanese-jisx0212
-    '("Hiragino Kaku Gothic ProN" . "iso10646-1")) 
+;; (set-fontset-font
+;;   (frame-parameter nil 'font)
+;;     'japanese-jisx0208
+;;     '("Hiragino Kaku Gothic ProN" . "iso10646-1"))
+;; (set-fontset-font
+;;   (frame-parameter nil 'font)
+;;     'japanese-jisx0212
+;;     '("Hiragino Kaku Gothic ProN" . "iso10646-1")) 
 
 
 ;; ビープ音を消す
@@ -431,6 +429,7 @@
 ;; setups ------------------------------
 (require 'setup-ddskk)
 (require 'setup-looking)
+(require 'setup-view-mode)
 ;; (require 'setup-zlc) ; 上手く動かない
 ;; 多分anythingと競合してる
 

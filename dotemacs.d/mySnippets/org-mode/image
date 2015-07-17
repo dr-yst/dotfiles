@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: image
+# key: image
+# --
+#+CAPTION: ${1:caption}
+#+NAME: ${2:name}
+#+ATTR_ODT: :scale ${3:0.5}
+[[${0:./image.png}]]

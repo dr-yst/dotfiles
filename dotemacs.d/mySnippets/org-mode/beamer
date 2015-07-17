@@ -1,0 +1,16 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: beamer
+# key: beamer
+# --
+#+TITLE: ${1:Title}
+#+AUTHOR: ${2:Yoshito Watanabe}
+#+EMAIL: ${3:watanabe-yoshito-dt@ynu.jp}
+#+DATE: ${4:2015-05-01 Fri}
+#+LANGUAGE: en
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger,compress,dvipdfmx]
+#+BEAMER_FRAME_LEVEL: ${5:2}
+#+BEAMER_HEADER: \usepackage{orgbeamer}
+
+$0

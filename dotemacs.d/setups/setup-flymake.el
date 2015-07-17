@@ -73,10 +73,16 @@
   (setq flymake-last-change-time nil))
 
 ;; なぜか自動でflymake起動しないので手動でオンにしないといけない
+(add-to-list 'flymake-allowed-file-name-masks
+             '("\\.tex$" flymake-tex-init flymake-tex-cleanup-custom))
+
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda()
+;;             (push '("\\.tex$" flymake-tex-init ;; flymake-tex-cleanup-custom
+;;                     ) flymake-allowed-file-name-masks)))
 (add-hook 'LaTeX-mode-hook
-          (lambda()
-            (push '("\\.tex$" flymake-tex-init flymake-tex-cleanup-custom) flymake-allowed-file-name-masks)))
-;; (add-hook 'LaTeX-mode-hook 'flymake-mode-1)
+          (lambda () (flymake-mode t)))
+
 
 ;; C
 ;; http://d.hatena.ne.jp/nyaasan/20071216/p1
@@ -107,9 +113,9 @@
 ;; Objective-C
 (defvar xcode:iossdkver "7.1")
 (defvar xcode:iossdkpath "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/")
-(defvar xcode:iossdk (concat xcode:iossdkpath "SDKs/iPhoneSimulator" xcode:iossdkver ".sdk"))
+(defvar xcode:iossdk (concat xcode:iossdkpath "SDKs/iPhoneSimulator.sdk"))
 
-(defvar xcode:macsdkver "10.9")
+(defvar xcode:macsdkver "10.10")
 (defvar xcode:macsdkpath "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/")
 (defvar xcode:macsdk (concat xcode:macsdkpath "SDKs/MacOSX" xcode:macsdkver ".sdk"))
 
@@ -187,5 +193,76 @@
 ;; (set-face-background 'flymake-errline "red3")
 ;; (set-face-foreground 'flymake-errline "SpringGreen")
 ;; (set-face-background 'flymake-warnline "dimgray")
+
+;;
+;; GHDL syntax checking for `vhdl-mode'
+;;
+(require 'vhdl-mode)
+
+(defun flymake-ghdl-init ()
+  "This function implements syntax checking of `vhdl-mode' source with the
+GHDL compiler. It inherits some of the `vhdl-mode' options, including
+`vhdl-standard'."
+  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+	 (local-file  (file-relative-name
+                       temp-file
+                       (file-name-directory buffer-file-name))))
+    (list "ghdl" (list "-s"
+                       (cond ((and (vhdl-standard-p '93) (vhdl-standard-p '87)) "--std=93c")
+                             ((vhdl-standard-p '93) "--std=93")
+                             ((vhdl-standard-p '87) "--std=93c")
+                             (t "--std=93c"))
+                       "--no-vital-checks"
+                       "-fexplicit"
+                       "--ieee=synopsys"
+                       local-file))))
+
+;; for each regex listed in `auto-mode-alist' to enable `vhdl-mode',
+;; also use that regex for `flymake-allowed-file-name-masks'.
+(dolist (v auto-mode-alist)
+  (when (eq (cdr v) 'vhdl-mode)
+    (add-to-list 'flymake-allowed-file-name-masks '("\\.vhdl?\\'" flymake-ghdl-init))
+    ))
+
+;; the error line pattern for GHDL
+(add-to-list 'flymake-err-line-patterns
+             '("\\([^ \n]+\\):\\([0-9]+\\):\\([0-9]+\\): \\(.*\\)" 1 2 3 4))
+
+(setq flymake-ghdl-excludes '(":[0-9]+:10: [^\n]+ not found in library .work"
+                              ":[0-9]+:14: [^\n]+ was not analysed"
+                              ":[0-9]+:[0-9]+: no declaration for [^\n]+"))
+(defun flymake-ghdl-exclude (output)
+  "Rewrites GHDL error patterns listed in `flymake-ghdl-excludes'
+to a dummy error expressions. This function is only useful if somehow
+hooked or advised into the flymake library."
+  (setq q output)
+  (let* ((idx (length flymake-ghdl-excludes))
+         (c 0)
+         (out output))
+    (while (< c idx)
+      (while (not (null (string-match (nth c flymake-ghdl-excludes) out)))
+        (setq out (replace-match ":0:00: GHDLdummy" nil nil out)))
+      (setq c (+ 1 c)))
+    out))
+
+(defadvice flymake-parse-output-and-residual (before ghdl-flymake-parse-output-and-residual activate)
+  "Advises `flymake-parse-output-and-residual' to preprocess the checker output with `flymake-ghdl-exclude'."
+  (ad-set-arg 0 (flymake-ghdl-exclude (ad-get-arg 0))))
+
+(defadvice flymake-highlight-line (around ghdl-flymake-highlight-line activate)
+  "Advises `flymake-highlight-line' to perform its highlighting function if and only if
+the current error line is not a rewritten dummy error."
+  (let* ((args (ad-get-args 0))
+         (fstr (car (nth 1 args)))
+         (line (flymake-ler-line fstr))
+         (msg  (flymake-ler-text fstr))
+         (dum  (and msg (not (null (string-match "GHDLdummy" msg))))))
+    (unless (and dum (= 0 line))
+      ad-do-it)))
+
+(add-hook 'vhdl-mode-hook
+          (lambda () (flymake-mode t)))
+
 
 (provide 'setup-flymake)

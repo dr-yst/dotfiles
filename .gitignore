@@ -4,7 +4,8 @@
 
 dotemacs.d/ddskk
 dotemacs.d/el-get
-
+dotemacs.d/recentf
+        
 # Emacs tem files
 *~
 [#]*[#]

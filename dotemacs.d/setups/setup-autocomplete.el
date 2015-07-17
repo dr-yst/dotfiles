@@ -7,9 +7,9 @@
 
 ;; ;; auto-complete --------------------------------
 (require 'auto-complete-config)
-;; (require 'auto-complete-clang)
-(require 'auto-complete-clang-async)
-(require 'my-auto-complete-clang)       ;通常のauto-complete-clang
+(require 'auto-complete-clang)
+
+;; (require 'my-auto-complete-clang)       ;通常のauto-complete-clang
 ;; (require 'ac-etags-setup)
 ;; (require 'ac-company)
 (require 'auto-complete-auctex)
@@ -48,8 +48,9 @@
 
 
 (defun my-ac-config ()
-  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers
-                                              ac-source-yasnippet))
+  (setq-default ac-sources '(;; ac-source-abbrev ac-source-dictionary
+                             ;; ac-source-words-in-same-mode-buffers
+                             ac-source-yasnippet))
   (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
   (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
@@ -74,10 +75,14 @@
 
 (add-hook 'c-mode-hook
           (lambda()
+            (setq ac-auto-start nil)              ; t or nil
             ;; (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
-            (setq ac-sources (append '(ac-source-clang-async) ac-sources))
+            (setq ac-sources (append '(ac-source-clang) ac-sources))
+            (setq ac-clang-flags
+                  '("-fcxx-exceptions" "-w" "-ferror-limit" "1" ;; "-std=c++11"
+                    ))
             ;; (ac-etags-ac-setup)
-            (ac-clang-launch-completion-process) ;; async
+            ;; (ac-clang-launch-completion-process) ;; async
             ;; (setq ac-clang-prefix-header "~/.emacs.d/fuga.pch")
             ;; (setq ac-etags-use-document t)
             ))
@@ -87,9 +92,9 @@
           (lambda()
             (setq ac-auto-start nil)              ; t or nil
             ;; (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
-            (setq ac-sources (append '(ac-source-my-clang) ac-sources))
+            (setq ac-sources (append '(ac-source-clang) ac-sources))
             ;; (setq ac-sources '(ac-source-clang-async))
-            (setq my-ac-clang-prefix-header "~/.emacs.d/hoge.pch")
+            (setq ac-clang-prefix-header "~/.emacs.d/hoge.pch")
             ;; (setq ac-clang-flags
             ;;       '(;; "-std=c++11"
             ;;         "-include-pch ~/.emacs.d/hoge.pch"
@@ -97,8 +102,8 @@
             ;;         "-I~/MyLib/include"
             ;;         "-ferror-limit" "1"))
             ;; (ac-clang-launch-completion-process) ;; async
-            (setq my-ac-clang-flags
-                  '("-fcxx-exceptions" "-w" "-ferror-limit" "1" "-I~/MyLib/include" ;; "-std=c++11"
+            (setq ac-clang-flags
+                  '("-fcxx-exceptions" "-w" "-ferror-limit" "1" "-I~/MyLib/include" "-std=c++11"
                     ))
             ;; (ac-etags-ac-setup)     
             ;; (setq ac-etags-use-document t)
@@ -121,13 +126,13 @@
             (setq ac-auto-start nil)              ; t or nil
             (setq ac-sources '(;; ac-source-company-xcode
                                ;; XCode を利用した補完を有効にする
-                               ac-source-clang-async
+                               ac-source-clang
                                ;; ac-source-my-clang
                                ;; ac-source-yasnippet
                                ))
-            (setq ac-clang-cflags (append
+            (setq ac-clang-flags (append
                   flymake-objc-compile-default-options))
-            (ac-clang-launch-completion-process) ;async
+            ;; (ac-clang-launch-completion-process) ;async
             (yas/minor-mode-on)
             ))
 

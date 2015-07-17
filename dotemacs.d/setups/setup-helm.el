@@ -45,7 +45,7 @@
 (define-key helm-command-map (kbd ",") 'helm-ag-pop-stack)
 (define-key helm-command-map (kbd "s") 'helm-ag-this-file)
 (define-key helm-command-map (kbd "o") 'helm-occur)
-(define-key helm-command-map (kbd "y") 'yas/insert-snippet)
+;; (define-key helm-command-map (kbd "y") 'yas/insert-snippet)
 (define-key helm-command-map (kbd "M-/") 'helm-dabbrev)
 
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
@@ -114,7 +114,7 @@
 (defun helm-font-families ()
   "Preconfigured `helm' for font family."
   (interactive)
-  (flet ((helm-mp-highlight-match () nil))
+  (cl-flet ((helm-mp-highlight-match () nil))
     (helm-other-buffer
      '(helm-c-source-font-families)
      "*helm font families*")))
@@ -169,5 +169,30 @@
   (helm-ag "~/.emacs.d/"))
 
 (helm-mode 1)
+
+(require 'ace-jump-helm-line)
+
+(define-key helm-map (kbd "`") 'ace-jump-helm-line--with-error-fallback)
+(define-key helm-map (kbd "@") 'ace-jump-helm-line-and-execute-action)
+
+;;; anything-shortcut-keys-alistと同じように設定
+(setq avi-keys (append "asdfghjklzxcvbnmqwertyuiop" nil))
+
+;;; ちょっとアレンジ
+(defun ajhl--insert-last-char ()
+  (insert (substring (this-command-keys) -1)))
+(defun ace-jump-helm-line--with-error-fallback ()
+  "ヒント文字以外の文字が押されたらその文字を挿入するように修正"
+  (interactive)
+  (condition-case nil
+      (ace-jump-helm-line)
+    (error (ajhl--insert-last-char))))
+(defun ace-jump-helm-line-and-execute-action ()
+  "anything-select-with-prefix-shortcut互換"
+  (interactive)
+  (condition-case nil
+      (progn (ace-jump-helm-line)
+             (helm-exit-minibuffer))
+    (error (ajhl--insert-last-char))))
 
 (provide 'setup-helm)

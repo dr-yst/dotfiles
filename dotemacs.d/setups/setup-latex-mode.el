@@ -14,30 +14,49 @@
 
 (require 'tex-jp)
 ;; (setq TeX-default-mode 'japanese-latex-mode)
+(server-force-delete)
+(server-start); start emacs in server mode so that skim can talk to it
+
 
 (setq japanese-LaTeX-default-style "jarticle")
-(setq TeX-output-view-style '(("^dvi$" "." "xdvi '%d'")))
 (setq preview-image-type 'dvipng)
 (add-hook 'LaTeX-mode-hook (function (lambda ()
   (add-to-list 'TeX-command-list
-    '("pTeX" "ptex %`%S%(PDFout)%(mode)%' %t"
-     TeX-run-TeX nil (plain-tex-mode) :help "Run ASCII pTeX"))
+               '("pTeX" "ptex %`%S%(PDFout)%(mode)%' %t"
+                 TeX-run-TeX nil (plain-tex-mode) :help "Run ASCII pTeX"))
   (add-to-list 'TeX-command-list
-    '("pLaTeX" "platex %`%S%(PDFout)%(mode)%' %t"
-     TeX-run-TeX nil (latex-mode) :help "Run ASCII pLaTeX"))
+               '("pLaTeX" "platex %`%S%(PDFout)%(mode)%' %t"
+                 TeX-run-TeX nil (latex-mode) :help "Run ASCII pLaTeX"))
   (add-to-list 'TeX-command-list
-    '("acroread" "acroread '%s.pdf' " TeX-run-command t nil))
+               '("acroread" "acroread '%s.pdf' " TeX-run-command t nil))
   (add-to-list 'TeX-command-list
-    '("pdf" "dvipdfmx -V 4 '%s' " TeX-run-command t nil))
+               '("pdf" "dvipdfmx -V 4 '%s' " TeX-run-command t nil))
   (add-to-list 'TeX-command-list
-    '("pp" "~/.files/platexpdf/platexpdf %t" TeX-run-command t nil))
+               '("pp" "~/.files/platexpdf/platexpdf %t" TeX-run-command t nil))
   (add-to-list 'TeX-command-list
-    '("open" "open '%s.pdf' " TeX-run-command t nil))
+               '("open" "open '%s.pdf' " TeX-run-command t nil))
+  ;; Use Skim as viewer, enable source <-> PDF sync
+  ;; make latexmk available via C-c C-c
+  ;; Note: SyncTeX is setup via ~/.latexmkrc
+  (add-to-list 'TeX-command-list
+               '("latexmk" "latexmk %s" TeX-run-TeX nil t
+                 :help "Run latexmk on file"))
+  (add-to-list 'TeX-command-list
+               '("Skim" "open -a Skim.app '%s.pdf'" TeX-run-command t nil))
+  (add-to-list 'TeX-command-list
+               '("SkimBG" "open -g -a Skim.app '%s.pdf'" TeX-run-command t nil))
+
 )))
 
-(setq japanese-TeX-command-default "pLaTeX")
-(setq TeX-command-default "pLaTeX")
+(setq japanese-TeX-command-default "latexmk")
+(setq TeX-command-default "latexmk")
 
+;; use Skim as default pdf viewer
+;; Skim's displayline is used for forward search (from .tex to .pdf)
+;; option -b highlights the current line; option -g opens Skim in the background 
+(setq TeX-view-program-list
+     '(("Skim" "displayline -b -g %n %o %b"))) ;; displayline must be available.
+(setq TeX-view-program-selection '((output-pdf "Skim")))
 
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
@@ -78,26 +97,6 @@
                                     ;; "~/Dropbox/ochiailab/tex/biblio.bib"
                                     ))
 
-
-
-;; ;; Add tex packages path
-;; (setenv "TEXINPUTS"
-;; 	(concat ".:" (getenv "HOME")
-;;                 ":/Users/yoshito/Dropbox/ochiailab/tex/:"
-;; 		(getenv "TEXINPUTS")))
-
-;; ;; Add bibtex reference files path
-;; (setenv "BIBINPUTS"
-;; 	(concat ".:" (getenv "HOME")
-;;                 ":/Users/yoshito/Dropbox/ochiailab/tex/:"
-;; 		(getenv "BIBINPUTS")))
-
-
-;; ;; Add bst reference files path
-;; (setenv "BSTINPUTS"
-;; 	(concat ".:" (getenv "HOME")
-;;                 ":/Users/yoshito/Dropbox/ochiailab/tex/:"
-;; 		(getenv "BSTINPUTS")))
 
 ;; Abbrev mode and auctex
  ;; (define-abbrev-table 'TeX-mode-abbrev-table (make-abbrev-table))

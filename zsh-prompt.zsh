@@ -165,20 +165,3 @@ RPROMPT="${vcs_info_msg_0_}"
 
 ## コマンド実行前に呼び出されるフック。
 precmd_functions=($precmd_functions update_prompt)
-
-# g++のコマンド省略
-# 引数1個めと2個めは入力ファイル、出力ファイル
-function ccc(){
-    arg=("$@")
-    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lmylib"
-
-    if [ $# -gt 2 ]; then
-        for i in `seq 3 $#`
-        do
-            command="${command} ${arg[$i]}"
-        done
-    fi
-    
-    echo $command
-    eval $command
-}
