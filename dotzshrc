@@ -408,3 +408,35 @@ bindkey '^X^S' zaw-ssh-hosts
 #     'do { print qq/(setenv "$_" "$ENV{$_}")/ if exists $ENV{$_} } for @ARGV' \
 #     PATH > ~/.emacs.d/shellenv.el
 
+# g++のコマンド省略
+# 引数1個めと2個めは入力ファイル、出力ファイル
+function ccc(){
+    arg=("$@")
+    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lmylib"
+
+    if [ $# -gt 2 ]; then
+        for i in `seq 3 $#`
+        do
+            command="${command} ${arg[$i]}"
+        done
+    fi
+    
+    echo $command
+    eval $command
+}
+
+# ffmpeg用のコンパイル
+function ffcc(){
+    arg=("$@")
+    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm `sdl-config --cflags --libs`"
+
+    if [ $# -gt 2 ]; then
+        for i in `seq 3 $#`
+        do
+            command="${command} ${arg[$i]}"
+        done
+    fi
+    
+    echo $command
+    eval $command
+}
