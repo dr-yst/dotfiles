@@ -20,11 +20,13 @@
 ;; (frame-height) C-j
 
 
-(require 'moe-theme)
-;; moe-theme
-;; (require 'moe-theme-switcher)
-(load-theme 'moe-dark t)
-;; (setq show-paren-style 'expression)
+;; (require 'moe-theme)
+;; ;; moe-theme
+;; ;; (require 'moe-theme-switcher)
+;; (load-theme 'moe-dark t)
+;; ;; (setq show-paren-style 'expression)
+
+(load-theme 'gotham t)
 
 
 (global-hl-line-mode)
