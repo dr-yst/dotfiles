@@ -312,9 +312,9 @@ bindkey '^x^p' pbcopy-buffer
 ########################################
 # パスの設定
 PATH="${HOME}/.files/scripts:${HOME}/AFsp-v9r0/bin:/usr/local/bin:/usr/local/opt/llvm/bin:${HOME}/anaconda/bin:${PATH}"
-export TEXINPUTS=$TEXINPUTS:~/Dropbox/ochiailab/tex/
-export BSTINPUTS=$BSTINPUTS:~/Dropbox/ochiailab/tex/
-export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/
+export TEXINPUTS=~/Dropbox/ochiailab/tex/:$TEXINPUTS
+export BSTINPUTS=~/Dropbox/ochiailab/tex/:$BSTINPUTS
+export BIBINPUTS=~/Dropbox/ochiailab/tex/:$BIBINPUTS
 
 export C_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$C_INCLUDE_PATH # /opt/local/include/:
 export CPLUS_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
