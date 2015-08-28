@@ -32,5 +32,4 @@
 
 (global-hl-line-mode)
 
-
 (provide 'setup-looking)
