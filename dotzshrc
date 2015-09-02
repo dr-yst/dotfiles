@@ -326,7 +326,7 @@ export PYTHONSTARTUP=~/.pythonstartup.py
 
 # iOSのライブラリへのパス
 export PLATFORM=iPhoneOS
-export VERSION=8.1
+export VERSION=8.4
 export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${VERSION}.sdk/System/Library/Frameworks
 
 # Specify your defaults in this environment variable
