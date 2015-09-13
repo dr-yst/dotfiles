@@ -29,6 +29,7 @@
 (require 'gotham-theme)
 (load-theme 'gotham t)
 
+;; (load-theme 'spacemacs-dark t)
 
 (global-hl-line-mode)
 
