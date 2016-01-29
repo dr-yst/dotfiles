@@ -21,13 +21,10 @@
 
 
 (require 'moe-theme)
-;; ;; moe-theme
-;; ;; (require 'moe-theme-switcher)
-;; (load-theme 'moe-dark t)
-;; ;; (setq show-paren-style 'expression)
-
-(require 'gotham-theme)
-(load-theme 'gotham t)
+;; moe-theme
+;; (require 'moe-theme-switcher)
+(load-theme 'moe-dark t)
+;; (setq show-paren-style 'expression)
 
 ;; (load-theme 'spacemacs-dark t)
 

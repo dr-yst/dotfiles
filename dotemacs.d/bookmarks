@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("00_WORKING_ON"
+((".files"
+ (filename . "~/.files/")
+ (front-context-string . "  /Users/yoshito")
+ (rear-context-string)
+ (position . 1))
+("00_WORKING_ON"
  (filename . "~/OneDrive/Documents/00presentation_papers/00_WORKING_ON/")
  (front-context-string . "padding_someIEEE")
  (rear-context-string . "70 Jan 18 18:26 ")
