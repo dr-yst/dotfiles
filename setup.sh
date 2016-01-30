@@ -1,11 +1,11 @@
 # !/bin/bash
-# last updated:<2015/05/19 11:40:23 from WatanabeYoshito-no-iMac.local by yoshito>
+# last updated:<2016/01/30 11:50:44 from SURFACE-3 by stick>
 
 echo 'cp dotzshrc ~/.zshrc'
 cp ~/.files/dotzshrc ~/.zshrc
 
-echo 'cp dotemacs.d ~/.emacs.d'
-cp -fR ~/.files/dotemacs.d ~/.emacs.d
+echo 'cp -fR dotemacs.d ~/.emacs.d'
+cp -fr ~/.files/dotemacs.d ~/.emacs.d
 
 echo 'cp dotgitconfig ~/.gitconfig'
 cp ~/.files/dotgitconfig ~/.gitconfig
