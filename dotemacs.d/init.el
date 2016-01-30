@@ -1,4 +1,4 @@
-;; Last Updated: <2015/07/17 17:38:24 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/01/30 11:30:45 from SURFACE-3 by stick>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -30,7 +30,6 @@
                   ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   ;; "elisp/helm"
-		  "elisp/emacs-sound-wav"
                   "elisp/vhdl-mode")
 
 (eval-when-compile
@@ -57,11 +56,36 @@
         (file-name-directory active-file-name)
       current-dir)))
 
-;; カレントディレクトリをFinderで開く------------------------
-(defun open-current-dir-with-finder ()
+;;----------------------------------------
+;; Win32: dierd からエクスプローラを開く
+;;----------------------------------------
+;; dired で "E" で開く。
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (local-set-key "E" 'dired-exec-explorer)))
+;;
+(defun dired-exec-explorer ()
+  "In dired, execute Explorer"
   (interactive)
-  (shell-command (concat "open .")))
-(global-set-key "\C-cf" 'open-current-dir-with-finder)
+  (explorer (dired-current-directory)))
+;;
+;; M-x explorer で現在のカレントディレクトリをもとにエクスプローラ
+;; を立ち上げる設定。
+;;
+;; (define-process-argument-editing "/explorer\\.exe$"
+;;   (lambda (x)
+;;     (general-process-argument-editing-function x nil nil nil)))
+(defun explorer (&optional dir)
+  (interactive)
+  (setq dir (expand-file-name (or dir default-directory)))
+  (if (or (not (file-exists-p dir))
+          (and (file-exists-p dir)
+               (not (file-directory-p dir))))
+      (message "%s can't open." dir)
+    ;; (setq dir (unix-to-dos-filename dir))
+    (let ((w32-start-process-show-window t))
+      (apply (function start-process)
+             "explorer" nil "explorer.exe" (list (concat "/e,/root," dir))))))
 
 
 ;; package.el -------------------------------------------------
@@ -78,8 +102,8 @@
 ;; (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
 
 ;; load environment variables -------------------------------
-(let ((envs '("PATH" "C_INCLUDE_PATH" "CPLUS_INCLUDE_PATH" "TEXINPUTS" "BSTINPUTS" "BIBINPUTS")))
-(exec-path-from-shell-copy-envs envs))
+;; (let ((envs '("PATH" "C_INCLUDE_PATH" "CPLUS_INCLUDE_PATH" "TEXINPUTS" "BSTINPUTS" "BIBINPUTS")))
+;; (exec-path-from-shell-copy-envs envs))
 
 
 ;;基本的なもの -------------------------------
@@ -191,12 +215,6 @@
 ;;                         nil 
 ;;                         'append)
 ;; (add-to-list 'default-frame-alist '(font . "fontset-codekakugo"))
-
-
-(set-face-attribute 'default nil
-                    :family "Source Han Code JP"
-                    :height 130         ;デフォルトは140
-                    )
 
 ;; (set-fontset-font
 ;;   (frame-parameter nil 'font)
@@ -438,14 +456,14 @@
 (require 'setup-magit)
 (require 'setup-egg)
 (require 'setup-hi-lock-mode)
-(require 'setup-term)
+;; (require 'setup-term)
 (require 'setup-sdic)
 (require 'setup-e2wm)
 (require 'setup-modeline)
 (require 'setup-cc-mode)
 (require 'setup-markdown-mode)
 (require 'setup-latex-mode)
-(require 'setup-flymake)
+;; (require 'setup-flymake)
 (require 'setup-tabbar)
 (require 'setup-yasnippet)
 (require 'setup-smartrep)
@@ -558,13 +576,6 @@
 ;; (evil-mode 1)
 ;; (setq evil-default-state 'emacs)
 
-;; sound-wav-------------------------
-(require 'sound-wav)
-;; Play wav file when file opened
-(defun my/find-file-hook ()
-  (sound-wav-play "~/.emacs.d/Achievement.mp3"))
-(add-hook 'find-file-hook 'my/find-file-hook)
-
 ;; (defun my/before-save-hook ()
 ;;   (sound-wav-play "~/.emacs.d/Achievement.mp3"))
 ;; (add-hook 'before-save-hook 'my/before-save-hook)
@@ -633,13 +644,29 @@
  '(abbrev-mode t t)
  '(blink-cursor-mode nil)
  '(display-time-mode t)
+ '(helm-boring-file-regexp-list (quote ("~$" "\\.elc$")))
+ '(helm-buffer-max-length 35)
+ '(helm-command-prefix-key "C-;")
+ '(helm-delete-minibuffer-contents-from-point t)
+ '(helm-ff-skip-boring-files t)
+ '(helm-ls-git-show-abs-or-relative (quote relative))
+ '(helm-mini-default-sources
+   (quote
+    (helm-source-buffers-list helm-source-ls-git helm-source-recentf helm-source-buffer-not-found)))
+ '(helm-truncate-lines t t)
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
- )
+ '(yas-prompt-functions (quote (my-yas-prompt))))
 ;; (custom-set-faces
 ;;   ;; custom-set-faces was added by Custom.
 ;;   ;; If you edit it by hand, you could mess it up, so be careful.
 ;;   ;; Your init file should contain only one such instance.
 ;;   ;; If there is more than one, they won't work right.
 ;;  '(default ((t (:stipple nil :background "AliceBlue" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :weight normal :height 120 :width normal :family "apple-monaco")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Kibitaki Regular" :foundry "outline" :slant normal :weight normal :height 128 :width normal)))))
