@@ -1,23 +1,23 @@
 # !/bin/bash
 # last updated:<2015/05/19 11:40:23 from WatanabeYoshito-no-iMac.local by yoshito>
 
-echo 'ln -s dotzshrc ~/.zshrc'
-ln -s ~/.files/dotzshrc ~/.zshrc
+echo 'cp dotzshrc ~/.zshrc'
+cp ~/.files/dotzshrc ~/.zshrc
 
-echo 'ln -s dotemacs.d ~/.emacs.d'
-ln -s ~/.files/dotemacs.d ~/.emacs.d
+echo 'cp dotemacs.d ~/.emacs.d'
+cp -fR ~/.files/dotemacs.d ~/.emacs.d
 
-echo 'ln -s dotgitconfig ~/.gitconfig'
-ln -s ~/.files/dotgitconfig ~/.gitconfig
+echo 'cp dotgitconfig ~/.gitconfig'
+cp ~/.files/dotgitconfig ~/.gitconfig
 
-echo 'ln -s dotgitignore_global ~/.gitignore_global'
-ln -s ~/.files/dotgitignore_global ~/.gitignore_global
+echo 'cp dotgitignore_global ~/.gitignore_global'
+cp ~/.files/dotgitignore_global ~/.gitignore_global
 
-echo 'ln -s dotlatexmkrc ~/.latexmkrc'
-ln -s ~/.files/dotlatexmkrc ~/.latexmkrc
+echo 'cp dotlatexmkrc ~/.latexmkrc'
+cp ~/.files/dotlatexmkrc ~/.latexmkrc
 
-echo 'ln -s dottmux.conf ~/.tmux.conf'
-ln -s ~/.files/dottmux.conf ~/.tmux.conf
+echo 'cp dottmux.conf ~/.tmux.conf'
+cp ~/.files/dottmux.conf ~/.tmux.conf
 
-echo 'ln -s dotpythonstartup.py ~/.pythonstartup.py'
-ln -s ~/dotpythonstartup.py ~/.pythonstartup.py
+echo 'cp dotpythonstartup.py ~/.pythonstartup.py'
+cp ~/.files/dotpythonstartup.py ~/.pythonstartup.py
