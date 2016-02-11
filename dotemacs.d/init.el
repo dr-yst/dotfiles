@@ -1,4 +1,4 @@
-;; Last Updated: <2015/07/17 17:38:24 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/02/11 14:21:09 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -117,6 +117,8 @@
 ;; (global-set-key "\C-z" 'undo)
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-j" 'newline-and-indent)
+
+(global-set-key (kbd "C-x C-b") 'bs-show)
 
 ;; original
 (defun backward-kill-word-or-kill-region ()
@@ -434,7 +436,7 @@
 ;; 多分anythingと競合してる
 
 
-;; (require 'setup-ido-mode)
+(require 'setup-ido-mode)
 (require 'setup-magit)
 (require 'setup-egg)
 (require 'setup-hi-lock-mode)

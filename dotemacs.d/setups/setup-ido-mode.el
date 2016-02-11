@@ -5,8 +5,9 @@
 ;; Author: 渡辺 良人 <yoshito@Yoshitos-iMac.local>
 ;; Keywords: ido-mode
 
-(require 'ido)
-(ido-mode t)
+
+(ido-mode 1)
+(ido-everywhere 1)
 
 (provide 'setup-ido-mode)
 
