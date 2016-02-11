@@ -1,4 +1,4 @@
-;; Last Updated: <2016/02/11 14:21:09 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/02/11 14:54:00 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -454,7 +454,8 @@
 (require 'setup-mc)                     ;multiple-cursors
 (require 'setup-helm)
 
-(require 'setup-autocomplete)
+;; (require 'setup-autocomplete)
+(require 'setup-company)
 (require 'setup-orgmode)
 (require 'setup-anzu)
 (require 'setup-guidekey)
