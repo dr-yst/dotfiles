@@ -1,4 +1,4 @@
-;; Last Updated: <2016/02/11 14:54:00 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/02/11 15:31:04 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -447,13 +447,13 @@
 (require 'setup-cc-mode)
 (require 'setup-markdown-mode)
 (require 'setup-latex-mode)
-(require 'setup-flymake)
 (require 'setup-tabbar)
 (require 'setup-yasnippet)
 (require 'setup-smartrep)
 (require 'setup-mc)                     ;multiple-cursors
 (require 'setup-helm)
-
+;; (require 'setup-flymake)
+(require 'setup-flycheck)
 ;; (require 'setup-autocomplete)
 (require 'setup-company)
 (require 'setup-orgmode)
