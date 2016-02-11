@@ -1,5 +1,4 @@
-;; Last Updated: <2016/01/30 11:30:45 from SURFACE-3 by stick>
-
+;; Last Updated: <2016/02/11 20:41:22 from SURFACE-3 by stick>
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
 ;; ------------------------------------------------------------------------
@@ -12,6 +11,7 @@
 ;; (dolist (path (reverse (split-string (getenv "PATH") ":")))
 ;;   (add-to-list 'exec-path path))
 
+;;; Code:
 (setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
 
 ;; ;;load-pathの追加関数
@@ -141,6 +141,8 @@
 ;; (global-set-key "\C-z" 'undo)
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-j" 'newline-and-indent)
+
+(global-set-key (kbd "C-x C-b") 'bs-show)
 
 ;; original
 (defun backward-kill-word-or-kill-region ()
@@ -452,7 +454,7 @@
 ;; 多分anythingと競合してる
 
 
-;; (require 'setup-ido-mode)
+(require 'setup-ido-mode)
 (require 'setup-magit)
 (require 'setup-egg)
 (require 'setup-hi-lock-mode)
@@ -463,14 +465,15 @@
 (require 'setup-cc-mode)
 (require 'setup-markdown-mode)
 (require 'setup-latex-mode)
-;; (require 'setup-flymake)
 (require 'setup-tabbar)
 (require 'setup-yasnippet)
 (require 'setup-smartrep)
 (require 'setup-mc)                     ;multiple-cursors
 (require 'setup-helm)
-
-(require 'setup-autocomplete)
+;; (require 'setup-flymake)
+(require 'setup-flycheck)
+;; (require 'setup-autocomplete)
+(require 'setup-company)
 (require 'setup-orgmode)
 (require 'setup-anzu)
 (require 'setup-guidekey)
