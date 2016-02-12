@@ -91,7 +91,6 @@ S.bind('b:alt,cmd', launch_and_focus('Firefox'));
 S.bind('f:alt,cmd', launch_and_focus('Finder'));
 S.bind('d:alt,cmd', launch_and_focus('Dictionary'));
 S.bind('i:alt,cmd', launch_and_focus('iTunes'));
-S.bind('space:alt,cmd', launch_and_focus('Found'));
 S.bind('p:alt,cmd', launch_and_focus('Preview'));
 S.bind('m:alt,cmd', launch_and_focus('Mjograph'));
 S.bind('x:alt,cmd', launch_and_focus('Xcode'));

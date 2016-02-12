@@ -26,8 +26,8 @@
 
 ;; 自動補完を offにしたい場合は, company-idle-delayを nilに設定する
 ;; auto-completeでいうところの ac-auto-start にあたる.
-;; (custom-set-variables
-;;  '(company-idle-delay nil))
+(custom-set-variables
+ '(company-idle-delay nil))
 
 (global-set-key (kbd "C-'") 'company-complete)
 (global-set-key (kbd "C-M-/") 'company-complete)
@@ -45,13 +45,13 @@
 (define-key company-active-map (kbd "C-i") 'company-complete-selection)
 
 ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
-(define-key emacs-lisp-mode-map (kbd "C-'") 'company-complete)
+;; (define-key emacs-lisp-mode-map (kbd "C-'") 'company-complete)
 
 (company-quickhelp-mode +1)
 
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 2)
-(setq company-selection-wrap-around t)
+;; (setq company-idle-delay 0)
+;; (setq company-minimum-prefix-length 2)
+;; (setq company-selection-wrap-around t)
 
 (require 'irony)
 (add-hook 'c-mode-hook 'irony-mode)
@@ -76,7 +76,7 @@
     (when it (append '("-x") (split-string it "\s")))))
 (advice-add 'irony--lang-compile-option :override #'ad-irony--lang-compile-option)
 
-
+(yas-global-mode)
 
 
 (provide 'setup-company)
