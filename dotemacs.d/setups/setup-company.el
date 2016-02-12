@@ -27,7 +27,10 @@
 ;; 自動補完を offにしたい場合は, company-idle-delayを nilに設定する
 ;; auto-completeでいうところの ac-auto-start にあたる.
 (custom-set-variables
- '(company-idle-delay nil))
+ '(company-idle-delay 0)
+ '(company-minimum-prefix-length 2)
+ '(company-selection-wrap-around t)
+ )
 
 (global-set-key (kbd "C-'") 'company-complete)
 (global-set-key (kbd "C-M-/") 'company-complete)
@@ -49,9 +52,6 @@
 
 (company-quickhelp-mode +1)
 
-;; (setq company-idle-delay 0)
-;; (setq company-minimum-prefix-length 2)
-;; (setq company-selection-wrap-around t)
 
 (require 'irony)
 (add-hook 'c-mode-hook 'irony-mode)
@@ -64,7 +64,7 @@
 ;; 連想リストの中身を文字列のリストに変更せず、変数そのままの構造を利用。
 ;; 複数のコンパイルオプションはスペースで区切る
 (setq irony-lang-compile-option-alist
-      (quote ((c++-mode . "c++ -std=c++11 -lstdc++")
+      (quote ((c++-mode . "c++ -std=c++11 -stdlib=libstdc++")
               (c-mode . "c")
               (objc-mode . "objective-c"))))
 ;; アドバイスによって関数を再定義。
