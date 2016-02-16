@@ -28,7 +28,7 @@
 ;; auto-completeでいうところの ac-auto-start にあたる.
 (custom-set-variables
  '(company-idle-delay 0)
- '(company-minimum-prefix-length 2)
+ '(company-minimum-prefix-length 4)
  '(company-selection-wrap-around t)
  )
 
@@ -75,6 +75,10 @@
   (let ((it (cdr-safe (assq major-mode irony-lang-compile-option-alist))))
     (when it (append '("-x") (split-string it "\s")))))
 (advice-add 'irony--lang-compile-option :override #'ad-irony--lang-compile-option)
+
+
+(require 'company-auctex)
+(company-auctex-init)
 
 (yas-global-mode)
 
