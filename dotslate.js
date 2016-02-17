@@ -91,7 +91,7 @@ S.bind('b:alt,cmd', launch_and_focus('Firefox'));
 S.bind('f:alt,cmd', launch_and_focus('Finder'));
 S.bind('d:alt,cmd', launch_and_focus('Dictionary'));
 S.bind('i:alt,cmd', launch_and_focus('iTunes'));
-S.bind('p:alt,cmd', launch_and_focus('Preview'));
+S.bind('p:alt,cmd', launch_and_focus('Mendeley\ Desktop'));
 S.bind('s:alt,cmd', launch_and_focus('Skim'));
 S.bind('m:alt,cmd', launch_and_focus('Mjograph'));
 S.bind('x:alt,cmd', launch_and_focus('Xcode'));
@@ -100,6 +100,7 @@ S.bind('z:alt,cmd', launch_and_focus('Microsoft\ PowerPoint'));
 S.bind('n:alt,cmd', launch_and_focus('Evernote'));
 S.bind('r:alt,cmd', launch_and_focus('Dash'));
 S.bind('l:alt,cmd', launch_and_focus('LaTeXiT'));
+
 
 
 // http://www.infiniteloop.co.jp/blog/2013/08/osx_slate/
