@@ -1,4 +1,4 @@
-;; Last Updated: <2016/02/11 15:31:04 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/02/23 17:22:25 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -114,7 +114,7 @@
 
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key "\C-h" nil)
-;; (global-set-key "\C-z" 'undo)
+(global-set-key "\C-z" 'undo)
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-j" 'newline-and-indent)
 
@@ -399,6 +399,7 @@
   (global-undo-tree-mode))
 
 (global-set-key "\C-\\" 'undo-tree-redo)
+(global-set-key "\C-Z" 'undo-tree-redo)
 
 ;; C-x uで起動
 
