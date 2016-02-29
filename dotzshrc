@@ -326,8 +326,8 @@ export PYTHONSTARTUP=~/.pythonstartup.py
 
 # iOSのライブラリへのパス
 export PLATFORM=iPhoneOS
-export VERSION=8.4
-export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${VERSION}.sdk/System/Library/Frameworks
+export VERSION=9.2
+export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}.sdk/System/Library/Frameworks
 
 # Specify your defaults in this environment variable
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
