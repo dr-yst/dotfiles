@@ -41,7 +41,5 @@
                            line-end))
   :modes (c-mode c++-mode))
 
-
-
 (provide 'setup-flycheck)
 ;;; setup-flycheck.el ends here
