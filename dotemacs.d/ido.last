@@ -1,0 +1,27 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/" . "var/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/var/"
+ "/Users/yoshito/Programming/c++/video_glitcher/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ 
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/var/" (22175 19031 0 0) "yp/" "vm/" "tmp/" "spool/" "rwho/" "run/" "rpc/" "root/" "networkd/" "netboot/" "msgs/" "mail/" "log/" "lib/" "jabberd/" "folders~orig/" "folders/" "empty/" "db/" "backups/" "audit/" "at/" "agentx/" "../" "./")
+
+ ("/Users/yoshito/Programming/c++/video_glitcher/" (22229 40783 0 0) "glitcher.h" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
