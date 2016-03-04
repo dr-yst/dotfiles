@@ -7,17 +7,35 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/paper/"
+ "/Users/yoshito/Dropbox/ochiailab/tex/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/reply-letter/"
+ "/Users/yoshito/Program_Mac/Apps/Reference/FFmpegWrapper/FFmpegWrapper/"
+ "/Users/yoshito/Programming/ForDocset/FFmpeg/doc/examples/"
+ "/Users/yoshito/Programming/c++/video/Coverage/RD-single/"
  "/var/"
  "/Users/yoshito/Programming/c++/video_glitcher/"
 )
 
 ;; ----- ido-work-file-list -----
 (
- 
+ "library_temp.bib"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/paper/" (22232 19705 0 0) "watanabe_revise_ver3.tex" "watanabe_revise_ver3.pdf" "watanabe_revise_ver3.fdb_latexmk" "watanabe_revise_ver3.dvi" "library.bib" "IEEEtran.bst" "figures/" "auto/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/Dropbox/ochiailab/tex/" (22231 64777 0 0) "tieice.bst" "spconf.sty" "sita2012.sty" "orgbeamer.sty" "newenum.sty" "library.bib" "ieicejsp2.cls" "ieicejsp.cls" "IEEEtranTCOM.cls" "IEEEtranTCOM.bst" "IEEEtranSN.bst" "IEEEtranSA.bst" "IEEEtranS.bst" "IEEEtranN.bst" "IEEEtran.cls" "IEEEtran.bst" "ieeefull.bib" "IEEEbib.bst" "IEEEabrv.bib" "bmcart.cls" "bmcart-biblio.sty" "bmc_article.cls" "bmc_article.bst" "bmc-mathphys.bst" "biblio.bib" "auto/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/reply-letter/" (22231 51023 0 0) "reply-letter_watanabe_ver3.tex" "reply-letter_watanabe_ver3.synctex.gz" "reply-letter_watanabe_ver3.pdf" "reply-letter_watanabe_ver3.log" "reply-letter_watanabe_ver3.fls" "reply-letter_watanabe_ver3.fdb_latexmk" "reply-letter_watanabe_ver3.dvi" "reply-letter_watanabe_ver3.aux" "auto/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/Program_Mac/Apps/Reference/FFmpegWrapper/FFmpegWrapper/" (22230 51751 0 0) "FFUtilities.m" "FFUtilities.h" "FFStream.m" "FFStream.h" "FFOutputStream.m" "FFOutputStream.h" "FFOutputFile.m" "FFOutputFile.h" "FFmpegWrapper.m" "FFmpegWrapper.h" "FFmpegWrapper-Prefix.pch" "FFInputStream.m" "FFInputStream.h" "FFInputFile.m" "FFInputFile.h" "FFFile.m" "FFFile.h" "FFBitstreamFilter.m" "FFBitstreamFilter.h" "../" "./")
+
+ ("/Users/yoshito/Programming/c++/video/Coverage/RD-single/" (22229 6673 0 0) "singleMPEG4_PSNRvsShrinkRate_padbits1_ECforeman_normalized.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_waterfall.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_soccer.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_mother_daughter_normlized.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_mother_daughter.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_ice.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_husky_normlized.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_husky.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_harbour.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_foreman.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_football.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_flower.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_crew.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_city.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_ECforeman_normalized.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_ECakiyo.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_waterfall.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_soccer.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_mother_daughter_normlized.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_mother_daughter.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_ice.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_husky_normlized.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_husky.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_harbour.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_foreman.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_football.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_flower.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_crew.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_city.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC.dat" "rd_single_normalize.cpp" "rd_single.cpp" "rd_single" "MPEG4_PSNRvsShrinkRate_padbits1_ECakiyo.dat" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/Programming/ForDocset/FFmpeg/doc/examples/" (22228 893 0 0) "transcoding.c" "transcode_aac.c" "scaling_video.c" "resampling_audio.c" "remuxing.c" "README" "qsvdec.c" "muxing.c" "metadata.c" "Makefile" "http_multiclient.c" "filtering_video.c" "filtering_audio.c" "filter_audio.c" "extract_mvs.c" "demuxing_decoding.c" "decoding_encoding.c" "avio_reading.c" "avio_dir_cmd.c" "../" "./")
+
  ("/var/" (22175 19031 0 0) "yp/" "vm/" "tmp/" "spool/" "rwho/" "run/" "rpc/" "root/" "networkd/" "netboot/" "msgs/" "mail/" "log/" "lib/" "jabberd/" "folders~orig/" "folders/" "empty/" "db/" "backups/" "audit/" "at/" "agentx/" "../" "./")
 
  ("/Users/yoshito/Programming/c++/video_glitcher/" (22229 40783 0 0) "glitcher.h" "../" "./")
