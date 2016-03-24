@@ -2,28 +2,69 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/yoshito/" . ".files/")
  ("/" . "var/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/watanabe_padding_ver3/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver6/reply-letter/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/Resubmit/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver5/paper/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver5/reply-letter/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver4/reply-letter/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver4/paper/"
+ "/Users/yoshito/Programming/ForDocset/FFmpeg/doc/examples/"
+ "/Users/yoshito/Programming/c++/video_glitcher/"
+ "/Users/yoshito/Program_Mac/Apps/Reference/FFmpegWrapper/FFmpegWrapper/"
+ "/Users/yoshito/.files/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/paper/"
  "/Users/yoshito/Dropbox/ochiailab/tex/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/reply-letter/"
- "/Users/yoshito/Program_Mac/Apps/Reference/FFmpegWrapper/FFmpegWrapper/"
- "/Users/yoshito/Programming/ForDocset/FFmpeg/doc/examples/"
  "/Users/yoshito/Programming/c++/video/Coverage/RD-single/"
  "/var/"
- "/Users/yoshito/Programming/c++/video_glitcher/"
 )
 
 ;; ----- ido-work-file-list -----
 (
+ "reply-letter_watanabe_ver4.tex"
+ "reply-letter_watanabe_ver3.tex"
  "library_temp.bib"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/" (22239 44274 0 0) "watanabe_padding_ver3/" "watanabe_padding_ver2.zip" "watanabe_padding_ver2.pdf" "watanabe_padding_ver2/" "watanabe_padding_comment/" "watanabe_padding.zip" "watanabe_padding.pdf" "watanabe_padding/" "todo.org" "re_ver2/" "mjo_data/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/watanabe_padding_ver3/" (22239 54284 0 0) "watanabe_padding_ver3.tex" "watanabe_padding_ver3.synctex.gz" "watanabe_padding_ver3.pdf" "watanabe_padding_ver3.log" "watanabe_padding_ver3.fls" "watanabe_padding_ver3.fdb_latexmk" "watanabe_padding_ver3.dvi" "watanabe_padding_ver3.blg" "watanabe_padding_ver3.bbl" "watanabe_padding_ver3.aux" "figures/" "auto/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver6/reply-letter/" (22238 16523 0 0) "reply-letter_watanabe_ver6.tex" "reply-letter_watanabe_ver6.synctex.gz" "reply-letter_watanabe_ver6.pdf" "reply-letter_watanabe_ver6.log" "reply-letter_watanabe_ver6.fls" "reply-letter_watanabe_ver6.fdb_latexmk" "reply-letter_watanabe_ver6.dvi" "reply-letter_watanabe_ver6.aux" "auto/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/Resubmit/" (22238 16273 0 0) "response.txt" "abstract.txt" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver5/paper/" (22237 34473 0 0) "watanabe_revise_ver5.tex" "watanabe_revise_ver5.pdf" "watanabe_revise_ver5.log" "watanabe_revise_ver5.fls" "watanabe_revise_ver5.fdb_latexmk" "watanabe_revise_ver5.dvi" "watanabe_revise_ver5.blg" "watanabe_revise_ver5.bbl" "watanabe_revise_ver5.aux" "library.bib" "IEEEtran.bst" "figures/" "auto/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/" (22237 31689 0 0) "watanabe_revise_ver5.zip" "watanabe_revise_ver5.pdf" "watanabe_revise_ver5/" "watanabe_revise_ver3.pdf" "watanabe_revise_ver3/" "watanabe_revise_ver2.pdf" "watanabe_revise_ver2/" "watanabe_revise_ver1.pdf" "watanabe_revise_ver1/" "reply-letter_watanabe_ver5.pdf" "reply-letter_watanabe_ver3.pdf" "reply-letter_watanabe_ver2.pdf" "reply-letter_watanabe.pdf" "reieeetbc_ver3/" "reieeetbc_ver2/" "reieeetbc_ver1/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver5/reply-letter/" (22237 12213 0 0) "reply-letter_watanabe_ver4.tex" "reply-letter_watanabe_ver4.synctex.gz" "reply-letter_watanabe_ver4.pdf" "reply-letter_watanabe_ver4.log" "reply-letter_watanabe_ver4.fls" "reply-letter_watanabe_ver4.fdb_latexmk" "reply-letter_watanabe_ver4.dvi" "reply-letter_watanabe_ver4.aux" "auto/" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver4/paper/" (22237 12160 0 0) "watanabe_revise_ver4.tex" "watanabe_revise_ver4.synctex.gz" "watanabe_revise_ver4.pdf" "watanabe_revise_ver4.log" "watanabe_revise_ver4.fls" "watanabe_revise_ver4.fdb_latexmk" "watanabe_revise_ver4.dvi" "watanabe_revise_ver4.blg" "watanabe_revise_ver4.bbl" "watanabe_revise_ver4.aux" "library.bib" "IEEEtran.bst" "figures/" "auto/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver4/reply-letter/" (22237 3593 0 0) "reply-letter_watanabe_ver4.tex" "reply-letter_watanabe_ver4.synctex.gz" "reply-letter_watanabe_ver4.pdf" "reply-letter_watanabe_ver4.log" "reply-letter_watanabe_ver4.fls" "reply-letter_watanabe_ver4.fdb_latexmk" "reply-letter_watanabe_ver4.dvi" "reply-letter_watanabe_ver4.aux" "auto/" "../" "./")
+
+ ("/Users/yoshito/Programming/ForDocset/FFmpeg/doc/examples/" (22230 55140 0 0) "transcoding.c" "transcode_aac.c" "scaling_video.c" "resampling_audio.c" "remuxing.c" "README" "qsvdec.c" "muxing.c" "metadata.c" "Makefile" "http_multiclient.c" "filtering_video.c" "filtering_audio.c" "filter_audio.c" "extract_mvs.c" "demuxing_decoding.c" "decoding_encoding.c" "avio_reading.c" "avio_dir_cmd.c" "../" "./")
+
+ ("/Users/yoshito/Programming/c++/video_glitcher/" (22233 10609 0 0) "output.m4v" "output.h264" "output.avi" "main.dSYM/" "main.cpp" "main" "glitcher.h.gch" "glitcher.h" "a.out" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/.files/" (22228 4133 0 0) "zsh-prompt.zsh" "zsh-completions/" "zaw/" "vim-powerline/" "url/" "tramp" "tmux-powerline/" "tmux-colors-solarized/" "setup.sh" "scripts/" "README.md" "powerline-shell/" "platexpdf/" "LICENSE" "dotzshrc" "dottmux.conf" "dotslate.js" "dotslate" "dotpythonstartup.py" "dotlatexmkrc" "dotgitignore_global" "dotgitconfig" "dotemacs.d/" "dotbashrc" "dotbash_profile" "cc.sh" "bookmarks" "auto-fu.zsh/" ".gitmodules" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/" (22231 58176 0 0) "zaw/" "texput.log" "test.bib" "temp.text" "temp/" "Public/" "Programming/" "Program_Mac/" "Pictures/" "OneDrive/" "MyLib/" "Music/" "Movies/" "Library/" "iMacros/" "dwhelper/" "Dropbox/" "Downloads/" "dotfiles/" "Documents/" "Desktop/" "Caskfile" "BitTorrent Sync/" "bin/" "auto/" "Applications/" ".zshrc" ".zsh_history" ".zprofile" ".zcompdump" ".Xauthority" ".weechat/" ".vscode/" ".viminfo" ".tsd-cache/" ".Trash/" ".tmux.conf" ".subversion/" ".ssh/" ".slate.js" ".slate" ".rnd" ".pythonstartup.py" ".pythonhistory" ".python_history" ".putty/" ".profile" ".oracle_jre_usage/" ".npm/" ".mjolnir/" ".login" ".local/" ".lldb/" ".latexmkrc" ".itmstransporter/" ".iterm2_shell_integration.zsh" ".htoprc" ".gnuplot_history" ".gitignore_global" ".gitconfig" ".gem/" ".files/" ".emacs.d/" ".DS_Store" ".dropbox/" ".cups/" ".config/" ".cocoapods/" ".chpwd-recent-dirs" ".CFUserTextEncoding" ".cache/" ".brewfile/" ".bash_profile" ".bash_history" ".atom/" ".aspell.en.pws" ".aspell.en.prepl" ".499782.padl" "../" "./")
+
+ ("/Users/yoshito/dotfiles/dotemacs.d/setups/" (22233 3178 0 0) "setup-zlc.el" "setup-yasnippet.el" "setup-view-mode.el" "setup-term.el" "setup-tabbar.el" "setup-smartrep.el" "setup-sdic.el" "setup-pangu-spacing.el" "setup-orgmode.el" "setup-modeline.el" "setup-migemo.el" "setup-mc.el" "setup-markdown-mode.el" "setup-magit.el" "setup-looking.el" "setup-lilypond.el" "setup-latex-mode.el" "setup-ido-mode.el" "setup-hi-lock-mode.el" "setup-helm.el" "setup-guidekey.el" "setup-flymake.el" "setup-flycheck.el" "setup-emms.el" "setup-egg.el" "setup-e2wm.el" "setup-ddskk.el" "setup-company.el" "setup-cc-mode.el" "setup-autocomplete.el" "setup-anzu.el" "setup-anything.el" "setup-ace-jump.el" "../" "./")
+
+ ("/Users/yoshito/Programming/c++/forTips/" (21780 52587 0 0) "scope/" "round_error/" "../" "./")
+
  ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/paper/" (22232 19705 0 0) "watanabe_revise_ver3.tex" "watanabe_revise_ver3.pdf" "watanabe_revise_ver3.fdb_latexmk" "watanabe_revise_ver3.dvi" "library.bib" "IEEEtran.bst" "figures/" "auto/" ".DS_Store" "../" "./")
 
  ("/Users/yoshito/Dropbox/ochiailab/tex/" (22231 64777 0 0) "tieice.bst" "spconf.sty" "sita2012.sty" "orgbeamer.sty" "newenum.sty" "library.bib" "ieicejsp2.cls" "ieicejsp.cls" "IEEEtranTCOM.cls" "IEEEtranTCOM.bst" "IEEEtranSN.bst" "IEEEtranSA.bst" "IEEEtranS.bst" "IEEEtranN.bst" "IEEEtran.cls" "IEEEtran.bst" "ieeefull.bib" "IEEEbib.bst" "IEEEabrv.bib" "bmcart.cls" "bmcart-biblio.sty" "bmc_article.cls" "bmc_article.bst" "bmc-mathphys.bst" "biblio.bib" "auto/" ".DS_Store" "../" "./")
@@ -34,11 +75,7 @@
 
  ("/Users/yoshito/Programming/c++/video/Coverage/RD-single/" (22229 6673 0 0) "singleMPEG4_PSNRvsShrinkRate_padbits1_ECforeman_normalized.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_waterfall.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_soccer.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_mother_daughter_normlized.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_mother_daughter.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_ice.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_husky_normlized.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_husky.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_harbour.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_foreman.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_football.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_flower.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_crew.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC_city.dat" "singleMPEG4_PSNRvsShrinkRate_padbits1_EC.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_ECforeman_normalized.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_ECakiyo.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_waterfall.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_soccer.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_mother_daughter_normlized.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_mother_daughter.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_ice.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_husky_normlized.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_husky.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_harbour.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_foreman.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_football.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_flower.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_crew.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC_city.dat" "singleMPEG4_MSEvsShrinkRate_padbits1_EC.dat" "rd_single_normalize.cpp" "rd_single.cpp" "rd_single" "MPEG4_PSNRvsShrinkRate_padbits1_ECakiyo.dat" ".DS_Store" "../" "./")
 
- ("/Users/yoshito/Programming/ForDocset/FFmpeg/doc/examples/" (22228 893 0 0) "transcoding.c" "transcode_aac.c" "scaling_video.c" "resampling_audio.c" "remuxing.c" "README" "qsvdec.c" "muxing.c" "metadata.c" "Makefile" "http_multiclient.c" "filtering_video.c" "filtering_audio.c" "filter_audio.c" "extract_mvs.c" "demuxing_decoding.c" "decoding_encoding.c" "avio_reading.c" "avio_dir_cmd.c" "../" "./")
-
  ("/var/" (22175 19031 0 0) "yp/" "vm/" "tmp/" "spool/" "rwho/" "run/" "rpc/" "root/" "networkd/" "netboot/" "msgs/" "mail/" "log/" "lib/" "jabberd/" "folders~orig/" "folders/" "empty/" "db/" "backups/" "audit/" "at/" "agentx/" "../" "./")
-
- ("/Users/yoshito/Programming/c++/video_glitcher/" (22229 40783 0 0) "glitcher.h" "../" "./")
 )
 
 ;; ----- ido-unc-hosts-cache -----

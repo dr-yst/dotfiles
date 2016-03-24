@@ -1,7 +1,6 @@
 *.dat
 *.txt
 *.pch
-ido.last
         
 dotemacs.d/ddskk
 dotemacs.d/el-get
@@ -17,6 +16,7 @@ dotemacs.d/recentf
 .elc
 dotemacs.d/auto-save-list
 dotemacs.d/tramp
+dotemacs.d/ido.last
 
 # Org-mode
 .org-id-locations
