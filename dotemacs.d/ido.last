@@ -8,15 +8,15 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/yoshito/Programming/ForDocset/FFmpeg/doc/examples/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver5/paper/"
+ "/Users/yoshito/Programming/c++/video_glitcher/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/watanabe_padding_ver3/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver6/reply-letter/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/Resubmit/"
- "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver5/paper/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver5/reply-letter/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver4/reply-letter/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver4/paper/"
- "/Users/yoshito/Programming/ForDocset/FFmpeg/doc/examples/"
- "/Users/yoshito/Programming/c++/video_glitcher/"
  "/Users/yoshito/Program_Mac/Apps/Reference/FFmpegWrapper/FFmpegWrapper/"
  "/Users/yoshito/.files/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/paper/"
@@ -35,6 +35,10 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver5/paper/" (22237 34796 0 0) "watanabe_revise_ver5.tex" "watanabe_revise_ver5.pdf" "watanabe_revise_ver5.log" "watanabe_revise_ver5.fls" "watanabe_revise_ver5.fdb_latexmk" "watanabe_revise_ver5.dvi" "watanabe_revise_ver5.blg" "watanabe_revise_ver5.bbl" "watanabe_revise_ver5.aux" "library.bib" "IEEEtran.bst" "figures/" "auto/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/Programming/c++/video_glitcher/" (22233 11750 0 0) "output.m4v" "output.h264" "output.avi" "main.dSYM/" "main.cpp" "main" "glitcher.h.gch" "glitcher.h" "a.out" ".DS_Store" "../" "./")
+
  ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/" (22239 44274 0 0) "watanabe_padding_ver3/" "watanabe_padding_ver2.zip" "watanabe_padding_ver2.pdf" "watanabe_padding_ver2/" "watanabe_padding_comment/" "watanabe_padding.zip" "watanabe_padding.pdf" "watanabe_padding/" "todo.org" "re_ver2/" "mjo_data/" ".DS_Store" "../" "./")
 
  ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/watanabe_padding_ver3/" (22239 54284 0 0) "watanabe_padding_ver3.tex" "watanabe_padding_ver3.synctex.gz" "watanabe_padding_ver3.pdf" "watanabe_padding_ver3.log" "watanabe_padding_ver3.fls" "watanabe_padding_ver3.fdb_latexmk" "watanabe_padding_ver3.dvi" "watanabe_padding_ver3.blg" "watanabe_padding_ver3.bbl" "watanabe_padding_ver3.aux" "figures/" "auto/" ".DS_Store" "../" "./")
@@ -42,8 +46,6 @@
  ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver6/reply-letter/" (22238 16523 0 0) "reply-letter_watanabe_ver6.tex" "reply-letter_watanabe_ver6.synctex.gz" "reply-letter_watanabe_ver6.pdf" "reply-letter_watanabe_ver6.log" "reply-letter_watanabe_ver6.fls" "reply-letter_watanabe_ver6.fdb_latexmk" "reply-letter_watanabe_ver6.dvi" "reply-letter_watanabe_ver6.aux" "auto/" ".DS_Store" "../" "./")
 
  ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/Resubmit/" (22238 16273 0 0) "response.txt" "abstract.txt" "../" "./")
-
- ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver5/paper/" (22237 34473 0 0) "watanabe_revise_ver5.tex" "watanabe_revise_ver5.pdf" "watanabe_revise_ver5.log" "watanabe_revise_ver5.fls" "watanabe_revise_ver5.fdb_latexmk" "watanabe_revise_ver5.dvi" "watanabe_revise_ver5.blg" "watanabe_revise_ver5.bbl" "watanabe_revise_ver5.aux" "library.bib" "IEEEtran.bst" "figures/" "auto/" ".DS_Store" "../" "./")
 
  ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/" (22237 31689 0 0) "watanabe_revise_ver5.zip" "watanabe_revise_ver5.pdf" "watanabe_revise_ver5/" "watanabe_revise_ver3.pdf" "watanabe_revise_ver3/" "watanabe_revise_ver2.pdf" "watanabe_revise_ver2/" "watanabe_revise_ver1.pdf" "watanabe_revise_ver1/" "reply-letter_watanabe_ver5.pdf" "reply-letter_watanabe_ver3.pdf" "reply-letter_watanabe_ver2.pdf" "reply-letter_watanabe.pdf" "reieeetbc_ver3/" "reieeetbc_ver2/" "reieeetbc_ver1/" ".DS_Store" "../" "./")
 
@@ -54,8 +56,6 @@
  ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver4/reply-letter/" (22237 3593 0 0) "reply-letter_watanabe_ver4.tex" "reply-letter_watanabe_ver4.synctex.gz" "reply-letter_watanabe_ver4.pdf" "reply-letter_watanabe_ver4.log" "reply-letter_watanabe_ver4.fls" "reply-letter_watanabe_ver4.fdb_latexmk" "reply-letter_watanabe_ver4.dvi" "reply-letter_watanabe_ver4.aux" "auto/" "../" "./")
 
  ("/Users/yoshito/Programming/ForDocset/FFmpeg/doc/examples/" (22230 55140 0 0) "transcoding.c" "transcode_aac.c" "scaling_video.c" "resampling_audio.c" "remuxing.c" "README" "qsvdec.c" "muxing.c" "metadata.c" "Makefile" "http_multiclient.c" "filtering_video.c" "filtering_audio.c" "filter_audio.c" "extract_mvs.c" "demuxing_decoding.c" "decoding_encoding.c" "avio_reading.c" "avio_dir_cmd.c" "../" "./")
-
- ("/Users/yoshito/Programming/c++/video_glitcher/" (22233 10609 0 0) "output.m4v" "output.h264" "output.avi" "main.dSYM/" "main.cpp" "main" "glitcher.h.gch" "glitcher.h" "a.out" ".DS_Store" "../" "./")
 
  ("/Users/yoshito/.files/" (22228 4133 0 0) "zsh-prompt.zsh" "zsh-completions/" "zaw/" "vim-powerline/" "url/" "tramp" "tmux-powerline/" "tmux-colors-solarized/" "setup.sh" "scripts/" "README.md" "powerline-shell/" "platexpdf/" "LICENSE" "dotzshrc" "dottmux.conf" "dotslate.js" "dotslate" "dotpythonstartup.py" "dotlatexmkrc" "dotgitignore_global" "dotgitconfig" "dotemacs.d/" "dotbashrc" "dotbash_profile" "cc.sh" "bookmarks" "auto-fu.zsh/" ".gitmodules" ".gitignore" ".git/" ".DS_Store" "../" "./")
 
