@@ -1,12 +1,12 @@
 *.dat
 *.txt
 *.pch
-
+        
 dotemacs.d/ddskk
 dotemacs.d/el-get
 dotemacs.d/recentf
         
-# Emacs tem files
+# Emacs tempo files
 *~
 [#]*[#]
 .\#*
@@ -16,7 +16,9 @@ dotemacs.d/recentf
 .elc
 dotemacs.d/auto-save-list
 dotemacs.d/tramp
+dotemacs.d/ido.last
 
 # Org-mode
 .org-id-locations
 *_archive
+ido.last

@@ -36,12 +36,13 @@
   :error-patterns  ((error line-start
                            (file-name) ":" line ":" column ":" " Error: " (message)
                            line-end)
+                    (error line-start
+                                 (file-name) ":" line ":" column ":" " Fatal Error: " (message)
+                           line-end)
                     (warning line-start
-                           (file-name) ":" line ":" column ":" " Warning: " (message)
-                           line-end))
+                             (file-name) ":" line ":" column ":" " Warning: " (message)
+                             line-end))
   :modes (c-mode c++-mode))
-
-
 
 (provide 'setup-flycheck)
 ;;; setup-flycheck.el ends here

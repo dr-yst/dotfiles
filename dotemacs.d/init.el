@@ -1,4 +1,4 @@
-;; Last Updated: <2016/02/17 22:15:38 from SURFACE-3 by stick>
+;; Last Updated: <2016/03/25 21:24:16 from yoshitos-mac-mini.local by yoshito>
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
 ;; ------------------------------------------------------------------------
@@ -138,7 +138,7 @@
 
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key "\C-h" nil)
-;; (global-set-key "\C-z" 'undo)
+(global-set-key "\C-z" 'undo)
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key "\C-j" 'newline-and-indent)
 
@@ -417,6 +417,7 @@
   (global-undo-tree-mode))
 
 (global-set-key "\C-\\" 'undo-tree-redo)
+(global-set-key "\C-Z" 'undo-tree-redo)
 
 ;; C-x uで起動
 
@@ -454,7 +455,7 @@
 ;; 多分anythingと競合してる
 
 
-(require 'setup-ido-mode)
+;; (require 'setup-ido-mode)
 (require 'setup-magit)
 (require 'setup-egg)
 (require 'setup-hi-lock-mode)
