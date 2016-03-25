@@ -2,11 +2,17 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/" . "submission/")
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/" . "padding_someIEEE/")
  ("/" . "var/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Pre-version/watanabe_video_final/"
+ "/Users/yoshito/OneDrive/Documents/Yoda_Revision_2015_July/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/submission/"
+ "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/watanabe_padding_ver4/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/paper/"
  "/Users/yoshito/Dropbox/ochiailab/tex/"
  "/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/reply-letter/"
@@ -19,11 +25,28 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "cover_letter.txt"
+ "double.tex"
+ "single.tex"
  "library_temp.bib"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Pre-version/watanabe_video_final/" (22114 30613 0 0) "watanabe_video_final.tex" "watanabe_video_final.pdf" "watanabe_video_final.fdb_latexmk" "watanabe_video_final.dvi" "single.tex" "single.pdf" "single.log" "single.fls" "single.fdb_latexmk" "single.dvi" "single.blg" "single.bbl" "single.aux" "library.bib" "figures/" "cover_letter.txt" "auto/" "abstract.txt" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/Yoda_Revision_2015_July/" (22213 63666 0 0) "yoda_paper_MLCPID_2015_ver9.tex" "yoda_paper_MLCPID_2015_ver9.pdf" "yoda_paper_MLCPID_2015_ver9.log" "yoda_paper_MLCPID_2015_ver9.dvi" "yoda_paper_MLCPID_2015_ver9.blg" "yoda_paper_MLCPID_2015_ver9.bbl" "yoda_paper_MLCPID_2015_ver9.aux" "yoda_paper_MLCPID_2015_ver8_2.pdf" "yoda_paper_MLCPID_2015_ver8.tex" "yoda_paper_MLCPID_2015_ver8.pdf" "yoda_paper_MLCPID_2015_ver8.log" "yoda_paper_MLCPID_2015_ver8.dvi" "yoda_paper_MLCPID_2015_ver8.blg" "yoda_paper_MLCPID_2015_ver8.bbl" "yoda_paper_MLCPID_2015_ver8.aux" "yoda_paper_MLCPID_2015_ver7_rev.tex" "yoda_paper_MLCPID_2015_ver7_rev.pdf" "yoda_paper_MLCPID_2015_ver7_rev.log" "yoda_paper_MLCPID_2015_ver7_rev.dvi" "yoda_paper_MLCPID_2015_ver7_rev.blg" "yoda_paper_MLCPID_2015_ver7_rev.bbl" "yoda_paper_MLCPID_2015_ver7_rev.aux" "yoda_paper_MLCPID_2015_ver7.tex" "yoda_paper_MLCPID_2015_ver7.pdf" "yoda_paper_MLCPID_2015_ver7.log" "yoda_paper_MLCPID_2015_ver7.dvi" "yoda_paper_MLCPID_2015_ver7.blg" "yoda_paper_MLCPID_2015_ver7.bbl" "yoda_paper_MLCPID_2015_ver7.aux" "yoda_paper_MLCPID_2015_ver6_rev.tex" "yoda_paper_MLCPID_2015_ver6_rev.pdf" "yoda_paper_MLCPID_2015_ver6.tex" "yoda_paper_MLCPID_2015_ver6.pdf" "yoda_paper_MLCPID_2015_ver6.log" "yoda_paper_MLCPID_2015_ver6.dvi" "yoda_paper_MLCPID_2015_ver6.blg" "yoda_paper_MLCPID_2015_ver6.bbl" "yoda_paper_MLCPID_2015_ver6.aux" "yoda_paper_MLCPID_2015_ver5.tex" "yoda_paper_MLCPID_2015_ver5.pdf" "yoda_paper_MLCPID_2015_ver5.log" "yoda_paper_MLCPID_2015_ver5.dvi" "yoda_paper_MLCPID_2015_ver5.blg" "yoda_paper_MLCPID_2015_ver5.bbl" "yoda_paper_MLCPID_2015_ver5.aux" "yoda_paper_MLCPID_2015_FinalManuscript_ver1.tex" "yoda_paper_MLCPID_2015_FinalManuscript_ver1.pdf" "yoda_paper_MLCPID_2015_FinalManuscript_ver1.log" "yoda_paper_MLCPID_2015_FinalManuscript_ver1.dvi" "yoda_paper_MLCPID_2015_FinalManuscript_ver1.blg" "yoda_paper_MLCPID_2015_FinalManuscript_ver1.bbl" "yoda_paper_MLCPID_2015_FinalManuscript_ver1.aux" "TypeB-2_new.eps" "TypeB-2.eps" "TypeB-1_new.eps" "TypeB-1.eps" "Turbo_Decoding.eps" "Turbo_coding.eps" "Total_COEX_TypeAB_eachN.eps" "system_model.eps" "reply_letter_yoda_July_2015_ver5.tex" "reply_letter_yoda_July_2015_ver5.pdf" "reply_letter_yoda_July_2015_ver5.log" "reply_letter_yoda_July_2015_ver5.dvi" "reply_letter_yoda_July_2015_ver5.aux" "reply_letter_yoda_July_2015_ver4_2.pdf" "reply_letter_yoda_July_2015_ver4.tex" "reply_letter_yoda_July_2015_ver4.pdf" "reply_letter_yoda_July_2015_ver4.log" "reply_letter_yoda_July_2015_ver4.dvi" "reply_letter_yoda_July_2015_ver4.aux" "reply_letter_yoda_July_2015_ver3_rev.tex" "reply_letter_yoda_July_2015_ver3_rev.pdf" "reply_letter_yoda_July_2015_ver3_rev.log" "reply_letter_yoda_July_2015_ver3_rev.dvi" "reply_letter_yoda_July_2015_ver3_rev.aux" "reply_letter_yoda_July_2015_ver3.tex" "reply_letter_yoda_July_2015_ver3.pdf" "reply_letter_yoda_July_2015_ver3.log" "reply_letter_yoda_July_2015_ver3.dvi" "reply_letter_yoda_July_2015_ver3.aux" "reply_letter_yoda_July_2015_ver2_rev.tex" "reply_letter_yoda_July_2015_ver2_rev.pdf" "reply_letter_yoda_July_2015_ver2.tex" "reply_letter_yoda_July_2015_ver2.pdf" "reply_letter_yoda_July_2015_ver2.log" "reply_letter_yoda_July_2015_ver2.dvi" "reply_letter_yoda_July_2015_ver2.aux" "reply_letter_yoda_July_2015_ver1_comments.tex" "reply_letter_yoda_July_2015_ver1_comments.pdf" "reply_letter_yoda_July_2015_ver1.tex" "reply_letter_yoda_July_2015_ver1.pdf" "reply_letter_yoda_July_2015_ver1.log" "reply_letter_yoda_July_2015_ver1.dvi" "reply_letter_yoda_July_2015_ver1.aux" "MSD_SYSTEM_D.eps" "MSD-PID_SYSTEM_D.eps" "MSD-PID_system.eps" "ieicej.cls" "IEEEtran.cls" "FER_performance7.eps" "FER_PER_4+12-APSK_RHO=2.9_MLC_Turbo_IQdecomp.eps" "FER_4+12-APSK_MLC_rho=2.9_Label4and8_new2.eps" "FER_4+12-APSK_MLC_rho=2.9_Label4and8_new.eps" "FER_4+12+16-APSK_MLC_rho=2.7_4.5_Approx_transaction_new.eps" "CoverLetter_for_revision_TBroadcasting.txt" "Cover_Letter_for_first_submission_TBroadcasting.txt" "COEX_Label28_4.eps" "COEX_Equcapa_Label8_rho=2.9.eps" "COEX_Equcapa_Label4_rho=2.9.eps" "citesort.sty" "cite.sty" "cases.sty" "auto/" "8+8-APSK_const.eps" "4+12-APSK_rho_VS_requiredSNR_forCapacity=3.0_for_Reply_Letter.eps" "4+12-APSK_equiv2.eps" "4+12-APSK_const.eps" "4+12+16-APSK_Ungerboeck_SP_Labeling_and_Equivalents_forPaper.eps" "4+12+16-APSK_Labeling_Parallel_EquivalentChannels_forPaper.eps" "32-APSK_MLC_FER4.eps" "16QAM_const.eps" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/" (22245 32975 0 0) "watanabe_padding_ver4/" "watanabe_padding_ver3.zip" "watanabe_padding_ver3.pdf" "watanabe_padding_ver3/" "watanabe_padding_ver2.zip" "watanabe_padding_ver2.pdf" "watanabe_padding_ver2/" "watanabe_padding_comment/" "watanabe_padding.zip" "watanabe_padding.pdf" "watanabe_padding/" "todo.org" "submission/" "re_ver3/" "re_ver2/" "mjo_data/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/" (22190 6387 0 0) "watanabe_journal_video/" "watanabe_GLOBECOM_2015/" "watanabe_eurasip/" "sougou_taikai2016/" "progress_report/" "padding_someIEEE/" "ICIP_GME/" ".DS_Store" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_eurasip/" (22114 29616 0 0) "watanabe_eurasip/" "manuscript/" "figures/" "cover_letter.txt" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/submission/" (22245 33474 0 0) "abstract.txt" "../" "./")
+
+ ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/padding_someIEEE/watanabe_padding_ver4/" (22245 32907 0 0) "watanabe_padding_ver4.tex" "watanabe_padding_ver4.synctex.gz" "watanabe_padding_ver4.pdf" "watanabe_padding_ver4.log" "watanabe_padding_ver4.fls" "watanabe_padding_ver4.fdb_latexmk" "watanabe_padding_ver4.dvi" "watanabe_padding_ver4.blg" "watanabe_padding_ver4.bbl" "watanabe_padding_ver4.aux" "single.tex" "single.synctex.gz" "single.pdf" "single.log" "single.fls" "single.fdb_latexmk" "single.dvi" "single.blg" "single.bbl" "single.aux" "library.bib" "figures/" "double.tex" "double.synctex.gz" "double.pdf" "double.log" "double.fls" "double.fdb_latexmk" "double.dvi" "double.blg" "double.bbl" "double.aux" "auto/" ".DS_Store" "../" "./")
+
  ("/Users/yoshito/OneDrive/Documents/00presentation_papers/00_WORKING_ON/watanabe_journal_video/Broadcasting/Revise/watanabe_revise_ver3/paper/" (22232 19705 0 0) "watanabe_revise_ver3.tex" "watanabe_revise_ver3.pdf" "watanabe_revise_ver3.fdb_latexmk" "watanabe_revise_ver3.dvi" "library.bib" "IEEEtran.bst" "figures/" "auto/" ".DS_Store" "../" "./")
 
  ("/Users/yoshito/Dropbox/ochiailab/tex/" (22231 64777 0 0) "tieice.bst" "spconf.sty" "sita2012.sty" "orgbeamer.sty" "newenum.sty" "library.bib" "ieicejsp2.cls" "ieicejsp.cls" "IEEEtranTCOM.cls" "IEEEtranTCOM.bst" "IEEEtranSN.bst" "IEEEtranSA.bst" "IEEEtranS.bst" "IEEEtranN.bst" "IEEEtran.cls" "IEEEtran.bst" "ieeefull.bib" "IEEEbib.bst" "IEEEabrv.bib" "bmcart.cls" "bmcart-biblio.sty" "bmc_article.cls" "bmc_article.bst" "bmc-mathphys.bst" "biblio.bib" "auto/" ".DS_Store" "../" "./")
