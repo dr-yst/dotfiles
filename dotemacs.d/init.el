@@ -1,4 +1,4 @@
-;; Last Updated: <2016/02/23 17:22:25 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/03/25 21:24:16 from yoshitos-mac-mini.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -437,7 +437,7 @@
 ;; 多分anythingと競合してる
 
 
-(require 'setup-ido-mode)
+;; (require 'setup-ido-mode)
 (require 'setup-magit)
 (require 'setup-egg)
 (require 'setup-hi-lock-mode)
