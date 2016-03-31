@@ -80,6 +80,13 @@
 (require 'company-auctex)
 (company-auctex-init)
 
+(require 'ac-php)
+(add-hook 'php-mode-hook
+          '(lambda ()
+             (require 'ac-php-company)
+             (company-mode t)
+             (add-to-list 'company-backends 'company-ac-php-backend )))
+
 (yas-global-mode)
 
 
