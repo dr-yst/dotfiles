@@ -80,7 +80,6 @@
 (require 'company-auctex)
 (company-auctex-init)
 
-(require 'ac-php)
 (add-hook 'php-mode-hook
           '(lambda ()
              (require 'ac-php-company)
