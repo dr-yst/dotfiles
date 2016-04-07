@@ -1,4 +1,4 @@
-;; Last Updated: <2016/03/25 21:24:16 from yoshitos-mac-mini.local by yoshito>
+;; Last Updated: <2016/04/07 15:58:28 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -210,8 +210,8 @@
 ;;     '("Hiragino Kaku Gothic ProN" . "iso10646-1")) 
 
 
-;; ビープ音を消す
-(setq visible-bell t)
+(setq visible-bell nil) ;; The default
+(setq ring-bell-function 'ignore)
 
 ;;; mark 領域に色付け
 (setq transient-mark-mode t)
