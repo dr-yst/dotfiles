@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lrb
+# key: lrb
+# --
+\left\{$0\right\}
