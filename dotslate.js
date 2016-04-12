@@ -100,7 +100,7 @@ S.bind('z:alt,cmd', launch_and_focus('Microsoft\ PowerPoint'));
 S.bind('n:alt,cmd', launch_and_focus('Evernote'));
 S.bind('r:alt,cmd', launch_and_focus('Dash'));
 S.bind('l:alt,cmd', launch_and_focus('LaTeXiT'));
-
+S.bind('c:alt,cmd', launch_and_focus('Slack'));
 
 
 // http://www.infiniteloop.co.jp/blog/2013/08/osx_slate/
