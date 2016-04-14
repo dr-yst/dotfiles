@@ -1,4 +1,4 @@
-;; Last Updated: <2016/04/07 15:58:28 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/04/14 15:50:21 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -295,54 +295,6 @@
 ;; (add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
 
 
-
-;; ;; dired関連--------------------------------------------------
-;; ;;; フォルダを開く時, 新しいバッファを作成しない
-;; aで同じバッファに読み込み
-(put 'dired-find-alternate-file 'disabled nil)
-;; ^で親フォルダに移動するときも同じバッファに読み込む
-(add-hook 'dired-mode-hook
- (lambda ()
-  (define-key dired-mode-map (kbd "^")
-    (lambda () (interactive) (find-alternate-file "..")))
-  ; was dired-up-directory
- ))
-
-;; ;; RETで同じバッファに読み込むようにする
-;; (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
-;; (define-key dired-mode-map (kbd "a") 'dired-find-file)
-
-;; ;; ---------- or --------------
-;; (defun dired-find-alternate-file ()
-;;   "In dired, visit this file or directory instead of the dired buffer."
-;;   (interactive)
-;;   (set-buffer-modified-p nil)
-;;   (find-alternate-file (dired-get-filename)))
-
-
-;; ;; ---------- or --------------
-;; バッファを作成したい時にはoやC-u ^を利用する
-;; (defvar my-dired-before-buffer nil)
-;; (defadvice dired-advertised-find-file
-;;   (before kill-dired-buffer activate)
-;;   (setq my-dired-before-buffer (current-buffer)))
-
-;; (defadvice dired-advertised-find-file
-;;   (after kill-dired-buffer-after activate)
-;;   (if (eq major-mode 'dired-mode)
-;;       (kill-buffer my-dired-before-buffer)))
-
-;; (defadvice dired-up-directory
-;;   (before kill-up-dired-buffer activate)
-;;   (setq my-dired-before-buffer (current-buffer)))
-
-;; (defadvice dired-up-directory
-;;   (after kill-up-dired-buffer-after activate)
-;;   (if (eq major-mode 'dired-mode)
-;;       (kill-buffer my-dired-before-buffer)))
-
-
-
 ;; 時間管理 ----------------------------------
 ;;; ステータスラインに時間を表示する
 (if (equal (substring (concat 
@@ -430,8 +382,9 @@
 
 
 ;; setups ------------------------------
-(require 'setup-ddskk)
+;; (require 'setup-ddskk)
 (require 'setup-looking)
+(require 'setup-dired)
 (require 'setup-view-mode)
 ;; (require 'setup-zlc) ; 上手く動かない
 ;; 多分anythingと競合してる
