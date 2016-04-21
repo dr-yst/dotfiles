@@ -1,4 +1,4 @@
-;; Last Updated: <2016/04/14 15:50:21 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/04/21 16:55:32 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -30,7 +30,6 @@
                   ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   ;; "elisp/helm"
-		  "elisp/emacs-sound-wav"
                   "elisp/vhdl-mode")
 
 (eval-when-compile
