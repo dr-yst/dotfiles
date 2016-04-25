@@ -1,4 +1,4 @@
-;; Last Updated: <2016/04/21 16:55:32 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/04/25 16:26:14 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -413,10 +413,11 @@
 (require 'setup-anzu)
 (require 'setup-guidekey)
 (require 'setup-ace-jump)
-(require 'setup-emms)
+;; (require 'setup-emms)
 (require 'setup-migemo)
-
 (require 'setup-pangu-spacing)
+
+(require 'setup-dash)
 
 (require 'setup-lilypond)
 
@@ -489,13 +490,6 @@
 ;; (global-set-key (kbd "C-T") 'rotate-layout)
 ;; (global-set-key (kbd "M-T") 'rotate-window)
 
-;; Dash.appとの連携-------------------------
-(defun dash ()
-  (interactive)
-  (shell-command
-   (format "open dash://%s"
-           (or (thing-at-point 'symbol) ""))))
-(global-set-key "\C-cr" 'dash)
 
 ;; emacs-zoom-window----------------------
 (require 'zoom-window)
