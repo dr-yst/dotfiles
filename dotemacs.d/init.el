@@ -1,4 +1,4 @@
-;; Last Updated: <2016/04/25 16:26:14 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/04/29 15:52:18 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -168,6 +168,8 @@
 
 ;; 最近使ったファイルをメニューに表示
 (recentf-mode t)
+
+(require 'recentf-ext)
 
 ;; 最近使ったファイルの表示数
 (setq recentf-max-menu-items 30)
