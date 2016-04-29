@@ -42,9 +42,9 @@
                '("latexmk" "latexmk %s" TeX-run-TeX nil t
                  :help "Run latexmk on file"))
   (add-to-list 'TeX-command-list
-               '("Skim" "open -a Skim.app '%s.pdf'" TeX-run-command t nil))
+               '("Skim" "open -a /Applications/Skim.app '%s.pdf'" TeX-run-command t nil))
   (add-to-list 'TeX-command-list
-               '("SkimBG" "open -g -a Skim.app '%s.pdf'" TeX-run-command nil t))
+               '("SkimBG" "open -g -a /Applications/Skim.app '%s.pdf'" TeX-run-command nil t))
 
 )))
 
@@ -55,7 +55,7 @@
 ;; Skim's displayline is used for forward search (from .tex to .pdf)
 ;; option -b highlights the current line; option -g opens Skim in the background 
 (setq TeX-view-program-list
-     '(("Skim" "displayline -b -g %n %o %b"))) ;; displayline must be available.
+     '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b"))) ;; displayline must be available.
 (setq TeX-view-program-selection '((output-pdf "Skim")))
 
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
@@ -65,7 +65,7 @@
 (setq TeX-parse-self t)
 
 ;; 複数のtexファイルを使う場合は以下を有効にする
-;; (setq-default TeX-master nil)
+(setq-default TeX-master nil)
 (add-hook 'LaTeX-mode-hook
           '(lambda ()
                (setq enable-local-variables t)))
