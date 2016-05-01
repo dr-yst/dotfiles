@@ -85,22 +85,22 @@ var launch_and_focus = function (target) {
 //     };
 // };
 
-S.bind('t:alt,cmd', launch_and_focus('iTerm'));
-S.bind('e:alt,cmd', launch_and_focus('Emacs'));
-S.bind('b:alt,cmd', launch_and_focus('Firefox'));
-S.bind('f:alt,cmd', launch_and_focus('Finder'));
-S.bind('d:alt,cmd', launch_and_focus('Dictionary'));
-S.bind('i:alt,cmd', launch_and_focus('iTunes'));
-S.bind('p:alt,cmd', launch_and_focus('Mendeley\ Desktop'));
-S.bind('s:alt,cmd', launch_and_focus('Skim'));
-S.bind('m:alt,cmd', launch_and_focus('Mjograph'));
-S.bind('x:alt,cmd', launch_and_focus('Xcode'));
-S.bind('v:alt,cmd', launch_and_focus('VLC'));
-S.bind('z:alt,cmd', launch_and_focus('Microsoft\ PowerPoint'));
-S.bind('n:alt,cmd', launch_and_focus('Evernote'));
-S.bind('r:alt,cmd', launch_and_focus('Dash'));
-S.bind('l:alt,cmd', launch_and_focus('LaTeXiT'));
-
+// S.bind('t:alt,cmd', launch_and_focus('iTerm'));
+// S.bind('e:alt,cmd', launch_and_focus('Emacs'));
+// S.bind('b:alt,cmd', launch_and_focus('Firefox'));
+// S.bind('f:alt,cmd', launch_and_focus('Finder'));
+// S.bind('d:alt,cmd', launch_and_focus('Dictionary'));
+// S.bind('i:alt,cmd', launch_and_focus('iTunes'));
+// S.bind('p:alt,cmd', launch_and_focus('Mendeley\ Desktop'));
+// S.bind('s:alt,cmd', launch_and_focus('Skim'));
+// S.bind('m:alt,cmd', launch_and_focus('Mjograph'));
+// S.bind('x:alt,cmd', launch_and_focus('Xcode'));
+// S.bind('v:alt,cmd', launch_and_focus('VLC'));
+// S.bind('z:alt,cmd', launch_and_focus('Microsoft\ PowerPoint'));
+// S.bind('n:alt,cmd', launch_and_focus('Evernote'));
+// S.bind('r:alt,cmd', launch_and_focus('Dash'));
+// S.bind('l:alt,cmd', launch_and_focus('LaTeXiT'));
+// S.bind('c:alt,cmd', launch_and_focus('Slack'));
 
 
 // http://www.infiniteloop.co.jp/blog/2013/08/osx_slate/

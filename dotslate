@@ -5,3 +5,4 @@ config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
 
 bind tab:alt hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
+

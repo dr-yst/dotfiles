@@ -194,6 +194,8 @@
 ;; 最近使ったファイルをメニューに表示
 (recentf-mode t)
 
+(require 'recentf-ext)
+
 ;; 最近使ったファイルの表示数
 (setq recentf-max-menu-items 30)
 (setq recentf-max-saved-items 100)
@@ -228,8 +230,8 @@
 ;;     '("Hiragino Kaku Gothic ProN" . "iso10646-1")) 
 
 
-;; ビープ音を消す
-(setq visible-bell t)
+(setq visible-bell nil) ;; The default
+(setq ring-bell-function 'ignore)
 
 ;;; mark 領域に色付け
 (setq transient-mark-mode t)
@@ -311,54 +313,6 @@
 ;; ;; (set-face-background 'highlight-indentation-current-column-face "LemonChiffon4")
 ;; ;; (add-hook 'python-mode-hook 'highlight-indentation-mode)
 ;; (add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
-
-
-
-;; ;; dired関連--------------------------------------------------
-;; ;;; フォルダを開く時, 新しいバッファを作成しない
-;; aで同じバッファに読み込み
-(put 'dired-find-alternate-file 'disabled nil)
-;; ^で親フォルダに移動するときも同じバッファに読み込む
-(add-hook 'dired-mode-hook
- (lambda ()
-  (define-key dired-mode-map (kbd "^")
-    (lambda () (interactive) (find-alternate-file "..")))
-  ; was dired-up-directory
- ))
-
-;; ;; RETで同じバッファに読み込むようにする
-;; (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
-;; (define-key dired-mode-map (kbd "a") 'dired-find-file)
-
-;; ;; ---------- or --------------
-;; (defun dired-find-alternate-file ()
-;;   "In dired, visit this file or directory instead of the dired buffer."
-;;   (interactive)
-;;   (set-buffer-modified-p nil)
-;;   (find-alternate-file (dired-get-filename)))
-
-
-;; ;; ---------- or --------------
-;; バッファを作成したい時にはoやC-u ^を利用する
-;; (defvar my-dired-before-buffer nil)
-;; (defadvice dired-advertised-find-file
-;;   (before kill-dired-buffer activate)
-;;   (setq my-dired-before-buffer (current-buffer)))
-
-;; (defadvice dired-advertised-find-file
-;;   (after kill-dired-buffer-after activate)
-;;   (if (eq major-mode 'dired-mode)
-;;       (kill-buffer my-dired-before-buffer)))
-
-;; (defadvice dired-up-directory
-;;   (before kill-up-dired-buffer activate)
-;;   (setq my-dired-before-buffer (current-buffer)))
-
-;; (defadvice dired-up-directory
-;;   (after kill-up-dired-buffer-after activate)
-;;   (if (eq major-mode 'dired-mode)
-;;       (kill-buffer my-dired-before-buffer)))
-
 
 
 ;; 時間管理 ----------------------------------
@@ -448,8 +402,9 @@
 
 
 ;; setups ------------------------------
-(require 'setup-ddskk)
+;; (require 'setup-ddskk)
 (require 'setup-looking)
+(require 'setup-dired)
 (require 'setup-view-mode)
 ;; (require 'setup-zlc) ; 上手く動かない
 ;; 多分anythingと競合してる
@@ -479,10 +434,11 @@
 (require 'setup-anzu)
 (require 'setup-guidekey)
 (require 'setup-ace-jump)
-(require 'setup-emms)
+;; (require 'setup-emms)
 (require 'setup-migemo)
-
 (require 'setup-pangu-spacing)
+
+(require 'setup-dash)
 
 (require 'setup-lilypond)
 
@@ -555,13 +511,6 @@
 ;; (global-set-key (kbd "C-T") 'rotate-layout)
 ;; (global-set-key (kbd "M-T") 'rotate-window)
 
-;; Dash.appとの連携-------------------------
-(defun dash ()
-  (interactive)
-  (shell-command
-   (format "open dash://%s"
-           (or (thing-at-point 'symbol) ""))))
-(global-set-key "\C-cr" 'dash)
 
 ;; emacs-zoom-window----------------------
 (require 'zoom-window)

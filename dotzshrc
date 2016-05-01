@@ -443,7 +443,7 @@ function ccgsl(){
 # ffmpeg用のコンパイル
 function ffcc(){
     arg=("$@")
-    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm `sdl-config --cflags --libs`"
+    command="g++ ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm \`sdl-config --cflags --libs\` -std=c++11 -g -Wall -Wextra"
 
     if [ $# -gt 2 ]; then
         for i in `seq 3 $#`
@@ -458,7 +458,7 @@ function ffcc(){
 
 function ffclang() {
     arg=("$@")
-    command="g++ -O3 -g -Wall -Wextra -std=c++11 -stdlib=libstdc++ ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm `sdl-config --cflags --libs`"
+    command="clang++ ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm \`sdl-config --cflags --libs\` -std=c++11 -stdlib=libstdc++ -stdlib=libstdc++ -g -Wall -Wextra"
 
     if [ $# -gt 2 ]; then
         for i in `seq 3 $#`
@@ -472,3 +472,4 @@ function ffclang() {
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+eval "$(rbenv init -)"

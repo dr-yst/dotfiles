@@ -28,7 +28,7 @@
 ;; auto-completeでいうところの ac-auto-start にあたる.
 (custom-set-variables
  '(company-idle-delay 0)
- '(company-minimum-prefix-length 4)
+ '(company-minimum-prefix-length 1)
  '(company-selection-wrap-around t)
  )
 
@@ -79,6 +79,12 @@
 
 (require 'company-auctex)
 (company-auctex-init)
+
+(add-hook 'php-mode-hook
+          '(lambda ()
+             (require 'ac-php-company)
+             (company-mode t)
+             (add-to-list 'company-backends 'company-ac-php-backend )))
 
 (yas-global-mode)
 
