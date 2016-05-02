@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "outline-magic" "outline-magic.el" (21729 30924
-;;;;;;  0 0))
-;;; Generated autoloads from outline-magic.el
+;;;### (autoloads nil "outline-magic" "../../../../.emacs.d/elpa/outline-magic-20150209.1426/outline-magic.el"
+;;;;;;  "a98fc8d816f453e6e7501a916c6a8b04")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/outline-magic-20150209.1426/outline-magic.el
 
 (autoload 'outline-cycle "outline-magic" "\
 Visibility cycling for outline(-minor)-mode.
@@ -62,6 +62,12 @@ after each application of the command the scope of \"current subtree\"
 may have changed.
 
 \(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/outline-magic-20150209.1426/outline-magic-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/outline-magic-20150209.1426/outline-magic.el")
+;;;;;;  (22310 57185 773177 0))
 
 ;;;***
 

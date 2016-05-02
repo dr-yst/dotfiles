@@ -18,6 +18,7 @@
       '(
         anything-execute-extended-command
         c-toggle-auto-newline
+        dired-previous-line
         e2wm:dp-two-right-history-back-command
         helm-confirm-and-exit-minibuffer
         ))

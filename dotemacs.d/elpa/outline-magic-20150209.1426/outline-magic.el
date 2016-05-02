@@ -4,8 +4,8 @@
 
 ;; Author: Carsten Dominik <dominik@science.uva.nl>
 ;; Maintainer: Thorsten Jolitz <tjolitz AT gmail DOT com>
-;; Version: 20150209.1426
-;; X-Original-Version: 0.9.1
+;; Version: 0.9.1
+;; Package-Version: 20150209.1426
 ;; Keywords: outlines
 
 ;; This file is not part of GNU Emacs.

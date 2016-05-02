@@ -1,4 +1,4 @@
-;; Last Updated: <2016/04/29 15:52:18 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/05/02 14:10:00 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -26,14 +26,21 @@
 ;; ;; load-pathに追加するフォルダ
 ;; ;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
 (add-to-load-path "setups" "elisp" ;; "auto-install" ;; "plugins/yasnippet"
-                  ;; "elisp/nyan-mode"
-                  ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   ;; "elisp/helm"
                   "elisp/vhdl-mode")
 
+
 (eval-when-compile
   (require 'cl))
+
+;; setups ------------------------------
+
+(require 'setup-keybindings)
+
+(require 'setup-package)
+
+
 
 ;他のエディタでファイルが更新されたら自動でrevert
 (global-auto-revert-mode 1)
@@ -62,20 +69,6 @@
   (shell-command (concat "open .")))
 (global-set-key "\C-cf" 'open-current-dir-with-finder)
 
-
-;; package.el -------------------------------------------------
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-
-
-;;自動バイトコンパイル
-;; (declare-function gud-find-c-expr "auto-async-byte-compile.el" nil)
-;; (require 'auto-async-byte-compile)
-;; (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
-;; (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
-
 ;; load environment variables -------------------------------
 (let ((envs '("PATH" "C_INCLUDE_PATH" "CPLUS_INCLUDE_PATH" "TEXINPUTS" "BSTINPUTS" "BIBINPUTS")))
 (exec-path-from-shell-copy-envs envs))
@@ -83,7 +76,6 @@
 
 ;;基本的なもの -------------------------------
 ;; スタートアップ非表示
-;; (setq inhibit-startup-screen t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -94,77 +86,56 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
-;; ;; 1行ずつスクロール
-;; (setq scroll-conservatively 35
-;;       scroll-margin 0
-;;       scroll-step 1)
-;; (setq comint-scroll-show-maximum-output t) ;; shell-mode
-
 ;; ;; タブをスペースで扱う
 (setq-default indent-tabs-mode nil)
-
 
 ;; scratchの初期メッセージ消去
 (setq initial-scratch-message "")
 
-;meta keyの変更
-(setq ns-command-modifier (quote meta))
-(setq ns-alternate-modifier (quote super))
-
-(keyboard-translate ?\C-h ?\C-?)
-(global-set-key "\C-h" nil)
-(global-set-key "\C-z" 'undo)
-(global-set-key "\C-x\C-b" 'electric-buffer-list)
-(global-set-key "\C-j" 'newline-and-indent)
-
-(global-set-key (kbd "C-x C-b") 'bs-show)
-
-;; original
-(defun backward-kill-word-or-kill-region ()
-  (interactive)
-  (if (or (not transient-mark-mode) (region-active-p))
-      (kill-region (region-beginning) (region-end))
-    (backward-kill-word 1)))
-(global-set-key "\C-w" 'backward-kill-word-or-kill-region)
-
-(global-set-key "\M-h" 'backward-kill-word)
-(global-set-key "\M-'" 'dabbrev-expand)
-
-;; (global-set-key "\M-p" 'backward-paragraph)
-;; (global-set-key "\M-n" 'forward-paragraph)
-(global-set-key [C-M-f5] 'goto-line)
-;; (global-set-key "\C-cr" 'rename-uniquely)
-
-(global-set-key "\M-n" (lambda () (interactive) (scroll-up 1)))
-(global-set-key "\M-p" (lambda () (interactive) (scroll-down 1)))
-(global-set-key "\M-N" (lambda () (interactive) (scroll-up 10)))
-(global-set-key "\M-P" (lambda () (interactive) (scroll-down 10)))
-		
-(global-set-key "\C-@" 'ispell-word)
-(global-set-key "\M-@" 'ispell-complete-word)
-
-(defun open-line-next-indent ()
-  "Open a line and indent the next line."
-  (interactive)
-  (save-excursion
-  (newline)
-  (indent-for-tab-command))
-  )
-(global-set-key "\C-o" 'open-line-next-indent)
-
-;; \C-qをプレフィックスキーに設定
-(defvar ctl-q-map (make-keymap))
-(define-key global-map "\C-q" ctl-q-map) 
-
-
-;(global-set-key [C-backspace] 'backward-kill-word)
-(global-set-key [end] 'end-of-buffer)
-(global-set-key [home] 'beginning-of-buffer)
-
-(require 'generic-x)
-
 
 ;;追加ライブラリとそのキーバインド---------------------------------------
+
+;; (require 'setup-ddskk)
+(require 'setup-looking)
+(require 'setup-dired)
+(require 'setup-view-mode)
+;; 多分anythingと競合してる
+
+
+;; (require 'setup-ido-mode)
+(require 'setup-magit)
+(require 'setup-egg)
+(require 'setup-hi-lock-mode)
+(require 'setup-term)
+(require 'setup-sdic)
+(require 'setup-e2wm)
+(require 'setup-modeline)
+(require 'setup-cc-mode)
+(require 'setup-markdown-mode)
+(require 'setup-latex-mode)
+(require 'setup-tabbar)
+(require 'setup-yasnippet)
+(require 'setup-smartrep)
+(require 'setup-mc)                     ;multiple-cursors
+(require 'setup-helm)
+;; (require 'setup-flymake)
+(require 'setup-flycheck)
+;; (require 'setup-autocomplete)
+(require 'setup-company)
+(require 'setup-orgmode)
+(require 'setup-anzu)
+(require 'setup-guidekey)
+(require 'setup-ace-jump)
+;; (require 'setup-emms)
+(require 'setup-migemo)
+(require 'setup-pangu-spacing)
+
+(require 'setup-dash)
+
+(require 'setup-lilypond)
+
+
+;; (require 'setup-anything)
 
 ;; 最近使ったファイルをメニューに表示
 (recentf-mode t)
@@ -382,50 +353,6 @@
 ;; (setq popwin:popup-window-position 'right)
 
 
-;; setups ------------------------------
-;; (require 'setup-ddskk)
-(require 'setup-looking)
-(require 'setup-dired)
-(require 'setup-view-mode)
-;; (require 'setup-zlc) ; 上手く動かない
-;; 多分anythingと競合してる
-
-
-;; (require 'setup-ido-mode)
-(require 'setup-magit)
-(require 'setup-egg)
-(require 'setup-hi-lock-mode)
-(require 'setup-term)
-(require 'setup-sdic)
-(require 'setup-e2wm)
-(require 'setup-modeline)
-(require 'setup-cc-mode)
-(require 'setup-markdown-mode)
-(require 'setup-latex-mode)
-(require 'setup-tabbar)
-(require 'setup-yasnippet)
-(require 'setup-smartrep)
-(require 'setup-mc)                     ;multiple-cursors
-(require 'setup-helm)
-;; (require 'setup-flymake)
-(require 'setup-flycheck)
-;; (require 'setup-autocomplete)
-(require 'setup-company)
-(require 'setup-orgmode)
-(require 'setup-anzu)
-(require 'setup-guidekey)
-(require 'setup-ace-jump)
-;; (require 'setup-emms)
-(require 'setup-migemo)
-(require 'setup-pangu-spacing)
-
-(require 'setup-dash)
-
-(require 'setup-lilypond)
-
-
-
-;; (require 'setup-anything)
 ;; jaunte.el-------------------------------------
 ;; 好きなところにカーソルを移動させる
 (require 'jaunte)
