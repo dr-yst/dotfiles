@@ -38,14 +38,17 @@
   ;; Use Skim as viewer, enable source <-> PDF sync
   ;; make latexmk available via C-c C-c
   ;; Note: SyncTeX is setup via ~/.latexmkrc
-  (add-to-list 'TeX-command-list
-               '("latexmk" "latexmk %s" TeX-run-TeX nil t
+  (add-to-list 'TeX-command-list '("latexmk" "latexmk %s"
+               TeX-run-TeX nil t
                  :help "Run latexmk on file"))
   (add-to-list 'TeX-command-list
-               '("Skim" "open -a /Applications/Skim.app '%s.pdf'" TeX-run-command t nil))
-  (add-to-list 'TeX-command-list
-               '("SkimBG" "open -g -a /Applications/Skim.app '%s.pdf'" TeX-run-command nil t))
-
+                                   '("SumatraPDF"
+                                       "powershell -Command \"& {$r = Write-Output %o;$t = Write-Output %b;$o = [System.String]::Concat('\"\"\"',[System.IO.Path]::GetFileNameWithoutExtension($r),'.pdf','\"\"\"');$b = [System.String]::Concat('\"\"\"',[System.IO.Path]::GetFileNameWithoutExtension($t),'.tex','\"\"\"');Start-Process SumatraPDF -ArgumentList ('-reuse-instance',$o,'-forward-search',$b,%n)}\""
+                                     TeX-run-discard-or-function t t :help "Forward search with SumatraPDF"))
+                      (add-to-list 'TeX-command-list
+                                   '("fwdsumatrapdf"
+                                     "fwdsumatrapdf %s.pdf \"%b\" %n"
+                                     TeX-run-discard-or-function t t :help "Forward search with SumatraPDF"))
 )))
 
 (setq japanese-TeX-command-default "latexmk")
@@ -53,10 +56,11 @@
 
 ;; use Skim as default pdf viewer
 ;; Skim's displayline is used for forward search (from .tex to .pdf)
-;; option -b highlights the current line; option -g opens Skim in the background 
-(setq TeX-view-program-list
-     '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b"))) ;; displayline must be available.
-(setq TeX-view-program-selection '((output-pdf "Skim")))
+;; option -b highlights the current line; option -g opens Skim in the background
+  (setq TeX-view-program-list '(("SumatraPDF"
+                                 "powershell -Command \"& {$r = Write-Output %o;$t = Write-Output %b;$o = [System.String]::Concat('\"\"\"',[System.IO.Path]::GetFileNameWithoutExtension($r),'.pdf','\"\"\"');$b = [System.String]::Concat('\"\"\"',[System.IO.Path]::GetFileNameWithoutExtension($t),'.tex','\"\"\"');Start-Process SumatraPDF -ArgumentList ('-reuse-instance',$o,'-forward-search',$b,%n)}\"")))
+  (setq TeX-view-program-selection '((output-dvi "SumatraPDF")
+                                     (output-pdf "SumatraPDF")))
 
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
