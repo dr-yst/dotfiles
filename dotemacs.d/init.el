@@ -1,4 +1,4 @@
-;; Last Updated: <2015/07/17 17:38:24 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/05/02 14:10:00 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -26,15 +26,21 @@
 ;; ;; load-pathに追加するフォルダ
 ;; ;; 2つ以上フォルダを指定する場合の引数 => (add-to-load-path "elisp" "xxx" "xxx")
 (add-to-load-path "setups" "elisp" ;; "auto-install" ;; "plugins/yasnippet"
-                  ;; "elisp/nyan-mode"
-                  ;; "elisp/company" ;; "elisp/emacs-clang-complete-async"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   ;; "elisp/helm"
-		  "elisp/emacs-sound-wav"
                   "elisp/vhdl-mode")
+
 
 (eval-when-compile
   (require 'cl))
+
+;; setups ------------------------------
+
+(require 'setup-keybindings)
+
+(require 'setup-package)
+
+
 
 ;他のエディタでファイルが更新されたら自動でrevert
 (global-auto-revert-mode 1)
@@ -63,20 +69,6 @@
   (shell-command (concat "open .")))
 (global-set-key "\C-cf" 'open-current-dir-with-finder)
 
-
-;; package.el -------------------------------------------------
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-
-
-;;自動バイトコンパイル
-;; (declare-function gud-find-c-expr "auto-async-byte-compile.el" nil)
-;; (require 'auto-async-byte-compile)
-;; (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
-;; (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
-
 ;; load environment variables -------------------------------
 (let ((envs '("PATH" "C_INCLUDE_PATH" "CPLUS_INCLUDE_PATH" "TEXINPUTS" "BSTINPUTS" "BIBINPUTS")))
 (exec-path-from-shell-copy-envs envs))
@@ -84,7 +76,6 @@
 
 ;;基本的なもの -------------------------------
 ;; スタートアップ非表示
-;; (setq inhibit-startup-screen t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -95,78 +86,61 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
-;; ;; 1行ずつスクロール
-;; (setq scroll-conservatively 35
-;;       scroll-margin 0
-;;       scroll-step 1)
-;; (setq comint-scroll-show-maximum-output t) ;; shell-mode
-
 ;; ;; タブをスペースで扱う
 (setq-default indent-tabs-mode nil)
-
 
 ;; scratchの初期メッセージ消去
 (setq initial-scratch-message "")
 
-;meta keyの変更
-(setq ns-command-modifier (quote meta))
-(setq ns-alternate-modifier (quote super))
-
-(keyboard-translate ?\C-h ?\C-?)
-(global-set-key "\C-h" nil)
-;; (global-set-key "\C-z" 'undo)
-(global-set-key "\C-x\C-b" 'electric-buffer-list)
-(global-set-key "\C-j" 'newline-and-indent)
-
-;; original
-(defun backward-kill-word-or-kill-region ()
-  (interactive)
-  (if (or (not transient-mark-mode) (region-active-p))
-      (kill-region (region-beginning) (region-end))
-    (backward-kill-word 1)))
-(global-set-key "\C-w" 'backward-kill-word-or-kill-region)
-
-(global-set-key "\M-h" 'backward-kill-word)
-(global-set-key "\M-'" 'dabbrev-expand)
-
-;; (global-set-key "\M-p" 'backward-paragraph)
-;; (global-set-key "\M-n" 'forward-paragraph)
-(global-set-key [C-M-f5] 'goto-line)
-;; (global-set-key "\C-cr" 'rename-uniquely)
-
-(global-set-key "\M-n" (lambda () (interactive) (scroll-up 1)))
-(global-set-key "\M-p" (lambda () (interactive) (scroll-down 1)))
-(global-set-key "\M-N" (lambda () (interactive) (scroll-up 10)))
-(global-set-key "\M-P" (lambda () (interactive) (scroll-down 10)))
-		
-(global-set-key "\C-@" 'ispell-word)
-(global-set-key "\M-@" 'ispell-complete-word)
-
-(defun open-line-next-indent ()
-  "Open a line and indent the next line."
-  (interactive)
-  (save-excursion
-  (newline)
-  (indent-for-tab-command))
-  )
-(global-set-key "\C-o" 'open-line-next-indent)
-
-;; \C-qをプレフィックスキーに設定
-(defvar ctl-q-map (make-keymap))
-(define-key global-map "\C-q" ctl-q-map) 
-
-
-;(global-set-key [C-backspace] 'backward-kill-word)
-(global-set-key [end] 'end-of-buffer)
-(global-set-key [home] 'beginning-of-buffer)
-
-(require 'generic-x)
-
 
 ;;追加ライブラリとそのキーバインド---------------------------------------
 
+;; (require 'setup-ddskk)
+(require 'setup-looking)
+(require 'setup-dired)
+(require 'setup-view-mode)
+;; 多分anythingと競合してる
+
+
+;; (require 'setup-ido-mode)
+(require 'setup-magit)
+(require 'setup-egg)
+(require 'setup-hi-lock-mode)
+(require 'setup-term)
+(require 'setup-sdic)
+(require 'setup-e2wm)
+(require 'setup-modeline)
+(require 'setup-cc-mode)
+(require 'setup-markdown-mode)
+(require 'setup-latex-mode)
+(require 'setup-tabbar)
+(require 'setup-yasnippet)
+(require 'setup-smartrep)
+(require 'setup-mc)                     ;multiple-cursors
+(require 'setup-helm)
+;; (require 'setup-flymake)
+(require 'setup-flycheck)
+;; (require 'setup-autocomplete)
+(require 'setup-company)
+(require 'setup-orgmode)
+(require 'setup-anzu)
+(require 'setup-guidekey)
+(require 'setup-ace-jump)
+;; (require 'setup-emms)
+(require 'setup-migemo)
+(require 'setup-pangu-spacing)
+
+(require 'setup-dash)
+
+(require 'setup-lilypond)
+
+
+;; (require 'setup-anything)
+
 ;; 最近使ったファイルをメニューに表示
 (recentf-mode t)
+
+(require 'recentf-ext)
 
 ;; 最近使ったファイルの表示数
 (setq recentf-max-menu-items 30)
@@ -208,8 +182,8 @@
 ;;     '("Hiragino Kaku Gothic ProN" . "iso10646-1")) 
 
 
-;; ビープ音を消す
-(setq visible-bell t)
+(setq visible-bell nil) ;; The default
+(setq ring-bell-function 'ignore)
 
 ;;; mark 領域に色付け
 (setq transient-mark-mode t)
@@ -293,54 +267,6 @@
 ;; (add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
 
 
-
-;; ;; dired関連--------------------------------------------------
-;; ;;; フォルダを開く時, 新しいバッファを作成しない
-;; aで同じバッファに読み込み
-(put 'dired-find-alternate-file 'disabled nil)
-;; ^で親フォルダに移動するときも同じバッファに読み込む
-(add-hook 'dired-mode-hook
- (lambda ()
-  (define-key dired-mode-map (kbd "^")
-    (lambda () (interactive) (find-alternate-file "..")))
-  ; was dired-up-directory
- ))
-
-;; ;; RETで同じバッファに読み込むようにする
-;; (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
-;; (define-key dired-mode-map (kbd "a") 'dired-find-file)
-
-;; ;; ---------- or --------------
-;; (defun dired-find-alternate-file ()
-;;   "In dired, visit this file or directory instead of the dired buffer."
-;;   (interactive)
-;;   (set-buffer-modified-p nil)
-;;   (find-alternate-file (dired-get-filename)))
-
-
-;; ;; ---------- or --------------
-;; バッファを作成したい時にはoやC-u ^を利用する
-;; (defvar my-dired-before-buffer nil)
-;; (defadvice dired-advertised-find-file
-;;   (before kill-dired-buffer activate)
-;;   (setq my-dired-before-buffer (current-buffer)))
-
-;; (defadvice dired-advertised-find-file
-;;   (after kill-dired-buffer-after activate)
-;;   (if (eq major-mode 'dired-mode)
-;;       (kill-buffer my-dired-before-buffer)))
-
-;; (defadvice dired-up-directory
-;;   (before kill-up-dired-buffer activate)
-;;   (setq my-dired-before-buffer (current-buffer)))
-
-;; (defadvice dired-up-directory
-;;   (after kill-up-dired-buffer-after activate)
-;;   (if (eq major-mode 'dired-mode)
-;;       (kill-buffer my-dired-before-buffer)))
-
-
-
 ;; 時間管理 ----------------------------------
 ;;; ステータスラインに時間を表示する
 (if (equal (substring (concat 
@@ -397,6 +323,7 @@
   (global-undo-tree-mode))
 
 (global-set-key "\C-\\" 'undo-tree-redo)
+(global-set-key "\C-Z" 'undo-tree-redo)
 
 ;; C-x uで起動
 
@@ -426,47 +353,6 @@
 ;; (setq popwin:popup-window-position 'right)
 
 
-;; setups ------------------------------
-(require 'setup-ddskk)
-(require 'setup-looking)
-(require 'setup-view-mode)
-;; (require 'setup-zlc) ; 上手く動かない
-;; 多分anythingと競合してる
-
-
-;; (require 'setup-ido-mode)
-(require 'setup-magit)
-(require 'setup-egg)
-(require 'setup-hi-lock-mode)
-(require 'setup-term)
-(require 'setup-sdic)
-(require 'setup-e2wm)
-(require 'setup-modeline)
-(require 'setup-cc-mode)
-(require 'setup-markdown-mode)
-(require 'setup-latex-mode)
-(require 'setup-flymake)
-(require 'setup-tabbar)
-(require 'setup-yasnippet)
-(require 'setup-smartrep)
-(require 'setup-mc)                     ;multiple-cursors
-(require 'setup-helm)
-
-(require 'setup-autocomplete)
-(require 'setup-orgmode)
-(require 'setup-anzu)
-(require 'setup-guidekey)
-(require 'setup-ace-jump)
-(require 'setup-emms)
-(require 'setup-migemo)
-
-(require 'setup-pangu-spacing)
-
-(require 'setup-lilypond)
-
-
-
-;; (require 'setup-anything)
 ;; jaunte.el-------------------------------------
 ;; 好きなところにカーソルを移動させる
 (require 'jaunte)
@@ -533,13 +419,6 @@
 ;; (global-set-key (kbd "C-T") 'rotate-layout)
 ;; (global-set-key (kbd "M-T") 'rotate-window)
 
-;; Dash.appとの連携-------------------------
-(defun dash ()
-  (interactive)
-  (shell-command
-   (format "open dash://%s"
-           (or (thing-at-point 'symbol) ""))))
-(global-set-key "\C-cr" 'dash)
 
 ;; emacs-zoom-window----------------------
 (require 'zoom-window)

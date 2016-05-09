@@ -18,7 +18,7 @@
                                           )))
 
 
-(require 'ac-lilypond)
+;; (require 'ac-lilypond)
 
 
 (provide 'setup-lilypond)

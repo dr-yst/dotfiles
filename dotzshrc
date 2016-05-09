@@ -307,9 +307,9 @@ bindkey '^x^p' pbcopy-buffer
 ########################################
 # パスの設定
 PATH="${HOME}/.files/scripts:${HOME}/AFsp-v9r0/bin:/usr/local/bin:/usr/local/opt/llvm/bin:${HOME}/anaconda/bin:${PATH}"
-export TEXINPUTS=$TEXINPUTS:~/Dropbox/ochiailab/tex/
-export BSTINPUTS=$BSTINPUTS:~/Dropbox/ochiailab/tex/
-export BIBINPUTS=$BIBINPUTS:~/Dropbox/ochiailab/tex/
+export TEXINPUTS=~/Dropbox/ochiailab/tex/:$TEXINPUTS
+export BSTINPUTS=~/Dropbox/ochiailab/tex/:$BSTINPUTS
+export BIBINPUTS=~/Dropbox/ochiailab/tex/:$BIBINPUTS
 
 export C_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$C_INCLUDE_PATH # /opt/local/include/:
 export CPLUS_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
@@ -321,8 +321,8 @@ export PYTHONSTARTUP=~/.pythonstartup.py
 
 # iOSのライブラリへのパス
 export PLATFORM=iPhoneOS
-export VERSION=8.1
-export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${VERSION}.sdk/System/Library/Frameworks
+export VERSION=9.2
+export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}.sdk/System/Library/Frameworks
 
 # Specify your defaults in this environment variable
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -420,10 +420,9 @@ function ccc(){
     eval $command
 }
 
-# ffmpeg用のコンパイル
-function ffcc(){
+function ccgsl(){
     arg=("$@")
-    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm `sdl-config --cflags --libs`"
+    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lmylib -lgsl -lgslcblas"
 
     if [ $# -gt 2 ]; then
         for i in `seq 3 $#`
@@ -435,3 +434,37 @@ function ffcc(){
     echo $command
     eval $command
 }
+
+# ffmpeg用のコンパイル
+function ffcc(){
+    arg=("$@")
+    command="g++ ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm \`sdl-config --cflags --libs\` -std=c++11 -g -Wall -Wextra"
+
+    if [ $# -gt 2 ]; then
+        for i in `seq 3 $#`
+        do
+            command="${command} ${arg[$i]}"
+        done
+    fi
+    
+    echo $command
+    eval $command
+}
+
+function ffclang() {
+    arg=("$@")
+    command="clang++ ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm \`sdl-config --cflags --libs\` -std=c++11 -stdlib=libstdc++ -stdlib=libstdc++ -g -Wall -Wextra"
+
+    if [ $# -gt 2 ]; then
+        for i in `seq 3 $#`
+        do
+            command="${command} ${arg[$i]}"
+        done
+    fi
+    
+    echo $command
+    eval $command
+}
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+eval "$(rbenv init -)"

@@ -159,7 +159,7 @@ Apple_Terminal)
     LANG=C vcs_info >&/dev/null
     # バージョン管理システムの情報があったら右プロンプトに表示する。
     if [ -n "$vcs_info_msg_0_" ]; then
-RPROMPT="${vcs_info_msg_0_}"
+        RPROMPT="${vcs_info_msg_0_}"
     fi
 }
 

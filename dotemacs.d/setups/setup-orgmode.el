@@ -112,6 +112,8 @@
 ;; C-u押してからだとバッファ全体を対象
 
 
+(setq org-html-validation-link nil)
+
 ;; ob-lilypond
 (org-babel-do-load-languages
   'org-babel-load-languages

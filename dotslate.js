@@ -46,44 +46,44 @@ slate.bind(tileKey, function(win){
 
 // http://d.hatena.ne.jp/sugyan/20130301/1362129310
 // アプリ立ち上げる関数
-// var launch_and_focus = function (target) {
-//     return function (win) {
-//         var apps = [];
-//         S.eachApp(function (app) { apps.push(app.name()); });
-//         if (! _.find(apps, function (name) { return name === target; })) {
-//             win.doOperation(
-//                 S.operation('shell', {
-//                     command: "/usr/bin/open -a " + target,
-//                     waithFoeExit: true
-//                 })
-//             );
+var launch_and_focus = function (target) {
+    return function (win) {
+        var apps = [];
+        S.eachApp(function (app) { apps.push(app.name()); });
+        if (! _.find(apps, function (name) { return name === target; })) {
+            win.doOperation(
+                S.operation('shell', {
+                    command: "/usr/bin/open -a " + target,
+                    waithFoeExit: true
+                })
+            );
+        }
+        win.doOperation(S.operation('focus', { app: target }));
+    };
+};
+
+// アプリにフォーカスする。アプリが起動していなければ起動する。
+// var launch_and_focus = function(app_name) {
+//     var launch = function(app_names, win) {
+//         if( _.any(app_names, function(name){ return name == app_name; }) ) {
+//             return;
 //         }
-//         win.doOperation(S.operation('focus', { app: target }));
+        
+//         win.doOperation(
+//             slate.operation('shell', {
+//                 'command' : '/usr/bin/open -a ' + app_name,
+//                 'waitForExit' : true
+//             })
+//         );
+//     };
+    
+//     return function(win){
+//         var app_names = [];
+//         slate.eachApp(function(app_obj){ app_names.push(app_obj.name()); });
+//         launch(app_names, win);
+//         win.doOperation( slate.operation('focus', {'app' : app_name}) );
 //     };
 // };
-
-// // アプリにフォーカスする。アプリが起動していなければ起動する。
-// // var launch_and_focus = function(app_name) {
-// //     var launch = function(app_names, win) {
-// //         if( _.any(app_names, function(name){ return name == app_name; }) ) {
-// //             return;
-// //         }
-        
-// //         win.doOperation(
-// //             slate.operation('shell', {
-// //                 'command' : '/usr/bin/open -a ' + app_name,
-// //                 'waitForExit' : true
-// //             })
-// //         );
-// //     };
-    
-// //     return function(win){
-// //         var app_names = [];
-// //         slate.eachApp(function(app_obj){ app_names.push(app_obj.name()); });
-// //         launch(app_names, win);
-// //         win.doOperation( slate.operation('focus', {'app' : app_name}) );
-// //     };
-// // };
 
 // S.bind('t:alt,cmd', launch_and_focus('iTerm'));
 // S.bind('e:alt,cmd', launch_and_focus('Emacs'));
@@ -91,8 +91,8 @@ slate.bind(tileKey, function(win){
 // S.bind('f:alt,cmd', launch_and_focus('Finder'));
 // S.bind('d:alt,cmd', launch_and_focus('Dictionary'));
 // S.bind('i:alt,cmd', launch_and_focus('iTunes'));
-// S.bind('space:alt,cmd', launch_and_focus('Found'));
-// S.bind('p:alt,cmd', launch_and_focus('Preview'));
+// S.bind('p:alt,cmd', launch_and_focus('Mendeley\ Desktop'));
+// S.bind('s:alt,cmd', launch_and_focus('Skim'));
 // S.bind('m:alt,cmd', launch_and_focus('Mjograph'));
 // S.bind('x:alt,cmd', launch_and_focus('Xcode'));
 // S.bind('v:alt,cmd', launch_and_focus('VLC'));
@@ -100,6 +100,7 @@ slate.bind(tileKey, function(win){
 // S.bind('n:alt,cmd', launch_and_focus('Evernote'));
 // S.bind('r:alt,cmd', launch_and_focus('Dash'));
 // S.bind('l:alt,cmd', launch_and_focus('LaTeXiT'));
+// S.bind('c:alt,cmd', launch_and_focus('Slack'));
 
 
 // http://www.infiniteloop.co.jp/blog/2013/08/osx_slate/

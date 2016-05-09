@@ -26,8 +26,8 @@
 (load-theme 'moe-dark t)
 ;; (setq show-paren-style 'expression)
 
+;; (load-theme 'spacemacs-dark t)
 
 (global-hl-line-mode)
-
 
 (provide 'setup-looking)

@@ -35,6 +35,7 @@
 (setq pangu-spacing-real-insert-separtor t)
 ;; text-modeやその派生モード(org-mode等)のみに使いたいならこれ
 (add-hook 'org-mode-hook 'pangu-spacing-mode)
+(add-hook 'LaTeX-mode-hook 'pangu-spacing-mode)
 ;; すべてのメジャーモードに使ってみたい人はこれを
 ;; (global-pangu-spacing-mode 1)
 
