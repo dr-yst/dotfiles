@@ -8,10 +8,9 @@
 ;; ;;色 ----------
 (require 'color-theme)
 
-
 (setq default-frame-alist
       (append
-       '((top . 0) (left . 0) (width . 103 ) (height . 56)) ;; ウィンドウサイズ 
+       '((top . 0) (left . 0) (width . 124 ) (height . 33)) ;; ウィンドウサイズ 
        default-frame-alist))
 
 ;; ウィンドウサイズの確認手順
