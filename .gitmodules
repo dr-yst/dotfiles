@@ -28,6 +28,3 @@
 [submodule "zaw"]
 	path = zaw
 	url = git://github.com/zsh-users/zaw.git
-[submodule ".emacs.d/elisp/elisp-pdicv-mode"]
-	path = .emacs.d/elisp/elisp-pdicv-mode
-	url = https://github.com/naoyat/elisp-pdicv-mode.git

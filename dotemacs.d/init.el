@@ -1,4 +1,4 @@
-;; Last Updated: <2016/04/14 15:03:46 from SURFACE-3 by stick>
+;; Last Updated: <2016/05/14 16:40:45 from SURFACE-3 by stick>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -29,7 +29,8 @@
 (add-to-load-path "setups" "elisp" ;; "auto-install" ;; "plugins/yasnippet"
                   "elisp/lilypond" ;; "el-get" ;; "el-get/el-get"
                   ;; "elisp/helm"
-                  "elisp/vhdl-mode")
+                  "elisp/vhdl-mode"
+                  )
 
 
 (eval-when-compile
@@ -133,7 +134,7 @@
 (require 'setup-egg)
 (require 'setup-hi-lock-mode)
  ;; (require 'setup-term)
-(require 'setup-sdic)
+;; (require 'setup-sdic)
 (require 'setup-e2wm)
 (require 'setup-modeline)
 (require 'setup-cc-mode)
@@ -372,48 +373,6 @@
 ;; (push '(dired-mode :position bottom) popwin:special-display-config)
 ;; (setq popwin:popup-window-position 'right)
 
-;; setups ------------------------------
-;; (require 'setup-ddskk)
-(require 'setup-looking)
-(require 'setup-dired)
-(require 'setup-view-mode)
-;; (require 'setup-zlc) ; 上手く動かない
-;; 多分anythingと競合してる
-
-
-;; (require 'setup-ido-mode)
-(require 'setup-magit)
-(require 'setup-egg)
-(require 'setup-hi-lock-mode)
-;; (require 'setup-term)
-(require 'setup-sdic)
-(require 'setup-e2wm)
-(require 'setup-modeline)
-(require 'setup-cc-mode)
-(require 'setup-markdown-mode)
-(require 'setup-latex-mode)
-(require 'setup-tabbar)
-(require 'setup-yasnippet)
-(require 'setup-smartrep)
-(require 'setup-mc)                     ;multiple-cursors
-(require 'setup-helm)
-;; (require 'setup-flymake)
-(require 'setup-flycheck)
-;; (require 'setup-autocomplete)
-(require 'setup-company)
-(require 'setup-orgmode)
-(require 'setup-anzu)
-(require 'setup-guidekey)
-(require 'setup-ace-jump)
-;; (require 'setup-emms)
-(require 'setup-migemo)
-(require 'setup-pangu-spacing)
-
-(require 'setup-dash)
-
-(require 'setup-lilypond)
-
-;; (require 'setup-anything)
 
 ;; jaunte.el-------------------------------------
 ;; 好きなところにカーソルを移動させる
