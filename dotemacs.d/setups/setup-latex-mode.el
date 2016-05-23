@@ -73,6 +73,9 @@
 ;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
+(add-hook 'TeX-mode-hook (lambda () (TeX-fold-mode 1)))
+(setq TeX-electric-sub-and-superscript t) ; _と^に{}を付ける
+
 ;; 上でYaTeXに譲り渡したRefTeXのコマンドを定義し直す 
 (add-hook 'reftex-mode-hook
  '(lambda ()
