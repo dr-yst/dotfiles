@@ -101,6 +101,15 @@
                                     ))
 
 
+(add-hook 'LaTeX-mode-hook
+          '(lambda ()
+             (orgtbl-mode t)
+             (define-key LaTeX-mode-map (kbd "C-c C-t i") 'orgtbl-insert-radio-table)
+             (define-key LaTeX-mode-map (kbd "C-c C-t s") 'orgtbl-send-table)
+             ))
+
+
+
 ;; Abbrev mode and auctex
  ;; (define-abbrev-table 'TeX-mode-abbrev-table (make-abbrev-table))
  ;;   (add-hook 'TeX-mode-hook (lambda ()
