@@ -1,4 +1,4 @@
-;; Last Updated: <2016/05/02 14:10:00 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/05/29 14:05:40 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -134,6 +134,7 @@
 
 (require 'setup-lilypond)
 
+(require 'setup-google-translate)
 
 ;; (require 'setup-anything)
 
