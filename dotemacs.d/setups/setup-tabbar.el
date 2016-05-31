@@ -81,11 +81,4 @@
 ;; M-4 で タブ表示、非表示
 (global-set-key "\M-4" 'tabbar-mode)
 
-;; GUIで直接ファイルを開いた場合フレームを作成しない
-(add-hook 'before-make-frame-hook
-          (lambda ()
-            (when (eq tabbar-mode t)
-              (switch-to-buffer (buffer-name))
-              (delete-this-frame))))
-
 (provide 'setup-tabbar)

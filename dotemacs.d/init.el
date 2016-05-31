@@ -161,6 +161,7 @@
 
 (require 'setup-lilypond)
 
+(require 'setup-google-translate)
 
 ;; (require 'setup-anything)
 

@@ -77,6 +77,9 @@
 ;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
+(add-hook 'TeX-mode-hook (lambda () (TeX-fold-mode 1)))
+(setq TeX-electric-sub-and-superscript t) ; _と^に{}を付ける
+
 ;; 上でYaTeXに譲り渡したRefTeXのコマンドを定義し直す 
 (add-hook 'reftex-mode-hook
  '(lambda ()
@@ -100,6 +103,15 @@
                                     "~/Dropbox/ochiailab/tex/library.bib"
                                     ;; "~/Dropbox/ochiailab/tex/biblio.bib"
                                     ))
+
+
+(add-hook 'LaTeX-mode-hook
+          '(lambda ()
+             (orgtbl-mode t)
+             (define-key LaTeX-mode-map (kbd "C-c C-t i") 'orgtbl-insert-radio-table)
+             (define-key LaTeX-mode-map (kbd "C-c C-t s") 'orgtbl-send-table)
+             ))
+
 
 
 ;; Abbrev mode and auctex
