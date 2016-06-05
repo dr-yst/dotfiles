@@ -77,6 +77,7 @@
     git-commit
     gntp
     google-this
+    google-translate
     goto-chg
     gtags
     guide-key
