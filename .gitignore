@@ -6,7 +6,8 @@ dotemacs.d/ddskk
 dotemacs.d/el-get
 dotemacs.d/recentf
 dotemacs.d/elpa
-        
+dotemacs.d/url
+                
 # Emacs tempo files
 *~
 [#]*[#]
