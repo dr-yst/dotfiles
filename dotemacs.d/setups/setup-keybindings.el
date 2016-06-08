@@ -74,6 +74,14 @@
 (defvar ctl-q-map (make-keymap))
 (define-key global-map "\C-q" ctl-q-map) 
 
+;; M-q の逆
+(defun refill-paragraphs-to-be-one-line ()
+  "fill individual paragraphs with large fill column"
+  (interactive)
+  (let ((fill-column 100000))
+    (fill-individual-paragraphs (point-min) (point-max))))
+
+(global-set-key "\C-\M-q" 'refill-paragraphs-to-be-one-line)
 
 ;(global-set-key [C-backspace] 'backward-kill-word)
 (global-set-key [end] 'end-of-buffer)
