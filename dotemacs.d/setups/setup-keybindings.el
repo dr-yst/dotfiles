@@ -74,6 +74,23 @@
 (defvar ctl-q-map (make-keymap))
 (define-key global-map "\C-q" ctl-q-map) 
 
+;; M-q の逆
+(defun unfill-paragraph ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(defun unfill-region ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-region (region-beginning) (region-end) nil)))
+
+(defun unfill-paragraph-or-unfill-region ()
+  (interactive)
+  (if (or (not transient-mark-mode) (region-active-p))
+      (unfill-region)
+    (unfill-paragraph)))
+(global-set-key "\C-\M-q" 'unfill-paragraph-or-unfill-region)
 
 ;(global-set-key [C-backspace] 'backward-kill-word)
 (global-set-key [end] 'end-of-buffer)
