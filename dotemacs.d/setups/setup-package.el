@@ -118,6 +118,7 @@
     popup
     popwin
     pos-tip
+    puml-mode
     rainbow-delimiters
     rainbow-mode
     recentf-ext
