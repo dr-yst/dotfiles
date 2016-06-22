@@ -8,6 +8,8 @@
 ;; ace-jump-mode.el----------------------------
 (require 'ace-jump-mode)
 
+(setq ace-jump-mode-move-keys
+      (append "jklasdfghyuiopqwertnmzxcvb" nil))
 
 (global-set-key (kbd "C-;") 'ace-jump-char-mode)
 (global-set-key (kbd "C-+") 'ace-jump-word-mode)
