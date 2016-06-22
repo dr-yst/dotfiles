@@ -1,4 +1,4 @@
-;; Last Updated: <2016/06/21 14:32:33 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/06/22 18:19:25 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -519,7 +519,6 @@
  '(display-time-mode t)
  '(helm-boring-file-regexp-list (quote ("~$" "\\.elc$")))
  '(helm-buffer-max-length 35)
- '(helm-command-prefix-key "C-;")
  '(helm-delete-minibuffer-contents-from-point t)
  '(helm-ff-skip-boring-files t)
  '(helm-ls-git-show-abs-or-relative (quote relative))
@@ -527,7 +526,6 @@
    (quote
     (helm-source-buffers-list helm-source-ls-git helm-source-recentf helm-source-buffer-not-found)))
  '(helm-truncate-lines t t)
- '(puml-plantuml-jar-path "/Users/yoshito/plantuml.jar")
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
  '(tool-bar-mode nil)

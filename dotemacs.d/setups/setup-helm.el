@@ -30,7 +30,7 @@
 ;;   (global-unset-key (kbd "C-z")))
 
 (custom-set-variables
- '(helm-command-prefix-key "C-;"))
+ '(helm-command-prefix-key "C-:"))
 
 ;; key settings
 (global-set-key (kbd "M-x") 'helm-M-x)
