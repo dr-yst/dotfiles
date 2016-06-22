@@ -1,4 +1,4 @@
-;; Last Updated: <2016/06/21 14:24:50 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/06/21 14:32:33 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -527,6 +527,7 @@
    (quote
     (helm-source-buffers-list helm-source-ls-git helm-source-recentf helm-source-buffer-not-found)))
  '(helm-truncate-lines t t)
+ '(puml-plantuml-jar-path "/Users/yoshito/plantuml.jar")
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
