@@ -1,4 +1,4 @@
-;; Last Updated: <2016/06/23 18:39:56 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/06/23 19:59:02 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -101,7 +101,7 @@
 (require 'setup-view-mode)
 ;; 多分anythingと競合してる
 
-
+(require 'setup-flycheck)
 ;; (require 'setup-ido-mode)
 (require 'setup-magit)
 (require 'setup-egg)
@@ -118,9 +118,7 @@
 (require 'setup-smartrep)
 (require 'setup-mc)                     ;multiple-cursors
 (require 'setup-helm)
-;; (require 'setup-flymake)
-(require 'setup-flycheck)
-;; (require 'setup-autocomplete)
+
 (require 'setup-company)
 (require 'setup-orgmode)
 (require 'setup-anzu)
