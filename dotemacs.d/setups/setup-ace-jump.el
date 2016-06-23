@@ -11,8 +11,7 @@
 (setq ace-jump-mode-move-keys
       (append "jklasdfghyuiopqwertnmzxcvb" nil))
 
-(global-set-key (kbd "C-;") 'ace-jump-char-mode)
-(global-set-key (kbd "C-+") 'ace-jump-word-mode)
+(global-set-key (kbd "C-+") 'ace-jump-char-mode)
 (global-set-key (kbd "C-M-;") 'ace-jump-line-mode)
 (setq ns-function-modifier (quote hyper))  ; set Mac's Fn key to Hyper
 

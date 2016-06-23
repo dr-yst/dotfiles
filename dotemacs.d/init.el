@@ -1,4 +1,4 @@
-;; Last Updated: <2016/06/22 18:57:30 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/06/23 18:39:56 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -359,6 +359,7 @@
 ;; 好きなところにカーソルを移動させる
 (require 'jaunte)
 (global-set-key (kbd "C-c j") 'jaunte)
+(global-set-key (kbd "C-;") 'jaunte)
 
 ;; historyf.el ------------------------------
 (require 'historyf)
