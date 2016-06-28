@@ -138,7 +138,7 @@
 (set-face-attribute 'mode-line-minor-mode-face nil
     :inherit 'mode-line-mode-face
     :foreground "gray60"
-    :height 100)
+    :height 90)
 (set-face-attribute 'mode-line-process-face nil
     :inherit 'mode-line-face
     :foreground "#718c00")
@@ -156,19 +156,24 @@
     (paredit-mode . " Pe")
     (eldoc-mode . "")
     (abbrev-mode . "")
-    (undo-tree-mode . " Ut")
-    (elisp-slime-nav-mode . " EN")
-    (helm-gtags-mode . " HG")
-    (gtags-mode . " GT")
-    (anzu-mode . " Az")
-    (guide-key-mode . " Gd")
+    (undo-tree-mode . "")
+    (elisp-slime-nav-mode . " En")
+    (helm-gtags-mode . "")
+    (gtags-mode . " Gt")
+    (anzu-mode . "")
+    (guide-key-mode . "")
+    (company-mode . " Co")
+    (helm-mode . "")
+    (egg-minor-mode . " Eg")
+    (irony-mode . " Ir")
     ;; (flymake-mode . " Fly")
     ;; Major modes
     (lisp-interaction-mode . "Li")
     (python-mode . "Py")
     (ruby-mode   . "Rb")
     (emacs-lisp-mode . "El")
-    (markdown-mode . "Md")))
+    (markdown-mode . "Md")
+    ))
 
 (defun clean-mode-line ()
   (interactive)

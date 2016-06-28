@@ -92,6 +92,19 @@
     (unfill-paragraph)))
 (global-set-key "\C-\M-q" 'unfill-paragraph-or-unfill-region)
 
+(defun prelude-copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (file-name-nondirectory
+                     (buffer-file-name)))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file name '%s' to the clipboard." filename))))
+(global-set-key "\C-qc" 'prelude-copy-file-name-to-clipboard)
+
+
 ;(global-set-key [C-backspace] 'backward-kill-word)
 (global-set-key [end] 'end-of-buffer)
 (global-set-key [home] 'beginning-of-buffer)

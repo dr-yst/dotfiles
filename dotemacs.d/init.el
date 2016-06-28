@@ -1,4 +1,4 @@
-;; Last Updated: <2016/05/14 16:40:45 from SURFACE-3 by stick>
+;; Last Updated: <2016/06/28 13:52:47 from SURFACE-3 by stick>
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
 ;; ------------------------------------------------------------------------
@@ -127,7 +127,7 @@
 (require 'setup-view-mode)
 ;; 多分anythingと競合してる
 
-
+(require 'setup-flycheck)
 ;; (require 'setup-ido-mode)
 (require 'setup-magit)
 (require 'setup-egg)
@@ -144,9 +144,7 @@
 (require 'setup-smartrep)
 (require 'setup-mc)                     ;multiple-cursors
 (require 'setup-helm)
-;; (require 'setup-flymake)
-(require 'setup-flycheck)
-;; (require 'setup-autocomplete)
+
 (require 'setup-company)
 (require 'setup-orgmode)
 (require 'setup-anzu)
@@ -379,6 +377,7 @@
 ;; 好きなところにカーソルを移動させる
 (require 'jaunte)
 (global-set-key (kbd "C-c j") 'jaunte)
+(global-set-key (kbd "C-;") 'jaunte)
 
 ;; historyf.el ------------------------------
 (require 'historyf)
