@@ -67,6 +67,21 @@
          ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
          ("\\paragraph{%s}" . "\\paragraph*{%s}")
          ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+        ("IEEElands"
+         "\\documentclass[11pt,draftcls,onecolumn,landscape]{IEEEtran}
+\\usepackage{newenum}
+\\usepackage{times,amsmath,amssymb}
+\\usepackage{amsthm}
+\\usepackage{cite,subfigure,bm}
+\\usepackage{multicol,multirow}
+\\usepackage{array}
+\\usepackage[dvipdfmx]{graphicx}
+\\usepackage[dvipdfmx]{color}"
+         ("\\section{%s}" . "\\section*{%s}")
+         ("\\subsection{%s}" . "\\subsection*{%s}")
+         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+         ("\\paragraph{%s}" . "\\paragraph*{%s}")
+         ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
         ("thesis"                       
          "\\documentclass{jsarticle}
 \\usepackage[dvipdfmx]{graphicx}
@@ -92,7 +107,7 @@
          ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
         ))
 
-;; (setq org-latex-default-class "IEEEdouble")
+(setq org-latex-default-class "IEEEsingle")
 
 ;;; LaTeX 形式のファイル PDF に変換するためのコマンド
 (setq org-latex-pdf-process

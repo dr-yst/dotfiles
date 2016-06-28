@@ -1,6 +1,5 @@
 ;; Last Updated: <2016/05/14 16:40:45 from SURFACE-3 by stick>
 
-
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
 ;; ------------------------------------------------------------------------
 
@@ -160,6 +159,7 @@
 (require 'setup-dash)
 
 (require 'setup-lilypond)
+(require 'setup-puml-mode)
 
 (require 'setup-google-translate)
 
@@ -526,10 +526,12 @@
  ;; If there is more than one, they won't work right.
  '(abbrev-mode t t)
  '(blink-cursor-mode nil)
+ '(company-idle-delay 0)
+ '(company-minimum-prefix-length 1)
+ '(company-selection-wrap-around t)
  '(display-time-mode t)
  '(helm-boring-file-regexp-list (quote ("~$" "\\.elc$")))
  '(helm-buffer-max-length 35)
- '(helm-command-prefix-key "C-;")
  '(helm-delete-minibuffer-contents-from-point t)
  '(helm-ff-skip-boring-files t)
  '(helm-ls-git-show-abs-or-relative (quote relative))

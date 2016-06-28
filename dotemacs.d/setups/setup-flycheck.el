@@ -30,6 +30,11 @@
 (define-key global-map (kbd "\C-cp") 'flycheck-previous-error)
 (define-key global-map (kbd "\C-cd") 'flycheck-list-errors)
 
+(setq flycheck-c/c++-clang-executable "/usr/bin/clang")
+(add-hook 'c++-mode-hook (lambda()
+                           (setq flycheck-gcc-language-standard "c++11")
+                           (setq flycheck-clang-language-standard "c++11")))
+
 (flycheck-define-checker c/c++11
   "A C/C++ checker using g++."
   :command ("g++" "-Wall" "-Wextra" "-std=c++11" source)
@@ -42,7 +47,12 @@
                     (warning line-start
                              (file-name) ":" line ":" column ":" " Warning: " (message)
                              line-end))
-  :modes (c-mode c++-mode))
+  :modes (c++-mode))
+
+;; (add-hook 'c++-mode-hook
+;;           '(lambda()
+;;              (flycheck-select-checker 'c/c++11)
+;;              ))
 
 (provide 'setup-flycheck)
 ;;; setup-flycheck.el ends here
