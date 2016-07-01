@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: enumm
+# key: enumm
+# --
+\begin{enumerate}
+  \setcounter{enumi}{${1:\value{enummemory}}}
+\item $0
+  \setcounter{enummemory}{\value{enumi}}
+\end{enumerate}

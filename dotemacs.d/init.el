@@ -1,4 +1,4 @@
-;; Last Updated: <2016/05/02 14:10:00 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/06/23 19:59:02 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -101,7 +101,7 @@
 (require 'setup-view-mode)
 ;; 多分anythingと競合してる
 
-
+(require 'setup-flycheck)
 ;; (require 'setup-ido-mode)
 (require 'setup-magit)
 (require 'setup-egg)
@@ -118,9 +118,7 @@
 (require 'setup-smartrep)
 (require 'setup-mc)                     ;multiple-cursors
 (require 'setup-helm)
-;; (require 'setup-flymake)
-(require 'setup-flycheck)
-;; (require 'setup-autocomplete)
+
 (require 'setup-company)
 (require 'setup-orgmode)
 (require 'setup-anzu)
@@ -133,7 +131,9 @@
 (require 'setup-dash)
 
 (require 'setup-lilypond)
+(require 'setup-puml-mode)
 
+(require 'setup-google-translate)
 
 ;; (require 'setup-anything)
 
@@ -357,6 +357,7 @@
 ;; 好きなところにカーソルを移動させる
 (require 'jaunte)
 (global-set-key (kbd "C-c j") 'jaunte)
+(global-set-key (kbd "C-;") 'jaunte)
 
 ;; historyf.el ------------------------------
 (require 'historyf)
@@ -511,14 +512,32 @@
  ;; If there is more than one, they won't work right.
  '(abbrev-mode t t)
  '(blink-cursor-mode nil)
+ '(company-idle-delay 0)
+ '(company-minimum-prefix-length 1)
+ '(company-selection-wrap-around t)
  '(display-time-mode t)
+ '(helm-boring-file-regexp-list (quote ("~$" "\\.elc$")))
+ '(helm-buffer-max-length 35)
+ '(helm-delete-minibuffer-contents-from-point t)
+ '(helm-ff-skip-boring-files t)
+ '(helm-ls-git-show-abs-or-relative (quote relative))
+ '(helm-mini-default-sources
+   (quote
+    (helm-source-buffers-list helm-source-ls-git helm-source-recentf helm-source-buffer-not-found)))
+ '(helm-truncate-lines t t)
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
- )
+ '(yas-prompt-functions (quote (my-yas-prompt))))
 ;; (custom-set-faces
 ;;   ;; custom-set-faces was added by Custom.
 ;;   ;; If you edit it by hand, you could mess it up, so be careful.
 ;;   ;; Your init file should contain only one such instance.
 ;;   ;; If there is more than one, they won't work right.
 ;;  '(default ((t (:stipple nil :background "AliceBlue" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :weight normal :height 120 :width normal :family "apple-monaco")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

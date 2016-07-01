@@ -236,10 +236,11 @@ alias remem='du -sx / &> /dev/null & sleep 25 && kill $!'
 alias title='~/.files/scripts/title.sh'
 alias platexpdf='~/.files/platexpdf/platexpdf'
 
-# alias g++='g++-mp-4.9'
-# alias gcc='gcc-mp-4.9'
-# alias gcc ='llvm-gcc-4.2'
-# alias g++ ='llvm-g++-4.2'
+if [ `which gcc-6` ]; then
+    alias gcc='gcc-6'
+    alias g++='g++-6'
+fi
+
 # alias clang++='clang++-mp-3.3 -std=c++11'
 
 alias matrix='LC_ALL=C tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;32" grep --color "[^ ]"'
@@ -435,8 +436,23 @@ function ccgsl(){
     eval $command
 }
 
+function ccitpp(){
+    arg=("$@")
+    command="g++ -O3 -g -Wall -Wextra -std=c++11 \`itpp-config --cflags\` -o ${arg[2]} ${arg[1]} -lmylib \`itpp-config --libs\`"
+
+    if [ $# -gt 2 ]; then
+        for i in `seq 3 $#`
+        do
+            command="${command} ${arg[$i]}"
+        done
+    fi
+    
+    echo $command
+    eval $command
+}
+
 # ffmpeg用のコンパイル
-function ffcc(){
+function ccffmpeg(){
     arg=("$@")
     command="g++ ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm \`sdl-config --cflags --libs\` -std=c++11 -g -Wall -Wextra"
 
@@ -451,9 +467,25 @@ function ffcc(){
     eval $command
 }
 
-function ffclang() {
+function ccfullopt() {
     arg=("$@")
-    command="clang++ ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm \`sdl-config --cflags --libs\` -std=c++11 -stdlib=libstdc++ -stdlib=libstdc++ -g -Wall -Wextra"
+    command="g++ \`itpp-config --cflags\` ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm \`sdl-config --cflags --libs\` \`itpp-config --libs\` \`pkg-config opencv3 --cflags --libs\` -lgsl -lgslcblas -std=c++11 -g -Wall -Wextra"
+    
+    if [ $# -gt 2 ]; then
+        for i in `seq 3 $#`
+        do
+            command="${command} ${arg[$i]}"
+        done
+    fi
+    
+    echo $command
+    eval $command
+}
+
+
+function clangffmpeg() {
+    arg=("$@")
+    command="clang++ ${arg[1]} -o ${arg[2]} -lavformat -lavcodec -lavutil -lswscale -lz -lm \`sdl-config --cflags --libs\` -std=c++11 -stdlib=libstdc++ -g -Wall -Wextra"
 
     if [ $# -gt 2 ]; then
         for i in `seq 3 $#`
@@ -465,6 +497,7 @@ function ffclang() {
     echo $command
     eval $command
 }
+
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 eval "$(rbenv init -)"

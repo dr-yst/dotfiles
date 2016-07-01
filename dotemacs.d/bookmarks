@@ -4,9 +4,9 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 ((".files"
  (filename . "~/.files/")
- (front-context-string . "  /Users/yoshito")
- (rear-context-string)
- (position . 1))
+ (front-context-string . "auto-fu.zsh\n  -r")
+ (rear-context-string . "04 Mar 27  2015 ")
+ (position . 604))
 ("00_WORKING_ON"
  (filename . "~/OneDrive/Documents/00presentation_papers/00_WORKING_ON/")
  (front-context-string . "padding_someIEEE")

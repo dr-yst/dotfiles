@@ -74,6 +74,36 @@
 (defvar ctl-q-map (make-keymap))
 (define-key global-map "\C-q" ctl-q-map) 
 
+;; M-q の逆
+(defun unfill-paragraph ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(defun unfill-region ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-region (region-beginning) (region-end) nil)))
+
+(defun unfill-paragraph-or-unfill-region ()
+  (interactive)
+  (if (or (not transient-mark-mode) (region-active-p))
+      (unfill-region)
+    (unfill-paragraph)))
+(global-set-key "\C-\M-q" 'unfill-paragraph-or-unfill-region)
+
+(defun prelude-copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (file-name-nondirectory
+                     (buffer-file-name)))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file name '%s' to the clipboard." filename))))
+(global-set-key "\C-qc" 'prelude-copy-file-name-to-clipboard)
+
 
 ;(global-set-key [C-backspace] 'backward-kill-word)
 (global-set-key [end] 'end-of-buffer)

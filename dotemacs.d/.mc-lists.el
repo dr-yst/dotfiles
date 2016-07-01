@@ -20,5 +20,6 @@
         c-toggle-auto-newline
         dired-previous-line
         e2wm:dp-two-right-history-back-command
+        helm-M-x
         helm-confirm-and-exit-minibuffer
         ))
