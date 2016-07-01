@@ -92,7 +92,7 @@
          ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
         ))
 
-;; (setq org-latex-default-class "IEEEdouble")
+(setq org-latex-default-class "IEEEsingle")
 
 ;;; LaTeX 形式のファイル PDF に変換するためのコマンド
 (setq org-latex-pdf-process
