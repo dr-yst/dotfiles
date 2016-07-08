@@ -34,7 +34,8 @@
           (lambda ()
             (when (eq tabbar-mode t)
               (switch-to-buffer (buffer-name))
-              (delete-this-frame))))
+              ;; (delete-this-frame)
+              )))
 
 
 (provide 'setup-looking)
