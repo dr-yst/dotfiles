@@ -33,7 +33,8 @@
 (setq flycheck-c/c++-clang-executable "/usr/bin/clang")
 (add-hook 'c++-mode-hook (lambda()
                            (setq flycheck-gcc-language-standard "c++11")
-                           (setq flycheck-clang-language-standard "c++11")))
+                           (setq flycheck-clang-language-standard "c++11")
+                           ))
 
 (flycheck-define-checker c/c++11
   "A C/C++ checker using g++."

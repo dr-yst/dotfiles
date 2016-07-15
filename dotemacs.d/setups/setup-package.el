@@ -72,6 +72,7 @@
     exec-path-from-shell
     f
     flycheck
+    flycheck-pkg-config
     free-keys
     fuzzy
     git-commit
