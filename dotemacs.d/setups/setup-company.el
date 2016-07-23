@@ -27,7 +27,7 @@
 ;; 自動補完を offにしたい場合は, company-idle-delayを nilに設定する
 ;; auto-completeでいうところの ac-auto-start にあたる.
 (custom-set-variables
- '(company-idle-delay 0)
+ '(company-idle-delay nil)
  '(company-minimum-prefix-length 1)
  '(company-selection-wrap-around t)
  )
@@ -87,7 +87,6 @@
              (add-to-list 'company-backends 'company-ac-php-backend )))
 
 (yas-global-mode)
-
 
 (provide 'setup-company)
 ;;; setup-company.el ends here

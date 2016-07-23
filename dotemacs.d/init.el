@@ -1,4 +1,4 @@
-;; Last Updated: <2016/06/23 19:59:02 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/07/23 12:16:02 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -322,6 +322,8 @@
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode))
 
+(global-set-key "\M-z" 'undo-tree-undo)
+(global-set-key "\M-Z" 'undo-tree-redo)
 (global-set-key "\C-\\" 'undo-tree-redo)
 (global-set-key "\C-Z" 'undo-tree-redo)
 

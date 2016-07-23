@@ -129,6 +129,7 @@
     seq
     smartrep
     sound-wav
+    sudo-edit
     summarye
     swift-mode
     tabbar
