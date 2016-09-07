@@ -69,6 +69,7 @@
     electric-spacing
     emms
     epl
+    esup
     exec-path-from-shell
     f
     flycheck
@@ -109,7 +110,6 @@
     org
     org-agenda-property
     org-wunderlist
-    origami
     outline-magic
     pangu-spacing
     parsebib

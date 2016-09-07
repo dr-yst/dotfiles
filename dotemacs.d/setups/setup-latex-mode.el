@@ -5,12 +5,6 @@
 ;; Author: 渡辺 良人 <yoshito@yoshitos-mac-mini.local>
 ;; Keywords: tex,
 
-;; Tex-------------------------------------
-;; \C-c\C-fでplatex
-;; (setq latex-run-command "platex")
-;; \C-c\C-vでxdvi
-;; (setq tex-dvi-view-command "xdvi")
-;; \C-c\C-iでbibtex
 
 (require 'tex-jp)
 ;; (setq TeX-default-mode 'japanese-latex-mode)

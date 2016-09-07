@@ -5,6 +5,8 @@
 ;; Author: 渡辺 良人 <yoshito@yoshitos-mac-mini.local>
 ;; Keywords:
 
+;;; Code:
+
 (require 'guide-key)
 (guide-key-mode 1)
 

@@ -1,4 +1,4 @@
-;; Last Updated: <2016/07/23 12:16:02 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/09/07 11:18:37 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -11,6 +11,10 @@
 ;; (load-file (expand-file-name "~/.emacs.d/shellenv.el"))
 ;; (dolist (path (reverse (split-string (getenv "PATH") ":")))
 ;;   (add-to-list 'exec-path path))
+
+;;; Code:
+
+(setq gc-cons-threshold (* 128 1024 1024))
 
 (setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
 

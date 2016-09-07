@@ -98,12 +98,6 @@
 (setq org-latex-pdf-process
       '("latexmk %f"))
 
-(require 'origami)
-(define-key origami-mode-map (kbd "<C-tab>") 'origami-toggle-node)
-(define-key origami-mode-map (kbd "C-u <C-tab>") 'origami-toggle-all-nodes)
-
-(add-hook 'c-mode-common-hook 'origami-mode)
-(add-hook 'lisp-mode-hook 'origami-mode)
 
 (require 'outline-magic)
 (add-hook 'LaTeX-mode-hook 'outline-minor-mode)
