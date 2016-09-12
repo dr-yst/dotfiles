@@ -237,10 +237,10 @@ alias remem='du -sx / &> /dev/null & sleep 25 && kill $!'
 alias title='~/.files/scripts/title.sh'
 alias platexpdf='~/.files/platexpdf/platexpdf'
 
-if [ `which gcc-6` ]; then
-    alias gcc='gcc-6'
-    alias g++='g++-6'
-fi
+# if [ `which gcc-6` ]; then
+#     alias gcc='gcc-6'
+#     alias g++='g++-6'
+# fi
 
 # alias clang++='clang++-mp-3.3 -std=c++11'
 
