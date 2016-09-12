@@ -223,7 +223,7 @@ alias la='\ls -aGv'
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-# alias emacs="open -a Emacs.app"
+alias emacs="/usr/bin/emacs"
 alias f='finder.sh'
 alias bon="open -a Xcode"
 
@@ -255,7 +255,7 @@ function face(){
          ruby -e 'C=`stty size`.scan(/\d+/)[1].to_i;S=[*0x1F600..0x1F640];a={};puts "\033[2J";loop{a[rand(C)]=0;a.each{|x,o|;a[x]+=1;print "\033[#{o};#{x}H \033[#{a[x]};#{x}H#{S.sample.chr("utf-8")} \033[0;0H"};$stdout.flush;sleep 0.2}'
 }
 
-export EDITOR=/usr/local/bin/emacs
+export EDITOR=/usr/bin/emacs
 
 alias trimiPhone4='ls *.png | while read line; do convert -crop 640x920+0+40 "$line" "crop-$line"; done'
 alias trimiPhone5='ls *.png | while read line; do convert -crop 640x1096+0+40 "$line" "crop-$line"; done'
