@@ -319,8 +319,9 @@ export BIBINPUTS=~/Dropbox/ochiailab/tex/:$BIBINPUTS
 
 export C_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$C_INCLUDE_PATH # /opt/local/include/:
 export CPLUS_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
-export LIBRARY_PATH=~/MyLib/:$LIBRARY_PATH
-export DYLD_LIBRARY_PATH=~/MyLib/:$DYLD_LIBRARY_PATH 
+export LIBRARY_PATH=/usr/local/lib/:~/MyLib/:$LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/lib/:~/MyLib/:$LD_LIBRARY_PATH 
+export DYLD_LIBRARY_PATH=/usr/local/lib/:~/MyLib/:$DYLD_LIBRARY_PATH 
 
 # export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/:$PYTHONPATH
 export PYTHONSTARTUP=~/.pythonstartup.py
