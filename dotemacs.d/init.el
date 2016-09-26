@@ -1,4 +1,4 @@
-;; Last Updated: <2016/09/07 11:18:37 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/09/19 13:16:44 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -14,7 +14,7 @@
 
 ;;; Code:
 
-(setq gc-cons-threshold (* 128 1024 1024))
+;; (setq gc-cons-threshold (* 128 1024 1024))
 
 (setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
 
