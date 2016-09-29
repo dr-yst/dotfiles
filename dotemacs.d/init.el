@@ -1,4 +1,4 @@
-;; Last Updated: <2016/09/19 13:16:44 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/09/29 15:28:27 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -501,9 +501,9 @@
 ;; 自作のhoge_compile.shする関数
 (defun hoge-compile ()
   (interactive)
-  (message "hoge compiling...")
-  (shell-command
-   (format "~/.emacs.d/hoge_compile.sh"))
+  ;; (message "hoge compiling...")
+  ;; (shell-command
+  ;;  (format "~/.emacs.d/hoge_compile.sh"))
   (message "making etags...")
   (shell-command
    (format "~/MyLib/maketags.sh"))
