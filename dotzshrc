@@ -322,6 +322,8 @@ export C_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$C_INCLUDE_PATH # /op
 export CPLUS_INCLUDE_PATH=/usr/local/include/:~/MyLib/include/:$CPLUS_INCLUDE_PATH # /opt/local/include/:
 export LIBRARY_PATH=/usr/local/lib/:~/MyLib/:$LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib/:~/MyLib/:$LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=~/MyLib/:$DYLD_LIBRARY_PATH 
+
 
 # export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/:$PYTHONPATH
 export PYTHONSTARTUP=~/.pythonstartup.py
@@ -410,18 +412,18 @@ bindkey '^X^S' zaw-ssh-hosts
 #     'do { print qq/(setenv "$_" "$ENV{$_}")/ if exists $ENV{$_} } for @ARGV' \
 #     PATH > ~/.emacs.d/shellenv.el
 
-ITPP_CFLAGS="\`itpp-config --cflags\`"
-ITPP_LIBS="\`itpp-config --libs\`"
-GSL_OPTS="\`gsl-config --cflags --libs\`"
+ITPP_CFLAGS="itpp-config --cflags"
+ITPP_LIBS="itpp-config --libs"
+GSL_CONFIG="gsl-config --cflags --libs"
 FFMPEG_OPTS="-lavformat -lavcodec -lavutil -lswscale -lz -lm"
-SDL_OPTS="\`sdl-config --cflags --libs\`"
+SDL_CONFIG="sdl-config --cflags --libs"
 GPP_OPTS="-g -Wall -Wextra -std=c++11"
 
 # g++のコマンド省略
 # 引数1個めと2個めは入力ファイル、出力ファイル
 function ccc(){
     arg=("$@")
-    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lmylib"
+    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]}"
 
     if [ $# -gt 2 ]; then
         for i in `seq 3 $#`
@@ -436,7 +438,7 @@ function ccc(){
 
 function ccgsl(){
     arg=("$@")
-    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lmylib -lgsl -lgslcblas"
+    command="g++ -O3 -g -Wall -Wextra -std=c++11 ${arg[1]} -o ${arg[2]} -lgsl -lgslcblas"
 
     if [ $# -gt 2 ]; then
         for i in `seq 3 $#`
@@ -451,7 +453,7 @@ function ccgsl(){
 
 function ccitpp(){
     arg=("$@")
-    command="g++ -O3 -g -Wall -Wextra -std=c++11 \`itpp-config --cflags\` -o ${arg[2]} ${arg[1]} -lmylib \`itpp-config --libs\`"
+    command="g++ -O3 -g -Wall -Wextra -std=c++11 \`itpp-config --cflags\` -o ${arg[2]} ${arg[1]} \`itpp-config --libs\`"
 
     if [ $# -gt 2 ]; then
         for i in `seq 3 $#`
