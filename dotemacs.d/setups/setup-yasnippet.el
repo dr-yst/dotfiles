@@ -46,6 +46,8 @@
 ;; snippet-mode for *.yasnippet files
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
 
+(add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+
 
 ;; yasnippet展開中はflymakeを無効にする
 (defvar flymake-is-active-flag nil)
