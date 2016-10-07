@@ -1,4 +1,4 @@
-;; Last Updated: <2016/09/07 11:18:37 from alcohorhythm.local by yoshito>
+;; Last Updated: <2016/09/29 15:28:27 from alcohorhythm.local by yoshito>
 
 
 ; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-
@@ -14,7 +14,7 @@
 
 ;;; Code:
 
-(setq gc-cons-threshold (* 128 1024 1024))
+;; (setq gc-cons-threshold (* 128 1024 1024))
 
 (setenv "MANPATH" (concat "/usr/local/man:/usr/share/man:/Developer/usr/share/man:/sw/share/man" (getenv "MANPATH")))
 
@@ -501,9 +501,9 @@
 ;; 自作のhoge_compile.shする関数
 (defun hoge-compile ()
   (interactive)
-  (message "hoge compiling...")
-  (shell-command
-   (format "~/.emacs.d/hoge_compile.sh"))
+  ;; (message "hoge compiling...")
+  ;; (shell-command
+  ;;  (format "~/.emacs.d/hoge_compile.sh"))
   (message "making etags...")
   (shell-command
    (format "~/MyLib/maketags.sh"))

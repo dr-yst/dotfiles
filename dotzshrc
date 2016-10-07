@@ -411,11 +411,11 @@ bindkey '^X^S' zaw-ssh-hosts
 #     'do { print qq/(setenv "$_" "$ENV{$_}")/ if exists $ENV{$_} } for @ARGV' \
 #     PATH > ~/.emacs.d/shellenv.el
 
-ITPP_CFLAGS="\`itpp-config --cflags\`"
-ITPP_LIBS="\`itpp-config --libs\`"
-GSL_OPTS="\`gsl-config --cflags --libs\`"
+ITPP_CFLAGS="itpp-config --cflags"
+ITPP_LIBS="itpp-config --libs"
+GSL_CONFIG="gsl-config --cflags --libs"
 FFMPEG_OPTS="-lavformat -lavcodec -lavutil -lswscale -lz -lm"
-SDL_OPTS="\`sdl-config --cflags --libs\`"
+SDL_CONFIG="sdl-config --cflags --libs"
 GPP_OPTS="-g -Wall -Wextra -std=c++11"
 
 # g++のコマンド省略
