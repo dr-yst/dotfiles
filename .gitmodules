@@ -19,12 +19,15 @@
 [submodule "vim-powerline"]
 	path = vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "zsh-completions"]
-	path = zsh-completions
-	url = git://github.com/zsh-users/zsh-completions.git
 [submodule "platexpdf"]
 	path = platexpdf
 	url = https://github.com/fjyuu/platexpdf.git
 [submodule "zaw"]
 	path = zaw
 	url = git://github.com/zsh-users/zaw.git
+[submodule "zsh-completions"]
+	path = zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "zsh-autosuggestions"]
+	path = zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git

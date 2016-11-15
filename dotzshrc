@@ -70,6 +70,10 @@ zle -N self-insert url-quote-magic
 # zsh-completion
 fpath=(~/.files/zsh-completions/src $fpath)
 
+# zsh-autosuggestions
+source ~/.files/zsh-autosuggestions/zsh-autosuggestions.zsh 
+
+
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
  
